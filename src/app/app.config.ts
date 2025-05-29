@@ -10,10 +10,22 @@ import {
   TranslateService
 } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { APP_INITIALIZER } from '@angular/core';
 
-// Factory do loader
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
+export function initTranslateFactory(translate: TranslateService) {
+  return () => {
+    const lang = navigator.language.toLowerCase();
+    const supported = ['pt', 'en', 'es'];
+    const fallback = 'pt';
+    const selected = supported.find(l => lang.includes(l)) || fallback;
+
+    translate.setDefaultLang(fallback);
+    return translate.use(selected).toPromise();
+  };
 }
 
 export const appConfig: ApplicationConfig = {
@@ -29,6 +41,12 @@ export const appConfig: ApplicationConfig = {
         },
         defaultLanguage: 'pt'
       })
-    )
+    ),
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initTranslateFactory,
+      deps: [TranslateService],
+      multi: true
+    }
   ]
 };
