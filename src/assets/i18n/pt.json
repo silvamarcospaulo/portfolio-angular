@@ -1,0 +1,12 @@
+{
+    "header": {
+        "logo": "Marcos Paulo Silva",
+        "navbar": {
+            "inicio": "Home",
+            "sobre": "Sobre",
+            "experiencias": "Experiências",
+            "projetos": "Projetos",
+            "contato": "Contato"
+        }
+    }
+}

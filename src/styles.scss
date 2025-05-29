@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+body.dark-mode {
+    --color-primary: #1E3340;
+    --color-secondary: #344859;
+    --color-accent: #657D8C;
+    --color-muted: #99B1BF;
+    --color-light: #DFEDF2;
+}
+
+body.light-mode {
+    --color-primary: #DFEDF2;
+    --color-secondary: #99B1BF;
+    --color-accent: #657D8C;
+    --color-muted: #344859;
+    --color-light: #1E3340;
+}
+
+
+body,
+header,
+footer,
+nav,
+#container-footer,
+#conteiner-controles,
+#container-configuracao-pagina,
+#dark-mode-switch,
+.slider,
+#moon,
+#sun {
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
