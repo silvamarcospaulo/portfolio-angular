@@ -8,5 +8,9 @@
             "projetos": "Projects",
             "contato": "Contact"
         }
+    },
+    "footer": {
+        "desenvolvido-por": "2025 © Developed by ",
+        "todos-os-direitos-reservados": ". All rights reserved."
     }
 }

@@ -38,6 +38,14 @@ footer {
   justify-content: center;
   place-content: center;
   place-items: center;
+
+  a {
+    color: var(--color-accent);
+
+    &:hover {
+      color: var(--color-muted);
+    }
+  }
 }
 
 #logo {
@@ -88,6 +96,7 @@ footer {
     a {
       font-size: 20px;
       text-decoration: none;
+      color: var(--color-light);
 
       &:hover {
         text-decoration: underline;
@@ -110,6 +119,7 @@ footer {
   i {
     font-size: 30px;
     text-decoration: none;
+    color: var(--color-light);
 
     &:hover {
       color: var(--color-accent);

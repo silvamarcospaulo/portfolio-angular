@@ -10,6 +10,15 @@ header {
   top: 0;
   left: 0;
   z-index: 10;
+  position: fixed;
+  transition: background-color 0.4s ease, backdrop-filter 0.4s ease;
+
+  &.translucido {
+    background-color: var(--color-primary-translucent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
 }
 
 #nav-bar {
@@ -33,9 +42,11 @@ header {
   width: 20%;
 
   a {
+    text-decoration: none;
+
     h3 {
       font-size: 30px;
-      text-decoration: none;
+      color: var(--color-light);
 
       &:hover {
         text-decoration: underline;
@@ -45,7 +56,7 @@ header {
   }
 }
 
-#conteiner-nav-list {
+#container-nav-list {
   width: 80%;
   height: 100%;
   display: flex;
@@ -67,6 +78,7 @@ header {
 
   a {
     text-decoration: none;
+    color: var(--color-light);
 
     &:hover {
       text-decoration: underline;
@@ -90,6 +102,13 @@ header {
 @media screen and (max-width: 768px) {
   header {
     position: fixed;
+
+    &.translucido {
+      background-color: var(--color-primary-translucent);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
   }
 
   #nav-bar {
@@ -109,6 +128,7 @@ header {
       h3 {
         font-size: 30px;
         text-decoration: none;
+        color: var(--color-light);
 
         &:hover {
           text-decoration: underline;
@@ -130,7 +150,7 @@ header {
     }
   }
 
-  #conteiner-nav-list {
+  #container-nav-list {
     position: absolute;
     top: 10vh;
     left: 0;
@@ -147,6 +167,13 @@ header {
     visibility: hidden;
     transform: translateY(-10px);
     transition: opacity 0.4s ease, transform 0.2s ease, visibility 0.4s;
+
+    &.translucido {
+      background-color: var(--color-primary-translucent);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
 
     &.aberto {
       display: flex;

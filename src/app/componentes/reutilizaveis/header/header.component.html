@@ -1,4 +1,4 @@
-<header>
+<header [class.translucido]="headerTranslucido">
   <nav id="nav-bar">
     <div id="logo">
       <a href="">
@@ -10,7 +10,7 @@
       <h3>&#9776;</h3>
     </div>
 
-    <div id="conteiner-nav-list" [class.aberto]="menuAberto">
+    <div id="container-nav-list" [class.aberto]="menuAberto" [class.translucido]="headerTranslucido">
       <ol id="nav-list">
         <li>
           <a href="#section-inicio" (click)="fecharMenu()">{{ 'header.navbar.inicio' | translate }}</a>
