@@ -17,7 +17,7 @@ header {
     background-color: var(--color-primary-translucent);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px var(--color-primary);
   }
 }
 
@@ -107,7 +107,7 @@ header {
       background-color: var(--color-primary-translucent);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 8px var(--color-primary-translucent);
     }
   }
 
@@ -172,7 +172,7 @@ header {
       background-color: var(--color-primary-translucent);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 8px var(--color-primary-translucent);
     }
 
     &.aberto {

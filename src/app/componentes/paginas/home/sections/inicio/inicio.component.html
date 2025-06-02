@@ -10,8 +10,8 @@
             <h2>&#123;<span>{{ 'inicio.subtitulo' | translate }}</span>&#125;</h2>
         </div>
     </div>
-    <div id="container-redes-sociais">
-        <div id="redes-sociais">
+    <div id="menu-redes-sociais">
+        <div id="redes-sociais" [class.menuRedesSociais]="deveRetrair">
             <a href="https://www.github.com/silvamarcospaulo" target="_blank">
                 <i class="bi bi-github"></i>
             </a>
@@ -24,6 +24,15 @@
             <a href="mailto:silvampsmarcospaulo@gmail.com?subject=Contato%20do%20Portfólio&body=Olá%20Marcos,"
                 target="_blank">
                 <i class="bi bi-envelope-fill"></i>
+            </a>
+        </div>
+        <div id="container-botoes-abrir-fechar-menu">
+            <a id="botao-abrir-redes-sociais" [class.oculto]="!deveRetrair" (click)="AoClicarAbrirMenuRedesSociais()">
+                <i class="bi bi-list"></i>
+            </a>
+
+            <a id="botao-fechar-redes-sociais" [class.oculto]="deveRetrair" (click)="AoClicarAbrirMenuRedesSociais()">
+                <i class="bi bi-x-circle-fill"></i>
             </a>
         </div>
     </div>
