@@ -1,12 +1,14 @@
 <div id="container-carrossel">
-    <!-- <div id="container-textos">
-        <h3>{{ imagemAtual.palavraChave || 'Titulo Projeto'}}</h3>
-        <h4>{{ imagemAtual.tipoDeProjeto || 'Tipo de Projeto' }}</h4>
-        <p>{{ imagemAtual.descricao || 'Descrição breve do projeto' }}</p>
-    </div> -->
-    <div id="container-macbook-e-botoes">
+    <div id="container-botoes-de-acao">
         <a class="nav-btn" (click)="anterior()">←</a>
-        <app-macbook [imagem]="imagemAtual" id="macbook"></app-macbook>
         <a class="nav-btn" (click)="proximo()">→</a>
+    </div>
+    <div id="container-textos">
+        <h3>{{ projetoAtual.palavraChave || 'Titulo Projeto'}}</h3>
+        <h4>{{ projetoAtual.tipoDeProjeto || 'Tipo de Projeto' }}</h4>
+        <p>{{ projetoAtual.descricao || 'Descrição breve do projeto' }}</p>
+    </div>
+    <div id="container-macbook">
+        <app-macbook [projeto]="projetoAtual" id="macbook"></app-macbook>
     </div>
 </div>

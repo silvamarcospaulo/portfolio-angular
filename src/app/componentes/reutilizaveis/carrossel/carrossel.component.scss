@@ -6,13 +6,34 @@
     width: 100%;
     height: 100%;
     color: var(--color-light);
-    background-color: red;
+}
+
+#container-botoes-de-acao {
+    position: absolute;
+    z-index: 3;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    place-content: center;
+    place-items: center;
+    justify-content: space-between;
 }
 
 #container-textos {
+    top: 4%;
+    position: absolute;
+    z-index: 2;
     text-align: center;
-    margin-bottom: 1rem;
     width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    place-content: start;
+    place-items: center;
 
     h3 {
         font-size: 1.8rem;
@@ -34,24 +55,12 @@
         margin-left: auto;
         margin-right: auto;
     }
-
-    button {
-        color: var(--color-muted);
-        border: none;
-        border-radius: 5px;
-        padding: 0.6rem 1.2rem;
-        cursor: pointer;
-        font-size: 1rem;
-        transition: background-color 0.3s ease;
-
-        &:hover {
-            color: var(--color-primary);
-        }
-    }
 }
 
-#container-macbook-e-botoes {
+#container-macbook {
     display: flex;
+    position: absolute;
+    z-index: 1;
     align-items: center;
     justify-content: center;
     width: 100%;
@@ -60,17 +69,31 @@
         flex-grow: 1;
         margin: 0 1rem;
     }
+}
 
-    .nav-btn {
-        cursor: pointer;
-        font-size: 2rem;
-        user-select: none;
-        color: var(--color-muted);
-        padding: 0 1rem;
-        transition: color 0.3s ease;
+.nav-btn {
+    background-color: var(--color-accent);
+    color: #1f2937;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 9999px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
 
-        &:hover {
-            color: var(--color-primary);
-        }
+    &:hover {
+        background-color: var(--color-muted);
+        transform: scale(1.05);
+    }
+
+    &:active {
+        transform: scale(0.97);
+    }
+}
+
+@media (max-width: 768px) {
+    #container-botoes-de-acao {
+        width: 95%;
     }
 }

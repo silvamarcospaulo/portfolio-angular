@@ -15,5 +15,11 @@
     },
     "inicio": {
         "subtitulo": "Software Developer"
+    },
+    "sobre": {
+        "descricao1": "Software Developer since 2024, working on web applications and cloud solutions. Experience with .NET (C#), Java Spring, and Angular, applying best practices in architecture, Git version control, and continuous integration.",
+        "descricao2": "Currently part of the cloud development team at Invent Software, contributing to the TaxPlus.NF-e application and leading the migration of the TaxPlus.GNRE system from desktop to a cloud-based architecture, focusing on scalability, performance, and maintainability.",
+        "descricao3": "I also share technical content and development experiences on Instagram ",
+        "descricao4": ", focused on community and knowledge exchange."
     }
 }

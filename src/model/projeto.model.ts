@@ -1,4 +1,4 @@
-export class Imagem {
+export class Projeto {
     constructor(
         public url: string,
         public caminhoImagem: string,

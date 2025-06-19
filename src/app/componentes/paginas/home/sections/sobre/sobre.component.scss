@@ -42,10 +42,13 @@
     flex-direction: column;
     height: 50%;
     width: 100%;
-    gap: 30px;
     color: var(--color-light);
 
-    a:hover {
+    a {
         color: var(--color-muted);
+    }
+
+    a:hover {
+        color: var(--color-accent);
     }
 }

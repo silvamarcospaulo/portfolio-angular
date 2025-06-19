@@ -3,7 +3,7 @@
         "logo": "Marcos Paulo Silva",
         "navbar": {
             "inicio": "Inicio",
-            "sobre": "Acerca de",
+            "sobre": "Sobre mí",
             "experiencias": "Experiencia",
             "projetos": "Proyectos",
             "contato": "Contacto"
@@ -15,5 +15,11 @@
     },
     "inicio": {
         "subtitulo": "Desarrollador de Software"
+    },
+    "sobre": {
+        "descricao1": "Desarrollador de Software desde 2024, con experiencia en aplicaciones web y soluciones en la nube. Experiencia con .NET (C#), Java Spring y Angular, aplicando buenas prácticas de arquitectura, control de versiones con Git e integración continua.",
+        "descricao2": "Actualmente formo parte del equipo de desarrollo en la nube de Invent Software, contribuyendo a la aplicación TaxPlus.NF-e y liderando la migración del sistema TaxPlus.GNRE de escritorio a una arquitectura en la nube, con enfoque en escalabilidad, rendimiento y mantenimiento.",
+        "descricao3": "También comparto contenido técnico y experiencias de desarrollo en Instagram ",
+        "descricao4": " con enfoque en comunidad e intercambio de conocimientos."
     }
 }

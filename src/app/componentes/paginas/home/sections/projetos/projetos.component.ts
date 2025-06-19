@@ -1,12 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
+import { CarrosselComponent } from "../../../../reutilizaveis/carrossel/carrossel.component";
+import { Projeto } from '../../../../../../model/projeto.model';
 
 @Component({
   selector: 'app-projetos',
   standalone: true,
-  imports: [],
+  imports: [TranslateModule, CarrosselComponent],
   templateUrl: './projetos.component.html',
-  styleUrl: './projetos.component.scss'
+  styleUrls: ['./projetos.component.scss']
 })
-export class ProjetosComponent {
 
+export class ProjetosComponent {
+  @Input() listaDeProjetos!: Projeto[];
 }

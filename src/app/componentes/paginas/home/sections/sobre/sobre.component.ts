@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-sobre',
   standalone: true,
-  imports: [],
+  imports: [TranslateModule],
   templateUrl: './sobre.component.html',
   styleUrl: './sobre.component.scss'
 })

@@ -1,6 +1,6 @@
 // macbook.component.ts
 import { Component, Input } from '@angular/core';
-import { Imagem } from '../../../../../model/imagem.model';
+import { Projeto } from '../../../../../model/projeto.model';
 
 @Component({
   selector: 'app-macbook',
@@ -11,5 +11,5 @@ import { Imagem } from '../../../../../model/imagem.model';
 })
 
 export class MacbookComponent {
-  @Input() imagem!: Imagem;
+  @Input() projeto!: Projeto;
 }

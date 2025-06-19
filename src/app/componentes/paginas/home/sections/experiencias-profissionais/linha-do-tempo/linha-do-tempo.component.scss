@@ -1,0 +1,42 @@
+#linha-do-tempo {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 40px 20px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        height: 4px;
+        width: 100%;
+        background-color: var(--color-muted);
+        transform: translateY(-50%);
+        z-index: 0;
+    }
+
+    .evento {
+        position: relative;
+        text-align: center;
+        z-index: 1;
+
+        .ponto {
+            width: 20px;
+            height: 20px;
+            background-color: var(--color-primary);
+            border: 3px solid var(--color-light);
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            box-shadow: 0 0 0 2px var(--color-primary);
+        }
+
+        p {
+            font-size: 0.85rem;
+            color: white;
+            margin-top: 5px;
+        }
+    }
+}

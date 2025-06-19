@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { MacbookComponent } from './macbook/macbook.component';
-import { Imagem } from '../../../../model/imagem.model';
+import { Projeto } from '../../../../model/projeto.model';
 
 @Component({
   selector: 'app-carrossel',
@@ -10,24 +10,24 @@ import { Imagem } from '../../../../model/imagem.model';
   styleUrls: ['./carrossel.component.scss']
 })
 export class CarrosselComponent {
-  @Input() listaDeImagens!: Imagem[];
+  @Input() listaDeProjetos!: Projeto[];
 
-  imagemAtualIndex = 0;
+  projetoAtualIndex = 0;
 
-  get imagemAtual(): Imagem {
-    return this.listaDeImagens[this.imagemAtualIndex]
+  get projetoAtual(): Projeto {
+    return this.listaDeProjetos[this.projetoAtualIndex]
   }
 
   proximo() {
-    if (this.listaDeImagens.length > 0) {
-      this.imagemAtualIndex = (this.imagemAtualIndex + 1) % this.listaDeImagens.length;
+    if (this.listaDeProjetos.length > 0) {
+      this.projetoAtualIndex = (this.projetoAtualIndex + 1) % this.listaDeProjetos.length;
     }
   }
 
   anterior() {
-    if (this.listaDeImagens.length > 0) {
-      this.imagemAtualIndex =
-        (this.imagemAtualIndex - 1 + this.listaDeImagens.length) % this.listaDeImagens.length;
+    if (this.listaDeProjetos.length > 0) {
+      this.projetoAtualIndex =
+        (this.projetoAtualIndex - 1 + this.listaDeProjetos.length) % this.listaDeProjetos.length;
     }
   }
 }

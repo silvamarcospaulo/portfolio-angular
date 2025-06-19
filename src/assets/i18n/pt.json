@@ -15,5 +15,11 @@
     },
     "inicio": {
         "subtitulo": "Desenvolvedor de Software"
+    },
+    "sobre": {
+        "descricao1": "Desenvolvedor de Software desde 2024, com atuação em aplicações web e soluções cloud. Experiência com .NET (C#), Java Spring e Angular, aplicando boas práticas de arquitetura, versionamento com Git e integração contínua.",
+        "descricao2": "Atualmente integro o time de desenvolvimento cloud da Invent Software, contribuindo para a aplicação TaxPlus.NF-e e conduzindo a migração do sistema TaxPlus.GNRE de desktop para arquitetura em nuvem, com foco em escalabilidade, desempenho e manutenção.",
+        "descricao3": "Também compartilho conteúdo técnico e experiências de desenvolvimento no Instagram ",
+        "descricao4": ", com foco em comunidade e troca de conhecimento."
     }
 }
