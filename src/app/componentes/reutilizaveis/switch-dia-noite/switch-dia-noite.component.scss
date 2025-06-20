@@ -9,7 +9,7 @@
         display: none;
 
         &:checked+.slider {
-            background-color: var(--color-accent);
+            background-color: var(--color-muted);
 
             &::before {
                 transform: translateX(22px);
@@ -50,7 +50,7 @@
     #moon,
     #sun {
         font-size: 1.2rem;
-        color: var(--color-accent);
+        color: var(--color-muted);
     }
 
     #moon {

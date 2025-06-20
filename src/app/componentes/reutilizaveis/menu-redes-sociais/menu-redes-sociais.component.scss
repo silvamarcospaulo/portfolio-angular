@@ -23,9 +23,8 @@
         text-decoration: none;
 
         &:hover {
-            background-color: var(--color-primary);
-            color: var(--color-muted);
-            border: 3px solid var(--color-muted);
+            background-color: var(--color-muted);
+            color: var(--color-primary);
         }
 
         i {

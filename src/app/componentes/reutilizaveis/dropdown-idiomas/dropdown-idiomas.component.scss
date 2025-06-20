@@ -24,7 +24,7 @@
 
 #nav-link:hover {
     background-color: var(--color-secondary);
-    color: var(--color-accent);
+    color: var(--color-muted);
 }
 
 #dropdown-menu {
@@ -63,6 +63,6 @@
 }
 
 #dropdown-menu input[type="radio"] {
-    accent-color: var(--color-accent);
+    accent-color: var(--color-muted);
     cursor: pointer;
 }

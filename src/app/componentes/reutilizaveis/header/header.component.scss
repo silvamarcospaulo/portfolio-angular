@@ -50,7 +50,7 @@ header {
 
       &:hover {
         text-decoration: underline;
-        color: var(--color-accent);
+        color: var(--color-muted);
       }
     }
   }
@@ -82,7 +82,7 @@ header {
 
     &:hover {
       text-decoration: underline;
-      color: var(--color-accent);
+      color: var(--color-muted);
     }
   }
 }
@@ -132,7 +132,7 @@ header {
 
         &:hover {
           text-decoration: underline;
-          color: var(--color-accent);
+          color: var(--color-muted);
         }
       }
     }

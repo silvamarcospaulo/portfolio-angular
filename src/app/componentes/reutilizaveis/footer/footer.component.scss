@@ -40,7 +40,7 @@ footer {
   place-items: center;
 
   a {
-    color: var(--color-accent);
+    color: var(--color-muted);
 
     &:hover {
       color: var(--color-muted);
@@ -100,7 +100,7 @@ footer {
 
       &:hover {
         text-decoration: underline;
-        color: var(--color-accent);
+        color: var(--color-muted);
       }
     }
   }
@@ -122,7 +122,7 @@ footer {
     color: var(--color-light);
 
     &:hover {
-      color: var(--color-accent);
+      color: var(--color-muted);
     }
   }
 }
