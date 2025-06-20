@@ -1,8 +1,9 @@
 export class ExperienciaProfissional {
     constructor(
-        public descricao: string,
         public cargo: string,
         public empresa: string,
-        public periodo: string
+        public inicio: string,
+        public fim: string,
+        public descricao: string
     ) { }
 }

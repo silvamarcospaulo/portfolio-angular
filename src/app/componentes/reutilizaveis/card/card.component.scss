@@ -1,4 +1,4 @@
-#card-conteiner {
+#card-container {
     display: flex;
     flex-direction: column;
     background-color: #ffffff;
@@ -85,7 +85,7 @@
 
 /* Responsividade opcional (cards lado a lado em telas maiores) */
 @media (min-width: 768px) {
-    #card-conteiner {
+    #card-container {
         max-width: 400px;
     }
 }

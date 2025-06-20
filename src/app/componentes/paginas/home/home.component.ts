@@ -7,6 +7,7 @@ import { ContatoComponent } from "./sections/contato/contato.component";
 import { SobreComponent } from "./sections/sobre/sobre.component";
 import { ExperienciasProfissionaisComponent } from "./sections/experiencias-profissionais/experiencias-profissionais.component";
 import { Projeto } from '../../../../model/projeto.model';
+import { ExperienciaProfissional } from '../../../../model/experienciaProfissional.model';
 
 @Component({
   selector: 'app-home',
@@ -18,6 +19,7 @@ import { Projeto } from '../../../../model/projeto.model';
 })
 export class HomeComponent implements OnInit {
   listaDeProjetos: Projeto[] = [];
+  listaDeExperienciasProfissionais: ExperienciaProfissional[] = [];
 
   ngOnInit(): void {
     this.listaDeProjetos = [
@@ -52,6 +54,30 @@ export class HomeComponent implements OnInit {
         'RJA Freios',
         'Landing Page',
         'Landing page para oficina automotiva.'
+      )
+    ];
+
+    this.listaDeExperienciasProfissionais = [
+      new ExperienciaProfissional(
+        'Designer Gráfico',
+        'Conexão Digital',
+        '01/2021',
+        '05/2023',
+        'Criação de artes para material gráfico e digitais utilizando Photoshop, Illustrator e Corel Draw'
+      ),
+      new ExperienciaProfissional(
+        'Estágio em Desenvolvimento de Software',
+        'Invent Software',
+        '05/2024',
+        '10/2024',
+        'Desenvolvimento de aplicações em C# (.NET), SAPUI 5, Windows Forms.'
+      ),
+      new ExperienciaProfissional(
+        'Auxiliar de Desenvolvimento de Software',
+        'Invent Software',
+        '11/2024',
+        'Atualmente',
+        'Desenvolvimento fullstack de aplicações em C# (.NET), SAPUI 5'
       )
     ];
   }
