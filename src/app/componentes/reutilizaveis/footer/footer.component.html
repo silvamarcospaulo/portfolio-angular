@@ -6,9 +6,9 @@
             </div>
             <div id="menu-list">
                 <div id="list">
-                    <a href="#section-sobre">{{ 'header.navbar.sobre' | translate }}</a>
-                    <a href="#section-experiencias-profissionais">{{ 'header.navbar.experiencias' | translate }}</a>
-                    <a href="#section-projetos">{{ 'header.navbar.projetos' | translate }}</a>
+                    @for (link of links; track link) {
+                    <a [href]="link.url">{{ link.nome | translate }}</a>
+                    }
                     <!-- <a href="#section-contatos">{{ 'header.navbar.contato' | translate }}</a> -->
                 </div>
             </div>

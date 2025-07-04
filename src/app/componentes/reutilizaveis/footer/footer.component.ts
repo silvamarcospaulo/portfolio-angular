@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SwitchDiaNoiteComponent } from "../switch-dia-noite/switch-dia-noite.component";
 import { DropdownIdiomasComponent } from "../dropdown-idiomas/dropdown-idiomas.component";
 import { TranslateModule } from '@ngx-translate/core';
+import { Link } from '../../../../model/link.model';
 
 @Component({
   selector: 'app-footer',
@@ -12,5 +13,6 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 
 export class FooterComponent {
+  @Input() links: Link[] = [];
   menuAberto = false;
 }

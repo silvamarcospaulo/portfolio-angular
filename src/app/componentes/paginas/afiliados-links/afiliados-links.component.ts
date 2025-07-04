@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { HeaderComponent } from "../../reutilizaveis/header/header.component";
+import { FooterComponent } from "../../reutilizaveis/footer/footer.component";
 
 @Component({
   selector: 'app-afiliados-links',
   standalone: true,
-  imports: [],
+  imports: [HeaderComponent, FooterComponent],
   templateUrl: './afiliados-links.component.html',
   styleUrl: './afiliados-links.component.scss'
 })

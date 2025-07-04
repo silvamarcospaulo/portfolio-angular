@@ -111,9 +111,9 @@ export class HomeComponent implements OnInit {
     ];
 
     this.links = [
-      new Link('header.navbar.experiencia', '#section-experiencia'),
-      new Link('header.navbar.habilidades', '#section-habilidades'),
-      new Link('header.navbar.contato', '#section-contato')
+      new Link('header.navbar.inicio', '#section-inicio'),
+      new Link('header.navbar.sobre', '#section-sobre'),
+      new Link('header.navbar.projetos', '#section-projetos')
     ];
   }
 }
