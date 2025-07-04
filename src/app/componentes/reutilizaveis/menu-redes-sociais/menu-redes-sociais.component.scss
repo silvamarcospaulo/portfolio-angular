@@ -57,6 +57,12 @@
     height: 45px;
 }
 
+#botao-voltar-para-cima.oculto {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.95);
+}
+
 #botao-abrir-redes-sociais,
 #botao-fechar-redes-sociais {
     position: absolute;

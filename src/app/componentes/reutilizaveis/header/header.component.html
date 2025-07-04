@@ -19,19 +19,13 @@
           <a href="#section-sobre" (click)="fecharMenu()">{{ 'header.navbar.sobre' | translate }}</a>
         </li>
         <li>
-          <a href="#section-experiencias-profissionais" (click)="fecharMenu()">{{ 'header.navbar.experiencias' |
-            translate }}</a>
-        </li>
-        <li>
           <a href="#section-projetos" (click)="fecharMenu()">{{ 'header.navbar.projetos' | translate }}</a>
         </li>
-        <li>
-          <a href="#section-contatos" (click)="fecharMenu()">{{ 'header.navbar.contato' | translate }}</a>
-        </li>
+        <!-- <li> <a href="#section-contatos" (click)="fecharMenu()">{{ 'header.navbar.contato' | translate }}</a> </li> -->
       </ol>
       <div id="container-configuracao-pagina">
-        <app-switch-dia-noite></app-switch-dia-noite>
-        <app-dropdown-idiomas></app-dropdown-idiomas>
+        <app-dropdown-idiomas />
+        <app-switch-dia-noite />
       </div>
     </div>
   </nav>

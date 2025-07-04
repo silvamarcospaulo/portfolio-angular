@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { CarrosselComponent } from "../../../../reutilizaveis/carrossel/carrossel.component";
 import { Projeto } from '../../../../../../model/projeto.model';
+import { CarrosselComponent } from './carrossel/carrossel.component';
 
 @Component({
   selector: 'app-projetos',

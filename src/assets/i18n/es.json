@@ -21,5 +21,41 @@
         "descricao2": "Actualmente formo parte del equipo de desarrollo en la nube de Invent Software, contribuyendo a la aplicación TaxPlus.NF-e y liderando la migración del sistema TaxPlus.GNRE de escritorio a una arquitectura en la nube, con enfoque en escalabilidad, rendimiento y mantenimiento.",
         "descricao3": "También comparto contenido técnico y experiencias de desarrollo en Instagram ",
         "descricao4": " con enfoque en comunidad e intercambio de conocimientos."
+    },
+    "projetos": {
+        "lsgassessoriadigital": {
+            "titulo": "lsgassessoriadigital",
+            "tipo": "Embudo de Ventas",
+            "descricao": "Embudo de ventas para servicios digitales."
+        },
+        "062uniformes": {
+            "titulo": "062uniformes",
+            "tipo": "Comercio electrónico",
+            "descricao": "Tienda virtual de uniformes personalizados."
+        },
+        "jbrsuitehotel": {
+            "titulo": "jbrsuitehotel",
+            "tipo": "Página de aterrizaje",
+            "descricao": "Sitio web para reservas de hotel."
+        },
+        "rjafreios": {
+            "titulo": "rjafreios",
+            "tipo": "Página de aterrizaje",
+            "descricao": "Página de aterrizaje para taller automotriz."
+        }
+    },
+    "experiencias-profissionais": {
+        "conexaodigital": {
+            "cargo": "Diseñador Gráfico",
+            "descricao": "Creación de artes para materiales gráficos y digitales utilizando Photoshop, Illustrator y Corel Draw."
+        },
+        "inventsoftware-estagio": {
+            "cargo": "Practicante de Desarrollo de Software",
+            "descricao": "Desarrollo de aplicaciones web y de escritorio utilizando C# (.NET), SAPUI 5 y Windows Forms."
+        },
+        "inventsoftware-auxiliar": {
+            "cargo": "Asistente de Desarrollo de Software",
+            "descricao": "Desarrollo fullstack de aplicaciones utilizando C# (.NET), SAPUI 5."
+        }
     }
 }

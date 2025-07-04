@@ -9,7 +9,7 @@
                     <a href="#section-sobre">{{ 'header.navbar.sobre' | translate }}</a>
                     <a href="#section-experiencias-profissionais">{{ 'header.navbar.experiencias' | translate }}</a>
                     <a href="#section-projetos">{{ 'header.navbar.projetos' | translate }}</a>
-                    <a href="#section-contatos">{{ 'header.navbar.contato' | translate }}</a>
+                    <!-- <a href="#section-contatos">{{ 'header.navbar.contato' | translate }}</a> -->
                 </div>
             </div>
             <div id="redes-sociais">
@@ -28,13 +28,14 @@
                 </a>
             </div>
             <div id="container-configuracao-pagina">
-                <app-switch-dia-noite />
                 <app-dropdown-idiomas />
+                <app-switch-dia-noite />
             </div>
         </div>
         <div class="linha-horizontal"></div>
         <div id="creditos">
-            <p>{{ 'footer.desenvolvido-por' | translate }}<a href="#home">Marcos Paulo Silva</a>{{ 'footer.todos-os-direitos-reservados' | translate }}</p>
+            <p>{{ 'footer.desenvolvido-por' | translate }}<a href="">Marcos Paulo Silva</a>{{
+                'footer.todos-os-direitos-reservados' | translate }}</p>
         </div>
     </nav>
 </footer>

@@ -3,7 +3,6 @@ import { HeaderComponent } from '../../reutilizaveis/header/header.component';
 import { FooterComponent } from "../../reutilizaveis/footer/footer.component";
 import { InicioComponent } from "./sections/inicio/inicio.component";
 import { ProjetosComponent } from "./sections/projetos/projetos.component";
-import { ContatoComponent } from "./sections/contato/contato.component";
 import { SobreComponent } from "./sections/sobre/sobre.component";
 import { Projeto } from '../../../../model/projeto.model';
 import { ExperienciaProfissional } from '../../../../model/experienciaProfissional.model';
@@ -12,7 +11,7 @@ import { Habilidade } from '../../../../model/habilidade.model';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeaderComponent, InicioComponent, ProjetosComponent, ContatoComponent, FooterComponent, SobreComponent],
+  imports: [HeaderComponent, InicioComponent, ProjetosComponent, FooterComponent, SobreComponent],
   providers: [],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
@@ -28,42 +27,42 @@ export class HomeComponent implements OnInit {
         '../../../../assets/images/print-projetos/062uniformes.png',
         'E-commerce 062 Uniformes',
         '062 Uniformes',
-        'E-commerce',
-        'Loja virtual de uniformes personalizados.'
+        'projetos.062uniformes.tipo',
+        'projetos.062uniformes.descricao'
       ),
       new Projeto(
         'https://lsgassessoriadigital.com/',
         '../../../../assets/images/print-projetos/lsgblackfriday.png',
         'Funil de Vendas LSG Digital',
         'LSG Digital',
-        'Funil de Vendas',
-        'Funil de vendas para serviços digitais.'
-      ),
-      new Projeto(
-        'https://jbrsuitehotel.com.br/',
-        '../../../../assets/images/print-projetos/rjafreios.png',
-        'Landing Page JBR Suite Hotel',
-        'JBR Suite Hotel',
-        'Landing Page',
-        'Site para reservas de hospedaria.'
+        'projetos.lsgassessoriadigital.tipo',
+        'projetos.lsgassessoriadigital.descricao'
       ),
       new Projeto(
         'https://rjafreios.com.br/',
+        '../../../../assets/images/print-projetos/rjafreios.png',
+        'Landing Page JBR Suite Hotel',
+        'JBR Suite Hotel',
+        'projetos.jbrsuitehotel.tipo',
+        'projetos.jbrsuitehotel.descricao'
+      ),
+      new Projeto(
+        'https://jbrsuitehotel.com.br/',
         '../../../../assets/images/print-projetos/jbrsuitehotel.png',
         'Landing Page RJA Freios',
         'RJA Freios',
-        'Landing Page',
-        'Landing page para oficina automotiva.'
+        'projetos.rjafreios.tipo',
+        'projetos.rjafreios.descricao'
       )
     ];
 
     this.listaDeExperienciasProfissionais = [
       new ExperienciaProfissional(
-        'Designer Gráfico',
+        'experiencias-profissionais.conexaodigital.cargo',
         'Conexão Digital',
         '01/2021',
         '05/2023',
-        'Criação de artes para material gráfico e digitais utilizando Photoshop, Illustrator e Corel Draw.',
+        'experiencias-profissionais.conexaodigital.descricao',
         [
           new Habilidade("Corel Draw"),
           new Habilidade("PhotoShop"),
@@ -71,11 +70,11 @@ export class HomeComponent implements OnInit {
         ]
       ),
       new ExperienciaProfissional(
-        'Estágio em Desenvolvimento de Software',
+        'experiencias-profissionais.inventsoftware-estagio.cargo',
         'Invent Software',
         '05/2024',
         '10/2024',
-        'Desenvolvimento de aplicações web e desktop utilizando C# (.NET), SAPUI 5, Windows Forms.',
+        'experiencias-profissionais.inventsoftware-estagio.descricao',
         [
           new Habilidade("C#"),
           new Habilidade("SAPUI 5"),
@@ -84,11 +83,11 @@ export class HomeComponent implements OnInit {
         ]
       ),
       new ExperienciaProfissional(
-        'Auxiliar de Desenvolvimento de Software',
+        'experiencias-profissionais.inventsoftware-auxiliar.cargo',
         'Invent Software',
         '11/2024',
         'Atualmente',
-        'Desenvolvimento fullstack de aplicações em C# (.NET), SAPUI 5.',
+        'experiencias-profissionais.inventsoftware-auxiliar.descricao',
         [
           new Habilidade("C#"),
           new Habilidade("SAPUI 5"),

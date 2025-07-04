@@ -3,12 +3,13 @@ import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-menu-redes-sociais',
-  imports: [],
   templateUrl: './menu-redes-sociais.component.html',
-  styleUrl: './menu-redes-sociais.component.scss'
+  styleUrl: './menu-redes-sociais.component.scss',
+  standalone: true
 })
 export class MenuRedesSociaisComponent {
   deveRetrair = true;
+  mostrarBotaoVoltar = false;
   isBrowser: boolean;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
@@ -29,9 +30,14 @@ export class MenuRedesSociaisComponent {
 
   handleScroll = (): void => {
     this.deveRetrair = window.scrollY > 100;
+    this.mostrarBotaoVoltar = window.scrollY > 100;
   };
 
-  AoClicarAbrirMenuRedesSociais() {
+  AoClicarAbrirMenuRedesSociais(): void {
     this.deveRetrair = !this.deveRetrair;
+  }
+
+  scrollParaTopo(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

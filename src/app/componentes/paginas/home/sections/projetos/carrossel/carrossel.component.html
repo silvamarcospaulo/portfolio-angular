@@ -1,0 +1,18 @@
+<div id="container-carrossel">
+    <div id="container-textos">
+        <h3>{{projetoAtual.palavraChave}}</h3>
+        <h4>{{ projetoAtual.tipoDeProjeto | translate }}</h4>
+        <p>{{ projetoAtual.descricao | translate }}</p>
+    </div>
+    <div id="carrossel">
+        <div class="container-botoes-de-acao">
+            <a class="nav-btn" (click)="anterior()">←</a>
+        </div>
+        <div id="container-macbook">
+            <app-macbook [projeto]="projetoAtual" id="macbook"></app-macbook>
+        </div>
+        <div class="container-botoes-de-acao">
+            <a class="nav-btn" (click)="proximo()">→</a>
+        </div>
+    </div>
+</div>

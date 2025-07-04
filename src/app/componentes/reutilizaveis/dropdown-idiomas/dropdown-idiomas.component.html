@@ -2,16 +2,17 @@
     <div id="nav-item">
         <a id="nav-link" (click)="aoClicarEmIdiomas()" role="button" tabindex="0" aria-haspopup="true"
             [attr.aria-expanded]="isOpen">
-            <span> {{ linguagemSelecionada().icone }}</span>
+            <span [innerHTML]="linguagemSelecionada().icone"></span>
         </a>
 
         <ul id="dropdown-menu" [hidden]="!isOpen">
             @for (lang of linguagens; track lang.id) {
-            <label>
-                <li><a (click)="selecionarLinguagem(lang)">
-                        {{ lang.icone }} {{ lang.nome_linguagem }}
-                    </a></li>
-            </label>
+            <li>
+                <a (click)="selecionarLinguagem(lang)">
+                    <span [innerHTML]="lang.icone"></span>
+                    {{ lang.nome_linguagem }}
+                </a>
+            </li>
             }
         </ul>
     </div>

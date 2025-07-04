@@ -21,5 +21,41 @@
         "descricao2": "Currently part of the cloud development team at Invent Software, contributing to the TaxPlus.NF-e application and leading the migration of the TaxPlus.GNRE system from desktop to a cloud-based architecture, focusing on scalability, performance, and maintainability.",
         "descricao3": "I also share technical content and development experiences on Instagram ",
         "descricao4": ", focused on community and knowledge exchange."
+    },
+    "projetos": {
+        "lsgassessoriadigital": {
+            "titulo": "lsgassessoriadigital",
+            "tipo": "Sales Funnel",
+            "descricao": "Sales funnel for digital services."
+        },
+        "062uniformes": {
+            "titulo": "062uniformes",
+            "tipo": "E-commerce",
+            "descricao": "Online store for custom uniforms."
+        },
+        "jbrsuitehotel": {
+            "titulo": "jbrsuitehotel",
+            "tipo": "Landing Page",
+            "descricao": "Website for hotel bookings."
+        },
+        "rjafreios": {
+            "titulo": "rjafreios",
+            "tipo": "Landing Page",
+            "descricao": "Landing page for an automotive repair shop."
+        }
+    },
+    "experiencias-profissionais": {
+        "conexaodigital": {
+            "cargo": "Graphic Designer",
+            "descricao": "Design of artwork for print and digital materials using Photoshop, Illustrator, and Corel Draw."
+        },
+        "inventsoftware-estagio": {
+            "cargo": "Software Development Intern",
+            "descricao": "Development of web and desktop applications using C# (.NET), SAPUI 5, and Windows Forms."
+        },
+        "inventsoftware-auxiliar": {
+            "cargo": "Software Development Assistant",
+            "descricao": "Fullstack development of applications using C# (.NET), SAPUI 5."
+        }
     }
 }

@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { MacbookComponent } from './macbook/macbook.component';
-import { Projeto } from '../../../../model/projeto.model';
+import { Projeto } from '../../../../../../../model/projeto.model';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-carrossel',
   standalone: true,
-  imports: [MacbookComponent],
+  imports: [TranslateModule, MacbookComponent],
   templateUrl: './carrossel.component.html',
   styleUrls: ['./carrossel.component.scss']
 })

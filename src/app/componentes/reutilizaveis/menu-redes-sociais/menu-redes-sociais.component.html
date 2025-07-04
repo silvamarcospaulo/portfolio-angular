@@ -1,5 +1,8 @@
 <div id="menu-redes-sociais">
     <div id="redes-sociais" [class.menuRedesSociais]="deveRetrair">
+        <a id="botao-voltar-para-cima" href="#" [class.oculto]="!mostrarBotaoVoltar" (click)="scrollParaTopo()">
+            <i class="bi bi-arrow-up-short"></i>
+        </a>
         <a href="https://www.github.com/silvamarcospaulo" target="_blank">
             <i class="bi bi-github"></i>
         </a>
@@ -14,11 +17,11 @@
             <i class="bi bi-envelope-fill"></i>
         </a>
     </div>
+
     <div id="container-botoes-abrir-fechar-menu">
         <a id="botao-abrir-redes-sociais" [class.oculto]="!deveRetrair" (click)="AoClicarAbrirMenuRedesSociais()">
             <i class="bi bi-list"></i>
         </a>
-
         <a id="botao-fechar-redes-sociais" [class.oculto]="deveRetrair" (click)="AoClicarAbrirMenuRedesSociais()">
             <i class="bi bi-x-circle-fill"></i>
         </a>
