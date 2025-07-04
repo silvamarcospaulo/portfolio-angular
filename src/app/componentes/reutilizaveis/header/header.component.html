@@ -12,16 +12,11 @@
 
     <div id="container-nav-list" [class.aberto]="menuAberto" [class.translucido]="headerTranslucido">
       <ol id="nav-list">
+        @for (link of links; track link) {
         <li>
-          <a href="#section-inicio" (click)="fecharMenu()">{{ 'header.navbar.inicio' | translate }}</a>
+          <a [href]="link.url" (click)="fecharMenu()">{{ link.nome | translate }}</a>
         </li>
-        <li>
-          <a href="#section-sobre" (click)="fecharMenu()">{{ 'header.navbar.sobre' | translate }}</a>
-        </li>
-        <li>
-          <a href="#section-projetos" (click)="fecharMenu()">{{ 'header.navbar.projetos' | translate }}</a>
-        </li>
-        <!-- <li> <a href="#section-contatos" (click)="fecharMenu()">{{ 'header.navbar.contato' | translate }}</a> </li> -->
+        }
       </ol>
       <div id="container-configuracao-pagina">
         <app-dropdown-idiomas />

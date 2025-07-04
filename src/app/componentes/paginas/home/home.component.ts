@@ -7,6 +7,8 @@ import { SobreComponent } from "./sections/sobre/sobre.component";
 import { Projeto } from '../../../../model/projeto.model';
 import { ExperienciaProfissional } from '../../../../model/experienciaProfissional.model';
 import { Habilidade } from '../../../../model/habilidade.model';
+import { SeoService } from '../../../.././services/seo/seo.service';
+import { Link } from '../../../../model/link.model';
 
 @Component({
   selector: 'app-home',
@@ -19,8 +21,18 @@ import { Habilidade } from '../../../../model/habilidade.model';
 export class HomeComponent implements OnInit {
   listaDeProjetos: Projeto[] = [];
   listaDeExperienciasProfissionais: ExperienciaProfissional[] = [];
+  links: Link[] = [];
+
+  constructor(private seoService: SeoService) { }
 
   ngOnInit(): void {
+    this.seoService.atualizarMetadados({
+      title: 'Portfólio - Marcos Paulo Silva',
+      description: 'Marcos Paulo Silva - Desenvolvedor de Software',
+      image: 'https://www.marcospaulosilva.com.br/assets/images/logo.png',
+      url: "https://www.marcospaulosilva.com.br"
+    });
+
     this.listaDeProjetos = [
       new Projeto(
         'https://062uniformes.com/torcida-jovem-unificada',
@@ -96,6 +108,12 @@ export class HomeComponent implements OnInit {
           new Habilidade("CI/CD")
         ]
       )
+    ];
+
+    this.links = [
+      new Link('header.navbar.experiencia', '#section-experiencia'),
+      new Link('header.navbar.habilidades', '#section-habilidades'),
+      new Link('header.navbar.contato', '#section-contato')
     ];
   }
 }

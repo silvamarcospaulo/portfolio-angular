@@ -1,18 +1,21 @@
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, Input, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 import { SwitchDiaNoiteComponent } from "../switch-dia-noite/switch-dia-noite.component";
 import { DropdownIdiomasComponent } from "../dropdown-idiomas/dropdown-idiomas.component";
-import { TranslateModule } from '@ngx-translate/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Link } from '../../../../model/link.model';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [SwitchDiaNoiteComponent, DropdownIdiomasComponent, TranslateModule],
+  imports: [TranslateModule, SwitchDiaNoiteComponent, DropdownIdiomasComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 
 export class HeaderComponent {
+  @Input() links: Link[] = [];
+
   menuAberto = false;
 
   fecharMenu() {
