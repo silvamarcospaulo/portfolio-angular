@@ -2,21 +2,21 @@
 @import 'bootstrap-icons/font/bootstrap-icons';
 
 body.dark-mode {
-    --color-primary: #0d1117;
-    --color-primary-translucent: rgba(13, 17, 23, 0.85);
-    --color-secondary: #161b22;
-    --color-accent: #ff0000;
-    --color-muted: #8b949e;
-    --color-light: #c9d1d9;
+    --color-primary: #101726;
+    --color-primary-translucent: rgba(16, 23, 38, 0.85);
+    --color-secondary: #1E2940;
+    --color-accent: #4C9AFF;
+    --color-muted: #737373;
+    --color-light: #F2F2F2;
 }
 
 body.light-mode {
-    --color-primary: #ffffff;
-    --color-primary-translucent: rgba(255, 255, 255, 0.85);
-    --color-secondary: #f0f3f5;
-    --color-accent: #ff0000;
-    --color-muted: #6e7681;
-    --color-light: #0d1117;
+    --color-primary: #f2f2f2;
+    --color-primary-translucent: rgba(242, 242, 242, 0.85);
+    --color-secondary: #ffffff;
+    --color-accent: #1E70BF;
+    --color-muted: #999999;
+    --color-light: #101726;
 }
 
 body,

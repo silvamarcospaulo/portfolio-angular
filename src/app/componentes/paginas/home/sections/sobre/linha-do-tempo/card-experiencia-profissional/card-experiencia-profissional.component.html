@@ -5,15 +5,16 @@
         <p>{{ experienciaProfissional.descricao }}</p>
     </div>
     <div class="habilidades">
-        <h6>Skills</h6>
+        <h4>Skills</h4>
         <ul>
-            <li>UI / UX</li>
-            <li>Front End Development</li>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>React</li>
-            <li>Node</li>
+            @for (habilidade of experienciaProfissional.habilidades; track habilidade.nome) {
+            <li>
+                @if (habilidade.icone) {
+                <img [src]="habilidade.icone" [alt]="habilidade.nome">
+                }
+                <p>{{ habilidade.nome }}</p>
+            </li>
+            }
         </ul>
     </div>
 </div>

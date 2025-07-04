@@ -1,26 +1,34 @@
 .card-container {
     border-radius: 5px;
     box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.75);
-    background-color: greenyellow;
-    color: #B3B8CD;
+    background-color: var(--color-light);
     position: relative;
-    width: 300px;
-    height: 400px;
+    width: 350px;
+    height: 350px;
 }
 
 .informacoes {
     height: 60%;
-    background-color: red;
+    background-color: var(--color-primary);
     padding: 15px;
     border-radius: 5px 5px 0% 0%;
-}
 
-.informacoes h6 {
-    padding-bottom: 10px;
+    h4 {
+        color: var(--color-accent)
+    }
+
+    h6 {
+        padding-bottom: 10px;
+        color: var(--color-light)
+    }
+
+    p {
+        color: var(--color-muted)
+    }
 }
 
 .habilidades {
-    background-color: blue;
+    background-color: var(--color-secundary);
     text-align: left;
     padding: 15px;
     height: 40%;
@@ -31,13 +39,22 @@
         margin: 0;
         padding: 0;
     }
-}
 
-.habilidades ul li {
-    border: 1px solid #2D2747;
-    border-radius: 2px;
-    display: inline-block;
-    font-size: 12px;
-    margin: 0 7px 7px 0;
-    padding: 7px;
+    li {
+        border: 2px solid var(--color-muted);
+        border-radius: 4px;
+        display: inline-block;
+        font-size: 12px;
+        margin: 0 7px 7px 0;
+        padding: 7px;
+    }
+
+    h4 {
+        color: var(--color-accent)
+    }
+
+    p {
+        color: var(--color-muted);
+        margin: 0;
+    }
 }

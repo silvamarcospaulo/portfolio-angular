@@ -7,6 +7,7 @@ import { ContatoComponent } from "./sections/contato/contato.component";
 import { SobreComponent } from "./sections/sobre/sobre.component";
 import { Projeto } from '../../../../model/projeto.model';
 import { ExperienciaProfissional } from '../../../../model/experienciaProfissional.model';
+import { Habilidade } from '../../../../model/habilidade.model';
 
 @Component({
   selector: 'app-home',
@@ -62,21 +63,39 @@ export class HomeComponent implements OnInit {
         'Conexão Digital',
         '01/2021',
         '05/2023',
-        'Criação de artes para material gráfico e digitais utilizando Photoshop, Illustrator e Corel Draw'
+        'Criação de artes para material gráfico e digitais utilizando Photoshop, Illustrator e Corel Draw.',
+        [
+          new Habilidade("Corel Draw"),
+          new Habilidade("PhotoShop"),
+          new Habilidade("Illustrator")
+        ]
       ),
       new ExperienciaProfissional(
         'Estágio em Desenvolvimento de Software',
         'Invent Software',
         '05/2024',
         '10/2024',
-        'Desenvolvimento de aplicações em C# (.NET), SAPUI 5, Windows Forms.'
+        'Desenvolvimento de aplicações web e desktop utilizando C# (.NET), SAPUI 5, Windows Forms.',
+        [
+          new Habilidade("C#"),
+          new Habilidade("SAPUI 5"),
+          new Habilidade("SQL Server"),
+          new Habilidade("Windows Forms")
+        ]
       ),
       new ExperienciaProfissional(
         'Auxiliar de Desenvolvimento de Software',
         'Invent Software',
         '11/2024',
         'Atualmente',
-        'Desenvolvimento fullstack de aplicações em C# (.NET), SAPUI 5'
+        'Desenvolvimento fullstack de aplicações em C# (.NET), SAPUI 5.',
+        [
+          new Habilidade("C#"),
+          new Habilidade("SAPUI 5"),
+          new Habilidade("RavenDB"),
+          new Habilidade("SCRUM"),
+          new Habilidade("CI/CD")
+        ]
       )
     ];
   }

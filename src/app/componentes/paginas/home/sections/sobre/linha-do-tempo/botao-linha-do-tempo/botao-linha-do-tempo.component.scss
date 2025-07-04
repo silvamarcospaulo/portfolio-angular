@@ -1,26 +1,39 @@
 .botao-linha-do-tempo {
-    width: 6em;
-    height: 3em;
+    display: inline-block;
+    padding: 10px;
     background-color: var(--color-primary);
     color: var(--color-light);
-    border-radius: 10%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 1rem;
-    box-shadow: 0 4px 12px var(--color-primary);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 5px;
     cursor: pointer;
-    user-select: none;
+    transition: background-color 0.3s ease;
+
+    a {
+        font-weight: bold;
+        text-align: center;
+        display: inline-block;
+    }
 
     &:hover {
-        transform: scale(1.1);
+        transform: scale(1.05);
         box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
     }
+}
 
-    p {
-        margin: 0;
-        line-height: 1;
-    }
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: var(--color-primary-translucent);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
 }

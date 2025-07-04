@@ -5,11 +5,26 @@ import { CardExperienciaProfissionalComponent } from '../card-experiencia-profis
 
 @Component({
   selector: 'app-botao-linha-do-tempo',
-  imports: [CommonModule, CardExperienciaProfissionalComponent],
   standalone: true,
+  imports: [CommonModule, CardExperienciaProfissionalComponent],
   templateUrl: './botao-linha-do-tempo.component.html',
   styleUrls: ['./botao-linha-do-tempo.component.scss']
 })
 export class BotaoLinhaDoTempoComponent {
   @Input() experienciaProfissional!: ExperienciaProfissional;
+  mostrarModal = false;
+
+  private static modalAbertaGlobal = false;
+
+  abrirModal(): void {
+    if (!BotaoLinhaDoTempoComponent.modalAbertaGlobal) {
+      this.mostrarModal = true;
+      BotaoLinhaDoTempoComponent.modalAbertaGlobal = true;
+    }
+  }
+
+  fecharModal(): void {
+    this.mostrarModal = false;
+    BotaoLinhaDoTempoComponent.modalAbertaGlobal = false;
+  }
 }

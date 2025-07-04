@@ -1,5 +1,9 @@
-<div class="botao-linha-do-tempo">
-    <p>{{ experienciaProfissional.inicio }}</p>
-    <app-card-experiencia-profissional
-        [experienciaProfissional]="experienciaProfissional"></app-card-experiencia-profissional>
+<div class="botao-linha-do-tempo" (click)="abrirModal()">
+    <a>{{ experienciaProfissional.inicio }}</a>
+</div>
+
+<div class="modal-overlay" *ngIf="mostrarModal" (click)="fecharModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+        <app-card-experiencia-profissional [experienciaProfissional]="experienciaProfissional" />
+    </div>
 </div>
