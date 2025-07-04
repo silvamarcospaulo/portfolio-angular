@@ -1,0 +1,8 @@
+<div id="linha-do-tempo">
+    <div class="linha-horizontal"></div>
+    <div class="container-pontos">
+        <div *ngFor="let experienciaProfissional of listaDeExperienciasProfissionais" class="evento">
+            <app-botao-linha-do-tempo [experienciaProfissional]="experienciaProfissional" />
+        </div>
+    </div>
+</div>

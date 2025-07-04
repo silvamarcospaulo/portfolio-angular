@@ -6,5 +6,12 @@ export class Projeto {
         public titulo: string,
         public tipoDeProjeto: string,
         public descricao: string
-    ) { }
+    ) {
+        this.url = url;
+        this.caminhoImagem = caminhoImagem;
+        this.palavraChave = palavraChave;
+        this.titulo = titulo;
+        this.tipoDeProjeto = tipoDeProjeto;
+        this.descricao = descricao;
+    }
 }

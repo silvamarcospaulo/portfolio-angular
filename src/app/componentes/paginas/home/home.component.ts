@@ -5,14 +5,13 @@ import { InicioComponent } from "./sections/inicio/inicio.component";
 import { ProjetosComponent } from "./sections/projetos/projetos.component";
 import { ContatoComponent } from "./sections/contato/contato.component";
 import { SobreComponent } from "./sections/sobre/sobre.component";
-import { ExperienciasProfissionaisComponent } from "./sections/experiencias-profissionais/experiencias-profissionais.component";
 import { Projeto } from '../../../../model/projeto.model';
 import { ExperienciaProfissional } from '../../../../model/experienciaProfissional.model';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeaderComponent, InicioComponent, ProjetosComponent, ContatoComponent, FooterComponent, SobreComponent, ExperienciasProfissionaisComponent],
+  imports: [HeaderComponent, InicioComponent, ProjetosComponent, ContatoComponent, FooterComponent, SobreComponent],
   providers: [],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']

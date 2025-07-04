@@ -20,16 +20,14 @@
     min-height: 50vh;
     width: 100%;
     box-shadow: 0px -20px 30px -10px rgba(0, 0, 0, 0.3);
+    flex-direction: column;
 }
 
 #container-sobre {
     display: flex;
     place-content: center;
     place-items: center;
-    flex-wrap: nowrap;
-    padding: 40px;
     height: 100%;
-    min-height: 50vh;
     width: 100%;
     max-width: 1400px;
 }
@@ -43,6 +41,7 @@
     height: 50%;
     width: 100%;
     color: var(--color-light);
+    padding: 30px;
 
     a {
         color: var(--color-muted);
@@ -51,4 +50,12 @@
     a:hover {
         color: var(--color-muted);
     }
+}
+
+#container-linha-do-tempo {
+    display: flex;
+    place-content: center;
+    place-items: center;
+    height: 50%;
+    width: 100%;
 }

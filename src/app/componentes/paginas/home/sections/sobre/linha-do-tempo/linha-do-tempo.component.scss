@@ -1,0 +1,37 @@
+#linha-do-tempo {
+    position: relative;
+    width: 100vw;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+.linha-horizontal {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--color-light);
+    transform: translateY(-50%);
+    z-index: 0;
+}
+
+.container-pontos {
+    max-width: 1400px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 1;
+}
+
+.evento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
