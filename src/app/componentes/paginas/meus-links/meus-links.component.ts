@@ -20,12 +20,11 @@ export class MeusLinksComponent implements OnInit {
 
   ngOnInit(): void {
     this.links = [
-      new Link('LinkedIn', 'https://www.linkedin.com/in/silvamarcospaulo', 'bi bi-linkedin'),
-      new Link('GitHub', 'https://github.com/silvamarcospaulo', 'bi bi-github'),
-      new Link('Lojas Parceiras', 'https://062uniformes.com', 'bi bi-bag-check-fill'),
-      new Link('Portfólio', '/', 'bi bi-laptop'),
-      new Link('Contato', 'mailto:silvampsmarcospaulo@gmail.com', 'bi bi-envelope-fill'),
-      new Link('Instagram', 'https://instagram.com/marcospaulo.dev', 'bi bi-instagram'),
+      new Link('LinkedIn', 'https://www.linkedin.com/in/silvamarcospaulo', '../../../../assets/images/icones/linkedin.svg'),
+      new Link('GitHub', 'https://github.com/silvamarcospaulo', '../../../../assets/images/icones/github.svg'),
+      new Link('Lojas Parceiras', 'https://062uniformes.com', '../../../../assets/images/icones/bag-check-fill.svg'),
+      new Link('Contato', 'mailto:silvampsmarcospaulo@gmail.com', '../../../../assets/images/icones/envelope-fill.svg'),
+      new Link('Instagram', 'https://instagram.com/marcospaulo.dev', '../../../../assets/images/icones/instagram.svg'),
     ];
 
     this.seoService.atualizarMetadados({

@@ -1,4 +1,7 @@
-import { Component, Input } from '@angular/core';
+import {
+  Component,
+  Input,
+} from '@angular/core';
 import { SwitchDiaNoiteComponent } from "../switch-dia-noite/switch-dia-noite.component";
 import { DropdownIdiomasComponent } from "../dropdown-idiomas/dropdown-idiomas.component";
 import { TranslateModule } from '@ngx-translate/core';
@@ -11,8 +14,6 @@ import { Link } from '../../../../model/link.model';
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })
-
 export class FooterComponent {
   @Input() links: Link[] = [];
-  menuAberto = false;
 }

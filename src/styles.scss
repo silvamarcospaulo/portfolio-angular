@@ -1,5 +1,14 @@
-@import 'bootstrap/scss/bootstrap';
-@import 'bootstrap-icons/font/bootstrap-icons';
+:root {
+    font-size: clamp(14px, 1.1vw, 18px);
+    --font-base: 1rem;
+    --font-sm: 0.875rem;
+    --font-lg: 1.25rem;
+    --icon-size: 2rem;
+    --container-max-width: 1400px;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+}
 
 body.dark-mode {
     --color-primary: #101726;
