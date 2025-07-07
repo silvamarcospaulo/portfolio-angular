@@ -6,7 +6,6 @@ footer {
   height: 40vh;
   background-color: var(--color-primary);
   color: var(--color-light);
-  font-size: 1rem;
 }
 
 #container-footer {
@@ -23,25 +22,26 @@ footer {
   width: 100%;
   height: 80%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
+  place-content: center;
+  place-items: center;
 }
 
 #logo {
   width: 49%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 
   h3 {
-    font-size: 2.8125rem;
+    font-size: 5vh;
     margin: 0;
   }
 }
 
 #menu-list {
   width: 17%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,16 +50,17 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.625rem;
+    justify-content: space-between;
+    min-height: 50%;
 
     a {
-      font-size: 1.25rem;
+      font-size: 2vh;
       text-decoration: none;
       color: var(--color-light);
 
       &:hover {
         text-decoration: underline;
-        color: var(--color-muted);
+        color: var(--color-accent);
       }
     }
   }
@@ -67,22 +68,24 @@ footer {
 
 #redes-sociais {
   width: 17%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
 
   a {
-    width: 3rem;
-    height: 3rem;
+    width: auto;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
 
     i {
-      font-size: 1.75rem;
+      font-size: 3vh;
+      width: auto;
+      height: auto;
       color: var(--color-light);
       transition: color 0.3s ease;
     }
@@ -104,19 +107,22 @@ footer {
 
 .linha-horizontal {
   width: 100%;
-  height: 0.125rem;
+  height: 1%;
   background-color: var(--color-light);
-  margin: 2rem 0;
   border-radius: 0.625rem;
 }
 
 #creditos {
   width: 100%;
-  height: 20%;
+  height: 29%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  place-content: center;
+  place-items: center;
   font-size: 1rem;
+
+  p {
+    margin: 0;
+  }
 
   a {
     color: var(--color-accent);
