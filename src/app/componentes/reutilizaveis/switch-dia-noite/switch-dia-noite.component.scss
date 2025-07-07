@@ -9,7 +9,7 @@
         display: none;
 
         &:checked+.slider {
-            background-color: var(--color-accent);
+            background-color: var(--color-link-focus);
 
             &::before {
                 transform: translateX(22px);
@@ -18,7 +18,7 @@
 
         &:checked~#moon {
             display: inline;
-            color: var(--color-accent);
+            color: var(--color-link-focus);
         }
 
         &:checked~#sun {
@@ -29,7 +29,7 @@
     .slider {
         width: 45px;
         height: 24px;
-        background-color: var(--color-muted);
+        background-color: var(--color-text-subtitle);
         border-radius: 34px;
         position: relative;
         transition: background-color 0.3s;
@@ -51,7 +51,7 @@
     #moon,
     #sun {
         font-size: 1.2rem;
-        color: var(--color-muted);
+        color: var(--color-text-subtitle);
     }
 
     #moon {

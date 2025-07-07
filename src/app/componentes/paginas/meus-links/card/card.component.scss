@@ -7,7 +7,7 @@
     transition: background-color 0.3s ease, transform 0.2s ease;
 
     a {
-        color: var(--color-accent);
+        color: var(--color-link-focus);
         padding: 1em;
         border-radius: 10px;
         text-decoration: none;
@@ -21,12 +21,12 @@
         height: 100%;
 
         &:hover {
-            color: var(--color-light);
+            color: var(--color-text-title);
         }
     }
 
     &:hover {
-        background-color: var(--color-accent);
+        background-color: var(--color-link-focus);
         transform: scale(1.01);
     }
 

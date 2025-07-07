@@ -40,15 +40,15 @@
     flex-direction: column;
     height: 50%;
     width: 100%;
-    color: var(--color-light);
+    color: var(--color-text-title);
     padding: 30px;
 
     a {
-        color: var(--color-accent);
+        color: var(--color-link-focus);
     }
 
     a:hover {
-        color: var(--color-muted);
+        color: var(--color-text-subtitle);
     }
 }
 

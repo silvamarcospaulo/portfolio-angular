@@ -10,7 +10,7 @@
 }
 
 #nav-link {
-    color: var(--color-light);
+    color: var(--color-text-title);
     padding: 10px 16px;
     border-radius: 8px;
     font-weight: 500;
@@ -24,7 +24,7 @@
 
 #nav-link:hover {
     background-color: var(--color-secondary);
-    color: var(--color-muted);
+    color: var(--color-text-subtitle);
 }
 
 #dropdown-menu {
@@ -44,7 +44,7 @@
 #dropdown-menu li {
     width: 100%;
     padding: 6px 16px;
-    color: var(--color-light);
+    color: var(--color-text-title);
     cursor: pointer;
     transition: background-color 0.3s;
     list-style: none
@@ -63,6 +63,6 @@
 }
 
 #dropdown-menu input[type="radio"] {
-    accent-color: var(--color-muted);
+    accent-color: var(--color-text-subtitle);
     cursor: pointer;
 }

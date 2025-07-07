@@ -5,7 +5,7 @@ footer {
   width: 100vw;
   height: 40vh;
   background-color: var(--color-primary);
-  color: var(--color-light);
+  color: var(--color-text-title);
 }
 
 #container-footer {
@@ -56,11 +56,11 @@ footer {
     a {
       font-size: 2vh;
       text-decoration: none;
-      color: var(--color-light);
+      color: var(--color-text-title);
 
       &:hover {
         text-decoration: underline;
-        color: var(--color-accent);
+        color: var(--color-link-focus);
       }
     }
   }
@@ -86,12 +86,12 @@ footer {
       font-size: 3vh;
       width: auto;
       height: auto;
-      color: var(--color-light);
+      color: var(--color-text-title);
       transition: color 0.3s ease;
     }
 
     &:hover i {
-      color: var(--color-accent);
+      color: var(--color-link-focus);
     }
   }
 }
@@ -108,7 +108,7 @@ footer {
 .linha-horizontal {
   width: 100%;
   height: 1%;
-  background-color: var(--color-light);
+  background-color: var(--color-text-title);
   border-radius: 0.625rem;
 }
 
@@ -125,10 +125,10 @@ footer {
   }
 
   a {
-    color: var(--color-accent);
+    color: var(--color-link-focus);
 
     &:hover {
-      color: var(--color-muted);
+      color: var(--color-text-subtitle);
     }
   }
 }
