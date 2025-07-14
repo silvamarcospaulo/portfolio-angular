@@ -11,7 +11,7 @@ import { Link } from '../../../../model/link.model';
   standalone: true,
   imports: [TranslateModule, CardComponent, FooterComponent, HeaderComponent],
   templateUrl: './meus-links.component.html',
-  styleUrl: './meus-links.component.scss'
+  styleUrls: ['./meus-links.component.scss']
 })
 export class MeusLinksComponent implements OnInit {
   links: Link[] = [];

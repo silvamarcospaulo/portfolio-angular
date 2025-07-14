@@ -7,7 +7,7 @@ import { MenuRedesSociaisComponent } from '../../../../reutilizaveis/menu-redes-
   standalone: true,
   imports: [TranslateModule, MenuRedesSociaisComponent],
   templateUrl: './inicio.component.html',
-  styleUrl: './inicio.component.scss'
+  styleUrls: ['./inicio.component.scss']
 })
 
 export class InicioComponent {

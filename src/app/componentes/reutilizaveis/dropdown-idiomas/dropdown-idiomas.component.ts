@@ -6,7 +6,7 @@ import { IdiomaService, Linguagem } from '../../../../services/idioma/idioma.ser
   selector: 'app-dropdown-idiomas',
   standalone: true,
   templateUrl: './dropdown-idiomas.component.html',
-  styleUrl: './dropdown-idiomas.component.scss',
+  styleUrls: ['./dropdown-idiomas.component.scss'],
 })
 export class DropdownIdiomasComponent {
   linguagens: Linguagem[] = [];

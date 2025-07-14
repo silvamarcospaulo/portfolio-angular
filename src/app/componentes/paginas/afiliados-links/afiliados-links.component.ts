@@ -7,7 +7,7 @@ import { FooterComponent } from "../../reutilizaveis/footer/footer.component";
   standalone: true,
   imports: [HeaderComponent, FooterComponent],
   templateUrl: './afiliados-links.component.html',
-  styleUrl: './afiliados-links.component.scss'
+  styleUrls: ['./afiliados-links.component.scss']
 })
 export class AfiliadosLinksComponent {
 

@@ -8,7 +8,7 @@ import { TemaDiaNoiteService } from '../../../../services/tema-dia-noite/tema-di
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './switch-dia-noite.component.html',
-  styleUrl: './switch-dia-noite.component.scss'
+  styleUrls: ['./switch-dia-noite.component.scss']
 })
 export class SwitchDiaNoiteComponent implements OnInit {
   darkMode = false;

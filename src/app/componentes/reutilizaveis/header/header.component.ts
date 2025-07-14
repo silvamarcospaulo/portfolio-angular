@@ -10,7 +10,7 @@ import { Link } from '../../../../model/link.model';
   standalone: true,
   imports: [TranslateModule, SwitchDiaNoiteComponent, DropdownIdiomasComponent],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrls: ['./header.component.scss']
 })
 
 export class HeaderComponent {

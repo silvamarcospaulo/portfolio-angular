@@ -4,7 +4,7 @@ import { isPlatformBrowser } from '@angular/common';
 @Component({
   selector: 'app-menu-redes-sociais',
   templateUrl: './menu-redes-sociais.component.html',
-  styleUrl: './menu-redes-sociais.component.scss',
+  styleUrls: ['./menu-redes-sociais.component.scss'],
   standalone: true
 })
 export class MenuRedesSociaisComponent {
