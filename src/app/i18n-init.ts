@@ -33,7 +33,7 @@ export function provideI18nSupport(): Provider {
             const detectedLang = supported.find(l => lang.includes(l)) || fallbackLang;
 
             translate.setDefaultLang(fallbackLang);
-            return translate.use(detectedLang).toPromise(); // Aguarda o carregamento do JSON
+            return translate.use(detectedLang).toPromise();
         },
         multi: true
     };
