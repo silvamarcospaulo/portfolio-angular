@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../reutilizaveis/header/header.component';
 import { FooterComponent } from '../../reutilizaveis/footer/footer.component';
 import { CardPromocaoComponent } from '../../reutilizaveis/card-promocao/card-promocao.component';
-import { PROMOCOES } from '../../data/promocoes';
-import { Promocao } from '../../../model/promocao.model';
+import { PROMOCOES } from '../../../data/promocoes';
+import { Promocao } from '../../../../model/promocao.model';
 
 @Component({
   selector: 'app-promocoes-mercado-livre',

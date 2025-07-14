@@ -5,7 +5,7 @@ import { PromocoesComponent } from './componentes/paginas/promocoes/promocoes.co
 import { PromocoesMercadoLivreComponent } from './componentes/paginas/promocoes/promocoes-mercado-livre.component';
 import { PromocoesKabumComponent } from './componentes/paginas/promocoes/promocoes-kabum.component';
 import { PromocoesAmazonComponent } from './componentes/paginas/promocoes/promocoes-amazon.component';
-import { PromocoesAliExpressComponent } from './componentes/paginas/promocoes/promocoes-aliexpress.component';
+import { PromocoesAliexpressComponent } from './componentes/paginas/promocoes/promocoes-aliexpress.component';
 import { PromocoesShopeeComponent } from './componentes/paginas/promocoes/promocoes-shopee.component';
 
 export const routes: Routes = [
@@ -16,5 +16,5 @@ export const routes: Routes = [
     { path: 'promocoes/amazon', component: PromocoesAmazonComponent },
     { path: 'promocoes/kabum', component: PromocoesKabumComponent },
     { path: 'promocoes/shopee', component: PromocoesShopeeComponent },
-    { path: 'promocoes/aliexpress', component: PromocoesAliExpressComponent },
+    { path: 'promocoes/aliexpress', component: PromocoesAliexpressComponent },
 ];
