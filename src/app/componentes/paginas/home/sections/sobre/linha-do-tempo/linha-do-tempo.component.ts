@@ -12,4 +12,13 @@ import { ExperienciaProfissional } from '../../../../../../../model/experienciaP
 })
 export class LinhaDoTempoComponent {
   @Input() listaDeExperienciasProfissionais: ExperienciaProfissional[] = [];
+  aberto: string | null = null;
+
+  trackByInicio(index: number, exp: ExperienciaProfissional) {
+    return exp.inicio;
+  }
+
+  toggle(inicio: string) {
+    this.aberto = this.aberto === inicio ? null : inicio;
+  }
 }

@@ -1,9 +1,9 @@
-<div class="botao-linha-do-tempo" (click)="abrirModal()">
+<div class="botao-linha-do-tempo" (click)="onToggle()" (mouseenter)="onToggle()">
     <a>{{ experienciaProfissional.inicio }}</a>
 </div>
 
-<div class="modal-overlay" *ngIf="mostrarModal" (click)="fecharModal()">
-    <div class="modal-content" (click)="$event.stopPropagation()">
-        <app-card-experiencia-profissional [experienciaProfissional]="experienciaProfissional" />
-    </div>
+<div class="popup-card" *ngIf="aberto">
+    <button class="close-btn" (click)="onToggle()">✕</button>
+    <app-card-experiencia-profissional
+        [experienciaProfissional]="experienciaProfissional"></app-card-experiencia-profissional>
 </div>

@@ -5,7 +5,7 @@
     color: var(--color-text-title);
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 
     a {
         font-weight: bold;
@@ -19,21 +19,26 @@
     }
 }
 
-.modal-overlay {
-    position: fixed;
-    inset: 0;
-    background-color: var(--color-primary-translucent);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
+.popup-card {
+    position: absolute;
+    top: -10px;
+    left: 100%;
+    z-index: 10;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+    width: 300px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 
-.modal-content {
-    padding: 20px;
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow-y: auto;
+    .close-btn {
+        position: absolute;
+        top: 4px;
+        right: 4px;
+        background: transparent;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+        line-height: 1;
+    }
 }
