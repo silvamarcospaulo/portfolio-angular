@@ -7,7 +7,7 @@ import { SobreComponent } from "./sections/sobre/sobre.component";
 import { Projeto } from '../../../../model/projeto.model';
 import { ExperienciaProfissional } from '../../../../model/experienciaProfissional.model';
 import { Habilidade } from '../../../../model/habilidade.model';
-import { SeoService } from '../../../.././services/seo/seo.service';
+import { SeoService } from '../../../../services/seo/seo.service';
 import { Link } from '../../../../model/link.model';
 
 @Component({
