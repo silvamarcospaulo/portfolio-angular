@@ -9,7 +9,7 @@ import { Link } from '../../../../model/link.model';
   standalone: true,
   imports: [SwitchDiaNoiteComponent, DropdownIdiomasComponent, TranslateModule],
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.scss'
+  styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
   @Input() links: Link[] = [];

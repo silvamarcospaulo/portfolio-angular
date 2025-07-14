@@ -6,7 +6,7 @@ import { TranslateModule } from '@ngx-translate/core';
   selector: 'app-card-experiencia-profissional',
   imports: [TranslateModule],
   templateUrl: './card-experiencia-profissional.component.html',
-  styleUrl: './card-experiencia-profissional.component.scss'
+  styleUrls: ['./card-experiencia-profissional.component.scss']
 })
 export class CardExperienciaProfissionalComponent {
   @Input() experienciaProfissional!: ExperienciaProfissional;
