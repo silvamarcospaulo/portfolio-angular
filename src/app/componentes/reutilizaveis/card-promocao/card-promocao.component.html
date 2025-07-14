@@ -1,0 +1,9 @@
+<div class="card h-100">
+  <img [src]="promocao.image" class="card-img-top" [alt]="promocao.title">
+  <div class="card-body d-flex flex-column">
+    <h5 class="card-title">{{ promocao.title }}</h5>
+    <p class="card-text flex-grow-1">{{ promocao.description }}</p>
+    <p class="card-text fw-bold">{{ promocao.price }}</p>
+    <a [href]="promocao.link" target="_blank" class="btn btn-primary mt-auto">Ver oferta</a>
+  </div>
+</div>
