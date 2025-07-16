@@ -8,7 +8,7 @@
     --spacing-sm: 0.5rem;
     --spacing-md: 1rem;
     --spacing-lg: 2rem;
-    --glass-blur: blur(20px);
+    --glass-blur: saturate(180%) blur(30px);
 }
 
 body.dark-mode {
@@ -16,6 +16,9 @@ body.dark-mode {
     --color-primary: #000000;
     --color-primary-translucent: rgba(30, 30, 30, 0.6);
     --color-secondary: #121212;
+
+    --glass-gradient: linear-gradient(to bottom right, rgba(30, 30, 30, 0.6), rgba(30, 30, 30, 0.3));
+    --glass-border: rgba(255, 255, 255, 0.1);
 
     --color-text-title: #FFFFFF;
     --color-text-subtitle: #CCCCCC;
@@ -32,6 +35,9 @@ body.light-mode {
     --color-primary-translucent: rgba(255, 255, 255, 0.6);
     --color-secondary: #F0F0F0;
 
+    --glass-gradient: linear-gradient(to bottom right, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
+    --glass-border: rgba(0, 0, 0, 0.1);
+
     --color-text-title: #000000;
     --color-text-subtitle: #444444;
 
@@ -47,9 +53,10 @@ body.light-mode::before {
     position: fixed;
     inset: 0;
     z-index: -1;
-    background-color: var(--color-primary-translucent);
+    background: var(--glass-gradient);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
+    pointer-events: none;
 }
 
 body,

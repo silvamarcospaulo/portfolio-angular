@@ -17,6 +17,7 @@ header {
     background-color: var(--color-primary-translucent);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
+    border-bottom: 1px solid var(--glass-border);
     box-shadow: 0 2px 8px var(--color-primary);
   }
 }
@@ -104,6 +105,7 @@ header {
     &.translucido {
       background-color: var(--color-primary-translucent);
       backdrop-filter: var(--glass-blur);
+      border-bottom: 1px solid var(--glass-border);
       box-shadow: 0 2px 8px var(--color-primary-translucent);
     }
   }
@@ -151,6 +153,7 @@ header {
     &.translucido {
       background-color: var(--color-primary-translucent);
       backdrop-filter: var(--glass-blur);
+      border-bottom: 1px solid var(--glass-border);
       box-shadow: 0 2px 8px var(--color-primary-translucent);
     }
 
@@ -181,6 +184,7 @@ header {
     &.translucido {
       background-color: var(--color-primary-translucent);
       backdrop-filter: var(--glass-blur);
+      border-bottom: 1px solid var(--glass-border);
       box-shadow: 0 2px 8px var(--color-primary-translucent);
     }
   }
@@ -230,6 +234,7 @@ header {
     &.translucido {
       background-color: var(--color-primary-translucent);
       backdrop-filter: var(--glass-blur);
+      border-bottom: 1px solid var(--glass-border);
       box-shadow: 0 2px 8px var(--color-primary-translucent);
     }
 

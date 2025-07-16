@@ -22,8 +22,9 @@ Abril de 2025
 ## 💎 Estilo Liquid Glass
 
 Esta versão foi atualizada para utilizar um visual inspirado no **Liquid Glass**
-presente nas últimas versões do iOS e macOS. A interface agora possui fundos
-translúcidos e efeitos de desfoque sutis que lembram o material glassmorphism.
+presente nas últimas versões do iOS e macOS. Os elementos da página usam
+camadas semitransparentes com gradientes e um desfoque intenso, resultando em
+um efeito de vidro mais próximo do apresentado pela Apple.
 
 ## 🚀 Funcionalidades
 
