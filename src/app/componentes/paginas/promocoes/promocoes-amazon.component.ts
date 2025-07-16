@@ -4,7 +4,7 @@ import { HeaderComponent } from '../../reutilizaveis/header/header.component';
 import { FooterComponent } from '../../reutilizaveis/footer/footer.component';
 import { CardProdutoAmazonComponent } from '../../reutilizaveis/card-produto-amazon/card-produto-amazon.component';
 import { ProdutoAfiliadoAmazon } from '../../../../model/produto-afiliado-amazon.model';
-import { AmazonService } from '../../../services/amazon/amazon.service';
+import { AmazonService } from '../../../../services/amazon/amazon.service';
 
 @Component({
   selector: 'app-promocoes-amazon',
