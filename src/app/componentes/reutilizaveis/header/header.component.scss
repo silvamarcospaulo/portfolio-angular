@@ -15,8 +15,8 @@ header {
 
   &.translucido {
     background-color: var(--color-primary-translucent);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
     box-shadow: 0 2px 8px var(--color-primary);
   }
 }
@@ -103,7 +103,7 @@ header {
 
     &.translucido {
       background-color: var(--color-primary-translucent);
-      backdrop-filter: blur(10px);
+      backdrop-filter: var(--glass-blur);
       box-shadow: 0 2px 8px var(--color-primary-translucent);
     }
   }
@@ -150,7 +150,7 @@ header {
 
     &.translucido {
       background-color: var(--color-primary-translucent);
-      backdrop-filter: blur(10px);
+      backdrop-filter: var(--glass-blur);
       box-shadow: 0 2px 8px var(--color-primary-translucent);
     }
 
@@ -180,7 +180,7 @@ header {
   header {
     &.translucido {
       background-color: var(--color-primary-translucent);
-      backdrop-filter: blur(10px);
+      backdrop-filter: var(--glass-blur);
       box-shadow: 0 2px 8px var(--color-primary-translucent);
     }
   }
@@ -229,7 +229,7 @@ header {
 
     &.translucido {
       background-color: var(--color-primary-translucent);
-      backdrop-filter: blur(10px);
+      backdrop-filter: var(--glass-blur);
       box-shadow: 0 2px 8px var(--color-primary-translucent);
     }
 

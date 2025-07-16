@@ -8,11 +8,13 @@
     --spacing-sm: 0.5rem;
     --spacing-md: 1rem;
     --spacing-lg: 2rem;
+    --glass-blur: blur(20px);
 }
 
 body.dark-mode {
+    background-color: var(--color-primary);
     --color-primary: #000000;
-    --color-primary-translucent: rgba(0, 0, 0, 0.85);
+    --color-primary-translucent: rgba(30, 30, 30, 0.6);
     --color-secondary: #121212;
 
     --color-text-title: #FFFFFF;
@@ -25,8 +27,9 @@ body.dark-mode {
 }
 
 body.light-mode {
+    background-color: var(--color-primary);
     --color-primary: #FFFFFF;
-    --color-primary-translucent: rgba(255, 255, 255, 0.85);
+    --color-primary-translucent: rgba(255, 255, 255, 0.6);
     --color-secondary: #F0F0F0;
 
     --color-text-title: #000000;
@@ -36,6 +39,17 @@ body.light-mode {
     --color-link: #007BFF;
 
     --color-border: #CCCCCC;
+}
+
+body.dark-mode::before,
+body.light-mode::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-color: var(--color-primary-translucent);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
 }
 
 body,
