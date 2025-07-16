@@ -7,6 +7,7 @@ import {
 import express from 'express';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { buscarNaAmazon } from './api/amazon';
 
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
@@ -24,7 +25,22 @@ const angularApp = new AngularNodeAppEngine();
  *   // Handle API request
  * });
  * ```
- */
+*/
+
+app.get('/api/amazon', async (req, res) => {
+  const palavra = String(req.query['palavra'] || '');
+  if (!palavra) {
+    res.status(400).json({ erro: 'Palavra obrigatória' });
+    return;
+  }
+  try {
+    const produtos = await buscarNaAmazon(palavra);
+    res.json(produtos);
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ erro: 'Falha ao consultar Amazon' });
+  }
+});
 
 /**
  * Serve static files from /browser
