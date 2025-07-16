@@ -1,18 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../reutilizaveis/header/header.component';
 import { FooterComponent } from '../../reutilizaveis/footer/footer.component';
-import { CardPromocaoComponent } from '../../reutilizaveis/card-promocao/card-promocao.component';
-import { PROMOCOES } from '../../../data/promocoes';
-import { Promocao } from '../../../../model/promocao.model';
+import { CardProdutoAmazonComponent } from '../../reutilizaveis/card-produto-amazon/card-produto-amazon.component';
+import { ProdutoAfiliadoAmazon } from '../../../../model/produto-afiliado-amazon.model';
+import { AmazonService } from '../../../services/amazon/amazon.service';
 
 @Component({
   selector: 'app-promocoes-amazon',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, FooterComponent, CardPromocaoComponent],
+  imports: [CommonModule, HeaderComponent, FooterComponent, CardProdutoAmazonComponent],
   templateUrl: './promocoes-amazon.component.html',
   styleUrls: ['./promocoes-amazon.component.scss']
 })
-export class PromocoesAmazonComponent {
-  produtos: Promocao[] = PROMOCOES.filter(p => p.store === 'amazon');
+export class PromocoesAmazonComponent implements OnInit {
+  produtos: ProdutoAfiliadoAmazon[] = [];
+  private palavrasChave = ['cadeira gamer', 'monitor', 'notebook'];
+
+  constructor(private amazonService: AmazonService) {}
+
+  ngOnInit(): void {
+    this.carregarProdutos();
+  }
+
+  private carregarProdutos() {
+    for (const palavra of this.palavrasChave) {
+      this.amazonService.buscarProdutos(palavra).subscribe(p => {
+        this.produtos.push(...p);
+      });
+    }
+  }
 }
