@@ -7,6 +7,8 @@ import {
 import express from 'express';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { AmazonPaApiService } from './services/amazon/amazon-paapi.service';
+import { ProdutoAfiliadoAmazon } from './model/produto-afiliado-amazon.model';
 
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
@@ -14,17 +16,25 @@ const browserDistFolder = resolve(serverDistFolder, '../browser');
 const app = express();
 const angularApp = new AngularNodeAppEngine();
 
+const paapi = new AmazonPaApiService();
+
 /**
- * Example Express Rest API endpoints can be defined here.
- * Uncomment and define endpoints as necessary.
- *
- * Example:
- * ```ts
- * app.get('/api/**', (req, res) => {
- *   // Handle API request
- * });
- * ```
+ * Endpoints da API utilizados pelo aplicativo Angular
  */
+app.get('/api/amazon/promocoes', async (_req, res) => {
+  try {
+    const palavras = ['cadeira gamer', 'monitor', 'notebook'];
+    const produtos = [] as ProdutoAfiliadoAmazon[];
+    for (const p of palavras) {
+      const itens = await paapi.buscarProdutos(p);
+      produtos.push(...itens);
+    }
+    res.json(produtos);
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ erro: 'Erro ao consultar a Amazon' });
+  }
+});
 
 /**
  * Serve static files from /browser

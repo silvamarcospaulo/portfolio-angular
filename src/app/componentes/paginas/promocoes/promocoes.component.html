@@ -33,7 +33,15 @@
         </div>
 
         <div class="tab-pane" *ngFor="let tab of tabs.slice(1)" [class.active]="activeTab===tab">
-          <div class="row row-cols-1 row-cols-md-3 g-3">
+          <div *ngIf="tab==='amazon'">
+            <div *ngIf="carregandoAmazon" class="text-center">Carregando...</div>
+            <div class="row row-cols-1 row-cols-md-3 g-3">
+              <div class="col" *ngFor="let p of produtosAmazon">
+                <app-card-produto-amazon [produto]="p" />
+              </div>
+            </div>
+          </div>
+          <div *ngIf="tab!=='amazon'" class="row row-cols-1 row-cols-md-3 g-3">
             <div class="col" *ngFor="let p of filtrar(tab)">
               <app-card-promocao [promocao]="p" />
             </div>

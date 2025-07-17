@@ -1,0 +1,8 @@
+<div class="card h-100">
+  <img [src]="produto.imagem" class="card-img-top" [alt]="produto.nome">
+  <div class="card-body d-flex flex-column">
+    <h5 class="card-title">{{ produto.nome }}</h5>
+    <p class="card-text fw-bold">{{ produto.preco }}</p>
+    <a [href]="produto.link" target="_blank" class="btn btn-primary mt-auto">Ver na Amazon</a>
+  </div>
+</div>
