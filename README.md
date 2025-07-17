@@ -19,6 +19,13 @@ A primeira versão deste portfólio foi construída utilizando **HTML**, **CSS**
 
 Abril de 2025
 
+## 💎 Estilo Liquid Glass
+
+Esta versão foi atualizada para utilizar um visual inspirado no **Liquid Glass**
+presente nas últimas versões do iOS e macOS. Os elementos da página usam
+camadas semitransparentes com gradientes e um desfoque intenso, resultando em
+um efeito de vidro mais próximo do apresentado pela Apple.
+
 ## 🚀 Funcionalidades
 
 - Página inicial com animações
