@@ -1,47 +1,35 @@
-<body>
-  <app-header />
-  <section class="section-promocoes">
-    <div class="container-promocoes">
-      <ul class="nav nav-tabs">
-        <li class="nav-item" *ngFor="let tab of tabs">
-          <a href="#" class="nav-link" [class.active]="activeTab===tab"
-            (click)="activeTab=tab; $event.preventDefault();">{{ tab | titlecase }}</a>
-        </li>
-      </ul>
+<section class="section-promocoes">
+  <div class="container-promocoes">
+    <ul class="nav nav-tabs">
+      <li class="nav-item" *ngFor="let tab of tabs">
+        <a href="#" class="nav-link" [class.active]="activeTab===tab"
+          (click)="activeTab=tab; $event.preventDefault();">{{ tab | titlecase }}</a>
+      </li>
+    </ul>
 
-      <div class="mt-4 converter-link">
-        <label class="form-label">Cole o link para converter</label>
-        <input type="text" class="form-control" [(ngModel)]="linkOriginal" placeholder="https://">
-        <button class="btn btn-secondary mt-2" (click)="gerarLink()">Gerar Link Afiliado</button>
-        <input *ngIf="linkAfiliado" type="text" class="form-control mt-2" [value]="linkAfiliado" readonly>
-      </div>
+    <div class="mt-4 converter-link">
+      <label class="form-label">Cole o link para converter</label>
+      <input type="text" class="form-control" [(ngModel)]="linkOriginal" placeholder="https://">
+      <button class="btn btn-secondary mt-2" (click)="gerarLink()">Gerar Link Afiliado</button>
+      <input *ngIf="linkAfiliado" type="text" class="form-control mt-2" [value]="linkAfiliado" readonly>
+    </div>
 
-      <div class="tab-content pt-3">
-        <div class="tab-pane" [class.active]="activeTab==='home'">
-          <h3 class="mt-4">Em Alta</h3>
-          <div class="row row-cols-1 row-cols-md-3 g-3">
-            <div class="col" *ngFor="let p of trending">
-              <app-card-promocao [promocao]="p" />
-            </div>
-          </div>
-        </div>
-
-        <h3>Novidades</h3>
+    <div class="tab-content pt-3">
+      <div class="tab-pane" [class.active]="activeTab==='home'">
+        <h3 class="mt-4">Em Alta</h3>
         <div class="row row-cols-1 row-cols-md-3 g-3">
-          <div class="col" *ngFor="let p of newest">
+          <div class="col" *ngFor="let p of trending">
             <app-card-promocao [promocao]="p" />
           </div>
         </div>
+      </div>
 
-        <!-- <div class="tab-pane" *ngFor="let tab of tabs.slice(1)" [class.active]="activeTab===tab">
-          <div class="row row-cols-1 row-cols-md-3 g-3">
-            <div class="col" *ngFor="let p of filtrar(tab)">
-              <app-card-promocao [promocao]="p" />
-            </div>
-          </div>
-        </div> -->
+      <h3>Novidades</h3>
+      <div class="row row-cols-1 row-cols-md-3 g-3">
+        <div class="col" *ngFor="let p of newest">
+          <app-card-promocao [promocao]="p" />
+        </div>
       </div>
     </div>
-  </section>
-  <app-footer />
-</body>
+  </div>
+</section>

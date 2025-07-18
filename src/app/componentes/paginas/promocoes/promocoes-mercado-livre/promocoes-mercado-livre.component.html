@@ -1,0 +1,9 @@
+<section class="section-promocoes">
+    <div class="container-promocoes">
+        <div class="row row-cols-1 row-cols-md-3 g-3">
+            <div class="col" *ngFor="let p of produtos">
+                <app-card-promocao [promocao]="p" />
+            </div>
+        </div>
+    </div>
+</section>

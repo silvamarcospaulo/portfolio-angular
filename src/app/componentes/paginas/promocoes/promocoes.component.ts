@@ -6,11 +6,12 @@ import { FooterComponent } from '../../reutilizaveis/footer/footer.component';
 import { CardPromocaoComponent } from '../../reutilizaveis/card-promocao/card-promocao.component';
 import { PROMOCOES } from '../../../data/promocoes';
 import { Promocao } from '../../../../model/promocao.model';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-promocoes',
   standalone: true,
-  imports: [CommonModule, FormsModule, HeaderComponent, FooterComponent, CardPromocaoComponent],
+  imports: [CommonModule, FormsModule, HeaderComponent, FooterComponent, CardPromocaoComponent, RouterOutlet],
   templateUrl: './promocoes.component.html',
   styleUrls: ['./promocoes.component.scss']
 })
