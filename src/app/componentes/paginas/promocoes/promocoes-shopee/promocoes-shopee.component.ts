@@ -11,6 +11,7 @@ import { Promocao } from '../../../../../model/promocao.model';
   templateUrl: './promocoes-shopee.component.html',
   styleUrls: ['./promocoes-shopee.component.scss']
 })
+
 export class PromocoesShopeeComponent {
   produtos: Promocao[] = PROMOCOES.filter(p => p.store === 'shopee');
 }
