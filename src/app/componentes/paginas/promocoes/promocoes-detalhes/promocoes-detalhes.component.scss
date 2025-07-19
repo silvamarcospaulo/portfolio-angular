@@ -17,6 +17,7 @@
     place-items: center;
     place-content: center;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 #imagem {
@@ -115,34 +116,41 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     #detalhes-container {
-        padding: 1.5rem;
+        flex-direction: column;
+        padding: 2rem;
+        gap: 2rem;
+    }
 
-        h2 {
-            font-size: 1.5rem;
-        }
+    #imagem {
+        width: 100%;
+        height: auto;
 
-        p {
-            font-size: 1rem;
+        img {
+            padding: 1rem;
         }
+    }
 
-        a {
-            font-size: 0.95rem;
-        }
+    #texto {
+        width: 100%;
+        padding: 1rem;
     }
 }
 
-@media (max-width: 480px) {
-    #detalhes-container {
-        padding: 1rem;
+@media (max-width: 576px) {
+    #titulo h2 {
+        font-size: 1.2rem;
+    }
 
-        h2 {
-            font-size: 1.3rem;
-        }
+    #descricao h5 {
+        font-size: 0.9rem;
+        -webkit-line-clamp: 6;
+    }
 
-        img {
-            max-width: 90%;
-        }
+    #botao-comprar-agora {
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
     }
 }
