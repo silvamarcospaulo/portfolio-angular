@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   templateUrl: './promocoes-footer.component.html',
   styleUrl: './promocoes-footer.component.scss'
 })
+
 export class PromocoesFooterComponent {
 
 }

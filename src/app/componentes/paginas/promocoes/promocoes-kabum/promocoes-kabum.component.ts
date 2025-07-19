@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Promocao } from '../../../../../model/promocao.model';
-import { PROMOCOES } from '../../../../data/promocoes';
+import { CardPromocaoComponent } from '../../../reutilizaveis/card-promocao/card-promocao.component';
 
 @Component({
     selector: 'app-promocoes-kabum',
@@ -10,6 +9,6 @@ import { PROMOCOES } from '../../../../data/promocoes';
     templateUrl: './promocoes-kabum.component.html',
     styleUrls: ['./promocoes-kabum.component.scss']
 })
+
 export class PromocoesKabumComponent {
-    produtos: Promocao[] = PROMOCOES.filter(p => p.store === 'kabum');
 }

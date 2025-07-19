@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CardPromocaoComponent } from '../../../reutilizaveis/card-promocao/card-promocao.component';
-import { PROMOCOES } from '../../../../data/promocoes';
-import { Promocao } from '../../../../../model/promocao.model';
 
 @Component({
   selector: 'app-promocoes-shopee',
@@ -13,5 +11,4 @@ import { Promocao } from '../../../../../model/promocao.model';
 })
 
 export class PromocoesShopeeComponent {
-  produtos: Promocao[] = PROMOCOES.filter(p => p.store === 'shopee');
 }

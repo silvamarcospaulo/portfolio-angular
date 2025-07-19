@@ -1,0 +1,24 @@
+<app-header />
+<section id="detalhes">
+    <div id="detalhes-container">
+        <div id="imagem">
+            <img [src]="produtoSelecionado.imagem" [alt]="produtoSelecionado.titulo">
+        </div>
+        <div id="texto">
+            <div id="titulo-e-descricao">
+                <div id="titulo">
+                    <h2>{{ produtoSelecionado.titulo }}</h2>
+                </div>
+                <div id="descricao">
+                    <h5>{{ produtoSelecionado.descricao }}</h5>
+                </div>
+            </div>
+            <div id=conteudo>
+                <p>Preço: R$ {{ produtoSelecionado.preco }}</p>
+                <p>Loja: {{ produtoSelecionado.loja }}</p>
+                <a id="botao-comprar-agora" [href]="produtoSelecionado.link" target="_blank">Comprar agora</a>
+            </div>
+        </div>
+    </div>
+</section>
+<app-footer />

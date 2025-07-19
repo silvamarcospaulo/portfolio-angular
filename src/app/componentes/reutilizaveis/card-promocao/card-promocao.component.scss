@@ -1,7 +1,127 @@
-:host {
-  display: block;
-}
-.card {
+#card {
+  width: 30vw;
+  height: 30vw;
+  border-radius: 5%;
   background-color: var(--color-primary);
   color: var(--color-text-title);
+  cursor: pointer;
+  display: flex;
+  place-content: center;
+  place-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+#imagem {
+  background-color: white;
+  width: 100%;
+  height: 65%;
+  display: flex;
+  place-content: center;
+  place-items: center;
+  padding: 1.5rem;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+#logo {
+  width: 40px;
+  top: 10px;
+  right: 10px;
+}
+
+#conteudo {
+  height: 35%;
+  width: 100%;
+  display: flex;
+  place-content: center;
+  place-items: center;
+  flex-direction: column;
+}
+
+#container-conteudo {
+  width: 100%;
+  height: 100%;
+  place-content: center;
+  place-items: center;
+  flex-wrap: nowrap;
+  padding: 0.5rem;
+}
+
+#titulo {
+  max-height: 45%;
+  height: 45%;
+  width: 100%;
+  display: flex;
+  place-content: start;
+  place-items: start;
+  flex-direction: column;
+
+  h5 {
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+#preco {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: space-between;
+  place-items: center;
+
+  p {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+#container-botao-obter-oferta {
+  display: flex;
+  justify-content: end;
+  place-items: center;
+  width: 100%;
+  height: 35%;
+}
+
+#botao-obter-oferta {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: 10px;
+  color: white;
+  background-color: var(--color-link-focus);
+
+  &:hover {
+    background-color: var(--color-link);
+  }
+}
+
+.badge {
+  top: 10px;
+  left: 10px;
+  font-size: 0.75rem;
+  border-radius: 5px;
+  color: var(--color-text-title);
+}
+
+.badge-novidade {
+  background-color: #0066ff;
+}
+
+.badge-emalta {
+  background-color: #e60000;
+  top: 40px;
 }

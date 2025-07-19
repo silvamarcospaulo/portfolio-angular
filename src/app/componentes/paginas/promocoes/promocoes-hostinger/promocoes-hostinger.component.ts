@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   templateUrl: './promocoes-hostinger.component.html',
   styleUrl: './promocoes-hostinger.component.scss'
 })
+
 export class PromocoesHostingerComponent {
 
 }

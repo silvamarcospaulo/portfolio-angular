@@ -7,11 +7,13 @@ import { PromocoesAmazonComponent } from './componentes/paginas/promocoes/promoc
 import { PromocoesKabumComponent } from './componentes/paginas/promocoes/promocoes-kabum/promocoes-kabum.component';
 import { PromocoesAliexpressComponent } from './componentes/paginas/promocoes/promocoes-aliexpress/promocoes-aliexpress.component';
 import { PromocoesShopeeComponent } from './componentes/paginas/promocoes/promocoes-shopee/promocoes-shopee.component';
+import { PromocoesDetalhesComponent } from './componentes/paginas/promocoes/promocoes-detalhes/promocoes-detalhes.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'links-uteis', component: MeusLinksComponent, title: 'Links úteis' },
     { path: 'promocoes', component: PromocoesComponent, title: '@marcospaulo.dev - Promoções' },
+    { path: 'promocoes/:loja/:id', component: PromocoesDetalhesComponent, title: '@marcospaulo.dev - Promoções' },
     { path: 'promocoes/mercado-livre', component: PromocoesMercadoLivreComponent, title: '@marcospaulo.dev - Promoções Mercado Livre' },
     { path: 'promocoes/amazon', component: PromocoesAmazonComponent, title: '@marcospaulo.dev - Promoções Amazon' },
     { path: 'promocoes/kabum', component: PromocoesKabumComponent, title: '@marcospaulo.dev - Kabum' },
