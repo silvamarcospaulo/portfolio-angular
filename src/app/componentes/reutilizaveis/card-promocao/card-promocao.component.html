@@ -1,0 +1,26 @@
+<div id="card" (click)="navegarParaDetalhes($event)">
+  <!-- <span *ngIf="isNovidade()" class="badge badge-novidade">Novidade</span>
+  <span *ngIf="isEmAlta()" class="badge badge-emalta">🔥 Em Alta</span> -->
+
+  <div id="imagem">
+    <img [src]="promocao.imagem" id="card-img-top" [alt]="promocao.titulo">
+  </div>
+
+  <!-- <img src="assets/amazon-logo.png" alt="Amazon" class="logo-amazon"> não vai ter logo por enquanto -->
+
+  <div id="conteudo">
+    <div id="container-conteudo">
+      <div id=titulo>
+        <h5>{{ promocao.titulo }}</h5>
+      </div>
+      <div id="preco">
+        <p>{{ promocao.preco }}</p>
+        <small>Loja: {{ promocao.loja }}</small>
+      </div>
+      <div id="container-botao-obter-oferta">
+        <a [href]="promocao.link" id="botao-obter-oferta" target="_blank" (click)="incrementarAcesso($event)">Acessar
+          oferta</a>
+      </div>
+    </div>
+  </div>
+</div>

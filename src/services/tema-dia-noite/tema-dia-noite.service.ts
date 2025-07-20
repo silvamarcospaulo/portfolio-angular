@@ -11,7 +11,7 @@ export class TemaDiaNoiteService {
   private isBrowser: boolean;
   private objetoTema: BehaviorSubject<boolean>;
 
-  darkMode$ = new BehaviorSubject<boolean>(false).asObservable(); // temporário
+  darkMode$ = new BehaviorSubject<boolean>(false).asObservable();
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
     this.isBrowser = isPlatformBrowser(this.platformId);
