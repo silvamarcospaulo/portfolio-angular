@@ -6,7 +6,61 @@
   padding: 1rem;
 }
 
+.section-filtro-nome {
+  margin-top: 10vh;
+  width: 100vw;
+  background-color: var(--color-primary);
+  padding: 1rem 0;
+
+  .filtro-container {
+    max-width: 1400px;
+    margin-inline: auto;
+    display: flex;
+    gap: 0.5rem;
+  }
+}
+
 .container-promocoes {
   max-width: 1400px;
   margin-inline: auto;
+}
+
+.sidebar-filtros {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 320px;
+  height: 100vh;
+  background-color: var(--color-primary);
+  color: var(--color-text-title);
+  padding: 1rem;
+  transition: right 0.3s ease;
+  z-index: 11;
+
+  .campo-filtro {
+    margin-bottom: 1rem;
+
+    label {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    select,
+    input {
+      width: 100%;
+    }
+  }
+
+  .btn-fechar {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    color: var(--color-text-title);
+  }
+}
+
+.sidebar-filtros.aberta {
+  right: 0;
 }

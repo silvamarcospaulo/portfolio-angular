@@ -17,11 +17,44 @@ import { HeaderComponent } from "../../reutilizaveis/header/header.component";
   styleUrls: ['./promocoes.component.scss']
 })
 export class PromocoesComponent {
+  todosProdutos: Produto[] = PRODUTOS_AMAZON;
   novos: Produto[] = [];
   emAlta: Produto[] = [];
 
+  filtroNome = '';
+  marcaFiltro = '';
+  ratingMinFiltro: number | null = null;
+  mostrarSidebar = false;
+  marcas: string[] = [];
+
   constructor(private produtoService: ProdutoService) {
-    const produtos = PRODUTOS_AMAZON;
+    this.marcas = [...new Set(this.todosProdutos
+      .map(p => p.marca)
+      .filter((m): m is string => !!m))];
+
+    this.aplicarFiltros();
+  }
+
+  aplicarFiltros(): void {
+    let produtos = this.todosProdutos;
+
+    if (this.filtroNome) {
+      produtos = produtos.filter(p =>
+        p.titulo.toLowerCase().includes(this.filtroNome.toLowerCase())
+      );
+    }
+
+    if (this.marcaFiltro) {
+      produtos = produtos.filter(p =>
+        (p.marca ?? '').toLowerCase().includes(this.marcaFiltro.toLowerCase())
+      );
+    }
+
+    if (this.ratingMinFiltro !== null) {
+      produtos = produtos.filter(p =>
+        (p.rating ?? 0) >= (this.ratingMinFiltro ?? 0)
+      );
+    }
 
     const dataLimite = new Date();
     dataLimite.setDate(dataLimite.getDate() - 7);
