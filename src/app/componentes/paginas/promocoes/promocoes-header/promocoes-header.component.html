@@ -1,1 +1,47 @@
-<p>promocoes-header works!</p>
+<header [class.translucido]="headerTranslucido">
+    <nav id="nav-bar">
+        <div id="logo">
+            <a href="">
+                <h3>{{ 'header.logo' | translate }}</h3>
+            </a>
+        </div>
+
+        <div id="menu-toggle" (click)="menuAberto = !menuAberto">
+            <h3><i class="bi bi-list"></i></h3>
+        </div>
+
+        <div id="container-nav-list" [class.aberto]="menuAberto" [class.translucido]="headerTranslucido">
+            <ol id="nav-list">
+                @for (link of links; track link) {
+                <li>
+                    <a [href]="link.url" (click)="fecharMenu()">{{ link.nome | translate }}</a>
+                </li>
+                }
+            </ol>
+            <div id="container-configuracao-pagina">
+                <app-dropdown-idiomas />
+                <app-switch-dia-noite />
+            </div>
+        </div>
+    </nav>
+    <div id="filtro-por-nome-fixo" [class.aberto]="menuAberto">
+        <input type="text" class="form-control" placeholder="Pesquise um produto Amazon" [(ngModel)]="filtroNome"
+            (input)="aplicarFiltros()" />
+        <button class="btn btn-secondary btn-abrir-filtros" (click)="mostrarSidebar = !mostrarSidebar">Filtros</button>
+    </div>
+
+    <aside id="sidebar-filtros" [class.aberta]="mostrarSidebar">
+        <button id="btn-fechar" (click)="mostrarSidebar = false">&times;</button>
+        <div id="campo-filtro">
+            <label>Marca</label>
+            <select [(ngModel)]="marcaFiltro" (change)="aplicarFiltros()">
+                <option value="">Todas</option>
+                <option *ngFor="let m of marcas" [value]="m">{{ m }}</option>
+            </select>
+        </div>
+        <div id="campo-filtro">
+            <label>Rating mínimo</label>
+            <input type="number" min="0" max="5" step="0.1" [(ngModel)]="ratingMinFiltro" (input)="aplicarFiltros()" />
+        </div>
+    </aside>
+</header>
