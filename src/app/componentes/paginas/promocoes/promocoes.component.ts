@@ -4,16 +4,16 @@ import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { ProdutoService } from '../../../../services/produto/ProdutoService';
 import { Produto } from '../../../../model/produto/produto';
-import { CardPromocaoComponent } from '../../reutilizaveis/card-promocao/card-promocao.component';
 import { PRODUTOS_AMAZON } from './data/produto';
 import { FooterComponent } from "../../reutilizaveis/footer/footer.component";
 import { PromocoesHeaderComponent } from "./promocoes-header/promocoes-header.component";
 import { Link } from '../../../../model/link.model';
+import { PromocaoCardComponent } from './promocao-card/promocao-card.component';
 
 @Component({
   selector: 'app-promocoes',
   standalone: true,
-  imports: [CommonModule, FormsModule, CardPromocaoComponent, FooterComponent, PromocoesHeaderComponent],
+  imports: [CommonModule, FormsModule, PromocaoCardComponent, FooterComponent, PromocoesHeaderComponent],
   templateUrl: './promocoes.component.html',
   styleUrls: ['./promocoes.component.scss']
 })

@@ -1,5 +1,5 @@
 <app-promocoes-header [filtroNome]="filtroNome" [marcaFiltro]="marcaFiltro" [ratingMinFiltro]="ratingMinFiltro"
-  [mostrarSidebar]="mostrarSidebar" [marcas]="marcas" (filtrosChange)="onFiltrosAtualizados($event)" [links]="links"/>
+  [mostrarSidebar]="mostrarSidebar" [marcas]="marcas" (filtrosChange)="onFiltrosAtualizados($event)" [links]="links" />
 
 <section id="section-promocoes">
 
@@ -18,7 +18,7 @@
       </div>
       <div id="todos-produtos">
         <div class="produto" *ngFor="let produto of produtosFiltrados">
-          <app-card-promocao [promocao]="produto" />
+          <app-promocao-card [promocao]="produto" />
         </div>
       </div>
     </div>
@@ -30,7 +30,7 @@
       <div class="container-produtos">
         <div class="scroll-produtos">
           <div *ngFor="let produto of novos.slice(0, 10)">
-            <app-card-promocao [promocao]="produto" />
+            <app-promocao-card [promocao]="produto" />
           </div>
         </div>
       </div>

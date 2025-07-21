@@ -1,17 +1,17 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Produto } from '../../../../model/produto/produto';
-import { ProdutoService } from '../../../../services/produto/ProdutoService';
 import { Router } from '@angular/router';
+import { ProdutoService } from '../../../../../services/produto/ProdutoService';
+import { Produto } from '../../../../../model/produto/produto';
 
 @Component({
-  selector: 'app-card-promocao',
+  selector: 'app-promocao-card',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './card-promocao.component.html',
-  styleUrls: ['./card-promocao.component.scss']
+  templateUrl: './promocao-card.component.html',
+  styleUrls: ['./promocao-card.component.scss']
 })
-export class CardPromocaoComponent {
+export class PromocaoCardComponent {
   @Input() promocao!: Produto;
 
   constructor(

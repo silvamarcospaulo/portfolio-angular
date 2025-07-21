@@ -38,7 +38,8 @@
   columns: 3;
 
   .produto {
-    margin-bottom: 1.5rem;
+    margin: 1.5rem;
+    margin-top: 0;
   }
 }
 
@@ -87,9 +88,23 @@
   }
 
   &::-webkit-scrollbar-track {
-    background-color: transparent;
+    background-color: var(--color-border);
+    border-radius: 8px;
   }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--color-link);
+    border-radius: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #004FCC;
+  }
+
+  scrollbar-color: var(--color-link) var(--color-border);
+  scrollbar-width: thin;
 }
+
 
 @media screen and (max-width: 768px) {
 

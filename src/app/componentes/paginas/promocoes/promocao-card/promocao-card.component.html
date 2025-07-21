@@ -13,13 +13,19 @@
       <div id=titulo>
         <h5>{{ promocao.titulo }}</h5>
       </div>
-      <div id="preco">
-        <p>{{ promocao.preco }}</p>
-        <small>Loja: {{ promocao.loja }}</small>
-      </div>
-      <div id="container-botao-obter-oferta">
-        <a [href]="promocao.link" id="botao-obter-oferta" target="_blank" (click)="incrementarAcesso($event)">Acessar
-          oferta</a>
+      <div id="texto">
+        <div id="preco">
+          <div id="valor">
+            <p>{{ promocao.preco }}</p>
+          </div>
+          <div id="loja">
+            <small>Loja: {{ promocao.loja }}</small>
+          </div>
+        </div>
+        <div id="container-botao-obter-oferta">
+          <a [href]="promocao.link" id="botao-obter-oferta" target="_blank" (click)="incrementarAcesso($event)">Acessar
+            oferta</a>
+        </div>
       </div>
     </div>
   </div>
