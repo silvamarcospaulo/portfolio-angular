@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
 import { ProdutoService } from '../../../../services/produto/ProdutoService';
 import { Produto } from '../../../../model/produto/produto';
-import { PRODUTOS_AMAZON } from './data/produto';
 import { FooterComponent } from "../../reutilizaveis/footer/footer.component";
 import { PromocoesHeaderComponent } from "./promocoes-header/promocoes-header.component";
 import { Link } from '../../../../model/link.model';
@@ -23,7 +21,7 @@ export class PromocoesComponent {
   ratingMinFiltro: number | null = null;
   mostrarSidebar = false;
   marcas: string[] = [];
-  todosProdutos: Produto[] = PRODUTOS_AMAZON;
+  todosProdutos: Produto[] = [];
   produtosFiltrados: Produto[] = [];
   novos: Produto[] = [];
   emAlta: Produto[] = [];
@@ -39,12 +37,22 @@ export class PromocoesComponent {
 
 
   constructor(private produtoService: ProdutoService) {
-    this.marcas = [...new Set(this.todosProdutos
-      .map(p => p.marca)
-      .filter((m): m is string => !!m))];
+    this.carregarProdutos();
+  }
 
-    this.produtosFiltrados = [...this.todosProdutos];
-    this.filtrarListasFixas();
+  private carregarProdutos() {
+    this.produtoService.listar().subscribe({
+      next: produtos => {
+        this.todosProdutos = produtos;
+        this.marcas = [...new Set(produtos
+          .map(p => p.marca)
+          .filter((m): m is string => !!m))];
+
+        this.produtosFiltrados = [...produtos];
+        this.filtrarListasFixas();
+      },
+      error: err => console.error(err)
+    });
   }
 
   onFiltrosAtualizados(filtros: {
