@@ -31,15 +31,10 @@
 }
 
 #todos-produtos {
-  width: 100%;
-  height: 100%;
-  place-content: start;
-  place-items: start;
   columns: 3;
 
   .produto {
-    margin: 1.5rem;
-    margin-top: 0;
+    margin-bottom: 1rem;
   }
 }
 
