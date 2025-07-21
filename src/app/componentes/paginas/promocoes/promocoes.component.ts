@@ -1,14 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
-import { ProdutoService } from '../../../../services/produto/ProdutoService';
 import { Produto } from '../../../../model/produto/produto';
-import { PRODUTOS_AMAZON } from './data/produto';
 import { FooterComponent } from "../../reutilizaveis/footer/footer.component";
 import { PromocoesHeaderComponent } from "./promocoes-header/promocoes-header.component";
 import { Link } from '../../../../model/link.model';
 import { PromocaoCardComponent } from './promocao-card/promocao-card.component';
+import { ProdutoService } from '../../../../core/services/afiliados-repository/produto-repositoy/produto-repositoy.service';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-promocoes',
@@ -17,14 +16,14 @@ import { PromocaoCardComponent } from './promocao-card/promocao-card.component';
   templateUrl: './promocoes.component.html',
   styleUrls: ['./promocoes.component.scss']
 })
-export class PromocoesComponent {
+export class PromocoesComponent implements OnInit {
   filtroNome = '';
   marcaFiltro = '';
   ratingMinFiltro: number | null = null;
   mostrarSidebar = false;
   marcas: string[] = [];
-  todosProdutos: Produto[] = PRODUTOS_AMAZON;
-  produtosFiltrados: Produto[] = [];
+  todosProdutos!: Produto[];
+  produtosFiltrados!: Produto[]
   novos: Produto[] = [];
   emAlta: Produto[] = [];
   links: Link[] = [
@@ -37,14 +36,20 @@ export class PromocoesComponent {
     new Link('Mercado Livre', "/promocoes#section-promocoes"),
   ];
 
-
-  constructor(private produtoService: ProdutoService) {
+  async ngOnInit(): Promise<void> {
+    this.obterListaDeProdutos();
     this.marcas = [...new Set(this.todosProdutos
       .map(p => p.marca)
       .filter((m): m is string => !!m))];
 
     this.produtosFiltrados = [...this.todosProdutos];
-    this.filtrarListasFixas();
+    await this.filtrarListasFixas();
+  }
+
+  constructor(private produtoService: ProdutoService) { }
+
+  async obterListaDeProdutos() {
+    return this.produtosFiltrados = await firstValueFrom(await this.produtoService.listar());
   }
 
   onFiltrosAtualizados(filtros: {

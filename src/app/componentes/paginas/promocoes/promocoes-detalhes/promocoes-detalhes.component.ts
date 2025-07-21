@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HeaderComponent } from "../../../reutilizaveis/header/header.component";
 import { FooterComponent } from "../../../reutilizaveis/footer/footer.component";
-import { PRODUTOS_AMAZON } from '../data/produto';
 import { Produto } from '../../../../../model/produto/produto';
 import { CommonModule } from '@angular/common';
+import { ProdutoService } from '../../../../../core/services/afiliados-repository/produto-repositoy/produto-repositoy.service';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   standalone: true,
@@ -18,23 +19,28 @@ export class PromocoesDetalhesComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private produtoService: ProdutoService,
     private router: Router
   ) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     const loja = this.route.snapshot.paramMap.get('loja');
     const id = this.route.snapshot.paramMap.get('id');
+    if (!loja) throw new Error("Loja não informada!");
+    if (!id) throw new Error("Produto não informado!");
 
+    await this.obterProdutoPorId(id);
+  }
+
+  async obterProdutoPorId(id: string) {
     try {
-      if (!id) throw new Error("Id não informado");
+      id = "produtos_" + id;
+      const produto = await firstValueFrom(await this.produtoService.obterPorId(id));
 
-      const encontrado = PRODUTOS_AMAZON.find(
-        p => p.id.toString() === id
-      );
+      if (!produto) throw new Error("Produto não encontrado");
 
-      if (!encontrado) throw new Error("Produto não encontrado");
+      this.produtoSelecionado = produto;
 
-      this.produtoSelecionado = encontrado;
     } catch (error: any) {
       alert(error.message);
       this.router.navigate(['/promocoes']);

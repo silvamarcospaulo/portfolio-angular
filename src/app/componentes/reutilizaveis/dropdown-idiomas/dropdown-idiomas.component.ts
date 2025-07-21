@@ -1,6 +1,6 @@
 import { Component, signal, Signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { IdiomaService, Linguagem } from '../../../../services/idioma/idioma.service';
+import { IdiomaService, Linguagem } from '../../../../core/services/idioma/idioma.service';
 
 @Component({
   selector: 'app-dropdown-idiomas',

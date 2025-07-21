@@ -8,10 +8,15 @@ import { PromocoesKabumComponent } from './componentes/paginas/promocoes/promoco
 import { PromocoesAliexpressComponent } from './componentes/paginas/promocoes/promocoes-aliexpress/promocoes-aliexpress.component';
 import { PromocoesShopeeComponent } from './componentes/paginas/promocoes/promocoes-shopee/promocoes-shopee.component';
 import { PromocoesDetalhesComponent } from './componentes/paginas/promocoes/promocoes-detalhes/promocoes-detalhes.component';
+import { LoginComponent } from './componentes/paginas/login/login.component';
+import { PainelAdminComponent } from './componentes/paginas/login/painel-admin/painel-admin.component';
+import { authGuard } from '../core/guards/auth.guard';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'links-uteis', component: MeusLinksComponent, title: 'Links úteis' },
+    { path: 'login', component: LoginComponent, title: '@marcospaulo.dev - Admin' },
+    { path: 'painel', component: PainelAdminComponent, canActivate: [authGuard], title: 'Painel Admin' },
     { path: 'promocoes', component: PromocoesComponent, title: '@marcospaulo.dev - Promoções' },
     { path: 'promocoes/:loja/:id', component: PromocoesDetalhesComponent, title: '@marcospaulo.dev - Promoções' },
     { path: 'promocoes/mercado-livre', component: PromocoesMercadoLivreComponent, title: '@marcospaulo.dev - Promoções Mercado Livre' },
