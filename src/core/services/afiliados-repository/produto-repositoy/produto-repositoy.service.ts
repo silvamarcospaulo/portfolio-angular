@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../../../environments/environments';
 import { Produto } from '../../../../model/produto/produto';
+import { FiltroProduto } from '../../../../model/filtro-produto/filtro-produto';
+import { URLSearchParams } from 'url';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +14,18 @@ export class ProdutoService {
 
   constructor(private http: HttpClient) { }
 
-  async listar(pagina = 1, limite = 12) {
-    return this.http.get<Produto[]>(`${this.apiUrl}?pagina=${pagina}&limite=${limite}`);
+  async listar(filtros: FiltroProduto) {
+    let params = new HttpParams();
+
+    Object.entries(filtros).forEach(([key, value]) => {
+      if (value !== undefined && value !== null) {
+        params = params.set(key, value.toString());
+      }
+    });
+
+    return this.http.get<Produto[]>(this.apiUrl, { params });
   }
+
 
   async criar(produto: any) {
     return this.http.post(this.apiUrl, produto);

@@ -5,6 +5,7 @@ import { DropdownIdiomasComponent } from "../../../reutilizaveis/dropdown-idioma
 import { SwitchDiaNoiteComponent } from "../../../reutilizaveis/switch-dia-noite/switch-dia-noite.component";
 import { FormsModule } from '@angular/forms';
 import { Link } from '../../../../../model/link.model';
+import { FiltroProduto } from '../../../../../model/filtro-produto/filtro-produto';
 
 @Component({
   standalone: true,
@@ -15,17 +16,11 @@ import { Link } from '../../../../../model/link.model';
 })
 export class PromocoesHeaderComponent {
   @Input() links: Link[] = [];
-  @Input() filtroNome = '';
-  @Input() marcaFiltro = '';
-  @Input() ratingMinFiltro: number | null = null;
+  @Input() filtros!: FiltroProduto;
   @Input() mostrarSidebar = false;
   @Input() marcas: string[] = [];
 
-  @Output() filtrosChange = new EventEmitter<{
-    filtroNome: string;
-    marcaFiltro: string;
-    ratingMinFiltro: number | null;
-  }>();
+  @Output() filtrosChange = new EventEmitter<FiltroProduto>();
 
   menuAberto = false;
 
@@ -57,10 +52,6 @@ export class PromocoesHeaderComponent {
   };
 
   aplicarFiltros() {
-    this.filtrosChange.emit({
-      filtroNome: this.filtroNome,
-      marcaFiltro: this.marcaFiltro,
-      ratingMinFiltro: this.ratingMinFiltro
-    });
+    this.filtrosChange.emit(this.filtros);
   }
 }
