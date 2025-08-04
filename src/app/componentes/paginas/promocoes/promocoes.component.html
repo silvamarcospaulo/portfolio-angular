@@ -17,7 +17,7 @@
         <h3>Todos os Produtos</h3>
       </div>
       <div id="todos-produtos">
-        <div class="produto" *ngFor="let produto of produtos">
+        <div class="produto" *ngFor="let produto of retornoProduto.produtos">
           <app-promocao-card [promocao]="produto" />
         </div>
       </div>

@@ -4,6 +4,7 @@ import { environment } from '../../../../environments/environments';
 import { Produto } from '../../../../model/produto/produto';
 import { FiltroProduto } from '../../../../model/filtro-produto/filtro-produto';
 import { URLSearchParams } from 'url';
+import { RetornoProdutoDto } from '../../../../model/produto/retorno-produto.dto';
 
 @Injectable({
   providedIn: 'root'
@@ -23,9 +24,13 @@ export class ProdutoService {
       }
     });
 
-    return this.http.get<Produto[]>(this.apiUrl, { params });
+    return this.http.get<RetornoProdutoDto>(this.apiUrl, { params });
   }
 
+  async obterTodasMarcas() {
+    let params = new HttpParams();
+    return this.http.get<string[]>(`${this.apiUrl}/marcas`, { params });
+  }
 
   async criar(produto: any) {
     return this.http.post(this.apiUrl, produto);
