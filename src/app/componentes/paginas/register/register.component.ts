@@ -23,7 +23,7 @@ export class RegisterComponent {
   constructor(private userService: UserService, private router: Router) { }
 
   registrar() {
-    this.userService.registrar({ nomeCompleto: this.nomeCompleto, email: this.email, senha: this.senha })
+    this.userService.registrar({ nomeCompleto: this.nomeCompleto, email: this.email, senha: this.senha, role: 'aluno' })
       .subscribe({
         next: () => this.router.navigate(['/login']),
         error: () => this.erro = 'Erro ao registrar'

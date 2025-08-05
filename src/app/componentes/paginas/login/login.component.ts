@@ -34,8 +34,8 @@ export class LoginComponent {
     this.authService.login({ usuario: this.usuario, senha: this.senha })
       .subscribe({
         next: (res: any) => {
-          localStorage.setItem('token', res.token);
-          const payload = JSON.parse(atob(res.token.split('.')[1]));
+          localStorage.setItem('token', res.accessToken);
+          const payload = JSON.parse(atob(res.accessToken.split('.')[1]));
           if (payload.role === 'adm') {
             this.router.navigate(['/painel']);
           } else {

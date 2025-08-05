@@ -22,7 +22,7 @@ export class UniversityService {
     return this.http.post(`${this.apiUrl}/courses/${id}/purchase`, {});
   }
 
-  salvarProgresso(id: string, moduloIndex: number) {
-    return this.http.put(`${this.apiUrl}/courses/${id}/progress`, { moduloIndex });
+  salvarProgresso(id: string, moduloAtual: number, percentual: number) {
+    return this.http.put(`${this.apiUrl}/courses/${id}/progress`, { moduloAtual, percentual });
   }
 }
