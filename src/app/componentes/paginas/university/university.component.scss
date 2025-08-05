@@ -1,0 +1,21 @@
+.about {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  .actions {
+    margin-top: 1rem;
+    a {
+      margin: 0 0.5rem;
+    }
+  }
+}
+
+.course-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.course-card {
+  width: 300px;
+}

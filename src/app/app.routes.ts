@@ -10,6 +10,10 @@ import { PromocoesShopeeComponent } from './componentes/paginas/promocoes/promoc
 import { PromocoesDetalhesComponent } from './componentes/paginas/promocoes/promocoes-detalhes/promocoes-detalhes.component';
 import { LoginComponent } from './componentes/paginas/login/login.component';
 import { PainelAdminComponent } from './componentes/paginas/login/painel-admin/painel-admin.component';
+import { UniversityComponent } from './componentes/paginas/university/university.component';
+import { CourseDetailComponent } from './componentes/paginas/university/course-detail/course-detail.component';
+import { StudentDashboardComponent } from './componentes/paginas/university/student-dashboard/student-dashboard.component';
+import { RegisterComponent } from './componentes/paginas/register/register.component';
 import { authGuard } from '../core/guards/auth.guard';
 
 export const routes: Routes = [
@@ -23,5 +27,9 @@ export const routes: Routes = [
     { path: 'promocoes/amazon', component: PromocoesAmazonComponent, title: '@marcospaulo.dev - Promoções Amazon' },
     { path: 'promocoes/kabum', component: PromocoesKabumComponent, title: '@marcospaulo.dev - Kabum' },
     { path: 'promocoes/shopee', component: PromocoesShopeeComponent, title: '@marcospaulo.dev - Shopee' },
-    { path: 'promocoes/aliexpress', component: PromocoesAliexpressComponent, title: '@marcospaulo.dev - AliExpress' }
+    { path: 'promocoes/aliexpress', component: PromocoesAliexpressComponent, title: '@marcospaulo.dev - AliExpress' },
+    { path: 'universidade', component: UniversityComponent, title: 'Universidade' },
+    { path: 'universidade/cursos/:id', component: CourseDetailComponent, canActivate: [authGuard], title: 'Curso' },
+    { path: 'universidade/dashboard', component: StudentDashboardComponent, canActivate: [authGuard], title: 'Meus Cursos' },
+    { path: 'registro', component: RegisterComponent, title: 'Registre-se' }
 ];

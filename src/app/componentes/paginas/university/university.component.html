@@ -1,0 +1,23 @@
+<section class="about">
+  <h1>Bem-vindo à Universidade</h1>
+  <p>Sou Marcos Paulo Silva, graduado em ... e trabalho com diversas tecnologias como Angular, NestJS, etc.</p>
+  <div class="actions">
+    <a mat-raised-button color="primary" routerLink="/login">Login</a>
+    <a mat-raised-button color="accent" routerLink="/registro">Registre-se</a>
+  </div>
+</section>
+
+<section class="courses" *ngIf="cursos.length">
+  <h2>Cursos Disponíveis</h2>
+  <div class="course-list">
+    <mat-card *ngFor="let curso of cursos" class="course-card">
+      <mat-card-title>{{ curso.nome }}</mat-card-title>
+      <mat-card-content>
+        <p>Módulos: {{ curso.quantidadeModulos }} | Preço: {{ curso.preco | currency:'BRL' }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-button color="primary" [routerLink]="['/universidade/cursos', curso.id]">Ver detalhes</a>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</section>
