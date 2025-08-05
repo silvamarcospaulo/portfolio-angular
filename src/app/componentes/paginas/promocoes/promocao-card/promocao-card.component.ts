@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { ProdutoService } from '../../../../../services/produto/ProdutoService';
 import { Produto } from '../../../../../model/produto/produto';
 
 @Component({
@@ -15,7 +14,6 @@ export class PromocaoCardComponent {
   @Input() promocao!: Produto;
 
   constructor(
-    private produtoService: ProdutoService,
     private router: Router
   ) { }
 
@@ -29,17 +27,14 @@ export class PromocaoCardComponent {
     return (this.promocao.acessos ?? 0) > 10;
   }
 
-  incrementarAcesso(event: MouseEvent): void {
-    event.stopPropagation();
-    this.produtoService.incrementarAcessos(this.promocao.id);
-  }
-
   navegarParaDetalhes(event: MouseEvent): void {
+    debugger
     event.preventDefault();
     event.stopPropagation();
 
     const loja = this.promocao.loja;
-    const id = this.promocao.id;
+    let id = this.promocao.id;
+    id = id.replaceAll("produtos/", "");
 
     if (loja && id) {
       this.router.navigate(['/promocoes', loja.toLowerCase(), id]);

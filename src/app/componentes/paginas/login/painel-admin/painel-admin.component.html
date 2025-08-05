@@ -1,0 +1,29 @@
+<div class="cadastro-container">
+    <h2>Cadastro de Links</h2>
+
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Link</mat-label>
+        <input matInput [(ngModel)]="url" placeholder="Cole aqui o link do produto" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Loja</mat-label>
+        <mat-select [(ngModel)]="loja">
+            <mat-option *ngFor="let l of lojasDisponiveis" [value]="l">{{ l }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <div class="button-group">
+        <button mat-raised-button color="primary" (click)="adicionarLink()">Adicionar link</button>
+        <button mat-raised-button color="accent" (click)="submeter()">Submeter</button>
+    </div>
+
+    <mat-list *ngIf="links.length > 0">
+        <h3>Links adicionados:</h3>
+        <mat-list-item *ngFor="let item of links">
+            {{ item.loja }} - {{ item.url }}
+        </mat-list-item>
+    </mat-list>
+
+    <p *ngIf="mensagem" class="mensagem">{{ mensagem }}</p>
+</div>

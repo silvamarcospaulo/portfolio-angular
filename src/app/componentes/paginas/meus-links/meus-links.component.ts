@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SeoService } from '../../../../services/seo/seo.service';
+import { SeoService } from '../../../../core/services/seo/seo.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { CardComponent } from './card/card.component';
 import { FooterComponent } from '../../reutilizaveis/footer/footer.component';

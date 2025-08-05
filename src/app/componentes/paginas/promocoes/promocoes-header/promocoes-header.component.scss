@@ -6,7 +6,7 @@ header {
     align-items: center;
     flex-direction: column;
     height: 15vh;
-    width: 100vw;
+    width: 100%;
     top: 0;
     left: 0;
     z-index: 10;
@@ -43,10 +43,10 @@ header {
         text-decoration: none;
 
         h3 {
-            font-size: 1.875rem;
+            font-size: 1.5rem;
             color: var(--color-text-title);
-
-
+            margin: 0;
+            padding: 0;
         }
 
         &:hover {
@@ -203,7 +203,7 @@ header {
         position: absolute;
         top: 10vh;
         left: 0;
-        width: 100vw;
+        width: 100%;
         height: calc(100vh - 10vh);
         background-color: var(--color-primary);
         flex-direction: column;
@@ -282,7 +282,7 @@ header {
         position: absolute;
         top: 10vh;
         left: 0;
-        width: 100vw;
+        width: 100%;
         height: calc(100vh - 10vh);
         background-color: var(--color-primary);
         flex-direction: column;
