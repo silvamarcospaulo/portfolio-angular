@@ -1,0 +1,88 @@
+<div class="register-container">
+  <form [formGroup]="form" (ngSubmit)="registrar()" class="register-form">
+    <mat-form-field appearance="fill">
+      <mat-label>Nome completo</mat-label>
+      <input matInput formControlName="nomeCompleto" required>
+      <mat-error *ngIf="form.get('nomeCompleto')?.hasError('required')">Nome completo é obrigatório</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" formControlName="email" required>
+      <mat-error *ngIf="form.get('email')?.hasError('required')">Email é obrigatório</mat-error>
+      <mat-error *ngIf="form.get('email')?.hasError('email')">Email inválido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Senha</mat-label>
+      <input matInput type="password" formControlName="senha" required>
+      <mat-error *ngIf="form.get('senha')?.hasError('required')">Senha é obrigatória</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>CPF</mat-label>
+      <input matInput formControlName="cpf" required>
+      <mat-error *ngIf="form.get('cpf')?.hasError('required')">CPF é obrigatório</mat-error>
+      <mat-error *ngIf="form.get('cpf')?.hasError('cpf')">CPF inválido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Telefone</mat-label>
+      <input matInput formControlName="telefone">
+      <mat-error *ngIf="form.get('telefone')?.hasError('pattern')">Telefone inválido</mat-error>
+    </mat-form-field>
+
+    <div formGroupName="endereco" class="endereco-group">
+      <mat-form-field appearance="fill">
+        <mat-label>Rua</mat-label>
+        <input matInput formControlName="rua" required>
+        <mat-error *ngIf="form.get('endereco.rua')?.hasError('required')">Rua é obrigatória</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Número</mat-label>
+        <input matInput formControlName="numero" required>
+        <mat-error *ngIf="form.get('endereco.numero')?.hasError('required')">Número é obrigatório</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Complemento</mat-label>
+        <input matInput formControlName="complemento">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Bairro</mat-label>
+        <input matInput formControlName="bairro" required>
+        <mat-error *ngIf="form.get('endereco.bairro')?.hasError('required')">Bairro é obrigatório</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Cidade</mat-label>
+        <input matInput formControlName="cidade" required>
+        <mat-error *ngIf="form.get('endereco.cidade')?.hasError('required')">Cidade é obrigatória</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Estado</mat-label>
+        <input matInput formControlName="estado" required>
+        <mat-error *ngIf="form.get('endereco.estado')?.hasError('required')">Estado é obrigatório</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>CEP</mat-label>
+        <input matInput formControlName="cep" required>
+        <mat-error *ngIf="form.get('endereco.cep')?.hasError('required')">CEP é obrigatório</mat-error>
+        <mat-error *ngIf="form.get('endereco.cep')?.hasError('pattern')">CEP inválido</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>País</mat-label>
+        <input matInput formControlName="pais" required>
+        <mat-error *ngIf="form.get('endereco.pais')?.hasError('required')">País é obrigatório</mat-error>
+      </mat-form-field>
+    </div>
+
+    <button mat-raised-button color="primary" type="submit">Registrar</button>
+    <div class="erro" *ngIf="erro">{{ erro }}</div>
+  </form>
+</div>

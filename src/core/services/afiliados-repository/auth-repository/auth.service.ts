@@ -6,8 +6,8 @@ import { environment } from '../../../../environments/environments';
   providedIn: 'root'
 })
 
-export class AdminService {
-  private readonly apiUrl = `${environment.apiUrl}/admin`;
+export class AuthService {
+  private readonly apiUrl = `${environment.apiUrl}/auth`;
 
   constructor(private http: HttpClient) { }
 

@@ -1,0 +1,9 @@
+.course-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.course-card {
+  width: 300px;
+}
