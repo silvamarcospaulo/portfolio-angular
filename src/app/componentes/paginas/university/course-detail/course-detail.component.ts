@@ -4,12 +4,13 @@ import { ActivatedRoute } from '@angular/router';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
+import { HeaderComponent } from '../../../layout/header/header.component';
 import { UniversityService } from '../../../../../core/services/afiliados-repository/university-repository/university.service';
 
 @Component({
   selector: 'app-course-detail',
   standalone: true,
-  imports: [CommonModule, MatSidenavModule, MatListModule, MatButtonModule],
+  imports: [CommonModule, MatSidenavModule, MatListModule, MatButtonModule, HeaderComponent],
   templateUrl: './course-detail.component.html',
   styleUrl: './course-detail.component.scss'
 })

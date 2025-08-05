@@ -1,21 +1,22 @@
-<div class="login-container">
+<app-header></app-header>
+<div class="login-wrapper">
+  <mat-card class="login-card">
     <h2>Área Administrativa</h2>
-
     <form (ngSubmit)="login()" class="login-form">
-        <mat-form-field appearance="outline" class="full-width">
-            <mat-label>Usuário</mat-label>
-            <input matInput type="text" [(ngModel)]="usuario" name="usuario" required />
-        </mat-form-field>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Usuário</mat-label>
+        <input matInput type="text" [(ngModel)]="usuario" name="usuario" required />
+      </mat-form-field>
 
-        <mat-form-field appearance="outline" class="full-width">
-            <mat-label>Senha</mat-label>
-            <input matInput type="password" [(ngModel)]="senha" name="senha" required />
-        </mat-form-field>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Senha</mat-label>
+        <input matInput type="password" [(ngModel)]="senha" name="senha" required />
+      </mat-form-field>
 
-        <button mat-raised-button color="primary" type="submit" class="full-width">
-            Entrar
-        </button>
+      <button mat-raised-button color="primary" type="submit" class="full-width">
+        Entrar
+      </button>
     </form>
-
     <p *ngIf="erro" class="erro-msg">{{ erro }}</p>
+  </mat-card>
 </div>

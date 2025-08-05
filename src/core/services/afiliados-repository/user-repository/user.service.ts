@@ -34,4 +34,8 @@ export class UserService {
   registrar(dto: CriarUsuarioDto) {
     return this.http.post(this.apiUrl, dto);
   }
+
+  listar() {
+    return this.http.get<any[]>(this.apiUrl);
+  }
 }

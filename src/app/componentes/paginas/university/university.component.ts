@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
+import { HeaderComponent } from '../../layout/header/header.component';
 import { UniversityService } from '../../../../core/services/afiliados-repository/university-repository/university.service';
 
 @Component({
   selector: 'app-university',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule, RouterModule],
+  imports: [CommonModule, MatCardModule, MatButtonModule, RouterModule, HeaderComponent],
   templateUrl: './university.component.html',
   styleUrl: './university.component.scss'
 })

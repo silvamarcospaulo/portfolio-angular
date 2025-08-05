@@ -9,7 +9,10 @@ import { PromocoesAliexpressComponent } from './componentes/paginas/promocoes/pr
 import { PromocoesShopeeComponent } from './componentes/paginas/promocoes/promocoes-shopee/promocoes-shopee.component';
 import { PromocoesDetalhesComponent } from './componentes/paginas/promocoes/promocoes-detalhes/promocoes-detalhes.component';
 import { LoginComponent } from './componentes/paginas/login/login.component';
-import { PainelAdminComponent } from './componentes/paginas/login/painel-admin/painel-admin.component';
+import { AdminLayoutComponent } from './componentes/paginas/admin/admin-layout/admin-layout.component';
+import { AdminProductsComponent } from './componentes/paginas/admin/admin-products/admin-products.component';
+import { AdminCoursesComponent } from './componentes/paginas/admin/admin-courses/admin-courses.component';
+import { AdminStudentsComponent } from './componentes/paginas/admin/admin-students/admin-students.component';
 import { UniversityComponent } from './componentes/paginas/university/university.component';
 import { CourseDetailComponent } from './componentes/paginas/university/course-detail/course-detail.component';
 import { StudentDashboardComponent } from './componentes/paginas/university/student-dashboard/student-dashboard.component';
@@ -20,7 +23,18 @@ export const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'links-uteis', component: MeusLinksComponent, title: 'Links úteis' },
     { path: 'login', component: LoginComponent, title: '@marcospaulo.dev - Admin' },
-    { path: 'painel', component: PainelAdminComponent, canActivate: [authGuard], title: 'Painel Admin' },
+    {
+      path: 'painel',
+      component: AdminLayoutComponent,
+      canActivate: [authGuard],
+      title: 'Painel Admin',
+      children: [
+        { path: 'produtos', component: AdminProductsComponent },
+        { path: 'cursos', component: AdminCoursesComponent },
+        { path: 'alunos', component: AdminStudentsComponent },
+        { path: '', redirectTo: 'produtos', pathMatch: 'full' }
+      ]
+    },
     { path: 'promocoes', component: PromocoesComponent, title: '@marcospaulo.dev - Promoções' },
     { path: 'promocoes/:loja/:id', component: PromocoesDetalhesComponent, title: '@marcospaulo.dev - Promoções' },
     { path: 'promocoes/mercado-livre', component: PromocoesMercadoLivreComponent, title: '@marcospaulo.dev - Promoções Mercado Livre' },

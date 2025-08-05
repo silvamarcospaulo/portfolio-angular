@@ -4,13 +4,15 @@ import { ReactiveFormsModule, FormBuilder, Validators, AbstractControl, Validati
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { Router } from '@angular/router';
+import { HeaderComponent } from '../../layout/header/header.component';
 import { UserService, CriarUsuarioDto } from '../../../../core/services/afiliados-repository/user-repository/user.service';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule],
+  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatCardModule, HeaderComponent],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })

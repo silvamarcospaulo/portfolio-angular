@@ -1,4 +1,6 @@
+<app-header></app-header>
 <div class="register-container">
+  <mat-card class="register-card">
   <form [formGroup]="form" (ngSubmit)="registrar()" class="register-form">
     <mat-form-field appearance="fill">
       <mat-label>Nome completo</mat-label>
@@ -85,4 +87,5 @@
     <button mat-raised-button color="primary" type="submit">Registrar</button>
     <div class="erro" *ngIf="erro">{{ erro }}</div>
   </form>
+  </mat-card>
 </div>
