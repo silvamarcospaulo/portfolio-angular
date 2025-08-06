@@ -4,8 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { Router } from '@angular/router';
-import { AdminService } from '../../../../core/services/afiliados-repository/admin-repository/admin-repository.service';
+import { HeaderComponent } from '../../layout/header/header.component';
+import { AuthService } from '../../../../core/services/afiliados-repository/auth-repository/auth.service';
 
 @Component({
   standalone: true,
@@ -15,7 +17,9 @@ import { AdminService } from '../../../../core/services/afiliados-repository/adm
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule,
+    HeaderComponent
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
@@ -26,16 +30,21 @@ export class LoginComponent {
   erro = '';
 
   constructor(
-    private adminService: AdminService,
+    private authService: AuthService,
     private router: Router
   ) { }
 
   login() {
-    this.adminService.login({ usuario: this.usuario, senha: this.senha })
+    this.authService.login({ usuario: this.usuario, senha: this.senha })
       .subscribe({
         next: (res: any) => {
-          localStorage.setItem('token', res.token);
-          this.router.navigate(['/painel']);
+          localStorage.setItem('token', res.accessToken);
+          const payload = JSON.parse(atob(res.accessToken.split('.')[1]));
+          if (payload.role === 'adm') {
+            this.router.navigate(['/painel']);
+          } else {
+            this.router.navigate(['/universidade/dashboard']);
+          }
         },
         error: () => {
           this.erro = 'Usuário ou senha inválidos';

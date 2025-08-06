@@ -1,25 +1,33 @@
-.login-container {
-    max-width: 400px;
-    margin: 60px auto;
-    padding: 24px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  margin-top: 2rem;
 }
 
 .login-form {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .full-width {
-    width: 100%;
+  width: 100%;
 }
 
 .erro-msg {
-    margin-top: 16px;
-    color: #d32f2f;
-    font-weight: 500;
+  margin-top: 1rem;
+  color: #d32f2f;
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .login-card {
+    margin-top: 4rem;
+  }
 }
