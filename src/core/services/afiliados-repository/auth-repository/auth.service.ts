@@ -7,11 +7,11 @@ import { environment } from '../../../../environments/environments';
 })
 
 export class AuthService {
-  private readonly apiUrl = `${environment.apiUrl}/auth`;
+  private readonly apiUrl = environment.apiUrl;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   login(dto: { usuario: string; senha: string }) {
-    return this.http.post(`${this.apiUrl}/login`, dto);
+    return this.http.post(`${this.apiUrl}/admin/login`, dto);
   }
 }
