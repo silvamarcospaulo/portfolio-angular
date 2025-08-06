@@ -12,6 +12,6 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   login(dto: { usuario: string; senha: string }) {
-    return this.http.post(`${this.apiUrl}/admin/login`, dto);
+    return this.http.post(`${this.apiUrl}/auth/login`, dto);
   }
 }
