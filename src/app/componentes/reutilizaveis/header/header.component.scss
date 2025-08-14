@@ -1,23 +1,23 @@
 header {
   color: var(--color-text-title);
-  background-color: var(--color-primary);
   display: flex;
-  justify-content: center;
-  align-items: center;
+  place-content: center;
+  place-items: center;
   flex-direction: column;
   height: 10vh;
-  width: 100%;
-  top: 0;
+  padding: 10px;
+  width: 80%;
+  top: 20px;
   left: 0;
   z-index: 10;
   position: fixed;
   transition: background-color 0.4s ease, backdrop-filter 0.4s ease;
 
   &.translucido {
-    background-color: var(--color-primary-translucent);
+    background-color: var(--background-color);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 2px 8px var(--color-primary);
+    box-shadow: 0 2px 8px var(--background-color);
   }
 }
 
@@ -102,9 +102,9 @@ header {
     position: fixed;
 
     &.translucido {
-      background-color: var(--color-primary-translucent);
+      background-color: var(--background-color);
       backdrop-filter: blur(10px);
-      box-shadow: 0 2px 8px var(--color-primary-translucent);
+      box-shadow: 0 2px 8px var(--background-color);
     }
   }
 
@@ -138,7 +138,7 @@ header {
     left: 0;
     width: 100%;
     height: calc(100vh - 10vh);
-    background-color: var(--color-primary);
+    
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -149,9 +149,9 @@ header {
     transition: opacity 0.4s ease, transform 0.2s ease, visibility 0.4s;
 
     &.translucido {
-      background-color: var(--color-primary-translucent);
+      background-color: var(--background-color);
       backdrop-filter: blur(10px);
-      box-shadow: 0 2px 8px var(--color-primary-translucent);
+      box-shadow: 0 2px 8px var(--background-color);
     }
 
     &.aberto {
@@ -179,9 +179,9 @@ header {
 @media screen and (min-width: 769px) and (max-width: 1024px) {
   header {
     &.translucido {
-      background-color: var(--color-primary-translucent);
+      background-color: var(--background-color);
       backdrop-filter: blur(10px);
-      box-shadow: 0 2px 8px var(--color-primary-translucent);
+      box-shadow: 0 2px 8px var(--background-color);
     }
   }
 
@@ -217,7 +217,7 @@ header {
     left: 0;
     width: 100%;
     height: calc(100vh - 10vh);
-    background-color: var(--color-primary);
+    
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -228,9 +228,9 @@ header {
     transition: opacity 0.4s ease, transform 0.2s ease, visibility 0.4s;
 
     &.translucido {
-      background-color: var(--color-primary-translucent);
+      background-color: var(--background-color);
       backdrop-filter: blur(10px);
-      box-shadow: 0 2px 8px var(--color-primary-translucent);
+      box-shadow: 0 2px 8px var(--background-color);
     }
 
     &.aberto {
