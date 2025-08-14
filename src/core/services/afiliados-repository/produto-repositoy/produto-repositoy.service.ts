@@ -3,7 +3,6 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../../../environments/environments';
 import { Produto } from '../../../../model/produto/produto';
 import { FiltroProduto } from '../../../../model/filtro-produto/filtro-produto';
-import { URLSearchParams } from 'url';
 import { RetornoProdutoDto } from '../../../../model/produto/retorno-produto.dto';
 
 @Injectable({

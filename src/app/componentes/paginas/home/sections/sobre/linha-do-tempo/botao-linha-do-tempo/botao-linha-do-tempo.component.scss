@@ -1,12 +1,10 @@
 .botao-linha-do-tempo {
     display: inline-block;
     padding: var(--space-xs);
-    color: var(--color-text-primary);
-    border-radius: var(--radius-sm);
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-    a {
+    span {
         font-weight: bold;
         text-align: center;
         display: inline-block;
@@ -23,12 +21,8 @@
     top: -10px;
     left: 100%;
     z-index: 10;
-    background: var(--color-surface-raised);
-    border: var(--border-width-hairline) solid var(--color-border-subtle);
-    border-radius: var(--radius-sm);
-    padding: var(--space-sm);
     width: 300px;
-    box-shadow: var(--elevation-shadow-outer-soft);
+    padding: var(--space-sm);
 
     .close-btn {
         position: absolute;

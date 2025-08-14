@@ -1,19 +1,17 @@
-<section id="section-sobre">
-    <div id="background-sobre" class="section">
-        <div id="container-sobre" class="container">
-            <div id="texto-sobre">
-                <h5>{{ 'sobre.descricao1' | translate }}
-                    <br><br>
-                    {{ 'sobre.descricao2' | translate }}
-                    <br><br>
-                    {{ 'sobre.descricao3' | translate }}<a href="https://www.instagram.com/marcospaulo.dev"
-                        target="_blank">&#64;marcospaulo&#46;dev</a>
-                    {{ 'sobre.descricao4' | translate}}
-                </h5>
-            </div>
+<section id="section-sobre" class="section">
+    <div id="container-sobre" class="container">
+        <div id="texto-sobre">
+            <h5>{{ 'sobre.descricao1' | translate }}
+                <br><br>
+                {{ 'sobre.descricao2' | translate }}
+                <br><br>
+                {{ 'sobre.descricao3' | translate }}<a href="https://www.instagram.com/marcospaulo.dev"
+                    target="_blank">&#64;marcospaulo&#46;dev</a>
+                {{ 'sobre.descricao4' | translate}}
+            </h5>
         </div>
-        <div id="container-linha-do-tempo" class="container">
-            <app-linha-do-tempo [listaDeExperienciasProfissionais]="listaDeExperienciasProfissionais" />
-        </div>
+    </div>
+    <div id="container-linha-do-tempo" class="container">
+        <app-linha-do-tempo [listaDeExperienciasProfissionais]="listaDeExperienciasProfissionais" />
     </div>
 </section>

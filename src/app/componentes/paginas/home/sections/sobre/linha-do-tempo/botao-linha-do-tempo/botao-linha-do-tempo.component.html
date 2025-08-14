@@ -1,9 +1,9 @@
-<div class="botao-linha-do-tempo" (click)="onToggle()" (mouseenter)="onToggle()">
-    <a>{{ experienciaProfissional.inicio }}</a>
-</div>
+<button class="btn-ghost botao-linha-do-tempo" type="button" (click)="onToggle()" (mouseenter)="onToggle()">
+    <span>{{ experienciaProfissional.inicio }}</span>
+</button>
 
 <div class="popup-card card" *ngIf="aberto">
-    <button class="btn-ghost close-btn" type="button" (click)="onToggle()">✕</button>
+    <button class="btn btn-ghost close-btn" type="button" (click)="onToggle()">✕</button>
     <app-card-experiencia-profissional
         [experienciaProfissional]="experienciaProfissional"></app-card-experiencia-profissional>
 </div>

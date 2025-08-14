@@ -1,22 +1,13 @@
 #section-sobre {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    min-height: 50vh;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-}
-
-#background-sobre {
-    display: flex;
+    flex-direction: column;
     place-content: center;
     place-items: center;
     height: 100%;
     min-height: 50vh;
     width: 100%;
-    flex-direction: column;
+    padding: 0;
+    margin: 0;
 }
 
 #container-sobre {
