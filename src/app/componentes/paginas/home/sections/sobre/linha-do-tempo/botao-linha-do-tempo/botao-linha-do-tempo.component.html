@@ -2,8 +2,8 @@
     <a>{{ experienciaProfissional.inicio }}</a>
 </div>
 
-<div class="popup-card" *ngIf="aberto">
-    <button class="close-btn" (click)="onToggle()">✕</button>
+<div class="popup-card card" *ngIf="aberto">
+    <button class="btn-ghost close-btn" type="button" (click)="onToggle()">✕</button>
     <app-card-experiencia-profissional
         [experienciaProfissional]="experienciaProfissional"></app-card-experiencia-profissional>
 </div>

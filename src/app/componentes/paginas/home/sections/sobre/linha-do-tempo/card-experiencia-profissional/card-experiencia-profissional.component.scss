@@ -1,37 +1,35 @@
 .card-container {
-    border-radius: 5px;
-    box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.75);
-    background-color: var(--color-text-title);
     position: relative;
     width: 350px;
     height: 350px;
+    border-radius: var(--radius-md);
 }
 
 .informacoes {
     height: 60%;
-    padding: 15px;
-    border-radius: 5px 5px 0% 0%;
+    padding: var(--space-sm);
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
 
     h4 {
-        color: var(--color-link-focus)
+        color: var(--color-action-neutral);
     }
 
     h6 {
-        padding-bottom: 10px;
-        color: var(--color-text-title)
+        padding-bottom: var(--space-xs);
+        color: var(--color-text-primary);
     }
 
     p {
-        color: var(--color-text-subtitle)
+        color: var(--color-text-secondary);
     }
 }
 
 .habilidades {
-    background-color: var(--color-secundary);
+    background: var(--color-surface-base);
     text-align: left;
-    padding: 15px;
+    padding: var(--space-sm);
     height: 40%;
-    border-radius: 0% 0% 5px 5px;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
 
     ul {
         list-style-type: none;
@@ -40,20 +38,20 @@
     }
 
     li {
-        border: 2px solid var(--color-text-subtitle);
-        border-radius: 4px;
+        border: var(--border-width-hairline) solid var(--color-border-subtle);
+        border-radius: var(--radius-sm);
         display: inline-block;
-        font-size: 12px;
-        margin: 0 7px 7px 0;
-        padding: 7px;
+        font-size: var(--size-font-sm);
+        margin: 0 var(--space-xs) var(--space-xs) 0;
+        padding: var(--space-xs);
     }
 
     h4 {
-        color: var(--color-link-focus)
+        color: var(--color-action-neutral);
     }
 
     p {
-        color: var(--color-text-subtitle);
+        color: var(--color-text-secondary);
         margin: 0;
     }
 }

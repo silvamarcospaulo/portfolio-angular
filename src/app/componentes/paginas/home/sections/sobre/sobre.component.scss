@@ -13,11 +13,9 @@
     display: flex;
     place-content: center;
     place-items: center;
-    border-radius: 50px 50px 0 0;
     height: 100%;
     min-height: 50vh;
     width: 100%;
-    box-shadow: 0px -20px 30px -10px rgba(0, 0, 0, 0.3);
     flex-direction: column;
 }
 
@@ -27,7 +25,7 @@
     place-items: center;
     height: 100%;
     width: 100%;
-    max-width: 1400px;
+    max-width: var(--layout-container-max);
 }
 
 #texto-sobre {
@@ -38,15 +36,15 @@
     flex-direction: column;
     height: 50%;
     width: 100%;
-    color: var(--color-text-title);
-    padding: 30px;
+    color: var(--color-text-primary);
+    padding: var(--space-md);
 
     a {
-        color: var(--color-link-focus);
+        color: var(--color-action-neutral);
     }
 
     a:hover {
-        color: var(--color-text-subtitle);
+        color: var(--color-text-secondary);
     }
 }
 

@@ -14,7 +14,7 @@
 #container-projetos {
     height: 100%;
     width: 100%;
-    max-width: 1400px;
+    max-width: var(--layout-container-max);
     display: flex;
     place-content: center;
     place-items: center;
