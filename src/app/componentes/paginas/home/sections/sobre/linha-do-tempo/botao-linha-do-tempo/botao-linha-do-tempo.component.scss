@@ -1,12 +1,10 @@
 .botao-linha-do-tempo {
     display: inline-block;
-    padding: 10px;
-    color: var(--color-text-title);
-    border-radius: 5px;
+    padding: var(--space-xs);
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-    a {
+    span {
         font-weight: bold;
         text-align: center;
         display: inline-block;
@@ -14,7 +12,7 @@
 
     &:hover {
         transform: scale(1.05);
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+        box-shadow: var(--elevation-shadow-outer-soft);
     }
 }
 
@@ -23,21 +21,14 @@
     top: -10px;
     left: 100%;
     z-index: 10;
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 8px;
     width: 300px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    padding: var(--space-sm);
 
     .close-btn {
         position: absolute;
-        top: 4px;
-        right: 4px;
-        background: transparent;
-        border: none;
-        font-size: 16px;
-        cursor: pointer;
+        top: var(--space-2xs);
+        right: var(--space-2xs);
+        font-size: var(--size-font-base);
         line-height: 1;
     }
 }
