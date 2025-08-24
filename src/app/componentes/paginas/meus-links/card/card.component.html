@@ -1,5 +1,18 @@
-<div class="card-link">
-    <a [href]="link.url" target="_blank">
-        <i [class]="link.icone"></i> {{ link.nome }}
-    </a>
+<div class="card-link soft-ui-container soft-ui-container-hover">
+    @if (link.imagem){
+    <div id="conteudo-com-imagem">
+        <div id="imagem-container">
+            <img src="{{link.imagem}}" alt="{{link.nome}}">
+        </div>
+        <div id="texto-container">
+            <h4>{{link.nome}}</h4>
+        </div>
+    </div>
+    }
+    @if (link.icone){
+    <div id="conteudo-com-icone">
+        <i class="{{link.icone}}"></i>
+        <h4>{{link.nome}}</h4>
+    </div>
+    }
 </div>

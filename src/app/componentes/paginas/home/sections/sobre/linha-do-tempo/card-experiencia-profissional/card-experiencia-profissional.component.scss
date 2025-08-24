@@ -23,7 +23,7 @@
     }
 
     p {
-        color: var(--color-text-subtitle)
+        color: var(--color-text-title)
     }
 }
 
@@ -41,7 +41,7 @@
     }
 
     li {
-        border: 2px solid var(--color-text-subtitle);
+        border: 2px solid var(--color-text-title);
         border-radius: 4px;
         display: inline-block;
         font-size: 12px;
@@ -54,7 +54,7 @@
     }
 
     p {
-        color: var(--color-text-subtitle);
+        color: var(--color-text-title);
         margin: 0;
     }
 }

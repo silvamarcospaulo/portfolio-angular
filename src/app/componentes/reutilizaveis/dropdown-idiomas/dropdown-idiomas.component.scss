@@ -15,7 +15,7 @@
     border-radius: 8px;
     font-weight: 500;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s, color 0.3s, transform 0.5s;
 
     span {
         font-size: 20px;
@@ -23,8 +23,8 @@
 }
 
 #nav-link:hover {
-    background-color: var(--color-secondary);
-    color: var(--color-text-subtitle);
+    transform: translateY(-1px);
+    color: var(--color-link-focus);
 }
 
 #dropdown-menu {
@@ -63,6 +63,6 @@
 }
 
 #dropdown-menu input[type="radio"] {
-    accent-color: var(--color-text-subtitle);
+    accent-color: var(--color-text-title);
     cursor: pointer;
 }

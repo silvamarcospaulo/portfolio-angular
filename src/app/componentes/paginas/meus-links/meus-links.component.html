@@ -1,11 +1,17 @@
-<body>
-    <app-header />
-    <section class="section-links-uteis">
-        <div class="container-links-uteis">
-            @for (link of links; track link) {
-            <app-card [link]="link" />
-            }
-        </div>
-    </section>
-    <app-footer />
-</body>
+<app-header />
+<section class="section-links-uteis">
+    <div class="container-links-uteis">
+        @for (link of links; track link)
+        {
+        @if (link.card)
+        {
+        <app-card [link]="link.card" />
+        }
+        @else if (link.dropdown)
+        {
+        <app-card-dropdown [nome]="link.nome" [icone]="link.icone" [imagem]="link.imagem" [dropdown]="link.dropdown" />
+        }
+        }
+    </div>
+</section>
+<app-footer />

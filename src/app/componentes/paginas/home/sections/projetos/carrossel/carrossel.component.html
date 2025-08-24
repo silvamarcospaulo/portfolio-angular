@@ -1,18 +1,36 @@
 <div id="container-carrossel">
-    <div id="container-textos">
-        <h3>{{projetoAtual.palavraChave}}</h3>
-        <h4>{{ projetoAtual.tipoDeProjeto | translate }}</h4>
-        <p>{{ projetoAtual.descricao | translate }}</p>
+    <div id="container-botoes-de-acao-mobile">
+        <a class="nav-btn soft-ui-container soft-ui-container-hover" (click)="anterior()">
+            <p>←</p>
+        </a>
+        <a class="nav-btn soft-ui-container soft-ui-container-hover" (click)="proximo()">
+            <p>→</p>
+        </a>
     </div>
-    <div id="carrossel">
-        <div class="container-botoes-de-acao">
-            <a class="nav-btn" (click)="anterior()">←</a>
+    <div id="container-macbook">
+        <app-macbook [projeto]="projetoAtual" id="macbook"></app-macbook>
+    </div>
+    <div id="container-conteudo">
+        <div id="container-textos">
+            <div id="texto">
+                <div id="titulo">
+                    <h3>{{projetoAtual.palavraChave}}</h3>
+                </div>
+                <div id="tipoDeProjeto">
+                    <h4>{{ projetoAtual.tipoDeProjeto | translate }}</h4>
+                </div>
+                <div id="descricao">
+                    <p>{{ projetoAtual.descricao | translate }}</p>
+                </div>
+            </div>
         </div>
-        <div id="container-macbook">
-            <app-macbook [projeto]="projetoAtual" id="macbook"></app-macbook>
-        </div>
-        <div class="container-botoes-de-acao">
-            <a class="nav-btn" (click)="proximo()">→</a>
+        <div id="container-botoes-de-acao">
+            <a class="nav-btn soft-ui-container soft-ui-container-hover" (click)="anterior()">
+                <p>←</p>
+            </a>
+            <a class="nav-btn soft-ui-container soft-ui-container-hover" (click)="proximo()">
+                <p>→</p>
+            </a>
         </div>
     </div>
 </div>

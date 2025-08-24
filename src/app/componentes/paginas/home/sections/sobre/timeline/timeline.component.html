@@ -1,0 +1,26 @@
+<div class="timeline">
+    @for (event of events; track event.year; let i = $index) {
+    <div class="timeline-item">
+        <div class="timeline-dot"></div>
+
+        <div class="timeline-container soft-ui-container" [ngClass]="{ 'left': i % 2 === 0, 'right': i % 2 !== 0 }">
+            <div class="timeline-content">
+                <div class="titulo">
+                    <h3>{{ event.occupation }}</h3>
+                    <div class="subtitulo">
+                        <h6>{{ event.empresa }}</h6>
+                        <p>{{ event.year }}</p>
+                    </div>
+                </div>
+                <div class="conteudo">
+                    <ul>
+                        @for (detail of event.details; track detail) {
+                        <li>{{ detail }}</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+</div>

@@ -1,5 +1,5 @@
 <footer>
-    <nav id="container-footer">
+    <nav id="container-footer" class="soft-ui-container">
         <div id="container-controles">
             <div id="logo">
                 <h3>Marcos Paulo Silva</h3>
@@ -7,34 +7,46 @@
             <div id="menu-list">
                 <div id="list">
                     @for (link of links; track link) {
-                    <a [href]="link.url">{{ link.nome | translate }}</a>
+                    <a [href]="link.url">{{ link.nome || '' | translate }}</a>
                     }
                 </div>
             </div>
             <div id="redes-sociais">
-                <a href="https://www.github.com/silvamarcospaulo" target="_blank">
+                <a href="https://www.github.com/silvamarcospaulo"
+                    class="botao soft-ui-container soft-ui-container-hover" target="_blank">
                     <i class="bi bi-github"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/silvamarcospaulo" target="_blank">
+                <a href="https://www.linkedin.com/in/silvamarcospaulo"
+                    class="botao soft-ui-container soft-ui-container-hover" target="_blank">
                     <i class="bi bi-linkedin"></i>
                 </a>
-                <a href="https://www.instagram.com/marcospaulo.dev" target="_blank">
+                <a href="https://www.instagram.com/marcospaulo.dev"
+                    class="botao soft-ui-container soft-ui-container-hover" target="_blank">
                     <i class="bi bi-instagram"></i>
                 </a>
                 <a href="mailto:silvampsmarcospaulo@gmail.com?subject=Contato%20do%20Portfólio&body=Olá%20Marcos,"
-                    target="_blank">
+                    class="botao soft-ui-container soft-ui-container-hover" target="_blank">
                     <i class="bi bi-envelope-fill"></i>
                 </a>
             </div>
             <div id="container-configuracao-pagina">
-                <app-dropdown-idiomas />
+                <div class="botao soft-ui-container soft-ui-container-hover">
+                    <app-dropdown-idiomas />
+                </div>
                 <app-switch-dia-noite />
             </div>
         </div>
         <div class="linha-horizontal"></div>
         <div id="creditos">
-            <p>{{ 'footer.desenvolvido-por' | translate }}<a href="">Marcos Paulo Silva</a>{{
-                'footer.todos-os-direitos-reservados' | translate }}</p>
+            <div class="creditos-texto">
+                <p>{{ 'footer.desenvolvido-por' | translate }}</p>
+            </div>
+            <div id="creditos-link">
+                <a href="">Marcos Paulo Silva</a>
+            </div>
+            <div class="creditos-texto">
+                <p>{{'footer.todos-os-direitos-reservados' | translate }}</p>
+            </div>
         </div>
     </nav>
 </footer>

@@ -14,7 +14,7 @@
             <ol id="nav-list">
                 @for (link of links; track link) {
                 <li>
-                    <a [href]="link.url" (click)="fecharMenu()">{{ link.nome | translate }}</a>
+                    <a [href]="link.url" (click)="fecharMenu()">{{ link.nome || '' | translate }}</a>
                 </li>
                 }
             </ol>

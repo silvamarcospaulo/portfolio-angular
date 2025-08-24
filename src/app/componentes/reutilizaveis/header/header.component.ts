@@ -1,25 +1,27 @@
-import { Component, Inject, Input, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, Input, PLATFORM_ID, signal } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
-import { SwitchDiaNoiteComponent } from "../switch-dia-noite/switch-dia-noite.component";
-import { DropdownIdiomasComponent } from "../dropdown-idiomas/dropdown-idiomas.component";
 import { Link } from '../../../../model/link.model';
+import { NgClass } from '@angular/common';
+import { DropdownIdiomasComponent } from "../dropdown-idiomas/dropdown-idiomas.component";
+import { SwitchDiaNoiteComponent } from "../switch-dia-noite/switch-dia-noite.component";
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [TranslateModule, SwitchDiaNoiteComponent, DropdownIdiomasComponent],
+  imports: [TranslateModule, NgClass, DropdownIdiomasComponent, SwitchDiaNoiteComponent],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
 
 export class HeaderComponent {
   @Input() links: Link[] = [];
+  open = signal(false);
 
   menuAberto = false;
 
   fecharMenu() {
-    this.menuAberto = false;
+    this.open.set(false);
   }
 
   headerTranslucido = false;
@@ -34,6 +36,8 @@ export class HeaderComponent {
       window.addEventListener('scroll', this.handleScroll);
     }
   }
+
+  toggle() { this.open.update(v => !v); }
 
   ngOnDestroy(): void {
     if (this.isBrowser) {

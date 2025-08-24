@@ -1,0 +1,50 @@
+.slider-item {
+    position: relative;
+    display: flex;
+    place-items: center;
+    place-content: center;
+    padding: 14px 18px;
+    border-radius: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    height: 4vh;
+}
+
+#conteudo {
+    display: flex;
+    place-items: center;
+    place-content: center;
+    flex-direction: row;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    color: var(--color-text-title);
+}
+
+#conteudo i,
+#conteudo img {
+    height: 1rem;
+    padding: 0;
+    margin: 0;
+}
+
+#conteudo i {
+    color: var(--color-text-title);
+}
+
+#conteudo img {
+    background-color: var(--color-text-title);
+    height: 1rem;
+    padding: 0.01rem;
+    border-radius: 25%;
+    margin: 0;
+}
+
+.slider-label {
+    position: relative;
+    z-index: 1;
+    font-size: 0.98rem;
+    padding: 0;
+    margin: 0;
+}

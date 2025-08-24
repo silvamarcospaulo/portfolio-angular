@@ -1,28 +1,34 @@
 <div id="menu-redes-sociais">
     <div id="redes-sociais" [class.menuRedesSociais]="deveRetrair">
-        <a id="botao-voltar-para-cima" href="#" [class.oculto]="!mostrarBotaoVoltar" (click)="scrollParaTopo()">
-            <i class="bi bi-arrow-up-short"></i>
+        <a id="botao-voltar-para-cima" href="#" [class.oculto]="!mostrarBotaoVoltar"
+            class="soft-ui-container soft-ui-container-hover" (click)="scrollParaTopo()">
+            <i id="seta" class="bi bi-arrow-up-short"></i>
         </a>
-        <a href="https://www.github.com/silvamarcospaulo" target="_blank">
+        <a href="https://www.github.com/silvamarcospaulo" target="_blank"
+            class="soft-ui-container soft-ui-container-hover">
             <i class="bi bi-github"></i>
         </a>
-        <a href="https://www.linkedin.com/in/silvamarcospaulo" target="_blank">
+        <a href="https://www.linkedin.com/in/silvamarcospaulo" target="_blank"
+            class="soft-ui-container soft-ui-container-hover">
             <i class="bi bi-linkedin"></i>
         </a>
-        <a href="https://www.instagram.com/marcospaulo.dev" target="_blank">
+        <a href="https://www.instagram.com/marcospaulo.dev" target="_blank"
+            class="soft-ui-container soft-ui-container-hover">
             <i class="bi bi-instagram"></i>
         </a>
         <a href="mailto:silvampsmarcospaulo@gmail.com?subject=Contato%20do%20Portfólio&body=Olá%20Marcos,"
-            target="_blank">
+            target="_blank" class="soft-ui-container soft-ui-container-hover">
             <i class="bi bi-envelope-fill"></i>
         </a>
     </div>
 
     <div id="container-botoes-abrir-fechar-menu">
-        <a id="botao-abrir-redes-sociais" [class.oculto]="!deveRetrair" (click)="AoClicarAbrirMenuRedesSociais()">
+        <a id="botao-abrir-redes-sociais" [class.oculto]="!deveRetrair" (click)="AoClicarAbrirMenuRedesSociais()"
+            class="soft-ui-container soft-ui-container-hover">
             <i class="bi bi-list"></i>
         </a>
-        <a id="botao-fechar-redes-sociais" [class.oculto]="deveRetrair" (click)="AoClicarAbrirMenuRedesSociais()">
+        <a id="botao-fechar-redes-sociais" [class.oculto]="deveRetrair" (click)="AoClicarAbrirMenuRedesSociais()"
+            class="soft-ui-container soft-ui-container-hover">
             <i class="bi bi-x-circle-fill"></i>
         </a>
     </div>

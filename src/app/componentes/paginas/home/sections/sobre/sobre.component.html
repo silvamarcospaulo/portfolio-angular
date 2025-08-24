@@ -1,19 +1,22 @@
 <section id="section-sobre">
-    <div id="background-sobre">
-        <div id="container-sobre">
-            <div id="texto-sobre">
-                <h5>{{ 'sobre.descricao1' | translate }}
-                    <br><br>
-                    {{ 'sobre.descricao2' | translate }}
-                    <br><br>
-                    {{ 'sobre.descricao3' | translate }}<a href="https://www.instagram.com/marcospaulo.dev"
-                        target="_blank">&#64;marcospaulo&#46;dev</a>
-                    {{ 'sobre.descricao4' | translate}}
-                </h5>
-            </div>
+    <div id="container-sobre" class="soft-ui-container">
+        <div id="texto-sobre">
+            <h5>{{ 'sobre.descricao1' | translate }}</h5>
+            <h5>{{ 'sobre.descricao2' | translate }}</h5>
+            <h5>
+                {{ 'sobre.descricao3' | translate }}
+                <a href="https://www.instagram.com/marcospaulo.dev" target="_blank">
+                    <h5>&#64;marcospaulo&#46;dev</h5>
+                </a>, 
+                {{ 'sobre.descricao4' | translate }}
+            </h5>
         </div>
-        <div id="container-linha-do-tempo">
-            <app-linha-do-tempo [listaDeExperienciasProfissionais]="listaDeExperienciasProfissionais" />
-        </div>
+    </div>
+    <div id="container-timeline">
+        <app-timeline></app-timeline>
+    </div>
+    <div id="container-tecnologias">
+        <app-lista-slider [items]="items" [duration]="duration" [fade]="fade" [direction]="direction">
+        </app-lista-slider>
     </div>
 </section>

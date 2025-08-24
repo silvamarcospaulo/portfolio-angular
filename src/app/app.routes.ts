@@ -14,7 +14,7 @@ import { authGuard } from '../core/guards/auth.guard';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
-    { path: 'links-uteis', component: MeusLinksComponent, title: 'Links úteis' },
+    { path: 'bio', component: MeusLinksComponent, title: '@marcospaulo.dev' },
     { path: 'login', component: LoginComponent, title: '@marcospaulo.dev - Admin' },
     { path: 'painel', component: PainelAdminComponent, canActivate: [authGuard], title: 'Painel Admin' },
     { path: 'promocoes', component: PromocoesComponent, title: '@marcospaulo.dev - Promoções' },

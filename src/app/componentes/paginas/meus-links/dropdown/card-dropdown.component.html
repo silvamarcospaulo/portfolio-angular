@@ -1,0 +1,35 @@
+<div id="dropdown-container">
+    <button (click)="abrirDropdown()" id="dropdown-conteudo" class="soft-ui-container soft-ui-container-hover"
+        [class.aberto]="aberto">
+
+        @if (imagem){
+        <div id="conteudo-com-imagem">
+            <div id="imagem-container">
+                <img src="{{imagem}}" alt="{{nome}}">
+            </div>
+            <div id="texto-container">
+                <h4>{{nome}}</h4>
+            </div>
+        </div>
+        }
+
+        @if (icone){
+        <div id="conteudo-com-icone">
+            <i class="{{icone}}"></i>
+            <h4>{{nome}}</h4>
+        </div>
+        }
+
+        <div class="icone-dropdown">
+            <i class="bi bi-triangle-fill"></i>
+        </div>
+    </button>
+
+    <div class="dropdown" [class.aberto]="aberto">
+        @for(link of dropdown; track link){
+        <div class="item-dropdown">
+            <app-card [link]="link" />
+        </div>
+        }
+    </div>
+</div>

@@ -1,9 +1,11 @@
 <div id="linha-do-tempo">
     <div class="linha-horizontal"></div>
     <div class="container-pontos">
-        <div *ngFor="let exp of listaDeExperienciasProfissionais; trackBy: trackByInicio" class="evento">
+        @for(exp of listaDeExperienciasProfissionais; track exp){
+        <div class="evento">
             <app-botao-linha-do-tempo [experienciaProfissional]="exp" [aberto]="aberto === exp.inicio"
                 (toggle)="toggle(exp.inicio)"></app-botao-linha-do-tempo>
         </div>
+        }
     </div>
 </div>

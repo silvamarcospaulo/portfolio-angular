@@ -1,0 +1,96 @@
+:host {
+    display: block;
+    width: 100%;
+}
+
+#lista-slider {
+    height: 15vh;
+    width: 100%;
+    display: flex;
+    place-items: center;
+    place-content: center;
+}
+
+#slider-shell {
+    width: 100%;
+    max-width: 1400px;
+    padding-inline: 12px;
+    display: flex;
+    place-items: center;
+    place-content: center;
+}
+
+#slider-viewport {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    min-height: 56px;
+    display: grid;
+    overflow: hidden;
+    --_fade: clamp(16px, 10vw, var(--fade, 60px));
+
+    display: flex;
+    place-items: center;
+    place-content: center;
+
+    mask: linear-gradient(90deg,
+            transparent 0,
+            var(--color-primary) var(--_fade),
+            var(--color-primary) calc(100% - var(--_fade)),
+            transparent 100%) 0 0 / 100% 100% no-repeat;
+    -webkit-mask: linear-gradient(90deg,
+            transparent 0,
+            var(--color-primary) var(--_fade),
+            var(--color-primary) calc(100% - var(--_fade)),
+            transparent 100%) 0 0 / 100% 100% no-repeat;
+}
+
+// #slider-viewport::before,
+// #slider-viewport::after {
+//     content: "";
+//     position: absolute;
+//     inset-block: 0;
+//     width: var(--_fade);
+//     pointer-events: none;
+//     z-index: 2;
+//     background: linear-gradient(to right, var(--color-primary), transparent);
+// }
+
+#slider-viewport::after {
+    left: auto;
+    right: 0;
+    background: linear-gradient(to left, var(--color-primary), transparent);
+}
+
+.slider-runner {
+    display: flex;
+    gap: 0;
+    width: max-content;
+    will-change: transform;
+    animation: slide var(--duration, 30s) linear infinite;
+}
+
+#slider-viewport:hover .slider-runner {
+    animation-play-state: paused;
+}
+
+@keyframes slide {
+    to {
+        transform: translate3d(calc(var(--dir, -1) * 33.3333%), 0, 0);
+    }
+}
+
+.slider-track {
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 480px) {
+    #slider-viewport {
+        --_fade: clamp(12px, 8vw, 36px);
+    }
+}

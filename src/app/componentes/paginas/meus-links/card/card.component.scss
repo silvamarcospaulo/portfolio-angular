@@ -1,36 +1,90 @@
 .card-link {
-    width: 100%;
-    border-radius: 10px;
+    display: flex;
+    border-width: 0;
+    width: 100vw;
+    max-width: 1400px;
+    min-height: 10vh;
+    place-content: center;
+    place-items: center;
     background-color: var(--color-primary);
-    width: 70vw;
-    text-align: center;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    border-radius: 16px;
+    color: var(--color-text-title);
+    cursor: pointer;
+    transition: color .3s ease, transform .2s ease, border-radius 0.1s ease-in-out;
+    z-index: 2;
 
-    a {
+    &:hover {
+        transform: translateY(-1px);
         color: var(--color-link-focus);
-        padding: 1em;
-        border-radius: 10px;
-        text-decoration: none;
-        font-size: 1.1em;
-        font-weight: 500;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5em;
-        width: 100%;
+    }
+}
+
+#conteudo-com-imagem {
+    display: flex;
+    place-content: start;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+
+    #imagem-container {
+        display: flex;
+        place-content: start;
+        place-items: center;
+        width: 10%;
         height: 100%;
 
-        &:hover {
-            color: var(--color-text-title);
+        img {
+            height: 10vh;
+            width: auto;
+
+            border-radius: 16px 0 0 16px;
+            object-fit: cover;
         }
     }
 
-    &:hover {
-        background-color: var(--color-link-focus);
-        transform: scale(1.01);
-    }
+    #texto-container {
+        display: flex;
+        place-content: center;
+        place-items: center;
+        width: 80%;
+        height: 100%;
+        padding: 0.8em 1em;
 
-    i {
-        font-size: 1.2em;
+        h4 {
+            margin: 0;
+            font-weight: 600;
+            font-size: 1em;
+            color: var(--color-text-title);
+        }
+    }
+}
+
+#conteudo-com-icone {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.8em 1em;
+    place-content: center;
+    place-items: center;
+}
+
+#conteudo-com-icone i {
+    color: var(--color-text-title);
+}
+
+#conteudo-com-icone h4 {
+    margin: 0;
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--color-text-title);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+    .card-link {
+        width: 90vw;
     }
 }

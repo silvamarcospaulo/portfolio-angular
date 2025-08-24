@@ -1,61 +1,44 @@
-:root {
-    font-size: clamp(14px, 1.1vw, 18px);
-    --font-base: 1rem;
-    --font-sm: 0.875rem;
-    --font-lg: 1.25rem;
-    --icon-size: 2rem;
-    --container-max-width: 1400px;
-    --spacing-sm: 0.5rem;
-    --spacing-md: 1rem;
-    --spacing-lg: 2rem;
+body.light-mode {
+  --color-primary: #f3f3f3;
+  --color-secondary: #ffffff;
+  --color-text-title: #333333;
+  --color-text-subtitle: #555555;
+  --color-link: #0066cc;
+  --color-link-focus: #004a99;
+  --color-border: #d0d0d0;
+  --shadow-dark: rgba(0, 0, 0, 0.08);
+  --shadow-light: rgba(255, 255, 255, 0.9);
 }
 
 body.dark-mode {
-    --color-primary: #000000;
-    --color-primary-translucent: rgba(0, 0, 0, 0.85);
-    --color-secondary: #121212;
-
-    --color-text-title: #FFFFFF;
-    --color-text-subtitle: #CCCCCC;
-
-    --color-link-focus: #00BFFF;
-    --color-link: #1E90FF;
-
-    --color-border: #333333;
+  --color-primary: #121212;
+  --color-secondary: #1E1E1E;
+  --color-text-title: #FFFFFF;
+  --color-text-subtitle: #B3B3B3;
+  --color-link: #1E90FF;
+  --color-link-focus: #00BFFF;
+  --color-border: #2A2A2A;
+  --shadow-dark: rgba(0, 0, 0, 0.6);
+  --shadow-light: rgba(60, 60, 60, 0.3);
 }
 
-body.light-mode {
-    --color-primary: #FFFFFF;
-    --color-primary-translucent: rgba(255, 255, 255, 0.85);
-    --color-secondary: #F0F0F0;
-
-    --color-text-title: #000000;
-    --color-text-subtitle: #444444;
-
-    --color-link-focus: #005BBB;
-    --color-link: #007BFF;
-
-    --color-border: #CCCCCC;
+* {
+  transition: color .5s, transform .5s;
 }
 
-body,
-header,
-footer,
-nav,
-#container-footer,
-#container-controles,
-#container-configuracao-pagina,
-#dark-mode-switch,
-.slider,
-#moon,
-#sun {
-    transition: background-color 0.4s ease, color 0.4s ease;
-
-    a {
-        text-decoration: none;
-        color: inherit;
-        cursor: pointer;
-    }
+p {
+  margin: 0;
+  padding: 0;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.soft-ui-container {
+  box-shadow: 5px 5px 10px var(--shadow-dark), -5px -5px 10px var(--shadow-light),
+    // inset 0.5px 0.5px 1px var(--shadow-dark), inset -0.5px -0.5px 1px var(--shadow-light);
+}
+
+.soft-ui-container-hover {
+  &:hover {
+    box-shadow: 5px 5px 10px var(--shadow-light), -5px -5px 10px var(--shadow-dark),
+      // inset 0.5px 0.5px 1px var(--shadow-light), inset -0.5px -0.5px 1px var(--shadow-dark);
+  }
+}

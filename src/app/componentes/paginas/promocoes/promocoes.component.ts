@@ -29,13 +29,13 @@ export class PromocoesComponent implements OnInit {
   novos: Produto[] = [];
   emAlta: Produto[] = [];
   links: Link[] = [
-    new Link('header.navbar.inicio', '/promocoes#section-promocoes'),
-    new Link('Amazon', "/promocoes#section-promocoes"),
-    new Link('AliExpress', "/promocoes#section-promocoes"),
-    new Link('Kabum', "/promocoes#section-promocoes"),
-    new Link('Shopee', "/promocoes#section-promocoes"),
-    new Link('Hostinger', "/promocoes#section-promocoes"),
-    new Link('Mercado Livre', "/promocoes#section-promocoes"),
+    new Link({ nome: 'header.navbar.inicio', url: '/promocoes#section-promocoes' }),
+    new Link({ nome: 'Amazon', url: "/promocoes#section-promocoes" }),
+    new Link({ nome: 'AliExpress', url: "/promocoes#section-promocoes" }),
+    new Link({ nome: 'Kabum', url: "/promocoes#section-promocoes" }),
+    new Link({ nome: 'Shopee', url: "/promocoes#section-promocoes" }),
+    new Link({ nome: 'Hostinger', url: "/promocoes#section-promocoes" }),
+    new Link({ nome: 'Mercado Livre', url: "/promocoes#section-promocoes" }),
   ];
 
   constructor(private produtoService: ProdutoService) { }

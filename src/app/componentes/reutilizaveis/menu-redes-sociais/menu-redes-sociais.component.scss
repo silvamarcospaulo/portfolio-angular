@@ -16,19 +16,27 @@
         justify-content: center;
         width: 45px;
         height: 45px;
-        background-color: var(--color-text-title);
-        color: var(--color-primary);
+        background-color: var(--color-primary);
+        color: var(--color-text-subtitle);
         border-radius: 50%;
-        transition: background-color 0.3s;
+        transition: background-color 0.3s, translate 0.3s ease;
         text-decoration: none;
 
         &:hover {
-            background-color: var(--color-text-subtitle);
-            color: var(--color-primary);
+            background-color: var(--color-secondary);
+            color: var(--color-link-focus);
+
+            i {
+                transform: translateY(-1px);
+            }
         }
 
         i {
             font-size: 20px;
+        }
+
+        #seta {
+            font-size: 30px;
         }
     }
 }

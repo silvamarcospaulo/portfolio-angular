@@ -129,9 +129,11 @@
   border-radius: 10px;
   color: white;
   background-color: var(--color-link-focus);
+  transition: color .5s, transform .5s;
 
   &:hover {
-    background-color: var(--color-link);
+    transform: translateY(-1px);
+    color: var(--color-link-focus);
   }
 }
 

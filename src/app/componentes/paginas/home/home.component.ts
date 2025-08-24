@@ -53,7 +53,7 @@ export class HomeComponent implements OnInit {
       new Projeto(
         'https://rjafreios.com.br/',
         '../../../../assets/images/print-projetos/rjafreios.png',
-        'Landing Page JBR Suite Hotel',
+        'Landing Page RJA Freios',
         'JBR Suite Hotel',
         'projetos.jbrsuitehotel.tipo',
         'projetos.jbrsuitehotel.descricao'
@@ -61,7 +61,7 @@ export class HomeComponent implements OnInit {
       new Projeto(
         'https://jbrsuitehotel.com.br/',
         '../../../../assets/images/print-projetos/jbrsuitehotel.png',
-        'Landing Page RJA Freios',
+        'Landing Page JBR Suite Hotel',
         'RJA Freios',
         'projetos.rjafreios.tipo',
         'projetos.rjafreios.descricao'
@@ -111,9 +111,9 @@ export class HomeComponent implements OnInit {
     ];
 
     this.links = [
-      new Link('header.navbar.inicio', '#section-inicio'),
-      new Link('header.navbar.sobre', '#section-sobre'),
-      new Link('header.navbar.projetos', '#section-projetos')
+      new Link({ nome: 'header.navbar.inicio', url: '#section-inicio' }),
+      new Link({ nome: 'header.navbar.sobre', url: '#section-sobre' }),
+      new Link({ nome: 'header.navbar.projetos', url: '#section-projetos' })
     ];
   }
 }

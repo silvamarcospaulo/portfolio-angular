@@ -1,27 +1,52 @@
-<header [class.translucido]="headerTranslucido">
-  <nav id="nav-bar">
-    <div id="logo">
-      <a href="">
-        <h3>{{ 'header.logo' | translate }}</h3>
-      </a>
-    </div>
+<header id="header">
+  <div id="container-header" class="soft-ui-container">
+    <a id="logo" href="#">
+      <span id="logo-titulo">Marcos Paulo Silva</span>
+    </a>
 
-    <div id="menu-toggle" (click)="menuAberto = !menuAberto">
-      <h3><i class="bi bi-list"></i></h3>
-    </div>
-
-    <div id="container-nav-list" [class.aberto]="menuAberto" [class.translucido]="headerTranslucido">
-      <ol id="nav-list">
-        @for (link of links; track link) {
-        <li>
-          <a [href]="link.url" (click)="fecharMenu()">{{ link.nome | translate }}</a>
-        </li>
+    <nav id="main-nav">
+      <ul id="nav-list">
+        @for(link of links; track link){
+        <li><a class="nav-link" [href]="link.url">{{ link.nome || '' | translate }}</a></li>
         }
-      </ol>
-      <div id="container-configuracao-pagina">
+      </ul>
+    </nav>
+    <div class="controles-de-tela visivel">
+      <div class="botoes soft-ui-container soft-ui-container-hover">
         <app-dropdown-idiomas />
+      </div>
+      <div>
         <app-switch-dia-noite />
       </div>
     </div>
-  </nav>
+
+    <button id="menu-toggle" type="button" (click)="toggle()" aria-label="Menu" class="soft-ui-container">
+      <i class="bi bi-list"></i>
+    </button>
+  </div>
+
+  <div id="mobile-menu" [ngClass]="{ open: open() }">
+    <div class="mobile-card soft-ui-container">
+      <div class="mobile-head">
+        <a id="brand-mobile" href="#" (click)="fecharMenu()">Marcos Paulo Silva</a>
+        <button id="menu-close" class="soft-ui-container" type="button" (click)="fecharMenu()" aria-label="Fechar">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+      <ul class="mobile-list">
+        @for(link of links; track link){
+        <li><a class="nav-link soft-ui-container" [href]="link.url" (click)="fecharMenu()">{{ link.nome || '' |
+            translate }}</a></li>
+        }
+      </ul>
+      <div class="controles-de-tela soft-ui-container">
+        <div class="botoes soft-ui-container">
+          <app-dropdown-idiomas />
+        </div>
+        <div>
+          <app-switch-dia-noite />
+        </div>
+      </div>
+    </div>
+  </div>
 </header>
