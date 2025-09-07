@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { ExperienciaProfissional } from '../../../../../../model/experienciaProfissional.model';
+import { ExperienciaProfissional } from '../../../../../../model/experiencia-profissional/experiencia-profissional.model';
 import { ListaSliderComponent } from "./lista-slider/lista-slider.component";
 import { TimelineComponent } from "./timeline/timeline.component";
 import { SliderItem } from '../../../../../../model/lista-card/slider-item';

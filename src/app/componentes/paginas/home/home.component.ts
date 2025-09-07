@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { HeaderComponent } from '../../reutilizaveis/header/header.component';
-import { FooterComponent } from "../../reutilizaveis/footer/footer.component";
+
 import { InicioComponent } from "./sections/inicio/inicio.component";
 import { ProjetosComponent } from "./sections/projetos/projetos.component";
 import { SobreComponent } from "./sections/sobre/sobre.component";
-import { Projeto } from '../../../../model/projeto.model';
-import { ExperienciaProfissional } from '../../../../model/experienciaProfissional.model';
-import { Habilidade } from '../../../../model/habilidade.model';
+import { Projeto } from '../../../../model/projeto/projeto.model';
+import { ExperienciaProfissional } from '../../../../model/experiencia-profissional/experiencia-profissional.model';
+import { Habilidade } from '../../../../model/experiencia-profissional/habilidade.model';
 import { SeoService } from '../../../../core/services/seo/seo.service';
 import { Link } from '../../../../model/link.model';
+import { FooterComponent } from './sections/footer/footer.component';
+import { HeaderComponent } from './sections/header/header.component';
 
 @Component({
   selector: 'app-home',
@@ -70,42 +71,49 @@ export class HomeComponent implements OnInit {
 
     this.listaDeExperienciasProfissionais = [
       new ExperienciaProfissional(
-        'experiencias-profissionais.conexaodigital.cargo',
-        'Conexão Digital',
-        '01/2021',
-        '05/2023',
-        'experiencias-profissionais.conexaodigital.descricao',
-        [
-          new Habilidade("Corel Draw"),
-          new Habilidade("PhotoShop"),
-          new Habilidade("Illustrator")
-        ]
-      ),
-      new ExperienciaProfissional(
-        'experiencias-profissionais.inventsoftware-estagio.cargo',
+        'experiencia-profisisonal.invent-software.estagio.cargo',
         'Invent Software',
-        '05/2024',
-        '10/2024',
-        'experiencias-profissionais.inventsoftware-estagio.descricao',
+        'experiencia-profisisonal.invent-software.estagio.inicio',
+        'experiencia-profisisonal.invent-software.estagio.fim',
+        'experiencia-profisisonal.invent-software.estagio.descricao',
         [
-          new Habilidade("C#"),
-          new Habilidade("SAPUI 5"),
+          new Habilidade("C# .NET"),
+          new Habilidade("SAP UI5"),
+          new Habilidade("API Rest"),
+          new Habilidade("FluentMigrator"),
+          new Habilidade("FluentValidation"),
+          new Habilidade("Linq2DB"),
           new Habilidade("SQL Server"),
-          new Habilidade("Windows Forms")
+          new Habilidade("Windows Forms"),
+          new Habilidade("xUnit"),
         ]
       ),
       new ExperienciaProfissional(
-        'experiencias-profissionais.inventsoftware-auxiliar.cargo',
+        'experiencia-profisisonal.invent-software.tecnico-em-desenvolvido.cargo',
         'Invent Software',
-        '11/2024',
-        'Atualmente',
-        'experiencias-profissionais.inventsoftware-auxiliar.descricao',
+        'experiencia-profisisonal.invent-software.tecnico-em-desenvolvido.inicio',
+        'experiencia-profisisonal.invent-software.tecnico-em-desenvolvido.fim',
+        'experiencia-profisisonal.invent-software.tecnico-em-desenvolvido.descricao',
         [
-          new Habilidade("C#"),
-          new Habilidade("SAPUI 5"),
+          new Habilidade("C# .NET"),
+          new Habilidade("SAP UI5"),
           new Habilidade("RavenDB"),
-          new Habilidade("SCRUM"),
-          new Habilidade("CI/CD")
+          new Habilidade("NoSQL"),
+          new Habilidade("experiencia-profisisonal.invent-software.tecnico-em-desenvolvido.habilidades.arquitetura-em-nuvem"),
+        ]
+      ),
+      new ExperienciaProfissional(
+        'experiencia-profisisonal.invent-software.analista-i.cargo',
+        'Invent Software',
+        'experiencia-profisisonal.invent-software.analista-i.inicio',
+        'experiencia-profisisonal.invent-software.analista-i.fim',
+        'experiencia-profisisonal.invent-software.analista-i.descricao',
+        [
+          new Habilidade("C# .NET"),
+          new Habilidade("SAP UI5"),
+          new Habilidade("SQL Server"),
+          new Habilidade("NoSQL"),
+          new Habilidade("experiencia-profisisonal.invent-software.analista-i.habilidades.arquitetura-em-nuvem"),
         ]
       )
     ];

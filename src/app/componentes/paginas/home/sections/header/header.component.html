@@ -7,7 +7,7 @@
     <nav id="main-nav">
       <ul id="nav-list">
         @for(link of links; track link){
-        <li><a class="nav-link" [href]="link.url">{{ link.nome || '' | translate }}</a></li>
+        <li><a class="nav-link" (click)="go(link.url || '', $event)">{{ link.nome || '' | translate }}</a></li>
         }
       </ul>
     </nav>
@@ -35,7 +35,8 @@
       </div>
       <ul class="mobile-list">
         @for(link of links; track link){
-        <li><a class="nav-link soft-ui-container" [href]="link.url" (click)="fecharMenu()">{{ link.nome || '' |
+        <li><a class="nav-link soft-ui-container" (click)="go(link.url || '', $event)" (click)="fecharMenu()">{{
+            link.nome || '' |
             translate }}</a></li>
         }
       </ul>

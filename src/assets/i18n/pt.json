@@ -22,6 +22,34 @@
         "descricao3": "Também compartilho conteúdo técnico e experiências de desenvolvimento no Instagram ",
         "descricao4": "com foco em comunidade e troca de conhecimento."
     },
+    "experiencia-profisisonal": {
+        "invent-software": {
+            "estagio": {
+                "cargo": "Estagiário em Desenvolvimento de Software",
+                "inicio": "maio/2024",
+                "fim": "outubro/2024",
+                "descricao": "Participei do programa Coders Growth, desenvolvendo aplicações desktop e web em C#. Explorei boas práticas como Onion Architecture, testes automatizados e uso de frameworks modernos, consolidando minha base em desenvolvimento full stack."
+            },
+            "tecnico-em-desenvolvido": {
+                "cargo": "Técnico em Desenvolvimento de Software",
+                "inicio": "novembro/2025",
+                "fim": "agosto/2025",
+                "descricao": "Atuo como desenvolvedor full stack no time de Documentos Eletrônicos, focado na migração e modernização de sistemas fiscais para a nuvem. Responsável pela evolução do TaxPlus.GNRE, além de contribuir nos sistemas TaxPlus.NF-e e DF-e, garantindo escalabilidade e alta performance.",
+                "habilidades": {
+                    "arquitetura-em-nuvem": "Arquitetura em Nuvem"
+                }
+            },
+            "analista-i": {
+                "cargo": "Analista I em Desenvolvimento de Software",
+                "inicio": "setembro/2025",
+                "fim": "atual",
+                "descricao": "Atuo na manutenção e evolução dos produtos em nuvem TaxPlus, como NF-e, DF-e e GNRE. Também participo do desenvolvimento de novos produtos, incluindo o TaxPlus Reforma Tributária, voltado para análise de impacto, simulação e projeção da Reforma Tributária para empresas.",
+                "habilidades": {
+                    "arquitetura-em-nuvem": "Arquitetura em Nuvem"
+                }
+            }
+        }
+    },
     "projetos": {
         "lsgassessoriadigital": {
             "titulo": "lsgassessoriadigital",
@@ -42,20 +70,6 @@
             "titulo": "rjafreios",
             "tipo": "Landing Page",
             "descricao": "Landing page para oficina automotiva."
-        }
-    },
-    "experiencias-profissionais": {
-        "conexaodigital": {
-            "cargo": "Designer Gráfico",
-            "descricao": "Criação de artes para material gráfico e digitais utilizando Photoshop, Illustrator e Corel Draw."
-        },
-        "inventsoftware-estagio": {
-            "cargo": "Estágio em Desenvolvimento de Software",
-            "descricao": "Desenvolvimento de aplicações web e desktop utilizando C# (.NET), SAPUI 5, Windows Forms."
-        },
-        "inventsoftware-auxiliar": {
-            "cargo": "Auxiliar de Desenvolvimento de Software",
-            "descricao": "Desenvolvimento fullstack de aplicações em C# (.NET), SAPUI 5."
         }
     }
 }

@@ -2,15 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { SeoService } from '../../../../core/services/seo/seo.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { CardComponent } from './card/card.component';
-import { FooterComponent } from '../../reutilizaveis/footer/footer.component';
-import { HeaderComponent } from '../../reutilizaveis/header/header.component';
 import { Card, Link } from '../../../../model/link.model';
 import { CardDropdownComponent } from "./dropdown/card-dropdown.component";
 
 @Component({
   selector: 'app-meus-links',
   standalone: true,
-  imports: [TranslateModule, CardComponent, FooterComponent, HeaderComponent, CardDropdownComponent],
+  imports: [TranslateModule, CardComponent, CardDropdownComponent],
   templateUrl: './meus-links.component.html',
   styleUrls: ['./meus-links.component.scss']
 })

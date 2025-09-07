@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { MacbookComponent } from './macbook/macbook.component';
-import { Projeto } from '../../../../../../../model/projeto.model';
+import { Projeto } from '../../../../../../../model/projeto/projeto.model';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({

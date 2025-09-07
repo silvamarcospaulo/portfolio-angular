@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Projeto } from '../../../../../../../../model/projeto.model';
+import { Projeto } from '../../../../../../../../model/projeto/projeto.model';
 
 @Component({
   selector: 'app-macbook',

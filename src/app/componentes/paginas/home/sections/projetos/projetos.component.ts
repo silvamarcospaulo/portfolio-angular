@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { Projeto } from '../../../../../../model/projeto.model';
+import { Projeto } from '../../../../../../model/projeto/projeto.model';
 import { CarrosselComponent } from './carrossel/carrossel.component';
 
 @Component({

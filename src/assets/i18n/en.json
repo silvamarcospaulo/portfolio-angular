@@ -18,9 +18,37 @@
     },
     "sobre": {
         "descricao1": "Software Developer since 2024, working on web applications and cloud solutions. Experience with .NET (C#), Java Spring, and Angular, applying best practices in architecture, Git version control, and continuous integration.",
-        "descricao2": "Currently part of the cloud development team at Invent Software, contributing to the TaxPlus.NF-e application and leading the migration of the TaxPlus.GNRE system from desktop to a cloud-based architecture, focusing on scalability, performance, and maintainability.",
+        "descricao2": "Currently part of the cloud development team at Invent Software, contributing to the TaxPlus.NF-e application and leading the migration of the TaxPlus.GNRE system from desktop to cloud architecture, focusing on scalability, performance, and maintainability.",
         "descricao3": "I also share technical content and development experiences on Instagram ",
-        "descricao4": "focused on community and knowledge exchange."
+        "descricao4": "focusing on community building and knowledge exchange."
+    },
+    "experiencia-profisisonal": {
+        "invent-software": {
+            "estagio": {
+                "cargo": "Software Development Intern",
+                "inicio": "May/2024",
+                "fim": "October/2024",
+                "descricao": "Participated in the Coders Growth program, developing desktop and web applications in C#. Explored best practices such as Onion Architecture, automated testing, and modern frameworks, consolidating my foundation in full stack development."
+            },
+            "tecnico-em-desenvolvido": {
+                "cargo": "Software Development Technician",
+                "inicio": "November/2025",
+                "fim": "August/2025",
+                "descricao": "Worked as a full stack developer in the Electronic Documents team, focused on migrating and modernizing tax systems to the cloud. Responsible for the evolution of TaxPlus.GNRE, and also contributed to the TaxPlus.NF-e and DF-e systems, ensuring scalability and high performance.",
+                "habilidades": {
+                    "arquitetura-em-nuvem": "Cloud Architecture"
+                }
+            },
+            "analista-i": {
+                "cargo": "Software Development Analyst I",
+                "inicio": "September/2025",
+                "fim": "Present",
+                "descricao": "Responsible for maintaining and evolving the TaxPlus cloud products, such as NF-e, DF-e, and GNRE. Also involved in the development of new products, including TaxPlus Tax Reform, aimed at impact analysis, simulation, and projection of the Tax Reform for companies.",
+                "habilidades": {
+                    "arquitetura-em-nuvem": "Cloud Architecture"
+                }
+            }
+        }
     },
     "projetos": {
         "lsgassessoriadigital": {
@@ -31,31 +59,17 @@
         "062uniformes": {
             "titulo": "062uniformes",
             "tipo": "E-commerce",
-            "descricao": "Online store for custom uniforms."
+            "descricao": "Online store for customized uniforms."
         },
         "jbrsuitehotel": {
             "titulo": "jbrsuitehotel",
             "tipo": "Landing Page",
-            "descricao": "Website for hotel bookings."
+            "descricao": "Website for hotel reservations."
         },
         "rjafreios": {
             "titulo": "rjafreios",
             "tipo": "Landing Page",
-            "descricao": "Landing page for an automotive repair shop."
-        }
-    },
-    "experiencias-profissionais": {
-        "conexaodigital": {
-            "cargo": "Graphic Designer",
-            "descricao": "Design of artwork for print and digital materials using Photoshop, Illustrator, and Corel Draw."
-        },
-        "inventsoftware-estagio": {
-            "cargo": "Software Development Intern",
-            "descricao": "Development of web and desktop applications using C# (.NET), SAPUI 5, and Windows Forms."
-        },
-        "inventsoftware-auxiliar": {
-            "cargo": "Software Development Assistant",
-            "descricao": "Fullstack development of applications using C# (.NET), SAPUI 5."
+            "descricao": "Landing page for an auto repair shop."
         }
     }
 }

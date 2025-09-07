@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
 body.light-mode {
   --color-primary: #f3f3f3;
   --color-secondary: #ffffff;
@@ -24,6 +26,7 @@ body.dark-mode {
 
 * {
   transition: color .5s, transform .5s;
+  font-family: 'Lexend', sans-serif;
 }
 
 p {

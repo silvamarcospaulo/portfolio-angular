@@ -204,6 +204,7 @@ footer {
 
   #creditos {
     font-size: 0.8rem;
+    flex-direction: column;
   }
 }
 
@@ -224,5 +225,9 @@ footer {
 
   #redes-sociais i {
     font-size: 1.2rem;
+  }
+
+  #creditos {
+    flex-direction: column;
   }
 }

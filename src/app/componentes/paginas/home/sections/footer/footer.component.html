@@ -7,7 +7,9 @@
             <div id="menu-list">
                 <div id="list">
                     @for (link of links; track link) {
-                    <a [href]="link.url">{{ link.nome || '' | translate }}</a>
+                    <a (click)="go(link.url || '', $event)">{{
+                        link.nome || '' |
+                        translate }}</a>
                     }
                 </div>
             </div>
@@ -36,7 +38,7 @@
                 <app-switch-dia-noite />
             </div>
         </div>
-        <div class="linha-horizontal"></div>
+        <!-- <div class="linha-horizontal"></div> -->
         <div id="creditos">
             <div class="creditos-texto">
                 <p>{{ 'footer.desenvolvido-por' | translate }}</p>

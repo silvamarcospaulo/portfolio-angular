@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { MenuRedesSociaisComponent } from '../../../../reutilizaveis/menu-redes-sociais/menu-redes-sociais.component';
+import { MenuRedesSociaisComponent } from '../menu-redes-sociais/menu-redes-sociais.component';
 
 @Component({
   selector: 'app-inicio',

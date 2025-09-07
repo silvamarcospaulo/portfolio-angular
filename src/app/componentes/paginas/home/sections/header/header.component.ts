@@ -1,10 +1,10 @@
 import { Component, Inject, Input, PLATFORM_ID, signal } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser, NgClass } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
-import { Link } from '../../../../model/link.model';
-import { NgClass } from '@angular/common';
-import { DropdownIdiomasComponent } from "../dropdown-idiomas/dropdown-idiomas.component";
-import { SwitchDiaNoiteComponent } from "../switch-dia-noite/switch-dia-noite.component";
+import { DropdownIdiomasComponent } from '../../../../reutilizaveis/dropdown-idiomas/dropdown-idiomas.component';
+import { SwitchDiaNoiteComponent } from '../../../../reutilizaveis/switch-dia-noite/switch-dia-noite.component';
+import { ScrollService } from '../../../../../../core/services/scroll/scroll.service';
+import { Link } from '../../../../../../model/link.model';
 
 @Component({
   selector: 'app-header',
@@ -27,8 +27,14 @@ export class HeaderComponent {
   headerTranslucido = false;
   isBrowser: boolean;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private scroll: ScrollService) {
     this.isBrowser = isPlatformBrowser(this.platformId);
+  }
+
+  go(url: string, event: Event) {
+    event.preventDefault();
+    const id = url.replace(/^#/, '');
+    this.scroll.scrollTo(id);
   }
 
   ngOnInit(): void {

@@ -1,21 +1,24 @@
 <div class="timeline">
-    @for (event of events; track event.year; let i = $index) {
+    @for (experiencia of listaDeExperienciasProfissionais; track experiencia.inicio; let i = $index) {
     <div class="timeline-item">
         <div class="timeline-dot"></div>
 
         <div class="timeline-container soft-ui-container" [ngClass]="{ 'left': i % 2 === 0, 'right': i % 2 !== 0 }">
             <div class="timeline-content">
                 <div class="titulo">
-                    <h3>{{ event.occupation }}</h3>
+                    <h3>{{ experiencia.cargo | translate }}</h3>
                     <div class="subtitulo">
-                        <h6>{{ event.empresa }}</h6>
-                        <p>{{ event.year }}</p>
+                        <h6>{{ experiencia.empresa }}</h6>
+                        <p>{{ experiencia.inicio| translate }} - {{ experiencia.fim | translate }}</p>
+                    </div>
+                    <div class="descricao">
+                        <p>{{ experiencia.descricao | translate }}</p>
                     </div>
                 </div>
                 <div class="conteudo">
                     <ul>
-                        @for (detail of event.details; track detail) {
-                        <li>{{ detail }}</li>
+                        @for (habilidade of experiencia.habilidades; track habilidade) {
+                        <li>{{ habilidade.nome | translate }}</li>
                         }
                     </ul>
                 </div>

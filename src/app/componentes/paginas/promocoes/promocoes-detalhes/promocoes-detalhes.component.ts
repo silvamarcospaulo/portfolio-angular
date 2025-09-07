@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HeaderComponent } from "../../../reutilizaveis/header/header.component";
-import { FooterComponent } from "../../../reutilizaveis/footer/footer.component";
+
 import { Produto } from '../../../../../model/produto/produto';
 import { CommonModule } from '@angular/common';
 import { ProdutoService } from '../../../../../core/services/afiliados-repository/produto-repositoy/produto-repositoy.service';
 import { firstValueFrom } from 'rxjs';
+import { HeaderComponent } from '../../home/sections/header/header.component';
+import { FooterComponent } from '../../home/sections/footer/footer.component';
 
 @Component({
   standalone: true,

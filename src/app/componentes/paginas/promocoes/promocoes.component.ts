@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Produto } from '../../../../model/produto/produto';
-import { FooterComponent } from "../../reutilizaveis/footer/footer.component";
 import { PromocoesHeaderComponent } from "./promocoes-header/promocoes-header.component";
 import { Link } from '../../../../model/link.model';
 import { PromocaoCardComponent } from './promocao-card/promocao-card.component';
@@ -10,6 +9,7 @@ import { ProdutoService } from '../../../../core/services/afiliados-repository/p
 import { firstValueFrom } from 'rxjs';
 import { FiltroProduto } from '../../../../model/filtro-produto/filtro-produto';
 import { RetornoProdutoDto } from '../../../../model/produto/retorno-produto.dto';
+import { FooterComponent } from '../home/sections/footer/footer.component';
 
 @Component({
   selector: 'app-promocoes',
@@ -18,6 +18,7 @@ import { RetornoProdutoDto } from '../../../../model/produto/retorno-produto.dto
   templateUrl: './promocoes.component.html',
   styleUrls: ['./promocoes.component.scss']
 })
+
 export class PromocoesComponent implements OnInit {
   filtroNome = '';
   marcaFiltro = '';

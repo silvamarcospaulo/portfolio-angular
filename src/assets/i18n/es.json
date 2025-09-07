@@ -3,7 +3,7 @@
         "logo": "Marcos Paulo Silva",
         "navbar": {
             "inicio": "Inicio",
-            "sobre": "Sobre mí",
+            "sobre": "Acerca de",
             "experiencias": "Experiencia",
             "projetos": "Proyectos",
             "contato": "Contacto"
@@ -18,9 +18,37 @@
     },
     "sobre": {
         "descricao1": "Desarrollador de Software desde 2024, con experiencia en aplicaciones web y soluciones en la nube. Experiencia con .NET (C#), Java Spring y Angular, aplicando buenas prácticas de arquitectura, control de versiones con Git e integración continua.",
-        "descricao2": "Actualmente formo parte del equipo de desarrollo en la nube de Invent Software, contribuyendo a la aplicación TaxPlus.NF-e y liderando la migración del sistema TaxPlus.GNRE de escritorio a una arquitectura en la nube, con enfoque en escalabilidad, rendimiento y mantenimiento.",
+        "descricao2": "Actualmente formo parte del equipo de desarrollo en la nube de Invent Software, contribuyendo a la aplicación TaxPlus.NF-e y liderando la migración del sistema TaxPlus.GNRE de escritorio a arquitectura en la nube, con enfoque en escalabilidad, rendimiento y mantenimiento.",
         "descricao3": "También comparto contenido técnico y experiencias de desarrollo en Instagram ",
-        "descricao4": "con enfoque en comunidad e intercambio de conocimientos."
+        "descricao4": "enfocado en comunidad e intercambio de conocimiento."
+    },
+    "experiencia-profisisonal": {
+        "invent-software": {
+            "estagio": {
+                "cargo": "Practicante en Desarrollo de Software",
+                "inicio": "mayo/2024",
+                "fim": "octubre/2024",
+                "descricao": "Participé en el programa Coders Growth, desarrollando aplicaciones de escritorio y web en C#. Exploré buenas prácticas como Onion Architecture, pruebas automatizadas y uso de frameworks modernos, consolidando mi base en desarrollo full stack."
+            },
+            "tecnico-em-desenvolvido": {
+                "cargo": "Técnico en Desarrollo de Software",
+                "inicio": "noviembre/2025",
+                "fim": "agosto/2025",
+                "descricao": "Trabajé como desarrollador full stack en el equipo de Documentos Electrónicos, enfocado en la migración y modernización de sistemas fiscales a la nube. Responsable por la evolución de TaxPlus.GNRE, además de contribuir en los sistemas TaxPlus.NF-e y DF-e, garantizando escalabilidad y alto rendimiento.",
+                "habilidades": {
+                    "arquitetura-em-nuvem": "Arquitectura en la Nube"
+                }
+            },
+            "analista-i": {
+                "cargo": "Analista I en Desarrollo de Software",
+                "inicio": "septiembre/2025",
+                "fim": "actual",
+                "descricao": "Encargado del mantenimiento y evolución de los productos en la nube TaxPlus, como NF-e, DF-e y GNRE. También participo en el desarrollo de nuevos productos, incluyendo TaxPlus Reforma Tributaria, orientado al análisis de impacto, simulación y proyección de la Reforma Tributaria para empresas.",
+                "habilidades": {
+                    "arquitetura-em-nuvem": "Arquitectura en la Nube"
+                }
+            }
+        }
     },
     "projetos": {
         "lsgassessoriadigital": {
@@ -30,32 +58,18 @@
         },
         "062uniformes": {
             "titulo": "062uniformes",
-            "tipo": "Comercio electrónico",
-            "descricao": "Tienda virtual de uniformes personalizados."
+            "tipo": "E-commerce",
+            "descricao": "Tienda en línea de uniformes personalizados."
         },
         "jbrsuitehotel": {
             "titulo": "jbrsuitehotel",
-            "tipo": "Página de aterrizaje",
-            "descricao": "Sitio web para reservas de hotel."
+            "tipo": "Landing Page",
+            "descricao": "Sitio web para reservas de hospedaje."
         },
         "rjafreios": {
             "titulo": "rjafreios",
-            "tipo": "Página de aterrizaje",
-            "descricao": "Página de aterrizaje para taller automotriz."
-        }
-    },
-    "experiencias-profissionais": {
-        "conexaodigital": {
-            "cargo": "Diseñador Gráfico",
-            "descricao": "Creación de artes para materiales gráficos y digitales utilizando Photoshop, Illustrator y Corel Draw."
-        },
-        "inventsoftware-estagio": {
-            "cargo": "Practicante de Desarrollo de Software",
-            "descricao": "Desarrollo de aplicaciones web y de escritorio utilizando C# (.NET), SAPUI 5 y Windows Forms."
-        },
-        "inventsoftware-auxiliar": {
-            "cargo": "Asistente de Desarrollo de Software",
-            "descricao": "Desarrollo fullstack de aplicaciones utilizando C# (.NET), SAPUI 5."
+            "tipo": "Landing Page",
+            "descricao": "Landing page para un taller automotriz."
         }
     }
 }

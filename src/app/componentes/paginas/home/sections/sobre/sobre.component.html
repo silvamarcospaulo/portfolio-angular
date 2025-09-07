@@ -7,13 +7,13 @@
                 {{ 'sobre.descricao3' | translate }}
                 <a href="https://www.instagram.com/marcospaulo.dev" target="_blank">
                     <h5>&#64;marcospaulo&#46;dev</h5>
-                </a>, 
+                </a>,
                 {{ 'sobre.descricao4' | translate }}
             </h5>
         </div>
     </div>
     <div id="container-timeline">
-        <app-timeline></app-timeline>
+        <app-timeline [listaDeExperienciasProfissionais]="listaDeExperienciasProfissionais"></app-timeline>
     </div>
     <div id="container-tecnologias">
         <app-lista-slider [items]="items" [duration]="duration" [fade]="fade" [direction]="direction">
