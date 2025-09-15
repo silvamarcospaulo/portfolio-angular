@@ -3,8 +3,8 @@
         "logo": "Marcos Paulo Silva",
         "navbar": {
             "inicio": "Inicio",
-            "sobre": "Acerca de",
-            "experiencias": "Experiencia",
+            "sobre": "Sobre mí",
+            "experiencias": "Experiencias",
             "projetos": "Proyectos",
             "contato": "Contacto"
         }
@@ -14,13 +14,13 @@
         "todos-os-direitos-reservados": ". Todos los derechos reservados."
     },
     "inicio": {
-        "subtitulo": "Desarrollador de Software"
+        "subtitulo": "Desarrollador de software"
     },
     "sobre": {
-        "descricao1": "Desarrollador de Software desde 2024, con experiencia en aplicaciones web y soluciones en la nube. Experiencia con .NET (C#), Java Spring y Angular, aplicando buenas prácticas de arquitectura, control de versiones con Git e integración continua.",
-        "descricao2": "Actualmente formo parte del equipo de desarrollo en la nube de Invent Software, contribuyendo a la aplicación TaxPlus.NF-e y liderando la migración del sistema TaxPlus.GNRE de escritorio a arquitectura en la nube, con enfoque en escalabilidad, rendimiento y mantenimiento.",
+        "descricao1": "Desarrollador de software desde 2024, con actuación en aplicaciones web y soluciones en la nube. Experiencia con .NET (C#), Java Spring y Angular, aplicando buenas prácticas de arquitectura, control de versiones con Git e integración continua.",
+        "descricao2": "Actualmente formo parte del equipo de desarrollo cloud de Invent Software, contribuyendo a la aplicación TaxPlus.NF-e y liderando la migración del sistema TaxPlus.GNRE de escritorio a una arquitectura en la nube, con foco en escalabilidad, rendimiento y mantenibilidad.",
         "descricao3": "También comparto contenido técnico y experiencias de desarrollo en Instagram ",
-        "descricao4": "enfocado en comunidad e intercambio de conocimiento."
+        "descricao4": "con enfoque en comunidad e intercambio de conocimiento."
     },
     "experiencia-profisisonal": {
         "invent-software": {
@@ -28,48 +28,62 @@
                 "cargo": "Practicante en Desarrollo de Software",
                 "inicio": "mayo/2024",
                 "fim": "octubre/2024",
-                "descricao": "Participé en el programa Coders Growth, desarrollando aplicaciones de escritorio y web en C#. Exploré buenas prácticas como Onion Architecture, pruebas automatizadas y uso de frameworks modernos, consolidando mi base en desarrollo full stack."
+                "descricao": "Participé en el programa Coders Growth, desarrollando aplicaciones de escritorio y web en C#. Exploré buenas prácticas como Onion Architecture, pruebas automatizadas y el uso de frameworks modernos, consolidando mi base en desarrollo full stack."
             },
             "tecnico-em-desenvolvido": {
                 "cargo": "Técnico en Desarrollo de Software",
                 "inicio": "noviembre/2025",
                 "fim": "agosto/2025",
-                "descricao": "Trabajé como desarrollador full stack en el equipo de Documentos Electrónicos, enfocado en la migración y modernización de sistemas fiscales a la nube. Responsable por la evolución de TaxPlus.GNRE, además de contribuir en los sistemas TaxPlus.NF-e y DF-e, garantizando escalabilidad y alto rendimiento.",
+                "descricao": "Actúo como desarrollador full stack en el equipo de Documentos Electrónicos, enfocado en la migración y modernización de sistemas fiscales a la nube. Responsable de la evolución de TaxPlus.GNRE y colaborador en los sistemas TaxPlus.NF-e y DF-e, garantizando escalabilidad y alto rendimiento.",
                 "habilidades": {
-                    "arquitetura-em-nuvem": "Arquitectura en la Nube"
+                    "arquitetura-em-nuvem": "Arquitectura en la nube"
                 }
             },
             "analista-i": {
                 "cargo": "Analista I en Desarrollo de Software",
                 "inicio": "septiembre/2025",
                 "fim": "actual",
-                "descricao": "Encargado del mantenimiento y evolución de los productos en la nube TaxPlus, como NF-e, DF-e y GNRE. También participo en el desarrollo de nuevos productos, incluyendo TaxPlus Reforma Tributaria, orientado al análisis de impacto, simulación y proyección de la Reforma Tributaria para empresas.",
+                "descricao": "Trabajo en el mantenimiento y la evolución de los productos en la nube de TaxPlus, como NF-e, DF-e y GNRE. También participo en el desarrollo de nuevos productos, incluido TaxPlus Reforma Tributaria, orientado al análisis de impacto, simulación y proyección de la Reforma Tributaria para empresas.",
                 "habilidades": {
-                    "arquitetura-em-nuvem": "Arquitectura en la Nube"
+                    "arquitetura-em-nuvem": "Arquitectura en la nube"
                 }
             }
         }
     },
     "projetos": {
+        "titulo": "Proyectos desarrollados",
+        "solucoes-utilizadas": "Tecnologías utilizadas:",
+        "visite-o-site": "Visita el sitio",
+        "subtitulo": "Una selección de trabajos realizados que reúne creaciones propias y soluciones para clientes.",
         "lsgassessoriadigital": {
-            "titulo": "lsgassessoriadigital",
-            "tipo": "Embudo de Ventas",
-            "descricao": "Embudo de ventas para servicios digitales."
+            "titulo": "LSG Assessoria",
+            "tipo": "Página de ventas",
+            "descricao": "Desarrollo de un embudo de ventas digital para una empresa de marketing, con foco en captación y conversión de leads."
         },
         "062uniformes": {
-            "titulo": "062uniformes",
+            "titulo": "062 Uniformes",
             "tipo": "E-commerce",
-            "descricao": "Tienda en línea de uniformes personalizados."
+            "descricao": "Creación de una tienda virtual para una fábrica de camisetas personalizadas, con catálogo dinámico y una experiencia de compra simplificada."
         },
         "jbrsuitehotel": {
-            "titulo": "jbrsuitehotel",
-            "tipo": "Landing Page",
-            "descricao": "Sitio web para reservas de hospedaje."
+            "titulo": "JBR Suíte Hotel",
+            "tipo": "Landing page",
+            "descricao": "Landing page estratégica para atraer clientes y facilitar reservas de servicios de hospedaje."
         },
         "rjafreios": {
-            "titulo": "rjafreios",
-            "tipo": "Landing Page",
-            "descricao": "Landing page para un taller automotriz."
+            "titulo": "RLA Freios",
+            "tipo": "Landing page",
+            "descricao": "Página orientada a la captación de leads calificados, dirigida a compradores de repuestos automotrices para camiones, autobuses y vehículos pesados."
+        },
+        "goldesilverdistribuicao": {
+            "titulo": "Gold & Silver Distribuidora",
+            "tipo": "Página de ventas",
+            "descricao": "Página de generación de leads para un programa de reventa de inmuebles, apoyando la prospección de vendedores autónomos vinculados a la distribuidora."
+        },
+        "marcos-paulo-silva": {
+            "titulo": "Portafolio – Primera versión",
+            "tipo": "Landing page",
+            "descricao": "Versión inicial de mi portafolio, construida con HTML5, CSS3 y JavaScript, como base de aprendizaje y práctica en desarrollo web."
         }
     }
 }

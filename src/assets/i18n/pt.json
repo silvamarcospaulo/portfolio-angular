@@ -51,25 +51,39 @@
         }
     },
     "projetos": {
+        "titulo": "Projetos desenvolvidos",
+        "solucoes-utilizadas": "Tecnologias utilizadas:",
+        "visite-o-site": "Acesse o site",
+        "subtitulo": "Uma seleção de trabalhos realizados, reunindo criações autorais e soluções para clientes.",
         "lsgassessoriadigital": {
-            "titulo": "lsgassessoriadigital",
-            "tipo": "Funil de Vendas",
-            "descricao": "Funil de vendas para serviços digitais."
+            "titulo": "LSG Assessoria",
+            "tipo": "Página de Vendas",
+            "descricao": "Desenvolvimento de um funil de vendas digital para uma empresa de marketing, com foco em captação e conversão de leads."
         },
         "062uniformes": {
-            "titulo": "062uniformes",
+            "titulo": "062 Uniformes",
             "tipo": "E-commerce",
-            "descricao": "Loja virtual de uniformes personalizados."
+            "descricao": "Criação de uma loja virtual para uma fábrica de camisetas personalizadas, com catálogo dinâmico e experiência de compra simplificada."
         },
         "jbrsuitehotel": {
-            "titulo": "jbrsuitehotel",
+            "titulo": "JBR Suíte Hotel",
             "tipo": "Landing Page",
-            "descricao": "Site para reservas de hospedaria."
+            "descricao": "Landing page estratégica para atração de clientes e reserva de serviços de hospedagem."
         },
         "rjafreios": {
-            "titulo": "rjafreios",
+            "titulo": "RLA Freios",
             "tipo": "Landing Page",
-            "descricao": "Landing page para oficina automotiva."
+            "descricao": "Página de captação de leads qualificados, direcionada a compradores de peças automotivas para caminhões, ônibus e veículos pesados."
+        },
+        "goldesilverdistribuicao": {
+            "titulo": "Gold & Silver Distribuidora",
+            "tipo": "Página de Vendas",
+            "descricao": "Página de captura de leads para um programa de revenda de imóveis, apoiando a prospecção de vendedores autônomos vinculados à distribuidora."
+        },
+        "marcos-paulo-silva": {
+            "titulo": "Portfólio - Primeira Versão",
+            "tipo": "Landing Page",
+            "descricao": "Versão inicial do meu portfólio, construída com HTML5, CSS3 e JavaScript, como base de aprendizado e prática em desenvolvimento web."
         }
     }
 }

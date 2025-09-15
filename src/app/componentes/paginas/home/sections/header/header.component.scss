@@ -26,7 +26,7 @@
     display: flex;
     place-content: center;
     place-items: center;
-    color: var(--color-text-title);
+    color: var(--color-text-subtitle);
     text-decoration: none;
     font-weight: 700;
     letter-spacing: 1px;
@@ -51,14 +51,13 @@
 }
 
 .nav-link {
-    color: var(--color-text-title);
+    color: var(--color-text-subtitle);
     text-decoration: none;
     font-weight: 500;
     transition: transform .5s;
 }
 
 .nav-link:hover {
-    transform: translateY(-1px);
     color: var(--color-link-focus);
 }
 
@@ -76,7 +75,7 @@
 }
 
 #menu-toggle i {
-    color: var(--color-text-title);
+    color: var(--color-text-subtitle);
     font-size: 20px;
 }
 
@@ -110,7 +109,7 @@
 }
 
 #brand-mobile {
-    color: var(--color-text-title);
+    color: var(--color-text-subtitle);
     text-decoration: none;
     font-weight: 700;
     font-size: 1.5rem;
@@ -129,7 +128,7 @@
 }
 
 #menu-close i {
-    color: var(--color-text-title);
+    color: var(--color-text-subtitle);
     font-size: 20px;
 }
 
@@ -145,7 +144,7 @@
     display: block;
     padding: 14px 12px;
     border-radius: 10px;
-    color: var(--color-text-title);
+    color: var(--color-text-subtitle);
     text-decoration: none;
     background-color: var(--color-primary);
 }

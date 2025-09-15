@@ -19,7 +19,7 @@
     padding: 0;
     margin: 0;
     text-decoration: none;
-    color: var(--color-text-title);
+    color: var(--color-text-subtitle);
 }
 
 #conteudo i,
@@ -30,11 +30,11 @@
 }
 
 #conteudo i {
-    color: var(--color-text-title);
+    color: var(--color-text-subtitle);
 }
 
 #conteudo img {
-    background-color: var(--color-text-title);
+    background-color: var(--color-text-subtitle);
     height: 1rem;
     padding: 0.01rem;
     border-radius: 25%;

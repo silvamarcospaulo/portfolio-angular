@@ -19,16 +19,13 @@
         background-color: var(--color-primary);
         color: var(--color-text-subtitle);
         border-radius: 50%;
-        transition: background-color 0.3s, translate 0.3s ease;
+        transition: background-color 0.3s;
         text-decoration: none;
 
         &:hover {
-            background-color: var(--color-secondary);
+            background-color: var(--color-primary);
             color: var(--color-link-focus);
 
-            i {
-                transform: translateY(-1px);
-            }
         }
 
         i {
@@ -81,7 +78,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--color-text-title);
+    background-color: var(--color-text-subtitle);
     color: var(--color-primary);
     border-radius: 50%;
     font-size: 22px;

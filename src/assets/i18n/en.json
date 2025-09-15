@@ -17,10 +17,10 @@
         "subtitulo": "Software Developer"
     },
     "sobre": {
-        "descricao1": "Software Developer since 2024, working on web applications and cloud solutions. Experience with .NET (C#), Java Spring, and Angular, applying best practices in architecture, Git version control, and continuous integration.",
-        "descricao2": "Currently part of the cloud development team at Invent Software, contributing to the TaxPlus.NF-e application and leading the migration of the TaxPlus.GNRE system from desktop to cloud architecture, focusing on scalability, performance, and maintainability.",
+        "descricao1": "Software Developer since 2024, working with web applications and cloud solutions. Experienced in .NET (C#), Java Spring, and Angular, applying best practices in architecture, version control with Git, and continuous integration.",
+        "descricao2": "Currently part of the cloud development team at Invent Software, contributing to the TaxPlus.NF-e application and leading the migration of the TaxPlus.GNRE system from desktop to a cloud-based architecture, focusing on scalability, performance, and maintainability.",
         "descricao3": "I also share technical content and development experiences on Instagram ",
-        "descricao4": "focusing on community building and knowledge exchange."
+        "descricao4": "with a focus on community and knowledge sharing."
     },
     "experiencia-profisisonal": {
         "invent-software": {
@@ -28,13 +28,13 @@
                 "cargo": "Software Development Intern",
                 "inicio": "May/2024",
                 "fim": "October/2024",
-                "descricao": "Participated in the Coders Growth program, developing desktop and web applications in C#. Explored best practices such as Onion Architecture, automated testing, and modern frameworks, consolidating my foundation in full stack development."
+                "descricao": "I took part in the Coders Growth program, developing desktop and web applications in C#. Explored best practices such as Onion Architecture, automated testing, and the use of modern frameworks, consolidating my foundation in full stack development."
             },
             "tecnico-em-desenvolvido": {
                 "cargo": "Software Development Technician",
                 "inicio": "November/2025",
                 "fim": "August/2025",
-                "descricao": "Worked as a full stack developer in the Electronic Documents team, focused on migrating and modernizing tax systems to the cloud. Responsible for the evolution of TaxPlus.GNRE, and also contributed to the TaxPlus.NF-e and DF-e systems, ensuring scalability and high performance.",
+                "descricao": "I work as a full stack developer in the Electronic Documents team, focused on migrating and modernizing tax systems to the cloud. Responsible for the evolution of TaxPlus.GNRE and contributing to TaxPlus.NF-e and DF-e systems, ensuring scalability and high performance.",
                 "habilidades": {
                     "arquitetura-em-nuvem": "Cloud Architecture"
                 }
@@ -43,7 +43,7 @@
                 "cargo": "Software Development Analyst I",
                 "inicio": "September/2025",
                 "fim": "Present",
-                "descricao": "Responsible for maintaining and evolving the TaxPlus cloud products, such as NF-e, DF-e, and GNRE. Also involved in the development of new products, including TaxPlus Tax Reform, aimed at impact analysis, simulation, and projection of the Tax Reform for companies.",
+                "descricao": "I work on the maintenance and evolution of TaxPlus cloud products such as NF-e, DF-e, and GNRE. I also contribute to the development of new products, including TaxPlus Tax Reform, aimed at impact analysis, simulation, and projection of the Tax Reform for companies.",
                 "habilidades": {
                     "arquitetura-em-nuvem": "Cloud Architecture"
                 }
@@ -51,25 +51,39 @@
         }
     },
     "projetos": {
+        "titulo": "Developed Projects",
+        "solucoes-utilizadas": "Technologies used:",
+        "visite-o-site": "Visit the site",
+        "subtitulo": "A selection of projects, combining personal creations and client-focused solutions.",
         "lsgassessoriadigital": {
-            "titulo": "lsgassessoriadigital",
-            "tipo": "Sales Funnel",
-            "descricao": "Sales funnel for digital services."
+            "titulo": "LSG Assessoria",
+            "tipo": "Sales Page",
+            "descricao": "Development of a digital sales funnel for a marketing company, focused on lead acquisition and conversion."
         },
         "062uniformes": {
-            "titulo": "062uniformes",
+            "titulo": "062 Uniformes",
             "tipo": "E-commerce",
-            "descricao": "Online store for customized uniforms."
+            "descricao": "Creation of an online store for a custom t-shirt factory, featuring a dynamic catalog and a simplified shopping experience."
         },
         "jbrsuitehotel": {
-            "titulo": "jbrsuitehotel",
+            "titulo": "JBR Suíte Hotel",
             "tipo": "Landing Page",
-            "descricao": "Website for hotel reservations."
+            "descricao": "Strategic landing page designed to attract clients and enable easy hotel booking."
         },
         "rjafreios": {
-            "titulo": "rjafreios",
+            "titulo": "RLA Freios",
             "tipo": "Landing Page",
-            "descricao": "Landing page for an auto repair shop."
+            "descricao": "Lead generation page targeting qualified buyers of automotive parts for trucks, buses, and heavy vehicles."
+        },
+        "goldesilverdistribuicao": {
+            "titulo": "Gold & Silver Distribuidora",
+            "tipo": "Sales Page",
+            "descricao": "Lead capture page for a real estate resale program, supporting the recruitment of independent sales representatives affiliated with the distributor."
+        },
+        "marcos-paulo-silva": {
+            "titulo": "Portfolio – First Version",
+            "tipo": "Landing Page",
+            "descricao": "Initial version of my portfolio, built with HTML5, CSS3, and JavaScript, as a foundation for learning and practicing web development."
         }
     }
 }

@@ -1,5 +1,31 @@
 <section id="section-projetos">
-    <div id="container-projetos">
-        <app-carrossel [listaDeProjetos]="listaDeProjetos" />
+    <div id="container-carrossel">
+        <div id="container-conteudo">
+            <div id="container-textos">
+                <h3>{{'projetos.titulo' | translate}}</h3>
+                <h4>{{'projetos.subtitulo' | translate}}</h4>
+            </div>
+            <div id="container-botoes-de-acao">
+                <a class="nav-btn soft-ui-container soft-ui-container-hover" (click)="anterior()">
+                    <i class="bi bi-arrow-left-short seta"></i>
+                </a>
+                <a class="nav-btn soft-ui-container soft-ui-container-hover" (click)="proximo()">
+                    <i class="bi bi-arrow-right-short seta"></i>
+                </a>
+            </div>
+        </div>
+
+        <div id="container-card" (touchstart)="onTouchStart($event)" (touchmove)="onTouchMove($event)"
+            (touchend)="onTouchEnd()" (touchcancel)="onTouchEnd()">
+            <app-card-projetos [projeto]="projetoAtual" id="macbook"></app-card-projetos>
+        </div>
+
+        <div id="container-paginacao">
+            @for (proj of listaDeProjetos; let i = $index; track proj) {
+            <button class="ponto" [class.ativo]="i === projetoAtualIndex" type="button" (click)="projetoAtualIndex = i"
+                [attr.aria-label]="'Ir para projeto ' + (i + 1)">
+            </button>
+            }
+        </div>
     </div>
 </section>

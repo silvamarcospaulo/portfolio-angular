@@ -18,13 +18,12 @@
     justify-content: space-between;
     background-color: var(--color-primary);
     border-radius: 16px;
-    color: var(--color-text-title);
+    color: var(--color-text-subtitle);
     cursor: pointer;
     transition: color .3s ease, transform .2s ease, border-radius 0.1s ease-in-out;
     z-index: 2;
 
     &:hover {
-        transform: translateY(-1px);
         color: var(--color-link-focus);
     }
 
@@ -85,7 +84,7 @@
             margin: 0;
             font-weight: 600;
             font-size: 1em;
-            color: var(--color-text-title);
+            color: var(--color-text-subtitle);
         }
     }
 }
@@ -97,13 +96,13 @@
 
     i {
         font-size: xx-large;
-        color: var(--color-text-title);
+        color: var(--color-text-subtitle);
     }
 
     h4 {
         font-size: 1.2em;
         font-weight: 500;
-        color: var(--color-text-title);
+        color: var(--color-text-subtitle);
         margin: 0;
     }
 }
@@ -128,7 +127,7 @@
         place-content: center;
         place-items: center;
         border-radius: 8px;
-        color: var(--color-text-title);
+        color: var(--color-text-subtitle);
         margin-top: 20px;
 
         &:not(:last-child) {

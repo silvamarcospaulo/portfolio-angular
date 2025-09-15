@@ -1,0 +1,49 @@
+<div id="container-card-projetos" class="soft-ui-container">
+    <div id="container-conteudo">
+        <div id="container-textos">
+            <h3>{{projeto.titulo || "" | translate}}</h3>
+            <h4>{{projeto.tipoDeProjeto || "" | translate}}</h4>
+            <p>{{projeto.descricao || "" | translate}}</p>
+        </div>
+        <div id="container-tecnologias">
+            <div id="titulo-tecnologias">
+                <h6>{{'projetos.solucoes-utilizadas' | translate}}</h6>
+            </div>
+            <div id="slider-tecnologias">
+                @for (tecnologia of projeto.tecnologias; track tecnologia) {
+                <div class="slider-item soft-ui-container">
+                    <div id="conteudo">
+                        @if (tecnologia.imagem) {
+                        <img [src]="tecnologia.imagem | temaIcone:(tema.darkMode$ | async)" alt="">
+                        }
+                        @if (tecnologia.icone) {
+                        <p class="slider-label"><i class="{{ tecnologia.icone }}"></i></p>
+                        }
+                        @if (tecnologia.nome) {
+                        <p class="slider-label">{{ tecnologia.nome }}</p>
+                        }
+                    </div>
+                </div>
+                }
+            </div>
+            <div id="botoes-tecnologias">
+                @if(projeto.url) {
+                <button class="soft-ui-container soft-ui-container-hover">
+                    <i class="bi bi-github"></i>
+                    <p>Github</p>
+                </button>
+                }
+                @if(projeto.url) {
+                <button class="soft-ui-container soft-ui-container-hover" [formTarget]="'_blank'"
+                    (click)="abrirLink(projeto.url)">
+                    <p>{{'projetos.visite-o-site' | translate}}</p>
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+                }
+            </div>
+        </div>
+    </div>
+    <div id="container-imagem">
+        <img [src]="projeto.caminhoImagem" [alt]="projeto.titulo">
+    </div>
+</div>

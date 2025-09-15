@@ -35,38 +35,53 @@ export class HomeComponent implements OnInit {
     });
 
     this.listaDeProjetos = [
-      new Projeto(
-        'https://062uniformes.com/torcida-jovem-unificada',
-        '../../../../assets/images/print-projetos/062uniformes.png',
-        'E-commerce 062 Uniformes',
-        '062 Uniformes',
-        'projetos.062uniformes.tipo',
-        'projetos.062uniformes.descricao'
-      ),
-      new Projeto(
-        'https://lsgassessoriadigital.com/',
-        '../../../../assets/images/print-projetos/lsgblackfriday.png',
-        'Funil de Vendas LSG Digital',
-        'LSG Digital',
-        'projetos.lsgassessoriadigital.tipo',
-        'projetos.lsgassessoriadigital.descricao'
-      ),
-      new Projeto(
-        'https://rjafreios.com.br/',
-        '../../../../assets/images/print-projetos/rjafreios.png',
-        'Landing Page RJA Freios',
-        'JBR Suite Hotel',
-        'projetos.jbrsuitehotel.tipo',
-        'projetos.jbrsuitehotel.descricao'
-      ),
-      new Projeto(
-        'https://jbrsuitehotel.com.br/',
-        '../../../../assets/images/print-projetos/jbrsuitehotel.png',
-        'Landing Page JBR Suite Hotel',
-        'RJA Freios',
-        'projetos.rjafreios.tipo',
-        'projetos.rjafreios.descricao'
-      )
+      new Projeto({
+        url: 'https://goldesilverdistribuicao.com.br/',
+        caminhoImagem: '/assets/images/print-projetos/goldesilverdistribuicao.png',
+        palavraChave: 'CTA de vendas Gold & Silver Distribuição',
+        titulo: 'Gold & Silver Distribuição',
+        tipoDeProjeto: 'projetos.goldesilverdistribuicao.tipo',
+        descricao: 'projetos.goldesilverdistribuicao.descricao',
+        tecnologias: [
+          new Link({ imagem: '/assets/images/icones/typescript.svg', nome: 'TypeScript' }),
+          new Link({ imagem: '/assets/images/icones/angular.svg', nome: 'Angular' })
+        ]
+      }),
+      new Projeto({
+        url: 'https://jbrsuitehotel.com.br/',
+        caminhoImagem: '/assets/images/print-projetos/jbrsuitehotel.png',
+        palavraChave: 'Landing Page JBR Suite Hotel',
+        titulo: 'RJA Freios',
+        tipoDeProjeto: 'projetos.rjafreios.tipo',
+        descricao: 'projetos.rjafreios.descricao',
+        tecnologias: [
+          new Link({ imagem: '/assets/images/icones/javascript.svg', nome: 'JavaScript' }),
+          new Link({ imagem: '/assets/images/icones/tailwind.svg', nome: 'Tailwind' })
+        ]
+      }),
+      new Projeto({
+        url: 'https://062uniformes.com/torcida-jovem-unificada',
+        caminhoImagem: '/assets/images/print-projetos/062uniformes.png',
+        palavraChave: 'E-commerce 062 Uniformes',
+        titulo: '062 Uniformes',
+        tipoDeProjeto: 'projetos.062uniformes.tipo',
+        descricao: 'projetos.062uniformes.descricao',
+        tecnologias: [
+          new Link({ icone: 'bi bi-wordpress', nome: 'WordPress' })
+        ]
+      }),
+      new Projeto({
+        url: 'https://lsgassessoriadigital.com/',
+        caminhoImagem: '../../../../assets/images/print-projetos/lsgblackfriday.png',
+        palavraChave: 'Funil de Vendas LSG Digital',
+        titulo: 'LSG Digital',
+        tipoDeProjeto: 'projetos.lsgassessoriadigital.tipo',
+        descricao: 'projetos.lsgassessoriadigital.descricao',
+        tecnologias: [
+          new Link({ imagem: '/assets/images/icones/javascript.svg', nome: 'JavaScript' }),
+          new Link({ imagem: '/assets/images/icones/tailwind.svg', nome: 'Tailwind' })
+        ]
+      })
     ];
 
     this.listaDeExperienciasProfissionais = [

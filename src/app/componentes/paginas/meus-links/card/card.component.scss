@@ -8,13 +8,12 @@
     place-items: center;
     background-color: var(--color-primary);
     border-radius: 16px;
-    color: var(--color-text-title);
+    color: var(--color-text-subtitle);
     cursor: pointer;
-    transition: color .3s ease, transform .2s ease, border-radius 0.1s ease-in-out;
+    transition: color .3s ease, border-radius 0.1s ease-in-out;
     z-index: 2;
 
     &:hover {
-        transform: translateY(-1px);
         color: var(--color-link-focus);
     }
 }
@@ -55,7 +54,7 @@
             margin: 0;
             font-weight: 600;
             font-size: 1em;
-            color: var(--color-text-title);
+            color: var(--color-text-subtitle);
         }
     }
 }
@@ -70,14 +69,14 @@
 }
 
 #conteudo-com-icone i {
-    color: var(--color-text-title);
+    color: var(--color-text-subtitle);
 }
 
 #conteudo-com-icone h4 {
     margin: 0;
     font-size: 1em;
     font-weight: 600;
-    color: var(--color-text-title);
+    color: var(--color-text-subtitle);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

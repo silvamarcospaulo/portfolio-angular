@@ -8,7 +8,7 @@ body.light-mode {
   --color-link: #0066cc;
   --color-link-focus: #004a99;
   --color-border: #d0d0d0;
-  --shadow-dark: rgba(0, 0, 0, 0.08);
+  --shadow-dark: rgba(0, 0, 0, 0.1);
   --shadow-light: rgba(255, 255, 255, 0.9);
 }
 
@@ -27,21 +27,19 @@ body.dark-mode {
 * {
   transition: color .5s, transform .5s;
   font-family: 'Lexend', sans-serif;
-}
 
-p {
-  margin: 0;
-  padding: 0;
+  p {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .soft-ui-container {
   box-shadow: 5px 5px 10px var(--shadow-dark), -5px -5px 10px var(--shadow-light),
-    // inset 0.5px 0.5px 1px var(--shadow-dark), inset -0.5px -0.5px 1px var(--shadow-light);
 }
 
 .soft-ui-container-hover {
   &:hover {
     box-shadow: 5px 5px 10px var(--shadow-light), -5px -5px 10px var(--shadow-dark),
-      // inset 0.5px 0.5px 1px var(--shadow-light), inset -0.5px -0.5px 1px var(--shadow-dark);
   }
 }

@@ -1,6 +1,6 @@
 #detalhes {
     margin-top: 10vh;
-    background-color: var(--color-secondary);
+    background-color: var(--color-primary);
     width: 100%;
     min-height: 90vh;
     display: flex;
@@ -54,7 +54,7 @@
     display: flex;
     place-content: center;
     place-items: center;
-    color: var(--color-text-title);
+    color: var(--color-text-subtitle);
     flex-direction: column;
 }
 
@@ -99,7 +99,7 @@
     place-items: start;
     place-content: start;
     flex-direction: column;
-    color: var(--color-text-title);
+    color: var(--color-text-subtitle);
 }
 
 #botao-comprar-agora {
@@ -112,7 +112,7 @@
     background-color: var(--color-link-focus);
 
     &:hover {
-        background-color: var(--color-link);
+        background-color: var(--color-link-focus);
     }
 }
 

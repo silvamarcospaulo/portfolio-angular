@@ -45,17 +45,6 @@
             transparent 100%) 0 0 / 100% 100% no-repeat;
 }
 
-// #slider-viewport::before,
-// #slider-viewport::after {
-//     content: "";
-//     position: absolute;
-//     inset-block: 0;
-//     width: var(--_fade);
-//     pointer-events: none;
-//     z-index: 2;
-//     background: linear-gradient(to right, var(--color-primary), transparent);
-// }
-
 #slider-viewport::after {
     left: auto;
     right: 0;

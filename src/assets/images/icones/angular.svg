@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 27.5.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="960px" height="960px" viewBox="0 0 960 960" style="enable-background:new 0 0 960 960;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:#FFFFFF;}
-</style>
-<g>
-	<polygon class="st0" points="562.6,109.8 804.1,629.5 829.2,233.1 	"/>
-	<polygon class="st0" points="624.9,655.9 334.3,655.9 297.2,745.8 479.6,849.8 662,745.8 	"/>
-	<polygon class="st0" points="384.1,539.3 575.2,539.3 479.6,307 	"/>
-	<polygon class="st0" points="396.6,109.8 130,233.1 155.1,629.5 	"/>
-</g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_2" data-name="Camada 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 798.23 844.81">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #555;
+      }
+    </style>
+  </defs>
+  <g id="Camada_1-2" data-name="Camada 1">
+    <g>
+      <polygon class="cls-1" points="493.87 0 769.58 593.31 798.23 140.76 493.87 0"/>
+      <polygon class="cls-1" points="565 623.45 233.24 623.45 190.88 726.08 399.12 844.81 607.35 726.08 565 623.45"/>
+      <polygon class="cls-1" points="290.09 490.33 508.26 490.33 399.12 225.13 290.09 490.33"/>
+      <polygon class="cls-1" points="304.36 0 0 140.76 28.66 593.31 304.36 0"/>
+    </g>
+  </g>
 </svg>

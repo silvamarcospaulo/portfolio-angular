@@ -29,7 +29,7 @@
     .slider {
         width: 45px;
         height: 24px;
-        background-color: var(--color-text-title);
+        background-color: var(--color-text-subtitle);
         border-radius: 34px;
         position: relative;
         transition: background-color 0.3s;
@@ -42,7 +42,7 @@
             height: 18px;
             left: 3px;
             top: 3px;
-            background-color: var(--color-secondary);
+            background-color: var(--color-primary);
             border-radius: 50%;
             transition: transform 0.3s;
         }
@@ -51,7 +51,7 @@
     #moon,
     #sun {
         font-size: 1.2rem;
-        color: var(--color-text-title);
+        color: var(--color-text-subtitle);
     }
 
     #moon {
