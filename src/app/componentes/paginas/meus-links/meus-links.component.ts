@@ -120,7 +120,7 @@ export class MeusLinksComponent implements OnInit {
     this.seoService.atualizarMetadados({
       title: 'Bio | Marcos Paulo Silva',
       description: 'Conecte-se comigo, explore projetos e descubra recursos gratuitos sobre tecnologia e desenvolvimento.',
-      image: 'https://www.marcospaulosilva.com.br/assets/images/logo.png',
+      image: 'https://www.marcospaulosilva.com.br/assets/images/metadado.png',
       url: 'https://www.marcospaulosilva.com.br/bio'
     });
   }
