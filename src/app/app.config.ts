@@ -14,7 +14,7 @@ import { APP_INITIALIZER, importProvidersFrom } from '@angular/core';
 import { authInterceptor } from '../core/services/interceptors/auth.interceptor';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
 
 export function initTranslateFactory(translate: TranslateService) {
