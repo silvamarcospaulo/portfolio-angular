@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
     this.seoService.atualizarMetadados({
       title: 'Portfólio - Marcos Paulo Silva',
       description: 'Marcos Paulo Silva - Desenvolvedor de Software',
-      image: 'https://www.marcospaulosilva.com.br/assets/images/logo.png',
+      image: 'https://www.marcospaulosilva.com.br/assets/images/metadado.png',
       url: "https://www.marcospaulosilva.com.br"
     });
 
