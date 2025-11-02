@@ -37,8 +37,8 @@
             <div class="bio-grid">
                 @for (link of primaryLinks; track link.title)
                 {
-                <a class="bio-card soft-ui-container soft-ui-container-hover" href="{{ link.url }}" [attr.target]="link.external ? '_blank' : null"
-                    [attr.rel]="link.external ? 'noopener' : null">
+                <a class="bio-card soft-ui-container soft-ui-container-hover" href="{{ link.url }}"
+                    [attr.target]="link.external ? '_blank' : null" [attr.rel]="link.external ? 'noopener' : null">
                     <div class="bio-card__media">
                         @if (link.icon) {
                         <i class="{{ link.icon }}"></i>
@@ -64,7 +64,8 @@
             <div class="bio-grid">
                 @for (link of communityResources; track link.title)
                 {
-                <a class="bio-card soft-ui-container soft-ui-container-hover" href="{{ link.url }}" target="_blank" rel="noopener">
+                <a class="bio-card soft-ui-container soft-ui-container-hover" href="{{ link.url }}" target="_blank"
+                    rel="noopener">
                     <div class="bio-card__media">
                         @if (link.icon) {
                         <i class="{{ link.icon }}"></i>
@@ -90,7 +91,8 @@
             <div class="bio-spotlight">
                 @for (card of spotlightCards; track card.title)
                 {
-                <a class="bio-spotlight__card soft-ui-container soft-ui-container-hover" href="{{ card.url }}" target="_blank" rel="noopener">
+                <a class="bio-spotlight__card soft-ui-container soft-ui-container-hover" href="{{ card.url }}"
+                    target="_blank" rel="noopener">
                     <div class="bio-spotlight__image">
                         @if (card.image) {
                         <img src="{{ card.image }}" alt="{{ card.title }}" />

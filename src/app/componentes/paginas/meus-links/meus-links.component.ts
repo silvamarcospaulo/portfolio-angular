@@ -24,7 +24,7 @@ export class MeusLinksComponent implements OnInit {
     instagramUrl: 'https://instagram.com/marcospaulo.dev',
     name: 'Marcos Paulo Silva',
     role: 'Desenvolvedor de Software',
-    summary: 'Especialista em aplicações web e soluções cloud na Invent Software. Crio experiências digitais e compartilho conhecimento para fortalecer a comunidade dev.',
+    summary: 'Desenvolvedor de Software, com atuação em aplicações web e soluções cloud. Experiência com .NET (C#), Java Spring e Angular. Nas horas vagas produzo conteúdo sobre tecnologia, programação e carreira com inspiração e dicas para você evoluir!\nEnjoy the journey!',
     primaryAction: {
       label: 'Fale comigo',
       url: 'mailto:silvampsmarcospaulo@gmail.com'
@@ -70,21 +70,28 @@ export class MeusLinksComponent implements OnInit {
     {
       title: 'Aprenda programação de graça!',
       description: 'Uma curadoria de conteúdos para você iniciar na programação com estrutura e sem custo.',
-      url: 'https://www.marcospaulosilva.com',
+      url: 'https://www.marcospaulosilva.com/bio',
+      icon: 'bi bi-mortarboard-fill',
+      external: true
+    },
+    {
+      title: 'Aprenda programação de graça!',
+      description: 'Uma curadoria de conteúdos para você iniciar na programação com estrutura e sem custo.',
+      url: 'https://www.marcospaulosilva.com/bio',
       icon: 'bi bi-mortarboard-fill',
       external: true
     },
     {
       title: 'Compre os itens do meu setup',
       description: 'Conheça os equipamentos que uso no dia a dia para criar, programar e produzir conteúdo.',
-      url: 'https://www.marcospaulosilva.com',
+      url: 'https://www.marcospaulosilva.com/bio',
       icon: 'bi bi-lightning-charge-fill',
       external: true
     },
     {
       title: 'Whey e links',
       description: 'Minha seleção de suplementos favoritos para acompanhar a rotina intensa de estudos e trabalho.',
-      url: 'https://www.marcospaulosilva.com',
+      url: 'https://www.marcospaulosilva.com/bio',
       icon: 'bi bi-capsule',
       external: true
     }

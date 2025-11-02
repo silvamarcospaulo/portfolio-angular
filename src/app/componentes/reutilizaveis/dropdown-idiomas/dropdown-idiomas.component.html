@@ -5,7 +5,7 @@
             <span [innerHTML]="linguagemSelecionada().icone"></span>
         </a>
 
-        <ul id="dropdown-menu" [hidden]="!isOpen">
+        <ul id="dropdown-menu" [class.dropup]="direction === 'up'" [hidden]="!isOpen">
             @for (lang of linguagens; track lang.id) {
             <li>
                 <a (click)="selecionarLinguagem(lang)">
