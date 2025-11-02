@@ -47,41 +47,42 @@ export class HomeComponent implements OnInit {
           new Link({ imagem: '/assets/images/icones/angular.svg', nome: 'Angular' })
         ]
       }),
+      // new Projeto({
+      //   url: 'https://jbrsuitehotel.com.br/',
+      //   caminhoImagem: '/assets/images/print-projetos/jbrsuitehotel.png',
+      //   palavraChave: 'Landing Page JBR Suite Hotel',
+      //   titulo: 'RJA Freios',
+      //   tipoDeProjeto: 'projetos.rjafreios.tipo',
+      //   descricao: 'projetos.rjafreios.descricao',
+      //   tecnologias: [
+      //     new Link({ imagem: '/assets/images/icones/javascript.svg', nome: 'JavaScript' }),
+      //     new Link({ imagem: '/assets/images/icones/tailwind.svg', nome: 'Tailwind' })
+      //   ]
+      // }),
+      // new Projeto({
+      //   url: 'https://062uniformes.com',
+      //   caminhoImagem: '/assets/images/print-projetos/062uniformes.png',
+      //   palavraChave: 'E-commerce 062 Uniformes',
+      //   titulo: '062 Uniformes',
+      //   tipoDeProjeto: 'projetos.062uniformes.tipo',
+      //   descricao: 'projetos.062uniformes.descricao',
+      //   tecnologias: [
+      //     new Link({ icone: 'bi bi-wordpress', nome: 'WordPress' })
+      //   ]
+      // }),
       new Projeto({
-        url: 'https://jbrsuitehotel.com.br/',
-        caminhoImagem: '/assets/images/print-projetos/jbrsuitehotel.png',
-        palavraChave: 'Landing Page JBR Suite Hotel',
-        titulo: 'RJA Freios',
-        tipoDeProjeto: 'projetos.rjafreios.tipo',
-        descricao: 'projetos.rjafreios.descricao',
-        tecnologias: [
-          new Link({ imagem: '/assets/images/icones/javascript.svg', nome: 'JavaScript' }),
-          new Link({ imagem: '/assets/images/icones/tailwind.svg', nome: 'Tailwind' })
-        ]
-      }),
-      new Projeto({
-        url: 'https://062uniformes.com/torcida-jovem-unificada',
-        caminhoImagem: '/assets/images/print-projetos/062uniformes.png',
-        palavraChave: 'E-commerce 062 Uniformes',
-        titulo: '062 Uniformes',
-        tipoDeProjeto: 'projetos.062uniformes.tipo',
-        descricao: 'projetos.062uniformes.descricao',
-        tecnologias: [
-          new Link({ icone: 'bi bi-wordpress', nome: 'WordPress' })
-        ]
-      }),
-      new Projeto({
-        url: 'https://lsgassessoriadigital.com/',
+        url: 'https://vorixagencia.com.br/',
         caminhoImagem: '../../../../assets/images/print-projetos/lsgblackfriday.png',
-        palavraChave: 'Funil de Vendas LSG Digital',
-        titulo: 'LSG Digital',
+        palavraChave: 'Funil de Vendas Vorix Agência',
+        titulo: 'Vorix Agência',
         tipoDeProjeto: 'projetos.lsgassessoriadigital.tipo',
         descricao: 'projetos.lsgassessoriadigital.descricao',
         tecnologias: [
           new Link({ imagem: '/assets/images/icones/javascript.svg', nome: 'JavaScript' }),
           new Link({ imagem: '/assets/images/icones/tailwind.svg', nome: 'Tailwind' })
         ]
-      })
+      }),
+
     ];
 
     this.listaDeExperienciasProfissionais = [

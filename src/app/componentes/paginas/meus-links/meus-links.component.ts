@@ -106,7 +106,7 @@ export class MeusLinksComponent implements OnInit {
       external: true
     },
     {
-      title: 'LSG Assessoria Digital',
+      title: 'Vorix Agência',
       description: 'Funil de vendas completo construído com foco em captação e conversão de leads B2B.',
       url: 'https://www.marcospaulosilva.com.br',
       image: 'assets/images/print-projetos/lsgblackfriday.png',
