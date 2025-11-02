@@ -1,15 +1,109 @@
-<section class="section-links-uteis">
-    <div class="container-links-uteis">
-        @for (link of links; track link)
-        {
-        @if (link.card)
-        {
-        <app-card [link]="link.card" />
-        }
-        @else if (link.dropdown)
-        {
-        <app-card-dropdown [nome]="link.nome" [icone]="link.icone" [imagem]="link.imagem" [dropdown]="link.dropdown" />
-        }
-        }
+<section class="bio">
+    <div class="bio__hero">
+        <div class="bio__hero-container soft-ui-container">
+            <div class="bio__hero-top">
+                <span class="bio__welcome">{{ hero.welcome }}</span>
+                <a class="bio__instagram" href="{{ hero.instagramUrl }}" target="_blank" rel="noopener">
+                    <i class="bi bi-instagram"></i>
+                    <span>{{ hero.instagramHandle }}</span>
+                </a>
+            </div>
+            <div class="bio__hero-content">
+                <div class="bio__hero-text">
+                    <h1>{{ hero.name }}</h1>
+                    <h2>{{ hero.role }}</h2>
+                    <p>{{ hero.summary }}</p>
+                    <div class="bio__hero-actions">
+                        <a class="bio__button" href="{{ hero.primaryAction.url }}">{{ hero.primaryAction.label }}</a>
+                        <a class="bio__link" href="{{ hero.secondaryAction.url }}" target="_blank" rel="noopener">
+                            {{ hero.secondaryAction.label }}
+                            <i class="bi bi-arrow-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="bio__hero-figure">
+                    <img src="{{ hero.photo }}" alt="{{ hero.name }}" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bio__content">
+        <section class="bio-section">
+            <header>
+                <h3>Links principais</h3>
+                <p>Conecte-se comigo e acompanhe as novidades de tecnologia, carreira e projetos.</p>
+            </header>
+            <div class="bio-grid">
+                @for (link of primaryLinks; track link.title)
+                {
+                <a class="bio-card soft-ui-container soft-ui-container-hover" href="{{ link.url }}" [attr.target]="link.external ? '_blank' : null"
+                    [attr.rel]="link.external ? 'noopener' : null">
+                    <div class="bio-card__media">
+                        @if (link.icon) {
+                        <i class="{{ link.icon }}"></i>
+                        }
+                        @if (link.image) {
+                        <img src="{{ link.image }}" alt="{{ link.title }}" />
+                        }
+                    </div>
+                    <div class="bio-card__content">
+                        <h4>{{ link.title }}</h4>
+                        <p>{{ link.description }}</p>
+                    </div>
+                </a>
+                }
+            </div>
+        </section>
+
+        <section class="bio-section">
+            <header>
+                <h3>Recursos da comunidade</h3>
+                <p>Materiais, curadorias e recomendações para acelerar seus estudos e rotina.</p>
+            </header>
+            <div class="bio-grid">
+                @for (link of communityResources; track link.title)
+                {
+                <a class="bio-card soft-ui-container soft-ui-container-hover" href="{{ link.url }}" target="_blank" rel="noopener">
+                    <div class="bio-card__media">
+                        @if (link.icon) {
+                        <i class="{{ link.icon }}"></i>
+                        }
+                        @if (link.image) {
+                        <img src="{{ link.image }}" alt="{{ link.title }}" />
+                        }
+                    </div>
+                    <div class="bio-card__content">
+                        <h4>{{ link.title }}</h4>
+                        <p>{{ link.description }}</p>
+                    </div>
+                </a>
+                }
+            </div>
+        </section>
+
+        <section class="bio-section">
+            <header>
+                <h3>Em destaque</h3>
+                <p>Projetos e cases que representam minha identidade visual e experiência.</p>
+            </header>
+            <div class="bio-spotlight">
+                @for (card of spotlightCards; track card.title)
+                {
+                <a class="bio-spotlight__card soft-ui-container soft-ui-container-hover" href="{{ card.url }}" target="_blank" rel="noopener">
+                    <div class="bio-spotlight__image">
+                        @if (card.image) {
+                        <img src="{{ card.image }}" alt="{{ card.title }}" />
+                        }
+                    </div>
+                    <div class="bio-spotlight__content">
+                        <h4>{{ card.title }}</h4>
+                        <p>{{ card.description }}</p>
+                        <span>Saiba mais <i class="bi bi-arrow-up-right"></i></span>
+                    </div>
+                </a>
+                }
+            </div>
+        </section>
     </div>
 </section>

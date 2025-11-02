@@ -1,97 +1,121 @@
 import { Component, OnInit } from '@angular/core';
 import { SeoService } from '../../../../core/services/seo/seo.service';
-import { TranslateModule } from '@ngx-translate/core';
-import { CardComponent } from './card/card.component';
-import { Card, Link } from '../../../../model/link.model';
-import { CardDropdownComponent } from "./dropdown/card-dropdown.component";
+
+type BioLink = {
+  title: string;
+  description: string;
+  url: string;
+  icon?: string;
+  image?: string;
+  external?: boolean;
+};
 
 @Component({
   selector: 'app-meus-links',
   standalone: true,
-  imports: [TranslateModule, CardComponent, CardDropdownComponent],
+  imports: [],
   templateUrl: './meus-links.component.html',
   styleUrls: ['./meus-links.component.scss']
 })
 export class MeusLinksComponent implements OnInit {
-  links: Card[] = [];
+  hero = {
+    welcome: 'Bem-vindo',
+    instagramHandle: '@marcospaulo.dev',
+    instagramUrl: 'https://instagram.com/marcospaulo.dev',
+    name: 'Marcos Paulo Silva',
+    role: 'Desenvolvedor de Software',
+    summary: 'Especialista em aplicações web e soluções cloud na Invent Software. Crio experiências digitais e compartilho conhecimento para fortalecer a comunidade dev.',
+    primaryAction: {
+      label: 'Fale comigo',
+      url: 'mailto:silvampsmarcospaulo@gmail.com'
+    },
+    secondaryAction: {
+      label: 'Ver portfólio',
+      url: 'https://www.marcospaulosilva.com.br'
+    },
+    photo: 'assets/images/euInicio-bw.png'
+  };
+
+  primaryLinks: BioLink[] = [
+    {
+      title: 'Instagram',
+      description: 'Conteúdo diário sobre carreira em tecnologia, bastidores de projetos e dicas de desenvolvimento.',
+      url: 'https://instagram.com/marcospaulo.dev',
+      icon: 'bi bi-instagram',
+      external: true
+    },
+    {
+      title: 'LinkedIn',
+      description: 'Vamos nos conectar e acompanhar novidades da Invent Software e do ecossistema de inovação.',
+      url: 'https://linkedin.com/in/silvamarcospaulo',
+      icon: 'bi bi-linkedin',
+      external: true
+    },
+    {
+      title: 'GitHub',
+      description: 'Repositórios com projetos em Angular, .NET, Java Spring e experimentos de arquitetura.',
+      url: 'https://github.com/silvamarcospaulo',
+      icon: 'bi bi-github',
+      external: true
+    },
+    {
+      title: 'Contato direto',
+      description: 'Envie um e-mail e vamos conversar sobre projetos, consultorias ou parcerias.',
+      url: 'mailto:silvampsmarcospaulo@gmail.com',
+      icon: 'bi bi-envelope-fill'
+    }
+  ];
+
+  communityResources: BioLink[] = [
+    {
+      title: 'Aprenda programação de graça!',
+      description: 'Uma curadoria de conteúdos para você iniciar na programação com estrutura e sem custo.',
+      url: 'https://www.marcospaulosilva.com',
+      icon: 'bi bi-mortarboard-fill',
+      external: true
+    },
+    {
+      title: 'Compre os itens do meu setup',
+      description: 'Conheça os equipamentos que uso no dia a dia para criar, programar e produzir conteúdo.',
+      url: 'https://www.marcospaulosilva.com',
+      icon: 'bi bi-lightning-charge-fill',
+      external: true
+    },
+    {
+      title: 'Whey e links',
+      description: 'Minha seleção de suplementos favoritos para acompanhar a rotina intensa de estudos e trabalho.',
+      url: 'https://www.marcospaulosilva.com',
+      icon: 'bi bi-capsule',
+      external: true
+    }
+  ];
+
+  spotlightCards: BioLink[] = [
+    {
+      title: 'Projetos e cases',
+      description: 'Veja como transformei desafios de negócio em experiências digitais escaláveis.',
+      url: 'https://www.marcospaulosilva.com.br',
+      image: 'assets/images/macbook.png',
+      external: true
+    },
+    {
+      title: 'LSG Assessoria Digital',
+      description: 'Funil de vendas completo construído com foco em captação e conversão de leads B2B.',
+      url: 'https://www.marcospaulosilva.com.br',
+      image: 'assets/images/print-projetos/lsgblackfriday.png',
+      external: true
+    }
+  ];
 
   constructor(private seoService: SeoService) { }
 
   ngOnInit(): void {
-    this.links = [
-      new Card({
-        card: new Link({
-          nome: "LinkedIn",
-          url: "https://linkedin.com/in/silvamarcospaulo",
-          icone: "bi bi-linkedin"
-        })
-      }),
-
-      new Card({
-        card: new Link({
-          nome: "Teste",
-          url: "https://linkedin.com/in/silvamarcospaulo",
-          imagem: "/assets/images/print-projetos/lsgblackfriday.png"
-        })
-      }),
-
-      new Card({
-        card: new Link({
-          nome: "GitHub",
-          url: "https://github.com/silvamarcospaulo",
-          icone: "bi bi-github"
-        })
-      }),
-
-      new Card({
-        card: new Link({
-          nome: "Contato",
-          url: "mailto:silvampsmarcospaulo@gmail.com",
-          icone: "bi bi-envelope-fill"
-        })
-      }),
-
-      new Card({
-        card: new Link({
-          nome: "Instagram",
-          url: "https://instagram.com/marcospaulo.dev",
-          icone: "bi bi-instagram"
-        })
-      }),
-
-      new Card({
-        nome: 'lojas',
-        imagem: "/assets/images/print-projetos/lsgblackfriday.png",
-        dropdown: [
-          new Link({
-            nome: "Shopee",
-            url: "https://shopee.com",
-            icone: "bi bi-bag-fill"
-          }),
-          new Link({
-            nome: "Teste",
-            url: "https://linkedin.com/in/silvamarcospaulo",
-            imagem: "/assets/images/print-projetos/lsgblackfriday.png"
-          }),
-          new Link({
-            nome: "Amazon",
-            url: "https://amazon.com",
-            icone: "bi bi-cart-fill"
-          }),
-          new Link({
-            nome: "Mercado Livre",
-            url: "https://mercadolivre.com",
-            icone: "bi bi-box-seam"
-          })
-        ]
-      })
-    ];
-
     this.seoService.atualizarMetadados({
-      title: 'Links Úteis - Marcos Paulo Silva',
-      description: 'Acesse meus principais links: Instagram, LinkedIn, GitHub e mais.',
+      title: 'Bio | Marcos Paulo Silva',
+      description: 'Conecte-se comigo, explore projetos e descubra recursos gratuitos sobre tecnologia e desenvolvimento.',
       image: 'https://www.marcospaulosilva.com.br/assets/images/logo.png',
-      url: 'https://www.marcospaulosilva.com.br/links-uteis'
+      url: 'https://www.marcospaulosilva.com.br/bio'
     });
   }
 }
+
