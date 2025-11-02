@@ -45,14 +45,10 @@
     </div>
     <div id="container-imagem">
         @if (safeIframeUrl) {
-        <div class="iframe-frame">
-            <div class="iframe-device">
-                <iframe [src]="safeIframeUrl" loading="lazy"
-                    [attr.title]="((projeto.titulo || '') | translate) + ' - preview'"
-                    [attr.aria-label]="((projeto.titulo || '') | translate) + ' - preview'" allowfullscreen
-                    referrerpolicy="no-referrer"></iframe>
-            </div>
-        </div>
+        <iframe class="projeto-preview" [src]="safeIframeUrl" loading="lazy"
+            [attr.title]="((projeto.titulo || '') | translate) + ' - preview'"
+            [attr.aria-label]="((projeto.titulo || '') | translate) + ' - preview'" allowfullscreen
+            referrerpolicy="no-referrer"></iframe>
         }
         @else if (projeto.caminhoImagem) {
         <img [src]="projeto.caminhoImagem" [alt]="projeto.titulo">
