@@ -1,5 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 
+:root {
+  --color-primary: #f3f3f3;
+  --color-secondary: #ffffff;
+  --color-text-title: #333333;
+  --color-text-subtitle: #555555;
+  --color-link: #0066cc;
+  --color-link-focus: #004a99;
+  --color-border: #d0d0d0;
+  --shadow-dark: rgba(0, 0, 0, 0.1);
+  --shadow-light: rgba(255, 255, 255, 0.9);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--color-primary);
+  color: var(--color-text-subtitle);
+  font-family: 'Lexend', sans-serif;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
 body.light-mode {
   --color-primary: #f3f3f3;
   --color-secondary: #ffffff;
@@ -25,23 +46,32 @@ body.dark-mode {
 }
 
 * {
-  transition: color .5s, transform .5s;
-  font-family: 'Lexend', sans-serif;
+  transition: color 0.5s ease, transform 0.5s ease;
+  font-family: inherit;
+}
 
-  p {
-    margin: 0;
-    padding: 0;
-  }
+p {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: var(--color-link);
+}
+
+a:hover,
+a:focus {
+  color: var(--color-link-focus);
 }
 
 .soft-ui-container {
-  box-shadow: 5px 5px 10px var(--shadow-dark), -5px -5px 10px var(--shadow-light),
+  background: var(--color-secondary);
+  box-shadow: 5px 5px 10px var(--shadow-dark), -5px -5px 10px var(--shadow-light);
+  border-radius: 24px;
 }
 
-.soft-ui-container-hover {
-  &:hover {
-    box-shadow: 5px 5px 10px var(--shadow-light), -5px -5px 10px var(--shadow-dark),
-  }
+.soft-ui-container-hover:hover {
+  box-shadow: 5px 5px 10px var(--shadow-light), -5px -5px 10px var(--shadow-dark);
 }
 
 .bio-spotlight {
