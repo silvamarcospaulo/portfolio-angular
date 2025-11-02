@@ -19,6 +19,14 @@ export class FooterComponent {
   constructor(private scroll: ScrollService) { }
 
   go(url: string, event: Event) {
+    if (/^(https?:)?\/\/|^www\./i.test(url)) {
+      event.preventDefault();
+      const href = /^https?:\/\//i.test(url) ? url : `https://${url.replace(/^\/\//, '')}`;
+
+      window.open(href, '_blank', 'noopener,noreferrer');
+      return;
+    }
+
     event.preventDefault();
     const id = url.replace(/^#/, '');
     this.scroll.scrollTo(id);

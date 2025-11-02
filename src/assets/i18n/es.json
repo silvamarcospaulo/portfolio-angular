@@ -1,4 +1,7 @@
 {
+    "common": {
+        "portfolio": "Portafolio"
+    },
     "header": {
         "logo": "Marcos Paulo Silva",
         "navbar": {
@@ -166,6 +169,10 @@
             "contact": {
                 "title": "Contacto directo",
                 "description": "Envía un correo y conversemos sobre proyectos, consultorías o alianzas."
+            },
+            "services": {
+                "title": "¿Necesitas un sitio web y soluciones de software para tu negocio?",
+                "description": "Eleva tus resultados con rendimiento, SEO y escalabilidad: solicita sitios web, e-commerce y aplicaciones personalizadas."
             }
         },
         "community": {

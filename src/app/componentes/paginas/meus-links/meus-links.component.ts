@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SeoService } from '../../../../core/services/seo/seo.service';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { FooterComponent } from "../home/sections/footer/footer.component";
+import { Link } from '../../../../model/link.model';
 
 type BioLink = {
   title: string;
@@ -14,7 +16,7 @@ type BioLink = {
 @Component({
   selector: 'app-meus-links',
   standalone: true,
-  imports: [TranslateModule],
+  imports: [TranslateModule, FooterComponent],
   templateUrl: './meus-links.component.html',
   styleUrls: ['./meus-links.component.scss']
 })
@@ -36,6 +38,10 @@ export class MeusLinksComponent implements OnInit {
     },
     photo: 'assets/images/euInicio-bw.png'
   };
+
+  links = [
+    new Link({ nome: 'common.portfolio', url: 'www.marcospaulosilva.com.br' })
+  ];
 
   primaryLinks: BioLink[] = [
     {
@@ -80,6 +86,13 @@ export class MeusLinksComponent implements OnInit {
       description: 'bio.community.newsletter.description',
       url: 'https://www.marcospaulosilva.com/bio',
       icon: 'bi bi-mortarboard-fill',
+      external: true
+    },
+    {
+      title: 'bio.primary-links.services.title',
+      description: 'bio.primary-links.services.description',
+      url: 'https://www.marcospaulosilva.com/bio',
+      icon: 'bi bi-briefcase',
       external: true
     },
     {

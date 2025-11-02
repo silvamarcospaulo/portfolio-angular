@@ -14,7 +14,8 @@
                     <h2>{{ hero.role | translate }}</h2>
                     <p>{{ hero.summary | translate }}</p>
                     <div class="bio__hero-actions">
-                        <a class="bio__button" href="{{ hero.primaryAction.url }}">{{ hero.primaryAction.label | translate }}</a>
+                        <a class="bio__button" href="{{ hero.primaryAction.url }}">{{ hero.primaryAction.label |
+                            translate }}</a>
                         <a class="bio__link" href="{{ hero.secondaryAction.url }}" target="_blank" rel="noopener">
                             {{ hero.secondaryAction.label | translate }}
                             <i class="bi bi-arrow-up-right"></i>
@@ -56,7 +57,7 @@
             </div>
         </section>
 
-        <section class="bio-section">
+        <!-- <section class="bio-section">
             <header>
                 <h3>{{ 'bio.sections.community.title' | translate }}</h3>
                 <p>{{ 'bio.sections.community.description' | translate }}</p>
@@ -106,6 +107,8 @@
                 </a>
                 }
             </div>
-        </section>
+        </section> -->
+
+        <app-footer [links]="links" />
     </div>
 </section>
