@@ -1,10 +1,10 @@
 <section id="section-inicio">
     <div id="container-inicio">
         <div id="container-inicio-titulo">
-            <h1>Marcos Paulo Silva</h1>
+            <h1>{{ 'inicio.nome' | translate }}</h1>
         </div>
         <div id="container-inicio-imagem">
-            <img src="assets/images/euInicio-bw.png" alt="Marcos Paulo Silva" />
+            <img src="assets/images/euInicio-bw.png" [attr.alt]="'inicio.nome' | translate" />
         </div>
         <div id="container-inicio-subtitulo">
             <h2>&#123;<span>{{ 'inicio.subtitulo' | translate }}</span>&#125;</h2>

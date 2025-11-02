@@ -7,13 +7,22 @@
             "experiencias": "Experiências",
             "projetos": "Projetos",
             "contato": "Contato"
+        },
+        "menu": {
+            "abrir": "Abrir menu",
+            "fechar": "Fechar menu"
         }
     },
     "footer": {
         "desenvolvido-por": "2025 © Desenvolvido por ",
-        "todos-os-direitos-reservados": ". Todos os direitos reservados."
+        "todos-os-direitos-reservados": ". Todos os direitos reservados.",
+        "logo": "Marcos Paulo Silva",
+        "creditos": {
+            "autor": "Marcos Paulo Silva"
+        }
     },
     "inicio": {
+        "nome": "Marcos Paulo Silva",
         "subtitulo": "Desenvolvedor de Software"
     },
     "sobre": {
@@ -54,6 +63,8 @@
         "titulo": "Projetos desenvolvidos",
         "solucoes-utilizadas": "Tecnologias utilizadas:",
         "visite-o-site": "Acesse o site",
+        "github": "GitHub",
+        "preview": "Prévia de {{titulo}}",
         "subtitulo": "Uma seleção de trabalhos realizados, reunindo criações autorais e soluções para clientes.",
         "lsgassessoriadigital": {
             "titulo": "LSG Assessoria",
@@ -80,10 +91,111 @@
             "tipo": "Página de Vendas",
             "descricao": "Página de captura de leads para um programa de revenda de imóveis, apoiando a prospecção de vendedores autônomos vinculados à distribuidora."
         },
+        "vorix-agencia": {
+            "titulo": "Vorix Agência",
+            "tipo": "Funil de Vendas",
+            "descricao": "Funil de vendas completo construído com foco em captação e conversão de leads B2B."
+        },
         "marcos-paulo-silva": {
             "titulo": "Portfólio - Primeira Versão",
             "tipo": "Landing Page",
             "descricao": "Versão inicial do meu portfólio, construída com HTML5, CSS3 e JavaScript, como base de aprendizado e prática em desenvolvimento web."
+        }
+    },
+    "habilidades": {
+        "csharp": "C# .NET",
+        "sap-ui5": "SAP UI5",
+        "api-rest": "API Rest",
+        "fluent-migrator": "FluentMigrator",
+        "fluent-validation": "FluentValidation",
+        "linq2db": "Linq2DB",
+        "sql-server": "SQL Server",
+        "windows-forms": "Windows Forms",
+        "xunit": "xUnit",
+        "ravendb": "RavenDB",
+        "nosql": "NoSQL"
+    },
+    "home": {
+        "seo": {
+            "title": "Portfólio - Marcos Paulo Silva",
+            "description": "Marcos Paulo Silva - Desenvolvedor de Software"
+        }
+    },
+    "bio": {
+        "seo": {
+            "title": "Bio | Marcos Paulo Silva",
+            "description": "Conecte-se comigo, explore projetos e descubra recursos gratuitos sobre tecnologia e desenvolvimento."
+        },
+        "hero": {
+            "welcome": "Bem-vindo",
+            "name": "Marcos Paulo Silva",
+            "role": "Desenvolvedor de Software",
+            "summary": "Desenvolvedor de Software, com atuação em aplicações web e soluções cloud. Experiência com .NET (C#), Java Spring e Angular. Nas horas vagas produzo conteúdo sobre tecnologia, programação e carreira para inspirar sua evolução.",
+            "actions": {
+                "primary": "Fale comigo",
+                "secondary": "Ver portfólio"
+            }
+        },
+        "sections": {
+            "primary-links": {
+                "title": "Links principais",
+                "description": "Conecte-se comigo e acompanhe as novidades de tecnologia, carreira e projetos."
+            },
+            "community": {
+                "title": "Recursos da comunidade",
+                "description": "Materiais, curadorias e recomendações para acelerar seus estudos e rotina."
+            },
+            "spotlight": {
+                "title": "Em destaque",
+                "description": "Projetos e cases que representam minha identidade visual e experiência."
+            }
+        },
+        "primary-links": {
+            "instagram": {
+                "title": "Instagram",
+                "description": "Conteúdo diário sobre carreira em tecnologia, bastidores de projetos e dicas de desenvolvimento."
+            },
+            "linkedin": {
+                "title": "LinkedIn",
+                "description": "Vamos nos conectar e acompanhar novidades da Invent Software e do ecossistema de inovação."
+            },
+            "github": {
+                "title": "GitHub",
+                "description": "Repositórios com projetos em Angular, .NET, Java Spring e experimentos de arquitetura."
+            },
+            "contact": {
+                "title": "Contato direto",
+                "description": "Envie um e-mail e vamos conversar sobre projetos, consultorias ou parcerias."
+            }
+        },
+        "community": {
+            "learn-to-code": {
+                "title": "Aprenda programação de graça!",
+                "description": "Uma curadoria de conteúdos para você iniciar na programação com estrutura e sem custo."
+            },
+            "newsletter": {
+                "title": "Newsletter semanal",
+                "description": "Receba atualizações com artigos, vídeos e oportunidades da comunidade de tecnologia."
+            },
+            "setup": {
+                "title": "Compre os itens do meu setup",
+                "description": "Conheça os equipamentos que uso no dia a dia para criar, programar e produzir conteúdo."
+            },
+            "wellness": {
+                "title": "Whey e links",
+                "description": "Minha seleção de suplementos favoritos para acompanhar a rotina intensa de estudos e trabalho."
+            }
+        },
+        "spotlight": {
+            "projects": {
+                "title": "Projetos e cases",
+                "description": "Veja como transformei desafios de negócio em experiências digitais escaláveis."
+            },
+            "vorix": {
+                "title": "Vorix Agência",
+                "description": "Funil de vendas completo construído com foco em captação e conversão de leads B2B."
+            },
+            "cta": "Saiba mais"
         }
     }
 }

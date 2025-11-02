@@ -10,6 +10,7 @@ import { SeoService } from '../../../../core/services/seo/seo.service';
 import { Link } from '../../../../model/link.model';
 import { FooterComponent } from './sections/footer/footer.component';
 import { HeaderComponent } from './sections/header/header.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
@@ -24,22 +25,17 @@ export class HomeComponent implements OnInit {
   listaDeExperienciasProfissionais: ExperienciaProfissional[] = [];
   links: Link[] = [];
 
-  constructor(private seoService: SeoService) { }
+  constructor(private seoService: SeoService, private translate: TranslateService) { }
 
   ngOnInit(): void {
-    this.seoService.atualizarMetadados({
-      title: 'Portfólio - Marcos Paulo Silva',
-      description: 'Marcos Paulo Silva - Desenvolvedor de Software',
-      image: 'https://www.marcospaulosilva.com.br/assets/images/metadado.png',
-      url: "https://www.marcospaulosilva.com.br"
-    });
+    this.atualizarMetadados();
 
     this.listaDeProjetos = [
       new Projeto({
         url: 'https://goldesilverdistribuicao.com.br/',
         caminhoImagem: '/assets/images/print-projetos/goldesilverdistribuicao.png',
         palavraChave: 'CTA de vendas Gold & Silver Distribuição',
-        titulo: 'Gold & Silver Distribuição',
+        titulo: 'projetos.goldesilverdistribuicao.titulo',
         tipoDeProjeto: 'projetos.goldesilverdistribuicao.tipo',
         descricao: 'projetos.goldesilverdistribuicao.descricao',
         tecnologias: [
@@ -74,9 +70,9 @@ export class HomeComponent implements OnInit {
         url: 'https://vorixagencia.com.br/',
         caminhoImagem: '../../../../assets/images/print-projetos/lsgblackfriday.png',
         palavraChave: 'Funil de Vendas Vorix Agência',
-        titulo: 'Vorix Agência',
-        tipoDeProjeto: 'projetos.lsgassessoriadigital.tipo',
-        descricao: 'projetos.lsgassessoriadigital.descricao',
+        titulo: 'projetos.vorix-agencia.titulo',
+        tipoDeProjeto: 'projetos.vorix-agencia.tipo',
+        descricao: 'projetos.vorix-agencia.descricao',
         tecnologias: [
           new Link({ imagem: '/assets/images/icones/javascript.svg', nome: 'JavaScript' }),
           new Link({ imagem: '/assets/images/icones/tailwind.svg', nome: 'Tailwind' })
@@ -93,15 +89,15 @@ export class HomeComponent implements OnInit {
         'experiencia-profisisonal.invent-software.estagio.fim',
         'experiencia-profisisonal.invent-software.estagio.descricao',
         [
-          new Habilidade("C# .NET"),
-          new Habilidade("SAP UI5"),
-          new Habilidade("API Rest"),
-          new Habilidade("FluentMigrator"),
-          new Habilidade("FluentValidation"),
-          new Habilidade("Linq2DB"),
-          new Habilidade("SQL Server"),
-          new Habilidade("Windows Forms"),
-          new Habilidade("xUnit"),
+          new Habilidade('habilidades.csharp'),
+          new Habilidade('habilidades.sap-ui5'),
+          new Habilidade('habilidades.api-rest'),
+          new Habilidade('habilidades.fluent-migrator'),
+          new Habilidade('habilidades.fluent-validation'),
+          new Habilidade('habilidades.linq2db'),
+          new Habilidade('habilidades.sql-server'),
+          new Habilidade('habilidades.windows-forms'),
+          new Habilidade('habilidades.xunit'),
         ]
       ),
       new ExperienciaProfissional(
@@ -111,10 +107,10 @@ export class HomeComponent implements OnInit {
         'experiencia-profisisonal.invent-software.tecnico-em-desenvolvido.fim',
         'experiencia-profisisonal.invent-software.tecnico-em-desenvolvido.descricao',
         [
-          new Habilidade("C# .NET"),
-          new Habilidade("SAP UI5"),
-          new Habilidade("RavenDB"),
-          new Habilidade("NoSQL"),
+          new Habilidade('habilidades.csharp'),
+          new Habilidade('habilidades.sap-ui5'),
+          new Habilidade('habilidades.ravendb'),
+          new Habilidade('habilidades.nosql'),
           new Habilidade("experiencia-profisisonal.invent-software.tecnico-em-desenvolvido.habilidades.arquitetura-em-nuvem"),
         ]
       ),
@@ -125,10 +121,10 @@ export class HomeComponent implements OnInit {
         'experiencia-profisisonal.invent-software.analista-i.fim',
         'experiencia-profisisonal.invent-software.analista-i.descricao',
         [
-          new Habilidade("C# .NET"),
-          new Habilidade("SAP UI5"),
-          new Habilidade("SQL Server"),
-          new Habilidade("NoSQL"),
+          new Habilidade('habilidades.csharp'),
+          new Habilidade('habilidades.sap-ui5'),
+          new Habilidade('habilidades.sql-server'),
+          new Habilidade('habilidades.nosql'),
           new Habilidade("experiencia-profisisonal.invent-software.analista-i.habilidades.arquitetura-em-nuvem"),
         ]
       )
@@ -139,5 +135,14 @@ export class HomeComponent implements OnInit {
       new Link({ nome: 'header.navbar.sobre', url: '#section-sobre' }),
       new Link({ nome: 'header.navbar.projetos', url: '#section-projetos' })
     ];
+  }
+
+  private atualizarMetadados(): void {
+    this.seoService.atualizarMetadados({
+      title: this.translate.instant('home.seo.title'),
+      description: this.translate.instant('home.seo.description'),
+      image: 'https://www.marcospaulosilva.com.br/assets/images/metadado.png',
+      url: 'https://www.marcospaulosilva.com.br'
+    });
   }
 }

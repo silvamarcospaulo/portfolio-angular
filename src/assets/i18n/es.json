@@ -7,13 +7,22 @@
             "experiencias": "Experiencias",
             "projetos": "Proyectos",
             "contato": "Contacto"
+        },
+        "menu": {
+            "abrir": "Abrir menú",
+            "fechar": "Cerrar menú"
         }
     },
     "footer": {
         "desenvolvido-por": "2025 © Desarrollado por ",
-        "todos-os-direitos-reservados": ". Todos los derechos reservados."
+        "todos-os-direitos-reservados": ". Todos los derechos reservados.",
+        "logo": "Marcos Paulo Silva",
+        "creditos": {
+            "autor": "Marcos Paulo Silva"
+        }
     },
     "inicio": {
+        "nome": "Marcos Paulo Silva",
         "subtitulo": "Desarrollador de software"
     },
     "sobre": {
@@ -54,6 +63,8 @@
         "titulo": "Proyectos desarrollados",
         "solucoes-utilizadas": "Tecnologías utilizadas:",
         "visite-o-site": "Visita el sitio",
+        "github": "GitHub",
+        "preview": "Vista previa de {{titulo}}",
         "subtitulo": "Una selección de trabajos realizados que reúne creaciones propias y soluciones para clientes.",
         "lsgassessoriadigital": {
             "titulo": "LSG Assessoria",
@@ -80,10 +91,111 @@
             "tipo": "Página de ventas",
             "descricao": "Página de generación de leads para un programa de reventa de inmuebles, apoyando la prospección de vendedores autónomos vinculados a la distribuidora."
         },
+        "vorix-agencia": {
+            "titulo": "Vorix Agencia",
+            "tipo": "Embudo de ventas",
+            "descricao": "Embudo de ventas completo creado para captar y convertir leads B2B."
+        },
         "marcos-paulo-silva": {
             "titulo": "Portafolio – Primera versión",
             "tipo": "Landing page",
             "descricao": "Versión inicial de mi portafolio, construida con HTML5, CSS3 y JavaScript, como base de aprendizaje y práctica en desarrollo web."
+        }
+    },
+    "habilidades": {
+        "csharp": "C# .NET",
+        "sap-ui5": "SAP UI5",
+        "api-rest": "API Rest",
+        "fluent-migrator": "FluentMigrator",
+        "fluent-validation": "FluentValidation",
+        "linq2db": "Linq2DB",
+        "sql-server": "SQL Server",
+        "windows-forms": "Windows Forms",
+        "xunit": "xUnit",
+        "ravendb": "RavenDB",
+        "nosql": "NoSQL"
+    },
+    "home": {
+        "seo": {
+            "title": "Portafolio - Marcos Paulo Silva",
+            "description": "Marcos Paulo Silva - Desarrollador de Software"
+        }
+    },
+    "bio": {
+        "seo": {
+            "title": "Bio | Marcos Paulo Silva",
+            "description": "Conéctate conmigo, explora proyectos y descubre recursos gratuitos sobre tecnología y desarrollo."
+        },
+        "hero": {
+            "welcome": "Bienvenido",
+            "name": "Marcos Paulo Silva",
+            "role": "Desarrollador de Software",
+            "summary": "Desarrollador de software que trabaja con aplicaciones web y soluciones en la nube. Comparto contenidos de tecnología, programación y carrera para inspirar tus próximos pasos.",
+            "actions": {
+                "primary": "Contáctame",
+                "secondary": "Ver portafolio"
+            }
+        },
+        "sections": {
+            "primary-links": {
+                "title": "Enlaces principales",
+                "description": "Conéctate conmigo y sigue las novedades sobre tecnología, carrera y proyectos."
+            },
+            "community": {
+                "title": "Recursos de la comunidad",
+                "description": "Materiales, curadurías y recomendaciones para acelerar tus estudios y rutina."
+            },
+            "spotlight": {
+                "title": "Destacados",
+                "description": "Proyectos y casos que representan mi identidad visual y experiencia."
+            }
+        },
+        "primary-links": {
+            "instagram": {
+                "title": "Instagram",
+                "description": "Contenido diario sobre carreras en tecnología, detrás de escena de proyectos y consejos de desarrollo."
+            },
+            "linkedin": {
+                "title": "LinkedIn",
+                "description": "Conectémonos y sigamos las novedades de Invent Software y del ecosistema de innovación."
+            },
+            "github": {
+                "title": "GitHub",
+                "description": "Repositorios con proyectos en Angular, .NET, Java Spring y experimentos de arquitectura."
+            },
+            "contact": {
+                "title": "Contacto directo",
+                "description": "Envía un correo y conversemos sobre proyectos, consultorías o alianzas."
+            }
+        },
+        "community": {
+            "learn-to-code": {
+                "title": "¡Aprende programación gratis!",
+                "description": "Una curaduría de contenidos para iniciar en programación con estructura y sin costo."
+            },
+            "newsletter": {
+                "title": "Newsletter semanal",
+                "description": "Recibe actualizaciones con artículos, videos y oportunidades de la comunidad tecnológica."
+            },
+            "setup": {
+                "title": "Compra los ítems de mi setup",
+                "description": "Conoce los equipos que uso a diario para crear, programar y producir contenido."
+            },
+            "wellness": {
+                "title": "Whey y enlaces",
+                "description": "Mi selección de suplementos favoritos para acompañar una rutina intensa de estudios y trabajo."
+            }
+        },
+        "spotlight": {
+            "projects": {
+                "title": "Proyectos y casos",
+                "description": "Mira cómo transformé desafíos de negocio en experiencias digitales escalables."
+            },
+            "vorix": {
+                "title": "Vorix Agencia",
+                "description": "Embudo de ventas completo creado para captar y convertir leads B2B."
+            },
+            "cta": "Saber más"
         }
     }
 }

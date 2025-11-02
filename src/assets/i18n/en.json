@@ -7,13 +7,22 @@
             "experiencias": "Experience",
             "projetos": "Projects",
             "contato": "Contact"
+        },
+        "menu": {
+            "abrir": "Open menu",
+            "fechar": "Close menu"
         }
     },
     "footer": {
         "desenvolvido-por": "2025 © Developed by ",
-        "todos-os-direitos-reservados": ". All rights reserved."
+        "todos-os-direitos-reservados": ". All rights reserved.",
+        "logo": "Marcos Paulo Silva",
+        "creditos": {
+            "autor": "Marcos Paulo Silva"
+        }
     },
     "inicio": {
+        "nome": "Marcos Paulo Silva",
         "subtitulo": "Software Developer"
     },
     "sobre": {
@@ -54,6 +63,8 @@
         "titulo": "Developed Projects",
         "solucoes-utilizadas": "Technologies used:",
         "visite-o-site": "Visit the site",
+        "github": "GitHub",
+        "preview": "{{titulo}} - preview",
         "subtitulo": "A selection of projects, combining personal creations and client-focused solutions.",
         "lsgassessoriadigital": {
             "titulo": "LSG Assessoria",
@@ -80,10 +91,111 @@
             "tipo": "Sales Page",
             "descricao": "Lead capture page for a real estate resale program, supporting the recruitment of independent sales representatives affiliated with the distributor."
         },
+        "vorix-agencia": {
+            "titulo": "Vorix Agency",
+            "tipo": "Sales Funnel",
+            "descricao": "Complete sales funnel built to capture and convert B2B leads."
+        },
         "marcos-paulo-silva": {
             "titulo": "Portfolio – First Version",
             "tipo": "Landing Page",
             "descricao": "Initial version of my portfolio, built with HTML5, CSS3, and JavaScript, as a foundation for learning and practicing web development."
+        }
+    },
+    "habilidades": {
+        "csharp": "C# .NET",
+        "sap-ui5": "SAP UI5",
+        "api-rest": "API Rest",
+        "fluent-migrator": "FluentMigrator",
+        "fluent-validation": "FluentValidation",
+        "linq2db": "Linq2DB",
+        "sql-server": "SQL Server",
+        "windows-forms": "Windows Forms",
+        "xunit": "xUnit",
+        "ravendb": "RavenDB",
+        "nosql": "NoSQL"
+    },
+    "home": {
+        "seo": {
+            "title": "Portfolio - Marcos Paulo Silva",
+            "description": "Marcos Paulo Silva - Software Developer"
+        }
+    },
+    "bio": {
+        "seo": {
+            "title": "Bio | Marcos Paulo Silva",
+            "description": "Connect with me, explore projects, and discover free resources about technology and development."
+        },
+        "hero": {
+            "welcome": "Welcome",
+            "name": "Marcos Paulo Silva",
+            "role": "Software Developer",
+            "summary": "Software developer working on web applications and cloud solutions. I share technology, programming, and career insights to inspire your next steps.",
+            "actions": {
+                "primary": "Contact me",
+                "secondary": "View portfolio"
+            }
+        },
+        "sections": {
+            "primary-links": {
+                "title": "Main links",
+                "description": "Connect with me and follow the latest news about technology, career, and projects."
+            },
+            "community": {
+                "title": "Community resources",
+                "description": "Materials, curations, and recommendations to accelerate your studies and routine."
+            },
+            "spotlight": {
+                "title": "Spotlight",
+                "description": "Projects and cases that represent my visual identity and experience."
+            }
+        },
+        "primary-links": {
+            "instagram": {
+                "title": "Instagram",
+                "description": "Daily content about tech careers, project behind-the-scenes, and development tips."
+            },
+            "linkedin": {
+                "title": "LinkedIn",
+                "description": "Let's connect and follow news from Invent Software and the innovation ecosystem."
+            },
+            "github": {
+                "title": "GitHub",
+                "description": "Repositories with projects in Angular, .NET, Java Spring, and architecture experiments."
+            },
+            "contact": {
+                "title": "Direct contact",
+                "description": "Send me an email and let's talk about projects, consulting, or partnerships."
+            }
+        },
+        "community": {
+            "learn-to-code": {
+                "title": "Learn programming for free!",
+                "description": "A curated list of resources to help you start programming with structure and no cost."
+            },
+            "newsletter": {
+                "title": "Weekly newsletter",
+                "description": "Receive updates with articles, videos, and opportunities from the tech community."
+            },
+            "setup": {
+                "title": "Shop my setup",
+                "description": "Discover the gear I use daily to create, code, and produce content."
+            },
+            "wellness": {
+                "title": "Wellness picks",
+                "description": "My favorite supplements to keep up with an intense study and work routine."
+            }
+        },
+        "spotlight": {
+            "projects": {
+                "title": "Projects and case studies",
+                "description": "See how I turned business challenges into scalable digital experiences."
+            },
+            "vorix": {
+                "title": "Vorix Agency",
+                "description": "A complete sales funnel built to capture and convert B2B leads."
+            },
+            "cta": "Learn more"
         }
     }
 }

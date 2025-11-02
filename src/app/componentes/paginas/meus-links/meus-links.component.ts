@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SeoService } from '../../../../core/services/seo/seo.service';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 type BioLink = {
   title: string;
@@ -13,24 +14,24 @@ type BioLink = {
 @Component({
   selector: 'app-meus-links',
   standalone: true,
-  imports: [],
+  imports: [TranslateModule],
   templateUrl: './meus-links.component.html',
   styleUrls: ['./meus-links.component.scss']
 })
 export class MeusLinksComponent implements OnInit {
   hero = {
-    welcome: 'Bem-vindo',
+    welcome: 'bio.hero.welcome',
     instagramHandle: '@marcospaulo.dev',
     instagramUrl: 'https://instagram.com/marcospaulo.dev',
-    name: 'Marcos Paulo Silva',
-    role: 'Desenvolvedor de Software',
-    summary: 'Desenvolvedor de Software, com atuação em aplicações web e soluções cloud. Experiência com .NET (C#), Java Spring e Angular. Nas horas vagas produzo conteúdo sobre tecnologia, programação e carreira com inspiração e dicas para você evoluir!\nEnjoy the journey!',
+    name: 'bio.hero.name',
+    role: 'bio.hero.role',
+    summary: 'bio.hero.summary',
     primaryAction: {
-      label: 'Fale comigo',
+      label: 'bio.hero.actions.primary',
       url: 'mailto:silvampsmarcospaulo@gmail.com'
     },
     secondaryAction: {
-      label: 'Ver portfólio',
+      label: 'bio.hero.actions.secondary',
       url: 'https://www.marcospaulosilva.com.br'
     },
     photo: 'assets/images/euInicio-bw.png'
@@ -38,29 +39,29 @@ export class MeusLinksComponent implements OnInit {
 
   primaryLinks: BioLink[] = [
     {
-      title: 'Instagram',
-      description: 'Conteúdo diário sobre carreira em tecnologia, bastidores de projetos e dicas de desenvolvimento.',
+      title: 'bio.primary-links.instagram.title',
+      description: 'bio.primary-links.instagram.description',
       url: 'https://instagram.com/marcospaulo.dev',
       icon: 'bi bi-instagram',
       external: true
     },
     {
-      title: 'LinkedIn',
-      description: 'Vamos nos conectar e acompanhar novidades da Invent Software e do ecossistema de inovação.',
+      title: 'bio.primary-links.linkedin.title',
+      description: 'bio.primary-links.linkedin.description',
       url: 'https://linkedin.com/in/silvamarcospaulo',
       icon: 'bi bi-linkedin',
       external: true
     },
     {
-      title: 'GitHub',
-      description: 'Repositórios com projetos em Angular, .NET, Java Spring e experimentos de arquitetura.',
+      title: 'bio.primary-links.github.title',
+      description: 'bio.primary-links.github.description',
       url: 'https://github.com/silvamarcospaulo',
       icon: 'bi bi-github',
       external: true
     },
     {
-      title: 'Contato direto',
-      description: 'Envie um e-mail e vamos conversar sobre projetos, consultorias ou parcerias.',
+      title: 'bio.primary-links.contact.title',
+      description: 'bio.primary-links.contact.description',
       url: 'mailto:silvampsmarcospaulo@gmail.com',
       icon: 'bi bi-envelope-fill'
     }
@@ -68,29 +69,29 @@ export class MeusLinksComponent implements OnInit {
 
   communityResources: BioLink[] = [
     {
-      title: 'Aprenda programação de graça!',
-      description: 'Uma curadoria de conteúdos para você iniciar na programação com estrutura e sem custo.',
+      title: 'bio.community.learn-to-code.title',
+      description: 'bio.community.learn-to-code.description',
       url: 'https://www.marcospaulosilva.com/bio',
       icon: 'bi bi-mortarboard-fill',
       external: true
     },
     {
-      title: 'Aprenda programação de graça!',
-      description: 'Uma curadoria de conteúdos para você iniciar na programação com estrutura e sem custo.',
+      title: 'bio.community.newsletter.title',
+      description: 'bio.community.newsletter.description',
       url: 'https://www.marcospaulosilva.com/bio',
       icon: 'bi bi-mortarboard-fill',
       external: true
     },
     {
-      title: 'Compre os itens do meu setup',
-      description: 'Conheça os equipamentos que uso no dia a dia para criar, programar e produzir conteúdo.',
+      title: 'bio.community.setup.title',
+      description: 'bio.community.setup.description',
       url: 'https://www.marcospaulosilva.com/bio',
       icon: 'bi bi-lightning-charge-fill',
       external: true
     },
     {
-      title: 'Whey e links',
-      description: 'Minha seleção de suplementos favoritos para acompanhar a rotina intensa de estudos e trabalho.',
+      title: 'bio.community.wellness.title',
+      description: 'bio.community.wellness.description',
       url: 'https://www.marcospaulosilva.com/bio',
       icon: 'bi bi-capsule',
       external: true
@@ -99,27 +100,31 @@ export class MeusLinksComponent implements OnInit {
 
   spotlightCards: BioLink[] = [
     {
-      title: 'Projetos e cases',
-      description: 'Veja como transformei desafios de negócio em experiências digitais escaláveis.',
+      title: 'bio.spotlight.projects.title',
+      description: 'bio.spotlight.projects.description',
       url: 'https://www.marcospaulosilva.com.br',
       image: 'assets/images/macbook.png',
       external: true
     },
     {
-      title: 'Vorix Agência',
-      description: 'Funil de vendas completo construído com foco em captação e conversão de leads B2B.',
+      title: 'bio.spotlight.vorix.title',
+      description: 'bio.spotlight.vorix.description',
       url: 'https://www.marcospaulosilva.com.br',
       image: 'assets/images/print-projetos/lsgblackfriday.png',
       external: true
     }
   ];
 
-  constructor(private seoService: SeoService) { }
+  constructor(private seoService: SeoService, private translate: TranslateService) { }
 
   ngOnInit(): void {
+    this.atualizarMetadados();
+  }
+
+  private atualizarMetadados(): void {
     this.seoService.atualizarMetadados({
-      title: 'Bio | Marcos Paulo Silva',
-      description: 'Conecte-se comigo, explore projetos e descubra recursos gratuitos sobre tecnologia e desenvolvimento.',
+      title: this.translate.instant('bio.seo.title'),
+      description: this.translate.instant('bio.seo.description'),
       image: 'https://www.marcospaulosilva.com.br/assets/images/metadado.png',
       url: 'https://www.marcospaulosilva.com.br/bio'
     });

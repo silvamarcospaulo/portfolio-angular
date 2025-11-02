@@ -2,7 +2,7 @@
     <div class="bio__hero">
         <div class="bio__hero-container soft-ui-container">
             <div class="bio__hero-top">
-                <span class="bio__welcome">{{ hero.welcome }}</span>
+                <span class="bio__welcome">{{ hero.welcome | translate }}</span>
                 <a class="bio__instagram" href="{{ hero.instagramUrl }}" target="_blank" rel="noopener">
                     <i class="bi bi-instagram"></i>
                     <span>{{ hero.instagramHandle }}</span>
@@ -10,19 +10,19 @@
             </div>
             <div class="bio__hero-content">
                 <div class="bio__hero-text">
-                    <h1>{{ hero.name }}</h1>
-                    <h2>{{ hero.role }}</h2>
-                    <p>{{ hero.summary }}</p>
+                    <h1>{{ hero.name | translate }}</h1>
+                    <h2>{{ hero.role | translate }}</h2>
+                    <p>{{ hero.summary | translate }}</p>
                     <div class="bio__hero-actions">
-                        <a class="bio__button" href="{{ hero.primaryAction.url }}">{{ hero.primaryAction.label }}</a>
+                        <a class="bio__button" href="{{ hero.primaryAction.url }}">{{ hero.primaryAction.label | translate }}</a>
                         <a class="bio__link" href="{{ hero.secondaryAction.url }}" target="_blank" rel="noopener">
-                            {{ hero.secondaryAction.label }}
+                            {{ hero.secondaryAction.label | translate }}
                             <i class="bi bi-arrow-up-right"></i>
                         </a>
                     </div>
                 </div>
                 <div class="bio__hero-figure">
-                    <img src="{{ hero.photo }}" alt="{{ hero.name }}" />
+                    <img src="{{ hero.photo }}" [attr.alt]="hero.name | translate" />
                 </div>
             </div>
         </div>
@@ -31,8 +31,8 @@
     <div class="bio__content">
         <section class="bio-section">
             <header>
-                <h3>Links principais</h3>
-                <p>Conecte-se comigo e acompanhe as novidades de tecnologia, carreira e projetos.</p>
+                <h3>{{ 'bio.sections.primary-links.title' | translate }}</h3>
+                <p>{{ 'bio.sections.primary-links.description' | translate }}</p>
             </header>
             <div class="bio-grid">
                 @for (link of primaryLinks; track link.title)
@@ -44,12 +44,12 @@
                         <i class="{{ link.icon }}"></i>
                         }
                         @if (link.image) {
-                        <img src="{{ link.image }}" alt="{{ link.title }}" />
+                        <img src="{{ link.image }}" [attr.alt]="link.title | translate" />
                         }
                     </div>
                     <div class="bio-card__content">
-                        <h4>{{ link.title }}</h4>
-                        <p>{{ link.description }}</p>
+                        <h4>{{ link.title | translate }}</h4>
+                        <p>{{ link.description | translate }}</p>
                     </div>
                 </a>
                 }
@@ -58,8 +58,8 @@
 
         <section class="bio-section">
             <header>
-                <h3>Recursos da comunidade</h3>
-                <p>Materiais, curadorias e recomendações para acelerar seus estudos e rotina.</p>
+                <h3>{{ 'bio.sections.community.title' | translate }}</h3>
+                <p>{{ 'bio.sections.community.description' | translate }}</p>
             </header>
             <div class="bio-grid">
                 @for (link of communityResources; track link.title)
@@ -71,12 +71,12 @@
                         <i class="{{ link.icon }}"></i>
                         }
                         @if (link.image) {
-                        <img src="{{ link.image }}" alt="{{ link.title }}" />
+                        <img src="{{ link.image }}" [attr.alt]="link.title | translate" />
                         }
                     </div>
                     <div class="bio-card__content">
-                        <h4>{{ link.title }}</h4>
-                        <p>{{ link.description }}</p>
+                        <h4>{{ link.title | translate }}</h4>
+                        <p>{{ link.description | translate }}</p>
                     </div>
                 </a>
                 }
@@ -85,8 +85,8 @@
 
         <section class="bio-section">
             <header>
-                <h3>Em destaque</h3>
-                <p>Projetos e cases que representam minha identidade visual e experiência.</p>
+                <h3>{{ 'bio.sections.spotlight.title' | translate }}</h3>
+                <p>{{ 'bio.sections.spotlight.description' | translate }}</p>
             </header>
             <div class="bio-spotlight">
                 @for (card of spotlightCards; track card.title)
@@ -95,13 +95,13 @@
                     target="_blank" rel="noopener">
                     <div class="bio-spotlight__image">
                         @if (card.image) {
-                        <img src="{{ card.image }}" alt="{{ card.title }}" />
+                        <img src="{{ card.image }}" [attr.alt]="card.title | translate" />
                         }
                     </div>
                     <div class="bio-spotlight__content">
-                        <h4>{{ card.title }}</h4>
-                        <p>{{ card.description }}</p>
-                        <span>Saiba mais <i class="bi bi-arrow-up-right"></i></span>
+                        <h4>{{ card.title | translate }}</h4>
+                        <p>{{ card.description | translate }}</p>
+                        <span>{{ 'bio.spotlight.cta' | translate }} <i class="bi bi-arrow-up-right"></i></span>
                     </div>
                 </a>
                 }

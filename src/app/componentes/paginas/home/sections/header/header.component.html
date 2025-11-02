@@ -1,7 +1,7 @@
 <header id="header">
   <div id="container-header" class="soft-ui-container">
     <a id="logo" href="#">
-      <span id="logo-titulo">Marcos Paulo Silva</span>
+      <span id="logo-titulo">{{ 'header.logo' | translate }}</span>
     </a>
 
     <nav id="main-nav">
@@ -20,7 +20,8 @@
       </div>
     </div>
 
-    <button id="menu-toggle" type="button" (click)="toggle()" aria-label="Menu" class="soft-ui-container">
+    <button id="menu-toggle" type="button" (click)="toggle()" [attr.aria-label]="'header.menu.abrir' | translate"
+      class="soft-ui-container">
       <i class="bi bi-list"></i>
     </button>
   </div>
@@ -28,8 +29,9 @@
   <div id="mobile-menu" [ngClass]="{ open: open() }">
     <div class="mobile-card soft-ui-container">
       <div class="mobile-head">
-        <a id="brand-mobile" href="#" (click)="fecharMenu()">Marcos Paulo Silva</a>
-        <button id="menu-close" class="soft-ui-container" type="button" (click)="fecharMenu()" aria-label="Fechar">
+        <a id="brand-mobile" href="#" (click)="fecharMenu()">{{ 'header.logo' | translate }}</a>
+        <button id="menu-close" class="soft-ui-container" type="button" (click)="fecharMenu()"
+          [attr.aria-label]="'header.menu.fechar' | translate">
           <i class="bi bi-x-lg"></i>
         </button>
       </div>
