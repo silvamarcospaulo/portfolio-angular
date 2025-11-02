@@ -30,7 +30,7 @@
                 @if(projeto.url) {
                 <button class="soft-ui-container soft-ui-container-hover">
                     <i class="bi bi-github"></i>
-                    <p>Github</p>
+                    <p>{{ 'projetos.github' | translate }}</p>
                 </button>
                 }
                 @if(projeto.url) {
@@ -46,12 +46,12 @@
     <div id="container-imagem">
         @if (safeIframeUrl) {
         <iframe class="projeto-preview" [src]="safeIframeUrl" loading="lazy"
-            [attr.title]="((projeto.titulo || '') | translate) + ' - preview'"
-            [attr.aria-label]="((projeto.titulo || '') | translate) + ' - preview'" allowfullscreen
+            [attr.title]="'projetos.preview' | translate:{ titulo: (projeto.titulo ? (projeto.titulo | translate) : '') }"
+            [attr.aria-label]="'projetos.preview' | translate:{ titulo: (projeto.titulo ? (projeto.titulo | translate) : '') }"
             referrerpolicy="no-referrer"></iframe>
         }
         @else if (projeto.caminhoImagem) {
-        <img [src]="projeto.caminhoImagem" [alt]="projeto.titulo">
+        <img [src]="projeto.caminhoImagem" [attr.alt]="projeto.titulo ? (projeto.titulo | translate) : ''">
         }
     </div>
 </div>

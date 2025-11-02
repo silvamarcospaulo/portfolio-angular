@@ -23,7 +23,7 @@
     max-width: 1200px;
     border-radius: 32px;
     padding: var(--hero-padding-y) var(--hero-padding-x);
-    background: var(--color-secondary);
+    background-color: var(--color-primary);
     position: relative;
     overflow: hidden;
 }
@@ -50,9 +50,9 @@
     gap: 0.5rem;
     padding: 0.5rem 1rem;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.7);
+    background: linear-gradient(135deg, var(--color-link) 0%, var(--color-link-focus) 100%);
+    color: white;
     border: 1px solid rgba(0, 0, 0, 0.08);
-    color: inherit;
     font-weight: 600;
     text-decoration: none;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -82,7 +82,7 @@
     margin: 0.75rem 0 1.5rem;
     font-size: clamp(1.25rem, 2vw, 1.75rem);
     font-weight: 500;
-    color: var(--color-link);
+    color: var(--color-link-focus);
 }
 
 .bio__hero-text p {
@@ -184,7 +184,7 @@
     gap: 1rem;
     padding: 1.75rem;
     border-radius: 24px;
-    background: rgba(255, 255, 255, 0.92);
+    background: var(--color-primary);
     text-decoration: none;
     color: inherit;
     min-height: 220px;
@@ -225,6 +225,66 @@
     line-height: 1.5;
 }
 
+.bio-spotlight {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.bio-spotlight__card {
+    display: grid;
+    grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    border-radius: 32px;
+    background: var(--color-primary);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
+}
+
+.bio-spotlight__card:hover {
+    transform: translateY(-8px);
+}
+
+.bio-spotlight__image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bio-spotlight__image img {
+    width: 100%;
+    border-radius: 24px;
+    object-fit: cover;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.bio-spotlight__content h4 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--color-text-title);
+}
+
+.bio-spotlight__content p {
+    margin: 1rem 0;
+    line-height: 1.6;
+}
+
+.bio-spotlight__content span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-weight: 600;
+    color: var(--color-link-focus);
+}
+
+@media (max-width: 1024px) {
+    .bio-spotlight__card {
+        grid-template-columns: 1fr;
+    }
+}
+
 @media (max-width: 1024px) {
     .bio__hero-container {
         --hero-padding-y: 2.5rem;
@@ -242,7 +302,6 @@
     .bio__hero-figure img {
         width: min(320px, 90%);
     }
-
 }
 
 @media (max-width: 768px) {
