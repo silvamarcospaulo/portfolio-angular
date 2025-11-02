@@ -75,10 +75,10 @@ export class MeusLinksComponent implements OnInit {
       external: true
     },
     {
-      title: 'Aprenda programação de graça!',
-      description: 'Uma curadoria de conteúdos para você iniciar na programação com estrutura e sem custo.',
+      title: 'Precisa de um site e soluções de software para seu negócio?',
+      description: 'Eleve resultados com performance, SEO e escalabilidade: encomende sites, e-commerces e aplicações customizadas.',
       url: 'https://www.marcospaulosilva.com/bio',
-      icon: 'bi bi-mortarboard-fill',
+      icon: 'bi bi-briefcase',
       external: true
     },
     {
