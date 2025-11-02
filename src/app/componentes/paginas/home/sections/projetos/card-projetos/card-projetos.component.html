@@ -44,6 +44,14 @@
         </div>
     </div>
     <div id="container-imagem">
+        @if (safeIframeUrl) {
+        <iframe class="projeto-preview" [src]="safeIframeUrl" loading="lazy"
+            [attr.title]="((projeto.titulo || '') | translate) + ' - preview'"
+            [attr.aria-label]="((projeto.titulo || '') | translate) + ' - preview'" allowfullscreen
+            referrerpolicy="no-referrer"></iframe>
+        }
+        @else if (projeto.caminhoImagem) {
         <img [src]="projeto.caminhoImagem" [alt]="projeto.titulo">
+        }
     </div>
 </div>
