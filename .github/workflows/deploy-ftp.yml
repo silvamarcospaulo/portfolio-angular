@@ -1,0 +1,52 @@
+name: Build & Deploy Angular to Hostinger (FTP)
+
+on:
+  push:
+    branches: [ "main" ]  # troque se usar outra branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+      # Puxa o código do repositório
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+      # Angular 19 funciona bem com Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build (Angular - produção)
+        # Gera os arquivos estáticos em dist/v2/browser (quando SSR está configurado)
+        run: npm run build -- --configuration production
+
+      # ---- (Opcional) PRERENDER estático, se você tiver rotas configuradas para isso ----
+      # - name: Prerender (opcional)
+      #   run: npx ng run v2:prerender --configuration production
+
+      - name: FTP Deploy (dist/v2/browser → public_html)
+        # Sobe somente os arquivos prontos do build para a Hostinger
+        uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.FTP_ROOT }}
+          # Se seu build gerar dist/v2/browser (SSR habilitado), use essa pasta:
+          local-dir: ./dist/v2/browser
+          # Se por acaso seu build gerar apenas dist/v2 (sem SSR),
+          # troque a linha acima por: local-dir: ./dist/v2
+          exclude: |
+            **/.git*
+            **/.github/**
+            **/node_modules/**
+            **/tests/**
+            **/README.md
+            **/dist/**/server/**   # garante que nada de server/SSR vai para a Hostinger
