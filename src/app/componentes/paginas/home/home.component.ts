@@ -141,7 +141,7 @@ export class HomeComponent implements OnInit {
     this.seoService.atualizarMetadados({
       title: this.translate.instant('home.seo.title'),
       description: this.translate.instant('home.seo.description'),
-      image: 'https://www.marcospaulosilva.com.br/assets/images/metadado.png',
+      image: 'https://www.marcospaulosilva.com.br/assets/images/metadata.png',
       url: 'https://www.marcospaulosilva.com.br'
     });
   }

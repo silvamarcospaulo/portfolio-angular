@@ -138,7 +138,7 @@ export class MeusLinksComponent implements OnInit {
     this.seoService.atualizarMetadados({
       title: this.translate.instant('bio.seo.title'),
       description: this.translate.instant('bio.seo.description'),
-      image: 'https://www.marcospaulosilva.com.br/assets/images/metadado.png',
+      image: 'https://www.marcospaulosilva.com.br/assets/images/metadata.png',
       url: 'https://www.marcospaulosilva.com.br/bio'
     });
   }
