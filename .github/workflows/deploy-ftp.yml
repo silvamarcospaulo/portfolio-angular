@@ -2,7 +2,7 @@ name: Build & Deploy Angular to Hostinger (FTP)
 
 on:
   push:
-    branches: [ "main" ]  # troque se usar outra branch
+    branches: [ "main" ]
 
 jobs:
   build-and-deploy:
@@ -24,7 +24,6 @@ jobs:
       - name: Build (Angular - produção)
         run: npm run build -- --configuration production
 
-      # Detecta a pasta de build e EXPORTA com barra no fim
       - name: Detect build output folder
         id: detect
         shell: bash
@@ -49,10 +48,14 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          # precisa terminar com /
-          server-dir: ${{ secrets.FTP_ROOT }}/   # ex.: /public_html/
-          local-dir: ${{ steps.detect.outputs.dir }}  # já vem com '/' no fim
+
+          server-dir: ${{ secrets.FTP_ROOT }}/
+          local-dir: ${{ steps.detect.outputs.dir }}
+
+          dangerous-clean-slate: false
+
           exclude: |
+            contrate/**
             **/.git*
             **/.github/**
             **/node_modules/**
