@@ -2,8 +2,9 @@
     <div id="container-carrossel">
         <div id="container-conteudo">
             <div id="container-textos">
-                <h3>{{'projetos.titulo' | translate}}</h3>
-                <h4>{{'projetos.subtitulo' | translate}}</h4>
+                <app-section-header
+                    title="projetos.titulo"
+                    subtitle="projetos.subtitulo" />
             </div>
             <div id="container-botoes-de-acao">
                 <a class="nav-btn soft-ui-container soft-ui-container-hover" (click)="anterior()">

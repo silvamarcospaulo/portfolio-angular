@@ -11,6 +11,7 @@ import { Link } from '../../../../model/link.model';
 import { FooterComponent } from './sections/footer/footer.component';
 import { HeaderComponent } from './sections/header/header.component';
 import { TranslateService } from '@ngx-translate/core';
+import { PersonalDataService } from '../../../../core/services/personal-data/personal-data.service';
 
 @Component({
   selector: 'app-home',
@@ -25,7 +26,11 @@ export class HomeComponent implements OnInit {
   listaDeExperienciasProfissionais: ExperienciaProfissional[] = [];
   links: Link[] = [];
 
-  constructor(private seoService: SeoService, private translate: TranslateService) { }
+  constructor(
+    private seoService: SeoService,
+    private translate: TranslateService,
+    private personalData: PersonalDataService
+  ) { }
 
   ngOnInit(): void {
     this.atualizarMetadados();
@@ -78,7 +83,50 @@ export class HomeComponent implements OnInit {
           new Link({ imagem: '/assets/images/icones/tailwind.svg', nome: 'Tailwind' })
         ]
       }),
-
+      new Projeto({
+        url: 'https://www.combinouapp.com.br/pt-BR/',
+        palavraChave: 'Plataforma de Serviços Domésticos Combinou',
+        titulo: 'projetos.combinouapp.titulo',
+        tipoDeProjeto: 'projetos.combinouapp.tipo',
+        descricao: 'projetos.combinouapp.descricao',
+        tecnologias: [
+          new Link({ imagem: '/assets/images/icones/angular.svg', nome: 'Angular' }),
+          new Link({ imagem: '/assets/images/icones/typescript.svg', nome: 'TypeScript' })
+        ]
+      }),
+      new Projeto({
+        url: 'https://flatbpaiva.com.br',
+        palavraChave: 'Site de Hospedagem Flats Paiva Recife',
+        titulo: 'projetos.flatbpaiva.titulo',
+        tipoDeProjeto: 'projetos.flatbpaiva.tipo',
+        descricao: 'projetos.flatbpaiva.descricao',
+        tecnologias: [
+          new Link({ imagem: '/assets/images/icones/angular.svg', nome: 'Angular' }),
+          new Link({ imagem: '/assets/images/icones/typescript.svg', nome: 'TypeScript' })
+        ]
+      }),
+      new Projeto({
+        url: 'https://beachflatsporto.com.br',
+        palavraChave: 'Site de Hospedagem Beach Flats Porto de Galinhas',
+        titulo: 'projetos.beachflatsporto.titulo',
+        tipoDeProjeto: 'projetos.beachflatsporto.tipo',
+        descricao: 'projetos.beachflatsporto.descricao',
+        tecnologias: [
+          new Link({ imagem: '/assets/images/icones/angular.svg', nome: 'Angular' }),
+          new Link({ imagem: '/assets/images/icones/typescript.svg', nome: 'TypeScript' })
+        ]
+      }),
+      new Projeto({
+        url: 'https://zurimaragogi.com.br/',
+        palavraChave: 'Site de Hospedagem Zuri Pousada Maragogi',
+        titulo: 'projetos.zurimaragogi.titulo',
+        tipoDeProjeto: 'projetos.zurimaragogi.tipo',
+        descricao: 'projetos.zurimaragogi.descricao',
+        tecnologias: [
+          new Link({ imagem: '/assets/images/icones/angular.svg', nome: 'Angular' }),
+          new Link({ imagem: '/assets/images/icones/typescript.svg', nome: 'TypeScript' })
+        ]
+      }),
     ];
 
     this.listaDeExperienciasProfissionais = [
@@ -141,8 +189,8 @@ export class HomeComponent implements OnInit {
     this.seoService.atualizarMetadados({
       title: this.translate.instant('home.seo.title'),
       description: this.translate.instant('home.seo.description'),
-      image: 'https://www.marcospaulosilva.com.br/assets/images/metadata.png',
-      url: 'https://www.marcospaulosilva.com.br'
+      image: `${this.personalData.portfolioUrl}/assets/images/metadata.png`,
+      url: this.personalData.portfolioUrl
     });
   }
 }

@@ -1,0 +1,41 @@
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  text-decoration: none;
+  flex-shrink: 0;
+
+  i {
+    font-size: 1.3rem;
+    color: var(--color-text-subtitle);
+    transition: color 0.5s;
+  }
+
+  &:hover i {
+    color: var(--color-link-focus);
+  }
+}
+
+.social-links--vertical {
+  flex-direction: column;
+}
+
+.social-links--sm .social-link {
+  width: 44px;
+  height: 44px;
+
+  i {
+    font-size: 1.1rem;
+  }
+}

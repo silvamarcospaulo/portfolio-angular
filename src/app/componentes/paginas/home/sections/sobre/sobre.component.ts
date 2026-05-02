@@ -36,6 +36,11 @@ export class SobreComponent {
     }),
 
     new SliderItem({
+      iconeCaminho: '/assets/images/icones/angular.svg',
+      texto: 'React'
+    }),
+
+    new SliderItem({
       iconeCaminho: '/assets/images/icones/csharp.png',
       texto: 'C#'
     }),

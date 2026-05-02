@@ -1,0 +1,27 @@
+// Estilos globais para a diretiva appIconButton — incluídos em styles.scss
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: var(--color-primary);
+  color: var(--color-text-subtitle);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: color 0.5s;
+
+  i {
+    font-size: 1.2rem;
+    pointer-events: none;
+  }
+
+  &:hover {
+    color: var(--color-link-focus);
+  }
+}
+
+.icon-btn--circle { border-radius: 50%; }
+.icon-btn--square { border-radius: 10px; }

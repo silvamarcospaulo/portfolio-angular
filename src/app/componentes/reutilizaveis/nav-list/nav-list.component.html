@@ -1,0 +1,9 @@
+<ul class="nav-list" [class.nav-list--vertical]="orientation === 'vertical'">
+  @for (link of links; track link.url) {
+    <li>
+      <a class="nav-link" (click)="go(link.url || '', $event)">
+        {{ link.nome || '' | translate }}
+      </a>
+    </li>
+  }
+</ul>

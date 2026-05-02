@@ -5,31 +5,10 @@
                 <h3>{{ 'footer.logo' | translate }}</h3>
             </div>
             <div id="menu-list">
-                <div id="list">
-                    @for (link of links; track link) {
-                    <a (click)="go(link.url || '', $event)">{{
-                        link.nome || '' |
-                        translate }}</a>
-                    }
-                </div>
+                <app-nav-list [links]="links" orientation="horizontal" />
             </div>
             <div id="redes-sociais">
-                <a href="https://www.github.com/silvamarcospaulo"
-                    class="botao soft-ui-container soft-ui-container-hover" target="_blank">
-                    <i class="bi bi-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/silvamarcospaulo"
-                    class="botao soft-ui-container soft-ui-container-hover" target="_blank">
-                    <i class="bi bi-linkedin"></i>
-                </a>
-                <a href="https://www.instagram.com/marcospaulo.dev"
-                    class="botao soft-ui-container soft-ui-container-hover" target="_blank">
-                    <i class="bi bi-instagram"></i>
-                </a>
-                <a href="mailto:silvampsmarcospaulo@gmail.com?subject=Contato%20do%20Portfólio&body=Olá%20Marcos,"
-                    class="botao soft-ui-container soft-ui-container-hover" target="_blank">
-                    <i class="bi bi-envelope-fill"></i>
-                </a>
+                <app-social-links [links]="socialLinks" size="sm" />
             </div>
             <div id="container-configuracao-pagina">
                 <div class="botao soft-ui-container soft-ui-container-hover">

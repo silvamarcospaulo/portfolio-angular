@@ -99,6 +99,26 @@
             "tipo": "Sales Funnel",
             "descricao": "Complete sales funnel built to capture and convert B2B leads."
         },
+        "combinouapp": {
+            "titulo": "Combinou",
+            "tipo": "Service Platform",
+            "descricao": "Platform connecting clients with home service providers with safety and trust."
+        },
+        "flatbpaiva": {
+            "titulo": "Flats Paiva",
+            "tipo": "Hospitality Website",
+            "descricao": "Institutional website for accommodation in Recife, with flats in Barra de Jangada and Boa Viagem."
+        },
+        "beachflatsporto": {
+            "titulo": "Beach Flats Porto",
+            "tipo": "Hospitality Website",
+            "descricao": "Accommodation website in Porto de Galinhas, offering beachside flats for tourists seeking a seaside experience."
+        },
+        "zurimaragogi": {
+            "titulo": "Zuri Pousada Maragogi",
+            "tipo": "Hospitality Website",
+            "descricao": "Beachfront inn website in Maragogi, showcasing accommodations and highlights for tourists seeking comfort and nature."
+        },
         "marcos-paulo-silva": {
             "titulo": "Portfolio – First Version",
             "tipo": "Landing Page",

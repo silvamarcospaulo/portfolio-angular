@@ -54,16 +54,15 @@
     display: flex;
     place-content: center;
     place-items: center;
-    min-height: 120vh;
-    height: auto;
     width: 100%;
     max-width: 1400px;
+    padding: 40px 0;
 }
 
 #container-tecnologias {
     display: flex;
     place-content: center;
     place-items: center;
-    height: 10vh;
+    height: auto;
     width: 100%;
 }

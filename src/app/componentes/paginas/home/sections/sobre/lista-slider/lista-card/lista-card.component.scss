@@ -1,13 +1,11 @@
 .slider-item {
     position: relative;
     display: flex;
-    place-items: center;
-    place-content: center;
-    padding: 14px 18px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 18px;
     border-radius: 10px;
     white-space: nowrap;
-    overflow: hidden;
-    height: 4vh;
 }
 
 #conteudo {

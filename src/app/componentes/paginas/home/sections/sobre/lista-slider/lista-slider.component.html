@@ -1,56 +1,14 @@
 <section id="lista-slider" [style.--duration]="d" [style.--fade.px]="fade">
     <div id="slider-shell">
         <div id="slider-viewport">
-            <div class="slider-runner" [style.--dir]="direction === 'right' ? 1 : -1">
-                <ul class="slider-track">
-                    @for (item of items; track item) {
-                    <app-lista-card [item]="item"></app-lista-card>
-                    }
-
-                    @for (item of items; track item) {
-                    <app-lista-card [item]="item"></app-lista-card>
-                    }
-
-                    @for (item of items; track item) {
-                    <app-lista-card [item]="item"></app-lista-card>
-                    }
-
-                    @for (item of items; track item) {
-                    <app-lista-card [item]="item"></app-lista-card>
-                    }
-
-                    @for (item of items; track item) {
-                    <app-lista-card [item]="item"></app-lista-card>
-                    }
-
-                    @for (item of items; track item) {
-                    <app-lista-card [item]="item"></app-lista-card>
-                    }
-
-                    @for (item of items; track item) {
-                    <app-lista-card [item]="item"></app-lista-card>
-                    }
-
-                    @for (item of items; track item) {
-                    <app-lista-card [item]="item"></app-lista-card>
-                    }
-
-                    @for (item of items; track item) {
-                    <app-lista-card [item]="item"></app-lista-card>
-                    }
-
-                    @for (item of items; track item) {
-                    <app-lista-card [item]="item"></app-lista-card>
-                    }
-
-                    @for (item of items; track item) {
-                    <app-lista-card [item]="item"></app-lista-card>
-                    }
-
-                    @for (item of items; track item) {
-                    <app-lista-card [item]="item"></app-lista-card>
+            <div class="slider-runner" [class.slider-runner--reverse]="direction === 'right'">
+                @for (copy of copies; track $index) {
+                <ul class="slider-track" [attr.aria-hidden]="$index > 0 ? 'true' : null">
+                    @for (item of items; track item.texto) {
+                    <app-lista-card [item]="item" />
                     }
                 </ul>
+                }
             </div>
         </div>
     </div>

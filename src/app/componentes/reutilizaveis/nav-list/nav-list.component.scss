@@ -1,0 +1,32 @@
+.nav-list {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.nav-list--vertical {
+  flex-direction: column;
+  gap: 0;
+}
+
+.nav-link {
+  display: block;
+  color: var(--color-text-subtitle);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.5s;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--color-link-focus);
+  }
+}
+
+.nav-list--vertical .nav-link {
+  padding: 14px 12px;
+  border-radius: 10px;
+  background-color: var(--color-primary);
+}

@@ -1,0 +1,16 @@
+// Breakpoints padrão do projeto — usar sempre estes valores
+$bp-xs: 480px;
+$bp-sm: 600px;
+$bp-md: 768px;
+$bp-nav: 900px;
+$bp-lg: 1024px;
+$bp-xl: 1200px;
+$bp-2xl: 1400px;
+
+@mixin xs    { @media (max-width: #{$bp-xs})  { @content; } }
+@mixin sm    { @media (max-width: #{$bp-sm})  { @content; } }
+@mixin md    { @media (max-width: #{$bp-md})  { @content; } }
+@mixin nav   { @media (min-width: #{$bp-nav}) { @content; } }
+@mixin lg    { @media (max-width: #{$bp-lg})  { @content; } }
+@mixin xl    { @media (min-width: #{$bp-xl})  { @content; } }
+@mixin above-md { @media (min-width: #{$bp-md}) { @content; } }

@@ -2,12 +2,13 @@ import { Component, Input } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { Projeto } from '../../../../../../model/projeto/projeto.model';
 import { CardProjetosComponent } from './card-projetos/card-projetos.component';
+import { SectionHeaderComponent } from '../../../../reutilizaveis/section-header/section-header.component';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-projetos',
   standalone: true,
-  imports: [TranslateModule, CommonModule, CardProjetosComponent],
+  imports: [TranslateModule, CommonModule, CardProjetosComponent, SectionHeaderComponent],
   templateUrl: './projetos.component.html',
   styleUrls: ['./projetos.component.scss']
 })

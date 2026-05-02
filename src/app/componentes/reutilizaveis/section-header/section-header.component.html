@@ -1,0 +1,6 @@
+<div class="section-header" [class]="'section-header--' + align">
+  <h3 class="section-header__title">{{ title | translate }}</h3>
+  @if (subtitle) {
+    <h4 class="section-header__subtitle">{{ subtitle | translate }}</h4>
+  }
+</div>

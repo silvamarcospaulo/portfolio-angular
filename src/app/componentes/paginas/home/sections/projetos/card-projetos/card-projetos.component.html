@@ -28,12 +28,6 @@
             </div>
             <div id="botoes-tecnologias">
                 @if(projeto.url) {
-                <button class="soft-ui-container soft-ui-container-hover">
-                    <i class="bi bi-github"></i>
-                    <p>{{ 'projetos.github' | translate }}</p>
-                </button>
-                }
-                @if(projeto.url) {
                 <button class="soft-ui-container soft-ui-container-hover" [formTarget]="'_blank'"
                     (click)="abrirLink(projeto.url)">
                     <p>{{'projetos.visite-o-site' | translate}}</p>

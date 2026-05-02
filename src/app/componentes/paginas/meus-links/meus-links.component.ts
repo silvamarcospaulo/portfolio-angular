@@ -3,6 +3,7 @@ import { SeoService } from '../../../../core/services/seo/seo.service';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { FooterComponent } from "../home/sections/footer/footer.component";
 import { Link } from '../../../../model/link.model';
+import { PersonalDataService } from '../../../../core/services/personal-data/personal-data.service';
 
 type BioLink = {
   title: string;
@@ -21,57 +22,20 @@ type BioLink = {
   styleUrls: ['./meus-links.component.scss']
 })
 export class MeusLinksComponent implements OnInit {
-  hero = {
-    welcome: 'bio.hero.welcome',
-    instagramHandle: '@marcospaulo.dev',
-    instagramUrl: 'https://instagram.com/marcospaulo.dev',
-    name: 'bio.hero.name',
-    role: 'bio.hero.role',
-    summary: 'bio.hero.summary',
-    primaryAction: {
-      label: 'bio.hero.actions.primary',
-      url: 'mailto:silvampsmarcospaulo@gmail.com'
-    },
-    secondaryAction: {
-      label: 'bio.hero.actions.secondary',
-      url: 'https://www.marcospaulosilva.com.br'
-    },
-    photo: 'assets/images/euInicio-bw.png'
+  hero: {
+    welcome: string;
+    instagramHandle: string;
+    instagramUrl: string;
+    name: string;
+    role: string;
+    summary: string;
+    primaryAction: { label: string; url: string };
+    secondaryAction: { label: string; url: string };
+    photo: string;
   };
 
-  links = [
-    new Link({ nome: 'common.portfolio', url: 'www.marcospaulosilva.com.br' })
-  ];
-
-  primaryLinks: BioLink[] = [
-    {
-      title: 'bio.primary-links.instagram.title',
-      description: 'bio.primary-links.instagram.description',
-      url: 'https://instagram.com/marcospaulo.dev',
-      icon: 'bi bi-instagram',
-      external: true
-    },
-    {
-      title: 'bio.primary-links.linkedin.title',
-      description: 'bio.primary-links.linkedin.description',
-      url: 'https://linkedin.com/in/silvamarcospaulo',
-      icon: 'bi bi-linkedin',
-      external: true
-    },
-    {
-      title: 'bio.primary-links.github.title',
-      description: 'bio.primary-links.github.description',
-      url: 'https://github.com/silvamarcospaulo',
-      icon: 'bi bi-github',
-      external: true
-    },
-    {
-      title: 'bio.primary-links.contact.title',
-      description: 'bio.primary-links.contact.description',
-      url: 'mailto:silvampsmarcospaulo@gmail.com',
-      icon: 'bi bi-envelope-fill'
-    }
-  ];
+  links: Link[];
+  primaryLinks: BioLink[];
 
   communityResources: BioLink[] = [
     {
@@ -128,19 +92,64 @@ export class MeusLinksComponent implements OnInit {
     }
   ];
 
-  constructor(private seoService: SeoService, private translate: TranslateService) { }
+  constructor(
+    private seoService: SeoService,
+    private translate: TranslateService,
+    private personalData: PersonalDataService
+  ) {
+    this.hero = {
+      welcome: 'bio.hero.welcome',
+      instagramHandle: personalData.instagramHandle,
+      instagramUrl: personalData.instagram,
+      name: 'bio.hero.name',
+      role: 'bio.hero.role',
+      summary: 'bio.hero.summary',
+      primaryAction: { label: 'bio.hero.actions.primary', url: personalData.emailHref },
+      secondaryAction: { label: 'bio.hero.actions.secondary', url: personalData.portfolioUrl },
+      photo: 'assets/images/euInicio-bw.png'
+    };
 
-  ngOnInit(): void {
-    this.atualizarMetadados();
+    this.links = [
+      new Link({ nome: 'common.portfolio', url: personalData.portfolioUrl })
+    ];
+
+    this.primaryLinks = [
+      {
+        title: 'bio.primary-links.instagram.title',
+        description: 'bio.primary-links.instagram.description',
+        url: personalData.instagram,
+        icon: 'bi bi-instagram',
+        external: true
+      },
+      {
+        title: 'bio.primary-links.linkedin.title',
+        description: 'bio.primary-links.linkedin.description',
+        url: personalData.linkedin,
+        icon: 'bi bi-linkedin',
+        external: true
+      },
+      {
+        title: 'bio.primary-links.github.title',
+        description: 'bio.primary-links.github.description',
+        url: personalData.github,
+        icon: 'bi bi-github',
+        external: true
+      },
+      {
+        title: 'bio.primary-links.contact.title',
+        description: 'bio.primary-links.contact.description',
+        url: personalData.emailHref,
+        icon: 'bi bi-envelope-fill'
+      }
+    ];
   }
 
-  private atualizarMetadados(): void {
+  ngOnInit(): void {
     this.seoService.atualizarMetadados({
       title: this.translate.instant('bio.seo.title'),
       description: this.translate.instant('bio.seo.description'),
-      image: 'https://www.marcospaulosilva.com.br/assets/images/metadata.png',
-      url: 'https://www.marcospaulosilva.com.br/bio'
+      image: `${this.personalData.portfolioUrl}/assets/images/metadata.png`,
+      url: `${this.personalData.portfolioUrl}/bio`
     });
   }
 }
-

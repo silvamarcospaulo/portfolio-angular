@@ -1,0 +1,11 @@
+<div class="social-links" [class.social-links--sm]="size === 'sm'" [class.social-links--vertical]="orientation === 'vertical'">
+  @for (link of links; track link.url) {
+    <a [href]="link.url"
+       class="social-link soft-ui-container soft-ui-container-hover"
+       target="_blank"
+       rel="noopener noreferrer"
+       [attr.aria-label]="link.nome">
+      <i [class]="link.icone"></i>
+    </a>
+  }
+</div>

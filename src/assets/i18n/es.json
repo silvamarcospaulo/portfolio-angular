@@ -99,6 +99,26 @@
             "tipo": "Embudo de ventas",
             "descricao": "Embudo de ventas completo creado para captar y convertir leads B2B."
         },
+        "combinouapp": {
+            "titulo": "Combinou",
+            "tipo": "Plataforma de servicios",
+            "descricao": "Plataforma que conecta clientes con prestadores de servicios domésticos con seguridad y confianza."
+        },
+        "flatbpaiva": {
+            "titulo": "Flats Paiva",
+            "tipo": "Sitio de hospedaje",
+            "descricao": "Sitio institucional de hospedaje en Recife, con acomodaciones en Barra de Jangada y Boa Viagem."
+        },
+        "beachflatsporto": {
+            "titulo": "Beach Flats Porto",
+            "tipo": "Sitio de hospedaje",
+            "descricao": "Sitio de hospedaje en Porto de Galinhas, con flats frente al mar para turistas en busca de una experiencia playera."
+        },
+        "zurimaragogi": {
+            "titulo": "Zuri Pousada Maragogi",
+            "tipo": "Sitio de hospedaje",
+            "descricao": "Sitio de posada frente al mar en Maragogi, con acomodaciones y diferenciales del espacio para turistas que buscan confort y naturaleza."
+        },
         "marcos-paulo-silva": {
             "titulo": "Portafolio – Primera versión",
             "tipo": "Landing page",

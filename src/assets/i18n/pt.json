@@ -99,6 +99,26 @@
             "tipo": "Funil de Vendas",
             "descricao": "Funil de vendas completo construído com foco em captação e conversão de leads B2B."
         },
+        "combinouapp": {
+            "titulo": "Combinou",
+            "tipo": "Plataforma de Serviços",
+            "descricao": "Plataforma que conecta clientes a prestadores de serviços domésticos com segurança e confiança."
+        },
+        "flatbpaiva": {
+            "titulo": "Flats Paiva",
+            "tipo": "Site de Hospedagem",
+            "descricao": "Site institucional para hospedagem em Recife, com acomodações em Barra de Jangada e Boa Viagem."
+        },
+        "beachflatsporto": {
+            "titulo": "Beach Flats Porto",
+            "tipo": "Site de Hospedagem",
+            "descricao": "Site de hospedagem em Porto de Galinhas, oferecendo flats à beira-mar para turistas em busca de experiência praiana."
+        },
+        "zurimaragogi": {
+            "titulo": "Zuri Pousada Maragogi",
+            "tipo": "Site de Hospedagem",
+            "descricao": "Site de pousada à beira-mar em Maragogi, apresentando as acomodações e diferenciais do espaço para turistas em busca de conforto e natureza."
+        },
         "marcos-paulo-silva": {
             "titulo": "Portfólio - Primeira Versão",
             "tipo": "Landing Page",

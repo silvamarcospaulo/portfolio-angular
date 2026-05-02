@@ -1,43 +1,48 @@
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { SocialLinksComponent } from '../../../../reutilizaveis/social-links/social-links.component';
+import { ScrollService } from '../../../../../../core/services/scroll/scroll.service';
+import { PersonalDataService } from '../../../../../../core/services/personal-data/personal-data.service';
+import { Link } from '../../../../../../model/link.model';
 
 @Component({
   selector: 'app-menu-redes-sociais',
   templateUrl: './menu-redes-sociais.component.html',
   styleUrls: ['./menu-redes-sociais.component.scss'],
-  standalone: true
+  standalone: true,
+  imports: [SocialLinksComponent]
 })
 export class MenuRedesSociaisComponent {
   deveRetrair = true;
   mostrarBotaoVoltar = false;
   isBrowser: boolean;
+  socialLinks: Link[];
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+  private unsubScroll?: () => void;
+
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private scroll: ScrollService,
+    personalData: PersonalDataService
+  ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
+    this.socialLinks = personalData.getSocialLinks();
   }
 
   ngOnInit(): void {
     if (this.isBrowser) {
-      window.addEventListener('scroll', this.handleScroll);
+      this.unsubScroll = this.scroll.onScroll(y => {
+        this.deveRetrair = y > 100;
+        this.mostrarBotaoVoltar = y > 100;
+      });
     }
   }
 
   ngOnDestroy(): void {
-    if (this.isBrowser) {
-      window.removeEventListener('scroll', this.handleScroll);
-    }
+    this.unsubScroll?.();
   }
 
-  handleScroll = (): void => {
-    this.deveRetrair = window.scrollY > 100;
-    this.mostrarBotaoVoltar = window.scrollY > 100;
-  };
+  toggleMenu(): void { this.deveRetrair = !this.deveRetrair; }
 
-  AoClicarAbrirMenuRedesSociais(): void {
-    this.deveRetrair = !this.deveRetrair;
-  }
-
-  scrollParaTopo(): void {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
+  scrollParaTopo(): void { this.scroll.scrollToTop(); }
 }
