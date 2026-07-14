@@ -1,6 +1,7 @@
-import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { Inject, Injectable, Optional, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
+import { TRACKING_SERVICE, TrackingLike } from '../tracking/tracking.token';
 
 @Injectable({ providedIn: 'root' })
 export class TemaDiaNoiteService {
@@ -11,9 +12,12 @@ export class TemaDiaNoiteService {
   private isBrowser: boolean;
   private objetoTema: BehaviorSubject<boolean>;
 
-  darkMode$ = new BehaviorSubject<boolean>(false).asObservable();
+  darkMode$: ReturnType<BehaviorSubject<boolean>['asObservable']>;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: object,
+    @Optional() @Inject(TRACKING_SERVICE) private tracking?: TrackingLike
+  ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
 
     const tema = this.obterTemaDoDispositivo();
@@ -25,16 +29,19 @@ export class TemaDiaNoiteService {
     }
   }
 
-  alterarTema() {
+  alterarTema(): void {
     const novoTema = !this.objetoTema.value;
     this.inserirTema(novoTema);
   }
 
-  inserirTema(dark: boolean) {
+  inserirTema(dark: boolean): void {
     this.objetoTema.next(dark);
     if (this.isBrowser) {
       this.aplicarTema(dark);
       localStorage.setItem(this.propriedadeTema, dark ? this.propriedadeDark : this.propriedadeLight);
+      this.tracking?.track('theme_change', {
+        theme: dark ? this.propriedadeDark : this.propriedadeLight,
+      });
     }
   }
 
@@ -45,7 +52,7 @@ export class TemaDiaNoiteService {
     return window.matchMedia('(prefers-color-scheme: dark)').matches;
   }
 
-  private aplicarTema(dark: boolean) {
+  private aplicarTema(dark: boolean): void {
     if (!this.isBrowser) return;
     document.body.classList.toggle('dark-mode', dark);
     document.body.classList.toggle('light-mode', !dark);

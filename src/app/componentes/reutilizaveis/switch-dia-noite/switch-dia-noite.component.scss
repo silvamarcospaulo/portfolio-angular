@@ -1,4 +1,4 @@
-#dark-mode-switch {
+.dark-mode-switch {
     position: relative;
     display: flex;
     align-items: center;
@@ -16,13 +16,18 @@
             }
         }
 
-        &:checked~#moon {
+        &:checked~.moon {
             display: inline;
             color: var(--color-link-focus);
         }
 
-        &:checked~#sun {
+        &:checked~.sun {
             display: none;
+        }
+
+        &:focus-visible+.slider {
+            outline: 2px solid var(--color-link-focus);
+            outline-offset: 4px;
         }
     }
 
@@ -48,13 +53,15 @@
         }
     }
 
-    #moon,
-    #sun {
+    .theme-icon {
         font-size: 1.2rem;
         color: var(--color-text-subtitle);
     }
 
-    #moon {
-        display: none;
+    .moon {
+        position: absolute;
+        inline-size: 1px;
+        block-size: 1px;
+        opacity: 0;
     }
 }

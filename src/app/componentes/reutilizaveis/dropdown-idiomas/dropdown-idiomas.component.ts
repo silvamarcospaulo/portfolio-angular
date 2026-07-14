@@ -1,4 +1,4 @@
-import { Component, signal, Signal, Input } from '@angular/core';
+import { Component, ElementRef, HostListener, Input, Signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { IdiomaService, Linguagem } from '../../../../core/services/idioma/idioma.service';
 
@@ -9,26 +9,43 @@ import { IdiomaService, Linguagem } from '../../../../core/services/idioma/idiom
   styleUrls: ['./dropdown-idiomas.component.scss'],
 })
 export class DropdownIdiomasComponent {
+  private static nextId = 0;
+
   @Input() direction: 'up' | 'down' = 'down';
 
   linguagens: Linguagem[] = [];
   linguagemSelecionada!: Signal<Linguagem>;
   isOpen = false;
+  readonly menuId = `dropdown-idiomas-menu-${DropdownIdiomasComponent.nextId++}`;
 
-  constructor(private idiomaService: IdiomaService) {
+  constructor(
+    private idiomaService: IdiomaService,
+    private elementRef: ElementRef<HTMLElement>
+  ) {
     this.linguagens = this.idiomaService.getLinguagens();
-    this.linguagemSelecionada = toSignal(
-      this.idiomaService.linguagemSelecionada$,
-      { initialValue: this.idiomaService.linguagemSelecionadaSubject.value }
-    );
+    this.linguagemSelecionada = toSignal(this.idiomaService.linguagemSelecionada$, {
+      initialValue: this.idiomaService.linguagemSelecionadaSubject.value,
+    });
   }
 
-  aoClicarEmIdiomas() {
+  aoClicarEmIdiomas(): void {
     this.isOpen = !this.isOpen;
   }
 
-  selecionarLinguagem(lang: Linguagem) {
+  selecionarLinguagem(lang: Linguagem): void {
     this.idiomaService.selecionarLinguagem(lang);
+    this.isOpen = false;
+  }
+
+  @HostListener('document:click', ['$event'])
+  fecharAoClicarFora(event: MouseEvent): void {
+    if (!this.elementRef.nativeElement.contains(event.target as Node)) {
+      this.isOpen = false;
+    }
+  }
+
+  @HostListener('document:keydown.escape')
+  fecharComEscape(): void {
     this.isOpen = false;
   }
 }

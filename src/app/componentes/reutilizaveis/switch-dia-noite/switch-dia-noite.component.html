@@ -1,6 +1,13 @@
-<div id="dark-mode-switch">
-    <input id="switch" type="checkbox" role="switch" [(ngModel)]="darkMode" (change)="aoClicarEmDarkMode()" />
-    <label for="switch" class="slider"></label>
-    <i id="moon" class="bi bi-moon-stars" alt="Dark Mode"></i>
-    <i id="sun" class="bi bi-sun" alt="Light Mode"></i>
+<div class="dark-mode-switch">
+    <input
+        [id]="switchId"
+        type="checkbox"
+        role="switch"
+        aria-label="Alternar tema"
+        [(ngModel)]="darkMode"
+        (change)="aoClicarEmDarkMode()"
+    />
+    <label [for]="switchId" class="slider" aria-hidden="true"></label>
+    <i class="theme-icon moon bi bi-moon-stars" aria-hidden="true"></i>
+    <i class="theme-icon sun bi bi-sun" aria-hidden="true"></i>
 </div>

@@ -8,20 +8,23 @@ import { TemaDiaNoiteService } from '../../../../core/services/tema-dia-noite/te
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './switch-dia-noite.component.html',
-  styleUrls: ['./switch-dia-noite.component.scss']
+  styleUrls: ['./switch-dia-noite.component.scss'],
 })
 export class SwitchDiaNoiteComponent implements OnInit {
+  private static nextId = 0;
+
   darkMode = false;
+  readonly switchId = `switch-dia-noite-${SwitchDiaNoiteComponent.nextId++}`;
 
-  constructor(private _servicoDeTema: TemaDiaNoiteService) { }
+  constructor(private servicoDeTema: TemaDiaNoiteService) {}
 
-  ngOnInit() {
-    this._servicoDeTema.darkMode$.subscribe(mode => {
+  ngOnInit(): void {
+    this.servicoDeTema.darkMode$.subscribe((mode) => {
       this.darkMode = mode;
     });
   }
 
-  aoClicarEmDarkMode() {
-    this._servicoDeTema.alterarTema();
+  aoClicarEmDarkMode(): void {
+    this.servicoDeTema.alterarTema();
   }
 }

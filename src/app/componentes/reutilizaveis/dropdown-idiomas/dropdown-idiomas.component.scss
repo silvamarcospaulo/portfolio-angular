@@ -1,15 +1,17 @@
-#dropdown-idiomas {
+.dropdown-idiomas {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-#nav-item {
+.nav-item {
     position: relative;
 }
 
-#nav-link {
+.nav-link {
+    border: 0;
+    background: transparent;
     color: var(--color-text-subtitle);
     padding: 10px 16px;
     border-radius: 8px;
@@ -22,18 +24,20 @@
     }
 }
 
-#nav-link:hover {
+.nav-link:hover,
+.nav-link:focus-visible {
     color: var(--color-link-focus);
+    outline: none;
 }
 
-#dropdown-menu {
+.dropdown-menu {
     position: absolute;
     left: 0;
     margin-top: 8px;
-    background-color: var(--color-primary);
-    border: 1px solid var(--color-primary);
+    background: var(--color-secondary);
+    border: 1px solid var(--color-border);
     border-radius: 8px;
-    box-shadow: 0 4px 8px var(--color-primary);
+    box-shadow: 5px 5px 10px var(--shadow-dark), -5px -5px 10px var(--shadow-light);
     padding: 10px 0;
     min-width: 200px;
     z-index: 1000;
@@ -41,42 +45,46 @@
     margin-bottom: 8px;
 }
 
-#dropdown-menu.dropup {
+.dropdown-menu.dropup {
     top: auto;
     bottom: 100%;
     margin-top: 0;
     margin-bottom: 8px;
 }
 
-#dropdown-menu:not(.dropup) {
+.dropdown-menu:not(.dropup) {
     top: 100%;
     bottom: auto;
     margin-top: 8px;
     margin-bottom: 0;
 }
 
-#dropdown-menu li {
+.dropdown-menu li {
     width: 100%;
-    padding: 6px 16px;
     color: var(--color-text-subtitle);
-    cursor: pointer;
     transition: background-color 0.3s;
-    list-style: none
+    list-style: none;
 }
 
-#dropdown-menu li:hover {
-    background-color: var(--color-primary);
+.dropdown-menu li:hover {
+    background-color: rgba(127, 127, 127, 0.12);
 }
 
-#dropdown-menu label {
+.dropdown-menu button {
     display: flex;
     align-items: center;
     gap: 8px;
+    width: 100%;
+    border: 0;
+    background: transparent;
+    padding: 6px 16px;
+    color: inherit;
     cursor: pointer;
     font-size: 0.95rem;
+    text-align: left;
 }
 
-#dropdown-menu input[type="radio"] {
-    accent-color: var(--color-text-subtitle);
-    cursor: pointer;
+.dropdown-menu button:focus-visible {
+    outline: 2px solid var(--color-link-focus);
+    outline-offset: -2px;
 }
