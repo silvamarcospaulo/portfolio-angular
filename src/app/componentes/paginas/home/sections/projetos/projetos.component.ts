@@ -1,9 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, Inject, Input, PLATFORM_ID } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { Projeto } from '../../../../../../model/projeto/projeto.model';
 import { CardProjetosComponent } from './card-projetos/card-projetos.component';
 import { SectionHeaderComponent } from '../../../../reutilizaveis/section-header/section-header.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-projetos',
@@ -20,11 +20,17 @@ export class ProjetosComponent {
   isAnimating = false;
   duration = 500;
 
-  private isCoarse = matchMedia('(pointer: coarse)').matches || window.innerWidth < 768;
+  private isCoarse = false;
   private startX = 0;
   private startY = 0;
   private startTime = 0;
   private swiping = false;
+
+  constructor(@Inject(PLATFORM_ID) platformId: object) {
+    if (isPlatformBrowser(platformId)) {
+      this.isCoarse = matchMedia('(pointer: coarse)').matches || window.innerWidth < 768;
+    }
+  }
 
   get projetoAtual(): Projeto {
     return this.listaDeProjetos[this.projetoAtualIndex];

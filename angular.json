@@ -20,6 +20,17 @@
             "outputPath": "dist/v2",
             "index": "src/index.html",
             "browser": "src/main.ts",
+            "server": "src/main.server.ts",
+            "outputMode": "server",
+            "ssr": {
+              "entry": "src/server.ts"
+            },
+            "security": {
+              "allowedHosts": [
+                "marcospaulosilva.com.br",
+                "www.marcospaulosilva.com.br"
+              ]
+            },
             "polyfills": [
               "zone.js"
             ],
