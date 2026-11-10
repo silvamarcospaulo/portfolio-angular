@@ -29,6 +29,12 @@
     color: var(--color-text-subtitle);
     padding: 20px;
     line-height: 1.6;
+
+    p {
+        margin: 0;
+        font-size: clamp(.94rem, 1.2vw, 1.06rem);
+        line-height: 1.8;
+    }
 }
 
 #texto-sobre a {
@@ -44,7 +50,7 @@
     color: var(--color-text-subtitle);
 }
 
-#texto-sobre a h5 {
+#texto-sobre a span {
     display: inline;
     margin: 0;
     padding: 0;
@@ -56,7 +62,7 @@
     place-items: center;
     width: 100%;
     max-width: 1400px;
-    padding: 40px 0;
+    padding: 50px 0;
 }
 
 #container-tecnologias {
