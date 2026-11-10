@@ -307,7 +307,8 @@
       "status": "En desarrollo",
       "visit": "Ver proyecto",
       "preview": "Vista previa del proyecto",
-      "noPreview": "En desarrollo"
+      "noPreview": "En desarrollo",
+      "illustrativePreview": "Vista ilustrativa"
     }
   }
 }
