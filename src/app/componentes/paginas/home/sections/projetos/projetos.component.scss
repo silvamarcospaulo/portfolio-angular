@@ -123,6 +123,12 @@
     text-decoration: none;
     font-size: 18px;
     cursor: pointer;
+    border: 0;
+
+    &:disabled {
+        cursor: not-allowed;
+        opacity: 0.45;
+    }
 
     p {
         margin: 0;
