@@ -236,5 +236,17 @@
       },
       "cta": "Learn more"
     }
+  },
+  "timeline": {
+    "label": "Professional career timeline",
+    "eyebrow": "My journey",
+    "title": "Professional experience",
+    "subtitle": "From my first role to enterprise software development. Explore each stage of my career.",
+    "previous": "Previous experience",
+    "next": "Next experience",
+    "current": "Current",
+    "more": "View details",
+    "less": "Show less",
+    "dragHint": "Drag or use the arrows to explore"
   }
 }
