@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:v2": "node dist/v2/server/server.mjs"
+    "serve:ssr:v2": "node dist/v2/server/server.mjs",
+    "verify:portfolio": "node scripts/verify-portfolio.mjs"
   },
   "private": true,
   "dependencies": {
