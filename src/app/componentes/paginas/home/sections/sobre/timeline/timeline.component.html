@@ -1,15 +1,14 @@
-<div class="timeline">
+<div class="timeline" role="list" aria-label="Experiências profissionais">
     @for (experiencia of listaDeExperienciasProfissionais; track experiencia.inicio; let i = $index) {
-    <div class="timeline-item">
-        <div class="timeline-dot"></div>
-
-        <div class="timeline-container soft-ui-container" [ngClass]="{ 'left': i % 2 === 0, 'right': i % 2 !== 0 }">
+    <div class="timeline-item" role="listitem" [class.timeline-item--top]="i % 2 === 0" [class.timeline-item--bottom]="i % 2 !== 0">
+        <div class="timeline-dot" aria-hidden="true"></div>
+        <article class="timeline-container soft-ui-container">
             <div class="timeline-content">
                 <div class="titulo">
                     <h3>{{ experiencia.cargo | translate }}</h3>
                     <div class="subtitulo">
                         <h6>{{ experiencia.empresa }}</h6>
-                        <p>{{ experiencia.inicio| translate }} - {{ experiencia.fim | translate }}</p>
+                        <p>{{ experiencia.inicio | translate }} - {{ experiencia.fim | translate }}</p>
                     </div>
                     <div class="descricao">
                         <p>{{ experiencia.descricao | translate }}</p>
@@ -17,13 +16,13 @@
                 </div>
                 <div class="conteudo">
                     <ul>
-                        @for (habilidade of experiencia.habilidades; track habilidade) {
+                        @for (habilidade of experiencia.habilidades; track habilidade.nome) {
                         <li>{{ habilidade.nome | translate }}</li>
                         }
                     </ul>
                 </div>
             </div>
-        </div>
+        </article>
     </div>
     }
 </div>
