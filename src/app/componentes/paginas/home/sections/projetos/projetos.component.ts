@@ -94,6 +94,10 @@ export class ProjetosComponent {
     if (Math.abs(dx) > Math.abs(dy) * 1.5) e.preventDefault();
   }
 
+  onTouchCancel() {
+    this.swiping = false;
+  }
+
   onTouchEnd(event?: TouchEvent) {
     if (!this.swiping || !this.isCoarse) return;
     this.swiping = false;
