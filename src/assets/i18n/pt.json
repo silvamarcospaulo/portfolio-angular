@@ -236,5 +236,17 @@
       },
       "cta": "Saiba mais"
     }
+  },
+  "timeline": {
+    "label": "Linha do tempo profissional",
+    "eyebrow": "Minha jornada",
+    "title": "Trajetória profissional",
+    "subtitle": "Da primeira experiência ao desenvolvimento de soluções corporativas. Explore cada etapa da minha evolução.",
+    "previous": "Experiência anterior",
+    "next": "Próxima experiência",
+    "current": "Atual",
+    "more": "Ver detalhes",
+    "less": "Mostrar menos",
+    "dragHint": "Arraste ou use as setas para explorar"
   }
 }
