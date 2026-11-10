@@ -8,7 +8,7 @@
     </div>
 
     <div #timelineTrack class="timeline" role="list" [attr.aria-label]="'timeline.label' | translate"
-         (scroll)="updateScrollState()" (pointerdown)="onPointerDown($event)"
+         (pointerdown)="onPointerDown($event)"
          (pointermove)="onPointerMove($event)" (pointerup)="onPointerUp()" (pointercancel)="onPointerUp()" (pointerleave)="onPointerUp()">
         @for (experiencia of listaDeExperienciasProfissionais; track experiencia.inicio; let i = $index) {
         <div #timelineItem class="timeline-item" role="listitem"
