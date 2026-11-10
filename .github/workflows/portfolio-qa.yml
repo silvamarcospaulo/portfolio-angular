@@ -22,8 +22,8 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - name: Start SSR server
         run: |
-          npm run serve:ssr:v2 > server.log 2>&1 &
-          for i in $(seq 1 45); do
+          python3 -m http.server 4000 --bind 127.0.0.1 --directory dist/v2/browser > server.log 2>&1 &
+          for i in $(seq 1 20); do
             curl -fsS http://127.0.0.1:4000/ > /dev/null && exit 0
             sleep 2
           done
