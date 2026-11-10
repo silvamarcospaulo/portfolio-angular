@@ -45,11 +45,7 @@ export class TimelineComponent implements AfterViewInit, OnDestroy {
     gsap.registerPlugin(ScrollTrigger);
 
     const media = gsap.matchMedia();
-    media.add('(min-width: 1024px) and (min-height: 850px) and (prefers-reduced-motion: no-preference)', () => {
-      if (section.getBoundingClientRect().height > window.innerHeight - 112) {
-        section.classList.add('timeline-native-scroll');
-        return () => section.classList.remove('timeline-native-scroll');
-      }
+    media.add('(min-width: 1024px) and (prefers-reduced-motion: no-preference)', () => {
       const distance = () => Math.max(0, track.scrollWidth - viewport.clientWidth);
       if (distance() < 1) return;
 
