@@ -131,7 +131,12 @@
       "descricao": "Versão inicial do meu portfólio, construída com HTML5, CSS3 e JavaScript, como base de aprendizado e prática em desenvolvimento web."
     },
     "anterior": "Projeto anterior",
-    "proximo": "Próximo projeto"
+    "proximo": "Próximo projeto",
+    "merqia": {
+      "titulo": "Merqia",
+      "tipo": "SaaS multi-tenant em desenvolvimento",
+      "descricao": "Plataforma modular de CRM, vendas, ERP e PDV para operações comerciais, com arquitetura multi-tenant e experiência whitelabel."
+    }
   },
   "habilidades": {
     "csharp": "C# .NET",
@@ -248,5 +253,61 @@
     "more": "Ver detalhes",
     "less": "Mostrar menos",
     "dragHint": "Arraste ou use as setas para explorar"
+  },
+  "portfolio": {
+    "specialties": {
+      "eyebrow": "O que eu faço",
+      "title": "Tecnologia aplicada a desafios reais",
+      "description": "Experiência com produtos digitais, integrações e sistemas corporativos complexos.",
+      "backend": {
+        "title": "Backend e APIs",
+        "description": "Serviços confiáveis, regras de negócio e integrações orientadas a produto."
+      },
+      "architecture": {
+        "title": "Arquitetura e integrações",
+        "description": "Soluções em nuvem, processamento assíncrono e documentos fiscais eletrônicos."
+      },
+      "data": {
+        "title": "Dados e persistência",
+        "description": "Modelagem e otimização de dados relacionais e documentos NoSQL."
+      },
+      "frontend": {
+        "title": "Interfaces e experiência",
+        "description": "Aplicações web responsivas, componentização e experiências acessíveis."
+      }
+    },
+    "education": {
+      "eyebrow": "Formação",
+      "title": "Aprendizado contínuo",
+      "description": "Uma trajetória construída entre fundamentos acadêmicos e projetos reais.",
+      "ads": {
+        "title": "Análise e Desenvolvimento de Sistemas",
+        "description": "Graduação em andamento, com conclusão prevista para dezembro de 2026."
+      },
+      "cs": {
+        "title": "Ciência da Computação",
+        "description": "Estudos iniciados na UFG. Curso interrompido, sem graduação concluída."
+      }
+    },
+    "contact": {
+      "eyebrow": "Vamos conversar",
+      "nav": "Contato",
+      "title": "Tem um projeto ou oportunidade em mente?",
+      "description": "Vamos trocar ideias sobre desenvolvimento, arquitetura e produtos digitais.",
+      "email": "Enviar e-mail"
+    },
+    "hero": {
+      "eyebrow": "Desenvolvimento de software · Goiânia, GO",
+      "intro": "Projetando e desenvolvendo soluções digitais com foco em arquitetura, integrações e experiências que funcionam.",
+      "projects": "Explorar projetos",
+      "contact": "Entrar em contato"
+    },
+    "projects": {
+      "all": "Projetos e soluções",
+      "status": "Em desenvolvimento",
+      "visit": "Ver projeto",
+      "preview": "Visualizar projeto",
+      "noPreview": "Projeto em evolução"
+    }
   }
 }
