@@ -236,5 +236,17 @@
       },
       "cta": "Saber más"
     }
+  },
+  "timeline": {
+    "label": "Trayectoria profesional",
+    "eyebrow": "Mi trayectoria",
+    "title": "Experiencia profesional",
+    "subtitle": "Desde mi primera experiencia hasta el desarrollo de soluciones empresariales. Explora cada etapa de mi evolución.",
+    "previous": "Experiencia anterior",
+    "next": "Experiencia siguiente",
+    "current": "Actual",
+    "more": "Ver detalles",
+    "less": "Mostrar menos",
+    "dragHint": "Arrastra o usa las flechas para explorar"
   }
 }
