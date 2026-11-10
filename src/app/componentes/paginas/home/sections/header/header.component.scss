@@ -1,9 +1,9 @@
 #header {
     display: flex;
-    position: fixed;
+    position: relative;
     place-content: center;
     place-items: center;
-    z-index: 1000000000;
+    z-index: 100;
     width: 100%;
     padding: 0 12px;
     background-color: var(--color-primary);
