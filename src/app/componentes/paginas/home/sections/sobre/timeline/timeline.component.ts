@@ -17,9 +17,6 @@ export class TimelineComponent implements AfterViewInit, OnDestroy {
   @ViewChildren('timelineItem') private timelineItems?: QueryList<ElementRef<HTMLElement>>;
 
   expandedIndex: number | null = null;
-  scrollProgress = 0;
-  canScrollPrev = false;
-  canScrollNext = false;
 
   private observer?: IntersectionObserver;
   private pointerStartX = 0;
@@ -50,8 +47,6 @@ export class TimelineComponent implements AfterViewInit, OnDestroy {
     } else {
       items.forEach(item => item.nativeElement.classList.add('is-visible'));
     }
-
-    this.updateScrollState();
   }
 
   ngOnDestroy(): void {
@@ -60,22 +55,6 @@ export class TimelineComponent implements AfterViewInit, OnDestroy {
 
   toggleDetails(index: number): void {
     this.expandedIndex = this.expandedIndex === index ? null : index;
-  }
-
-  scrollTimeline(direction: -1 | 1): void {
-    const track = this.timelineTrack?.nativeElement;
-    if (!track) return;
-    const step = track.querySelector<HTMLElement>('.timeline-item')?.getBoundingClientRect().width ?? 320;
-    track.scrollBy({ left: direction * step, behavior: 'smooth' });
-  }
-
-  updateScrollState(): void {
-    const track = this.timelineTrack?.nativeElement;
-    if (!track) return;
-    const maximum = Math.max(0, track.scrollWidth - track.clientWidth);
-    this.scrollProgress = maximum > 0 ? Math.min(100, track.scrollLeft / maximum * 100) : 100;
-    this.canScrollPrev = track.scrollLeft > 2;
-    this.canScrollNext = track.scrollLeft < maximum - 2;
   }
 
   onPointerDown(event: PointerEvent): void {
@@ -91,7 +70,6 @@ export class TimelineComponent implements AfterViewInit, OnDestroy {
     const track = this.timelineTrack?.nativeElement;
     if (!track || !this.dragging) return;
     track.scrollLeft = this.pointerStartScroll - (event.clientX - this.pointerStartX);
-    this.updateScrollState();
   }
 
   onPointerUp(): void {

@@ -1,22 +1,6 @@
 <section class="career-timeline" [attr.aria-label]="'timeline.label' | translate">
-    <div class="timeline-heading">
-        <div class="timeline-heading__copy">
-            <span class="timeline-eyebrow">{{ 'timeline.eyebrow' | translate }}</span>
-            <h2>{{ 'timeline.title' | translate }}</h2>
-            <p>{{ 'timeline.subtitle' | translate }}</p>
-        </div>
-        <div class="timeline-controls">
-            <button type="button" class="timeline-control soft-ui-container" (click)="scrollTimeline(-1)" [disabled]="!canScrollPrev" [attr.aria-label]="'timeline.previous' | translate">
-                <i class="bi bi-arrow-left" aria-hidden="true"></i>
-            </button>
-            <button type="button" class="timeline-control soft-ui-container" (click)="scrollTimeline(1)" [disabled]="!canScrollNext" [attr.aria-label]="'timeline.next' | translate">
-                <i class="bi bi-arrow-right" aria-hidden="true"></i>
-            </button>
-        </div>
-    </div>
-
     <div #timelineTrack class="timeline" role="list" [attr.aria-label]="'timeline.label' | translate"
-         (scroll)="updateScrollState()" (pointerdown)="onPointerDown($event)"
+         (pointerdown)="onPointerDown($event)"
          (pointermove)="onPointerMove($event)" (pointerup)="onPointerUp()" (pointercancel)="onPointerUp()" (pointerleave)="onPointerUp()">
         @for (experiencia of listaDeExperienciasProfissionais; track experiencia.inicio; let i = $index) {
         <div #timelineItem class="timeline-item" role="listitem"
@@ -60,10 +44,4 @@
         }
     </div>
 
-    <div class="timeline-scroll-indicator" aria-hidden="true">
-        <span>{{ 'timeline.dragHint' | translate }}</span>
-        <div class="timeline-scroll-rail">
-            <div class="timeline-scroll-progress" [style.width.%]="scrollProgress"></div>
-        </div>
-    </div>
 </section>
