@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { InicioComponent } from "./sections/inicio/inicio.component";
 import { ProjetosComponent } from "./sections/projetos/projetos.component";
@@ -16,7 +17,7 @@ import { PersonalDataService } from '../../../../core/services/personal-data/per
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeaderComponent, InicioComponent, ProjetosComponent, FooterComponent, SobreComponent],
+  imports: [HeaderComponent, InicioComponent, ProjetosComponent, FooterComponent, SobreComponent, TranslateModule],
   providers: [],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
@@ -25,6 +26,13 @@ export class HomeComponent implements OnInit {
   listaDeProjetos: Projeto[] = [];
   listaDeExperienciasProfissionais: ExperienciaProfissional[] = [];
   links: Link[] = [];
+  readonly specialtyAreas = [
+    { key: 'backend', icon: 'bi bi-braces', skills: ['C# / .NET', 'Python', 'REST APIs'] },
+    { key: 'architecture', icon: 'bi bi-diagram-3', skills: ['Microservices', 'Docker', 'SEFAZ'] },
+    { key: 'data', icon: 'bi bi-database', skills: ['PostgreSQL', 'RavenDB', 'SQL / NoSQL'] },
+    { key: 'frontend', icon: 'bi bi-window', skills: ['Angular', 'React', 'TypeScript'] }
+  ];
+  get contactEmail(): string { return this.personalData.emailHref; }
 
   constructor(
     private seoService: SeoService,
@@ -36,6 +44,16 @@ export class HomeComponent implements OnInit {
     this.atualizarMetadados();
 
     this.listaDeProjetos = [
+      new Projeto({
+        titulo: 'projetos.merqia.titulo',
+        tipoDeProjeto: 'projetos.merqia.tipo',
+        descricao: 'projetos.merqia.descricao',
+        tecnologias: [
+          new Link({ nome: 'C# / .NET 10' }),
+          new Link({ nome: 'React' }),
+          new Link({ nome: 'PostgreSQL' })
+        ]
+      }),
       new Projeto({
         url: 'https://goldesilverdistribuicao.com.br/',
         caminhoImagem: '/assets/images/print-projetos/goldesilverdistribuicao.png',
@@ -195,7 +213,8 @@ export class HomeComponent implements OnInit {
     this.links = [
       new Link({ nome: 'header.navbar.inicio', url: '#section-inicio' }),
       new Link({ nome: 'header.navbar.sobre', url: '#section-sobre' }),
-      new Link({ nome: 'header.navbar.projetos', url: '#section-projetos' })
+      new Link({ nome: 'header.navbar.projetos', url: '#section-projetos' }),
+      new Link({ nome: 'portfolio.contact.nav', url: '#section-contato' })
     ];
   }
 
