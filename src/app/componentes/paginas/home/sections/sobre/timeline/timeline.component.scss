@@ -1,3 +1,11 @@
+:host {
+    display: block;
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 1400px;
+    min-width: 0;
+}
+
 .career-timeline {
     --timeline-axis: var(--color-link-focus);
     --timeline-soft-accent: color-mix(in srgb, var(--color-link-focus) 9%, var(--color-primary));
