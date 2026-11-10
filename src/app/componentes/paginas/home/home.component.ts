@@ -73,7 +73,7 @@ export class HomeComponent implements OnInit {
       // }),
       new Projeto({
         url: 'https://vorixagencia.com.br/',
-        caminhoImagem: '../../../../assets/images/print-projetos/lsgblackfriday.png',
+        caminhoImagem: '/assets/images/print-projetos/lsgblackfriday.png',
         palavraChave: 'Funil de Vendas Vorix Agência',
         titulo: 'projetos.vorix-agencia.titulo',
         tipoDeProjeto: 'projetos.vorix-agencia.tipo',
@@ -174,6 +174,20 @@ export class HomeComponent implements OnInit {
           new Habilidade('habilidades.sql-server'),
           new Habilidade('habilidades.nosql'),
           new Habilidade("experiencia-profisisonal.invent-software.analista-i.habilidades.arquitetura-em-nuvem"),
+        ]
+      ),
+      new ExperienciaProfissional(
+        'experiencia-profisisonal.invent-software.analista-ii.cargo',
+        'Invent Software',
+        'experiencia-profisisonal.invent-software.analista-ii.inicio',
+        'experiencia-profisisonal.invent-software.analista-ii.fim',
+        'experiencia-profisisonal.invent-software.analista-ii.descricao',
+        [
+          new Habilidade('habilidades.python'),
+          new Habilidade('habilidades.react'),
+          new Habilidade('habilidades.postgresql'),
+          new Habilidade('habilidades.sdd'),
+          new Habilidade('habilidades.api-rest')
         ]
       )
     ];

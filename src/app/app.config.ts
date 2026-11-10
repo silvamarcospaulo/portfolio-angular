@@ -3,6 +3,7 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 
 import { HttpClient, provideHttpClient, withFetch } from '@angular/common/http';
+import { isPlatformBrowser } from '@angular/common';
 
 import {
   TranslateLoader,
@@ -10,21 +11,22 @@ import {
   TranslateService
 } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { APP_INITIALIZER, importProvidersFrom } from '@angular/core';
+import { APP_INITIALIZER, importProvidersFrom, PLATFORM_ID } from '@angular/core';
+import { firstValueFrom } from 'rxjs';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
 
-export function initTranslateFactory(translate: TranslateService) {
+export function initTranslateFactory(translate: TranslateService, platformId: object) {
   return () => {
-    const lang = navigator.language.toLowerCase();
+    const lang = isPlatformBrowser(platformId) ? navigator.language.toLowerCase() : 'pt';
     const supported = ['pt', 'en', 'es'];
     const fallback = 'pt';
     const selected = supported.find(l => lang.includes(l)) || fallback;
 
     translate.setDefaultLang(fallback);
-    return translate.use(selected).toPromise();
+    return firstValueFrom(translate.use(selected));
   };
 }
 
@@ -45,7 +47,7 @@ export const appConfig: ApplicationConfig = {
     {
       provide: APP_INITIALIZER,
       useFactory: initTranslateFactory,
-      deps: [TranslateService],
+      deps: [TranslateService, PLATFORM_ID],
       multi: true
     }
   ]

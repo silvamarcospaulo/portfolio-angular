@@ -36,7 +36,7 @@ export class SobreComponent {
     }),
 
     new SliderItem({
-      iconeCaminho: '/assets/images/icones/angular.svg',
+      iconeCaminho: '/assets/images/icones/react.svg',
       texto: 'React'
     }),
 
