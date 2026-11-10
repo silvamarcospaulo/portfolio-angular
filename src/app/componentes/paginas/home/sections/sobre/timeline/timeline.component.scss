@@ -213,10 +213,6 @@
     }
 }
 
-.timeline-scroll-indicator {
-    display: none;
-}
-
 @media (hover: hover) {
     .timeline-item:hover .timeline-container {
         transform: translateY(-4px);
