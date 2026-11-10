@@ -48,7 +48,7 @@ export class TimelineComponent implements AfterViewInit, OnDestroy {
     this.languageChange = this.translate.onLangChange.subscribe(() => requestAnimationFrame(() => ScrollTrigger.refresh()));
 
     const media = gsap.matchMedia();
-    media.add('(min-width: 1024px) and (prefers-reduced-motion: no-preference)', () => {
+    media.add('(min-width: 1024px) and (min-height: 701px) and (prefers-reduced-motion: no-preference)', () => {
       const distance = () => Math.max(0, track.scrollWidth - viewport.clientWidth);
       if (distance() < 1) return;
 
