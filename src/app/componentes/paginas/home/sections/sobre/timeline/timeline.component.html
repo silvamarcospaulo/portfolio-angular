@@ -5,14 +5,6 @@
             <h2>{{ 'timeline.title' | translate }}</h2>
             <p>{{ 'timeline.subtitle' | translate }}</p>
         </div>
-        <div class="timeline-controls">
-            <button type="button" class="timeline-control soft-ui-container" (click)="scrollTimeline(-1)" [disabled]="!canScrollPrev" [attr.aria-label]="'timeline.previous' | translate">
-                <i class="bi bi-arrow-left" aria-hidden="true"></i>
-            </button>
-            <button type="button" class="timeline-control soft-ui-container" (click)="scrollTimeline(1)" [disabled]="!canScrollNext" [attr.aria-label]="'timeline.next' | translate">
-                <i class="bi bi-arrow-right" aria-hidden="true"></i>
-            </button>
-        </div>
     </div>
 
     <div #timelineTrack class="timeline" role="list" [attr.aria-label]="'timeline.label' | translate"
@@ -52,18 +44,10 @@
                     <button type="button" class="timeline-details" (click)="toggleDetails(i)"
                             [attr.aria-expanded]="expandedIndex === i" [attr.aria-label]="(expandedIndex === i ? 'timeline.less' : 'timeline.more') | translate">
                         <span>{{ (expandedIndex === i ? 'timeline.less' : 'timeline.more') | translate }}</span>
-                        <i class="bi" [class.bi-arrow-up-right]="expandedIndex !== i" [class.bi-chevron-up]="expandedIndex === i" aria-hidden="true"></i>
                     </button>
                 </div>
             </article>
         </div>
         }
-    </div>
-
-    <div class="timeline-scroll-indicator" aria-hidden="true">
-        <span>{{ 'timeline.dragHint' | translate }}</span>
-        <div class="timeline-scroll-rail">
-            <div class="timeline-scroll-progress" [style.width.%]="scrollProgress"></div>
-        </div>
     </div>
 </section>
