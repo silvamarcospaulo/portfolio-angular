@@ -369,6 +369,18 @@
     }
 }
 
+@media (min-width: 1024px) {
+    .career-timeline.timeline-native-scroll .timeline-viewport {
+        overflow-x: auto;
+        overflow-y: hidden;
+        scrollbar-width: thin;
+    }
+
+    .career-timeline.timeline-native-scroll .timeline {
+        will-change: auto;
+    }
+}
+
 @media (max-width: 479px) {
     .timeline-container {
         padding: 16px;
