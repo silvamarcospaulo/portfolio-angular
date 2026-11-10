@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: '22'
           cache: npm
-      - run: npm ci
+      - run: npm install --no-audit --no-fund
       - run: npm run verify:portfolio
       - run: npm run build
       - run: npm install --no-save playwright@1.57.0
