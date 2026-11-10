@@ -1,228 +1,240 @@
 {
-    "common": {
-        "portfolio": "Portfolio"
+  "common": {
+    "portfolio": "Portfolio"
+  },
+  "header": {
+    "logo": "Marcos Paulo Silva",
+    "navbar": {
+      "inicio": "Home",
+      "sobre": "About",
+      "experiencias": "Experience",
+      "projetos": "Projects",
+      "contato": "Contact"
     },
-    "header": {
-        "logo": "Marcos Paulo Silva",
-        "navbar": {
-            "inicio": "Home",
-            "sobre": "About",
-            "experiencias": "Experience",
-            "projetos": "Projects",
-            "contato": "Contact"
-        },
-        "menu": {
-            "abrir": "Open menu",
-            "fechar": "Close menu"
-        }
-    },
-    "footer": {
-        "desenvolvido-por": "2025 © Developed by ",
-        "todos-os-direitos-reservados": ". All rights reserved.",
-        "logo": "Marcos Paulo Silva",
-        "creditos": {
-            "autor": "Marcos Paulo Silva"
-        }
-    },
-    "inicio": {
-        "nome": "Marcos Paulo Silva",
-        "subtitulo": "Software Developer"
-    },
-    "sobre": {
-        "descricao1": "Software Developer since 2024, working with web applications and cloud solutions. Experienced in .NET (C#), Java Spring, and Angular, applying best practices in architecture, version control with Git, and continuous integration.",
-        "descricao2": "Currently part of the cloud development team at Invent Software, contributing to the TaxPlus.NF-e application and leading the migration of the TaxPlus.GNRE system from desktop to a cloud-based architecture, focusing on scalability, performance, and maintainability.",
-        "descricao3": "I also share technical content and development experiences on Instagram ",
-        "descricao4": "with a focus on community and knowledge sharing."
-    },
-    "experiencia-profisisonal": {
-        "invent-software": {
-            "estagio": {
-                "cargo": "Software Development Intern",
-                "inicio": "May/2024",
-                "fim": "October/2024",
-                "descricao": "I took part in the Coders Growth program, developing desktop and web applications in C#. Explored best practices such as Onion Architecture, automated testing, and the use of modern frameworks, consolidating my foundation in full stack development."
-            },
-            "tecnico-em-desenvolvido": {
-                "cargo": "Software Development Technician",
-                "inicio": "November/2025",
-                "fim": "August/2025",
-                "descricao": "I work as a full stack developer in the Electronic Documents team, focused on migrating and modernizing tax systems to the cloud. Responsible for the evolution of TaxPlus.GNRE and contributing to TaxPlus.NF-e and DF-e systems, ensuring scalability and high performance.",
-                "habilidades": {
-                    "arquitetura-em-nuvem": "Cloud Architecture"
-                }
-            },
-            "analista-i": {
-                "cargo": "Software Development Analyst I",
-                "inicio": "September/2025",
-                "fim": "Present",
-                "descricao": "I work on the maintenance and evolution of TaxPlus cloud products such as NF-e, DF-e, and GNRE. I also contribute to the development of new products, including TaxPlus Tax Reform, aimed at impact analysis, simulation, and projection of the Tax Reform for companies.",
-                "habilidades": {
-                    "arquitetura-em-nuvem": "Cloud Architecture"
-                }
-            }
-        }
-    },
-    "projetos": {
-        "titulo": "Developed Projects",
-        "solucoes-utilizadas": "Technologies used:",
-        "visite-o-site": "Visit the site",
-        "github": "GitHub",
-        "preview": "{{titulo}} - preview",
-        "subtitulo": "A selection of projects, combining personal creations and client-focused solutions.",
-        "lsgassessoriadigital": {
-            "titulo": "LSG Assessoria",
-            "tipo": "Sales Page",
-            "descricao": "Development of a digital sales funnel for a marketing company, focused on lead acquisition and conversion."
-        },
-        "062uniformes": {
-            "titulo": "062 Uniformes",
-            "tipo": "E-commerce",
-            "descricao": "Creation of an online store for a custom t-shirt factory, featuring a dynamic catalog and a simplified shopping experience."
-        },
-        "jbrsuitehotel": {
-            "titulo": "JBR Suíte Hotel",
-            "tipo": "Landing Page",
-            "descricao": "Strategic landing page designed to attract clients and enable easy hotel booking."
-        },
-        "rjafreios": {
-            "titulo": "RLA Freios",
-            "tipo": "Landing Page",
-            "descricao": "Lead generation page targeting qualified buyers of automotive parts for trucks, buses, and heavy vehicles."
-        },
-        "goldesilverdistribuicao": {
-            "titulo": "Gold & Silver Distribuidora",
-            "tipo": "Sales Page",
-            "descricao": "Lead capture page for a real estate resale program, supporting the recruitment of independent sales representatives affiliated with the distributor."
-        },
-        "vorix-agencia": {
-            "titulo": "Vorix Agency",
-            "tipo": "Sales Funnel",
-            "descricao": "Complete sales funnel built to capture and convert B2B leads."
-        },
-        "combinouapp": {
-            "titulo": "Combinou",
-            "tipo": "Service Platform",
-            "descricao": "Platform connecting clients with home service providers with safety and trust."
-        },
-        "flatbpaiva": {
-            "titulo": "Flats Paiva",
-            "tipo": "Hospitality Website",
-            "descricao": "Institutional website for accommodation in Recife, with flats in Barra de Jangada and Boa Viagem."
-        },
-        "beachflatsporto": {
-            "titulo": "Beach Flats Porto",
-            "tipo": "Hospitality Website",
-            "descricao": "Accommodation website in Porto de Galinhas, offering beachside flats for tourists seeking a seaside experience."
-        },
-        "zurimaragogi": {
-            "titulo": "Zuri Pousada Maragogi",
-            "tipo": "Hospitality Website",
-            "descricao": "Beachfront inn website in Maragogi, showcasing accommodations and highlights for tourists seeking comfort and nature."
-        },
-        "marcos-paulo-silva": {
-            "titulo": "Portfolio – First Version",
-            "tipo": "Landing Page",
-            "descricao": "Initial version of my portfolio, built with HTML5, CSS3, and JavaScript, as a foundation for learning and practicing web development."
-        }
-    },
-    "habilidades": {
-        "csharp": "C# .NET",
-        "sap-ui5": "SAP UI5",
-        "api-rest": "API Rest",
-        "fluent-migrator": "FluentMigrator",
-        "fluent-validation": "FluentValidation",
-        "linq2db": "Linq2DB",
-        "sql-server": "SQL Server",
-        "windows-forms": "Windows Forms",
-        "xunit": "xUnit",
-        "ravendb": "RavenDB",
-        "nosql": "NoSQL"
-    },
-    "home": {
-        "seo": {
-            "title": "Portfolio - Marcos Paulo Silva",
-            "description": "Marcos Paulo Silva - Software Developer"
-        }
-    },
-    "bio": {
-        "seo": {
-            "title": "Bio | Marcos Paulo Silva",
-            "description": "Connect with me, explore projects, and discover free resources about technology and development."
-        },
-        "hero": {
-            "welcome": "Welcome",
-            "name": "Marcos Paulo Silva",
-            "role": "Software Developer",
-            "summary": "Software developer working on web applications and cloud solutions. I share technology, programming, and career insights to inspire your next steps.",
-            "actions": {
-                "primary": "Contact me",
-                "secondary": "View portfolio"
-            }
-        },
-        "sections": {
-            "primary-links": {
-                "title": "Main links",
-                "description": "Connect with me and follow the latest news about technology, career, and projects."
-            },
-            "community": {
-                "title": "Community resources",
-                "description": "Materials, curations, and recommendations to accelerate your studies and routine."
-            },
-            "spotlight": {
-                "title": "Spotlight",
-                "description": "Projects and cases that represent my visual identity and experience."
-            }
-        },
-        "primary-links": {
-            "instagram": {
-                "title": "Instagram",
-                "description": "Daily content about tech careers, project behind-the-scenes, and development tips."
-            },
-            "linkedin": {
-                "title": "LinkedIn",
-                "description": "Let's connect and follow news from Invent Software and the innovation ecosystem."
-            },
-            "github": {
-                "title": "GitHub",
-                "description": "Repositories with projects in Angular, .NET, Java Spring, and architecture experiments."
-            },
-            "contact": {
-                "title": "Direct contact",
-                "description": "Send me an email and let's talk about projects, consulting, or partnerships."
-            },
-            "services": {
-                "title": "Need a website and software solutions for your business?",
-                "description": "Boost results with performance, SEO, and scalability: order websites, e-commerce, and custom applications."
-            }
-        },
-        "community": {
-            "learn-to-code": {
-                "title": "Learn programming for free!",
-                "description": "A curated list of resources to help you start programming with structure and no cost."
-            },
-            "newsletter": {
-                "title": "Weekly newsletter",
-                "description": "Receive updates with articles, videos, and opportunities from the tech community."
-            },
-            "setup": {
-                "title": "Shop my setup",
-                "description": "Discover the gear I use daily to create, code, and produce content."
-            },
-            "wellness": {
-                "title": "Wellness picks",
-                "description": "My favorite supplements to keep up with an intense study and work routine."
-            }
-        },
-        "spotlight": {
-            "projects": {
-                "title": "Projects and case studies",
-                "description": "See how I turned business challenges into scalable digital experiences."
-            },
-            "vorix": {
-                "title": "Vorix Agency",
-                "description": "A complete sales funnel built to capture and convert B2B leads."
-            },
-            "cta": "Learn more"
-        }
+    "menu": {
+      "abrir": "Open menu",
+      "fechar": "Close menu"
     }
+  },
+  "footer": {
+    "desenvolvido-por": "2025 © Developed by ",
+    "todos-os-direitos-reservados": ". All rights reserved.",
+    "logo": "Marcos Paulo Silva",
+    "creditos": {
+      "autor": "Marcos Paulo Silva"
+    }
+  },
+  "inicio": {
+    "nome": "Marcos Paulo Silva",
+    "subtitulo": "Software Developer"
+  },
+  "sobre": {
+    "descricao1": "Software developer building web applications, cloud solutions and enterprise tax systems. Experience with C#/.NET, Python, React, Angular, REST APIs and SQL/NoSQL databases.",
+    "descricao2": "Currently a Software Development Analyst II at Invent Software, working on the technical design and development of the MDF-e module for Invent Apps 2.0 using Python, React and PostgreSQL, including SEFAZ integrations.",
+    "descricao3": "I also share technical content and development experiences on Instagram ",
+    "descricao4": "with a focus on community and knowledge sharing."
+  },
+  "experiencia-profisisonal": {
+    "invent-software": {
+      "estagio": {
+        "cargo": "Software Development Intern",
+        "inicio": "May/2024",
+        "fim": "October/2024",
+        "descricao": "I took part in the Coders Growth program, developing desktop and web applications in C#. Explored best practices such as Onion Architecture, automated testing, and the use of modern frameworks, consolidating my foundation in full stack development."
+      },
+      "tecnico-em-desenvolvido": {
+        "cargo": "Software Development Technician",
+        "inicio": "October/2024",
+        "fim": "September/2025",
+        "descricao": "Modernization of TaxPlus NF-e, moving features from an SAP Business One add-on toward cloud microservices. Development and maintenance with C#/.NET, SAP UI5 and RavenDB.",
+        "habilidades": {
+          "arquitetura-em-nuvem": "Cloud Architecture"
+        }
+      },
+      "analista-i": {
+        "cargo": "Software Development Analyst I",
+        "inicio": "September/2025",
+        "fim": "September/2026",
+        "descricao": "Development and evolution of TaxPlus Tax Reform and TaxPlus DF-e, focusing on enterprise tax software, tax impact analysis, cloud microservices, C#/.NET, SAP UI5 and RavenDB.",
+        "habilidades": {
+          "arquitetura-em-nuvem": "Cloud Architecture"
+        }
+      },
+      "analista-ii": {
+        "cargo": "Software Development Analyst II",
+        "inicio": "September/2026",
+        "fim": "Present",
+        "descricao": "Technical design and full stack development of the MDF-e issuance and management module in Invent Apps 2.0 from inception. Using Python, React.js, PostgreSQL, documentation, specifications, epic and issue planning, and SEFAZ integrations."
+      }
+    }
+  },
+  "projetos": {
+    "titulo": "Developed Projects",
+    "solucoes-utilizadas": "Technologies used:",
+    "visite-o-site": "Visit the site",
+    "github": "GitHub",
+    "preview": "{{titulo}} - preview",
+    "subtitulo": "A selection of projects, combining personal creations and client-focused solutions.",
+    "lsgassessoriadigital": {
+      "titulo": "LSG Assessoria",
+      "tipo": "Sales Page",
+      "descricao": "Development of a digital sales funnel for a marketing company, focused on lead acquisition and conversion."
+    },
+    "062uniformes": {
+      "titulo": "062 Uniformes",
+      "tipo": "E-commerce",
+      "descricao": "Creation of an online store for a custom t-shirt factory, featuring a dynamic catalog and a simplified shopping experience."
+    },
+    "jbrsuitehotel": {
+      "titulo": "JBR Suíte Hotel",
+      "tipo": "Landing Page",
+      "descricao": "Strategic landing page designed to attract clients and enable easy hotel booking."
+    },
+    "rjafreios": {
+      "titulo": "RLA Freios",
+      "tipo": "Landing Page",
+      "descricao": "Lead generation page targeting qualified buyers of automotive parts for trucks, buses, and heavy vehicles."
+    },
+    "goldesilverdistribuicao": {
+      "titulo": "Gold & Silver Distribuidora",
+      "tipo": "Sales Page",
+      "descricao": "Lead capture page for a real estate resale program, supporting the recruitment of independent sales representatives affiliated with the distributor."
+    },
+    "vorix-agencia": {
+      "titulo": "Vorix Agency",
+      "tipo": "Sales Funnel",
+      "descricao": "Complete sales funnel built to capture and convert B2B leads."
+    },
+    "combinouapp": {
+      "titulo": "Combinou",
+      "tipo": "Service Platform",
+      "descricao": "Platform connecting clients with home service providers with safety and trust."
+    },
+    "flatbpaiva": {
+      "titulo": "Flats Paiva",
+      "tipo": "Hospitality Website",
+      "descricao": "Institutional website for accommodation in Recife, with flats in Barra de Jangada and Boa Viagem."
+    },
+    "beachflatsporto": {
+      "titulo": "Beach Flats Porto",
+      "tipo": "Hospitality Website",
+      "descricao": "Accommodation website in Porto de Galinhas, offering beachside flats for tourists seeking a seaside experience."
+    },
+    "zurimaragogi": {
+      "titulo": "Zuri Pousada Maragogi",
+      "tipo": "Hospitality Website",
+      "descricao": "Beachfront inn website in Maragogi, showcasing accommodations and highlights for tourists seeking comfort and nature."
+    },
+    "marcos-paulo-silva": {
+      "titulo": "Portfolio – First Version",
+      "tipo": "Landing Page",
+      "descricao": "Initial version of my portfolio, built with HTML5, CSS3, and JavaScript, as a foundation for learning and practicing web development."
+    },
+    "anterior": "Previous project",
+    "proximo": "Next project"
+  },
+  "habilidades": {
+    "csharp": "C# .NET",
+    "sap-ui5": "SAP UI5",
+    "api-rest": "API Rest",
+    "fluent-migrator": "FluentMigrator",
+    "fluent-validation": "FluentValidation",
+    "linq2db": "Linq2DB",
+    "sql-server": "SQL Server",
+    "windows-forms": "Windows Forms",
+    "xunit": "xUnit",
+    "ravendb": "RavenDB",
+    "nosql": "NoSQL",
+    "python": "Python",
+    "react": "React.js",
+    "postgresql": "PostgreSQL",
+    "sdd": "Spec-Driven Development"
+  },
+  "home": {
+    "seo": {
+      "title": "Portfolio - Marcos Paulo Silva",
+      "description": "Marcos Paulo Silva - Software Developer"
+    }
+  },
+  "bio": {
+    "seo": {
+      "title": "Bio | Marcos Paulo Silva",
+      "description": "Connect with me, explore projects, and discover free resources about technology and development."
+    },
+    "hero": {
+      "welcome": "Welcome",
+      "name": "Marcos Paulo Silva",
+      "role": "Software Developer",
+      "summary": "Software developer working on web applications and cloud solutions. I share technology, programming, and career insights to inspire your next steps.",
+      "actions": {
+        "primary": "Contact me",
+        "secondary": "View portfolio"
+      }
+    },
+    "sections": {
+      "primary-links": {
+        "title": "Main links",
+        "description": "Connect with me and follow the latest news about technology, career, and projects."
+      },
+      "community": {
+        "title": "Community resources",
+        "description": "Materials, curations, and recommendations to accelerate your studies and routine."
+      },
+      "spotlight": {
+        "title": "Spotlight",
+        "description": "Projects and cases that represent my visual identity and experience."
+      }
+    },
+    "primary-links": {
+      "instagram": {
+        "title": "Instagram",
+        "description": "Daily content about tech careers, project behind-the-scenes, and development tips."
+      },
+      "linkedin": {
+        "title": "LinkedIn",
+        "description": "Let's connect and follow news from Invent Software and the innovation ecosystem."
+      },
+      "github": {
+        "title": "GitHub",
+        "description": "Repositories with projects in Angular, .NET, Java Spring, and architecture experiments."
+      },
+      "contact": {
+        "title": "Direct contact",
+        "description": "Send me an email and let's talk about projects, consulting, or partnerships."
+      },
+      "services": {
+        "title": "Need a website and software solutions for your business?",
+        "description": "Boost results with performance, SEO, and scalability: order websites, e-commerce, and custom applications."
+      }
+    },
+    "community": {
+      "learn-to-code": {
+        "title": "Learn programming for free!",
+        "description": "A curated list of resources to help you start programming with structure and no cost."
+      },
+      "newsletter": {
+        "title": "Weekly newsletter",
+        "description": "Receive updates with articles, videos, and opportunities from the tech community."
+      },
+      "setup": {
+        "title": "Shop my setup",
+        "description": "Discover the gear I use daily to create, code, and produce content."
+      },
+      "wellness": {
+        "title": "Wellness picks",
+        "description": "My favorite supplements to keep up with an intense study and work routine."
+      }
+    },
+    "spotlight": {
+      "projects": {
+        "title": "Projects and case studies",
+        "description": "See how I turned business challenges into scalable digital experiences."
+      },
+      "vorix": {
+        "title": "Vorix Agency",
+        "description": "A complete sales funnel built to capture and convert B2B leads."
+      },
+      "cta": "Learn more"
+    }
+  }
 }
