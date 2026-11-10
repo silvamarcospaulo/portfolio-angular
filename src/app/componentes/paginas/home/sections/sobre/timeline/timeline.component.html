@@ -1,28 +1,69 @@
-<div class="timeline" role="list" aria-label="Experiências profissionais">
-    @for (experiencia of listaDeExperienciasProfissionais; track experiencia.inicio; let i = $index) {
-    <div class="timeline-item" role="listitem" [class.timeline-item--top]="i % 2 === 0" [class.timeline-item--bottom]="i % 2 !== 0">
-        <div class="timeline-dot" aria-hidden="true"></div>
-        <article class="timeline-container soft-ui-container">
-            <div class="timeline-content">
-                <div class="titulo">
-                    <h3>{{ experiencia.cargo | translate }}</h3>
-                    <div class="subtitulo">
-                        <h6>{{ experiencia.empresa }}</h6>
-                        <p>{{ experiencia.inicio | translate }} - {{ experiencia.fim | translate }}</p>
-                    </div>
-                    <div class="descricao">
-                        <p>{{ experiencia.descricao | translate }}</p>
-                    </div>
-                </div>
-                <div class="conteudo">
-                    <ul>
-                        @for (habilidade of experiencia.habilidades; track habilidade.nome) {
-                        <li>{{ habilidade.nome | translate }}</li>
-                        }
-                    </ul>
-                </div>
-            </div>
-        </article>
+<section class="career-timeline" [attr.aria-label]="'timeline.label' | translate">
+    <div class="timeline-heading">
+        <div class="timeline-heading__copy">
+            <span class="timeline-eyebrow">{{ 'timeline.eyebrow' | translate }}</span>
+            <h2>{{ 'timeline.title' | translate }}</h2>
+            <p>{{ 'timeline.subtitle' | translate }}</p>
+        </div>
+        <div class="timeline-controls">
+            <button type="button" class="timeline-control soft-ui-container" (click)="scrollTimeline(-1)" [disabled]="!canScrollPrev" [attr.aria-label]="'timeline.previous' | translate">
+                <i class="bi bi-arrow-left" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="timeline-control soft-ui-container" (click)="scrollTimeline(1)" [disabled]="!canScrollNext" [attr.aria-label]="'timeline.next' | translate">
+                <i class="bi bi-arrow-right" aria-hidden="true"></i>
+            </button>
+        </div>
     </div>
-    }
-</div>
+
+    <div #timelineTrack class="timeline" role="list" [attr.aria-label]="'timeline.label' | translate"
+         (scroll)="updateScrollState()" (pointerdown)="onPointerDown($event)"
+         (pointermove)="onPointerMove($event)" (pointerup)="onPointerUp()" (pointercancel)="onPointerUp()" (pointerleave)="onPointerUp()">
+        @for (experiencia of listaDeExperienciasProfissionais; track experiencia.inicio; let i = $index) {
+        <div #timelineItem class="timeline-item" role="listitem"
+             [class.timeline-item--top]="i % 2 === 0"
+             [class.timeline-item--bottom]="i % 2 !== 0"
+             [class.timeline-item--current]="i === listaDeExperienciasProfissionais.length - 1">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <article class="timeline-container soft-ui-container">
+                <div class="timeline-card__topline">
+                    <span class="timeline-date">{{ experiencia.inicio | translate }} — {{ experiencia.fim | translate }}</span>
+                    @if (i === listaDeExperienciasProfissionais.length - 1) {
+                    <span class="timeline-current">{{ 'timeline.current' | translate }}</span>
+                    }
+                </div>
+                <div class="timeline-content">
+                    <div class="titulo">
+                        <h3>{{ experiencia.cargo | translate }}</h3>
+                        <div class="subtitulo">
+                            <span class="timeline-company-mark" aria-hidden="true"><i class="bi bi-building"></i></span>
+                            <span class="timeline-company">{{ experiencia.empresa }}</span>
+                        </div>
+                        <div class="descricao" [class.descricao--expanded]="expandedIndex === i">
+                            <p>{{ experiencia.descricao | translate }}</p>
+                        </div>
+                    </div>
+                    <div class="conteudo">
+                        <ul>
+                            @for (habilidade of experiencia.habilidades; track habilidade.nome) {
+                            <li>{{ habilidade.nome | translate }}</li>
+                            }
+                        </ul>
+                    </div>
+                    <button type="button" class="timeline-details" (click)="toggleDetails(i)"
+                            [attr.aria-expanded]="expandedIndex === i" [attr.aria-label]="(expandedIndex === i ? 'timeline.less' : 'timeline.more') | translate">
+                        <span>{{ (expandedIndex === i ? 'timeline.less' : 'timeline.more') | translate }}</span>
+                        <i class="bi" [class.bi-arrow-up-right]="expandedIndex !== i" [class.bi-chevron-up]="expandedIndex === i" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </article>
+        </div>
+        }
+    </div>
+
+    <div class="timeline-scroll-indicator" aria-hidden="true">
+        <span>{{ 'timeline.dragHint' | translate }}</span>
+        <div class="timeline-scroll-rail">
+            <div class="timeline-scroll-progress" [style.width.%]="scrollProgress"></div>
+        </div>
+    </div>
+</section>
