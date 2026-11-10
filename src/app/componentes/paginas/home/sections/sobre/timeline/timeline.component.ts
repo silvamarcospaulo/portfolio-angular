@@ -55,7 +55,7 @@ export class TimelineComponent implements AfterViewInit, OnDestroy {
         scrollTrigger: {
           trigger: section,
           pin: section,
-          start: 'top top+=100',
+          start: 'top top',
           end: () => `+=${distance()}`,
           scrub: 0.8,
           anticipatePin: 1,
