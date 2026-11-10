@@ -46,8 +46,25 @@ body.dark-mode {
 }
 
 * {
-  transition: color 0.5s ease, transform 0.5s ease;
   font-family: inherit;
+}
+
+button, a, input, select, textarea {
+  transition: color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-link-focus);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 p {
