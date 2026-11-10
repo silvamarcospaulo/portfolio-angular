@@ -356,7 +356,7 @@
     }
 }
 
-@media (min-width: 1024px) and (max-height: 849px), (min-width: 1024px) and (prefers-reduced-motion: reduce) {
+@media (min-width: 1024px) and (prefers-reduced-motion: reduce) {
     .timeline-viewport {
         overflow-x: auto;
         overflow-y: hidden;
@@ -365,18 +365,6 @@
     }
 
     .timeline {
-        will-change: auto;
-    }
-}
-
-@media (min-width: 1024px) {
-    .career-timeline.timeline-native-scroll .timeline-viewport {
-        overflow-x: auto;
-        overflow-y: hidden;
-        scrollbar-width: thin;
-    }
-
-    .career-timeline.timeline-native-scroll .timeline {
         will-change: auto;
     }
 }
