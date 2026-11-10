@@ -34,6 +34,19 @@ try {
 
     assert.ok(structure.cards >= 4, `Expected all career cards for ${target.name}`);
     assert.ok(!structure.cardScrolls, `Career cards may not scroll internally on ${target.name}`);
+    if (structure.horizontalPageOverflow) {
+      const offenders = await page.evaluate(() => Array.from(document.querySelectorAll('body *')).filter(element => {
+        const bounds = element.getBoundingClientRect();
+        const style = getComputedStyle(element);
+        return bounds.width > innerWidth + 4 && style.position !== 'fixed';
+      }).slice(0, 12).map(element => ({
+        name: element.tagName.toLowerCase(),
+        id: element.id,
+        className: String(element.className).slice(0, 60),
+        width: Math.round(element.getBoundingClientRect().width)
+      })));
+      process.stdout.write(`Overflow on ${target.name}: document ${await page.evaluate(() => document.documentElement.scrollWidth)}px, offenders ${JSON.stringify(offenders)}\\n`);
+    }
     assert.ok(!structure.horizontalPageOverflow, `Unexpected document overflow on ${target.name}`);
 
     await page.screenshot({ path: `test-results/${target.name}-hero.png`, fullPage: false });
