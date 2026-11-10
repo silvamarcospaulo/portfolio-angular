@@ -47,7 +47,6 @@ export class TimelineComponent implements AfterViewInit, OnDestroy {
     } else {
       items.forEach(item => item.nativeElement.classList.add('is-visible'));
     }
-
   }
 
   ngOnDestroy(): void {
@@ -71,7 +70,6 @@ export class TimelineComponent implements AfterViewInit, OnDestroy {
     const track = this.timelineTrack?.nativeElement;
     if (!track || !this.dragging) return;
     track.scrollLeft = this.pointerStartScroll - (event.clientX - this.pointerStartX);
-    this.updateScrollState();
   }
 
   onPointerUp(): void {
