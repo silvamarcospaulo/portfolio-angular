@@ -1,6 +1,6 @@
 <section class="career-timeline" [attr.aria-label]="'timeline.label' | translate">
-    <div #timelineTrack class="timeline" role="list" [attr.aria-label]="'timeline.label' | translate"
-         (pointerdown)="onPointerDown($event)"
+    <div #timelineTrack class="timeline" role="list" tabindex="0" [attr.aria-label]="'timeline.label' | translate"
+         (wheel)="onWheel($event)" (pointerdown)="onPointerDown($event)"
          (pointermove)="onPointerMove($event)" (pointerup)="onPointerUp()" (pointercancel)="onPointerUp()" (pointerleave)="onPointerUp()">
         @for (experiencia of listaDeExperienciasProfissionais; track experiencia.inicio; let i = $index) {
         <div #timelineItem class="timeline-item" role="listitem"

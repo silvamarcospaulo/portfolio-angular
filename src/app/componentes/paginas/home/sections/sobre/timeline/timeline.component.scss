@@ -224,10 +224,10 @@
     .timeline {
         display: grid;
         grid-auto-flow: column;
-        grid-auto-columns: minmax(305px, 335px);
-        grid-template-rows: minmax(325px, auto) 26px minmax(325px, auto);
-        gap: 0 22px;
-        min-height: 704px;
+        grid-auto-columns: minmax(400px, 440px);
+        grid-template-rows: minmax(385px, auto) 30px minmax(385px, auto);
+        gap: 0 28px;
+        min-height: 852px;
         padding: 22px 10px;
         overflow-x: auto;
         overflow-y: hidden;
@@ -236,6 +236,12 @@
         scrollbar-color: var(--color-border) transparent;
         cursor: grab;
         user-select: none;
+    }
+
+    .timeline:focus-visible {
+        outline: 2px solid var(--timeline-axis);
+        outline-offset: -2px;
+        border-radius: 12px;
     }
 
     .timeline.is-dragging {
@@ -292,10 +298,11 @@
     }
 
     .timeline-container {
+        padding: 28px;
         position: relative;
         z-index: 1;
         width: 100%;
-        max-height: 320px;
+        max-height: 380px;
         overflow-y: auto;
         scrollbar-width: thin;
         align-self: end;
