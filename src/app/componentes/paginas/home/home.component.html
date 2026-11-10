@@ -1,7 +1,65 @@
-<main>
 <app-header [links]="links" />
+<main id="portfolio-main">
     <app-inicio />
     <app-sobre [listaDeExperienciasProfissionais]="listaDeExperienciasProfissionais" />
+
+    <section id="section-especialidades" class="portfolio-section" aria-labelledby="specialties-title">
+        <div class="portfolio-section__heading">
+            <span class="portfolio-section__eyebrow">{{ 'portfolio.specialties.eyebrow' | translate }}</span>
+            <h2 id="specialties-title">{{ 'portfolio.specialties.title' | translate }}</h2>
+            <p>{{ 'portfolio.specialties.description' | translate }}</p>
+        </div>
+        <div class="specialties-grid">
+            @for (area of specialtyAreas; track area.key) {
+                <article class="specialty-card soft-ui-container">
+                    <span class="specialty-card__icon" aria-hidden="true"><i [class]="area.icon"></i></span>
+                    <h3>{{ ('portfolio.specialties.' + area.key + '.title') | translate }}</h3>
+                    <p>{{ ('portfolio.specialties.' + area.key + '.description') | translate }}</p>
+                    <div class="specialty-card__tags">
+                        @for (skill of area.skills; track skill) {
+                            <span>{{ skill }}</span>
+                        }
+                    </div>
+                </article>
+            }
+        </div>
+    </section>
+
     <app-projetos [listaDeProjetos]="listaDeProjetos" />
-    <app-footer [links]="links" />
+
+    <section id="section-formacao" class="portfolio-section" aria-labelledby="education-title">
+        <div class="portfolio-section__heading">
+            <span class="portfolio-section__eyebrow">{{ 'portfolio.education.eyebrow' | translate }}</span>
+            <h2 id="education-title">{{ 'portfolio.education.title' | translate }}</h2>
+            <p>{{ 'portfolio.education.description' | translate }}</p>
+        </div>
+        <div class="education-grid">
+            <article class="education-card soft-ui-container">
+                <span class="education-card__date">2024 — 2026</span>
+                <h3>{{ 'portfolio.education.ads.title' | translate }}</h3>
+                <strong>PUC Goiás</strong>
+                <p>{{ 'portfolio.education.ads.description' | translate }}</p>
+            </article>
+            <article class="education-card soft-ui-container">
+                <span class="education-card__date">2018 —</span>
+                <h3>{{ 'portfolio.education.cs.title' | translate }}</h3>
+                <strong>Universidade Federal de Goiás</strong>
+                <p>{{ 'portfolio.education.cs.description' | translate }}</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="section-contato" class="portfolio-section contact-section" aria-labelledby="contact-title">
+        <div class="contact-panel soft-ui-container">
+            <span class="portfolio-section__eyebrow">{{ 'portfolio.contact.eyebrow' | translate }}</span>
+            <h2 id="contact-title">{{ 'portfolio.contact.title' | translate }}</h2>
+            <p>{{ 'portfolio.contact.description' | translate }}</p>
+            <div class="contact-actions">
+                <a class="soft-ui-action soft-ui-action--primary" [href]="contactEmail"><i class="bi bi-envelope" aria-hidden="true"></i>{{ 'portfolio.contact.email' | translate }}</a>
+                <a class="soft-ui-action" href="https://www.linkedin.com/in/silvamarcospaulo/" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin" aria-hidden="true"></i>LinkedIn</a>
+                <a class="soft-ui-action" href="https://github.com/silvamarcospaulo" target="_blank" rel="noopener noreferrer"><i class="bi bi-github" aria-hidden="true"></i>GitHub</a>
+            </div>
+        </div>
+    </section>
 </main>
+<app-footer [links]="links" />
