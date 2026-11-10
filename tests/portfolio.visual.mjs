@@ -60,6 +60,14 @@ try {
       await page.waitForTimeout(1100);
       const moved = await timeline.evaluate(element => getComputedStyle(element).transform);
       assert.notEqual(moved, initial, `GSAP horizontal scroll did not advance on ${target.name}`);
+      await page.screenshot({ path: `test-results/${target.name}-timeline-scrolled.png`, fullPage: false });
+      const visibleCard = await page.evaluate(() => {
+        const card = document.querySelector('.timeline-item.is-active .timeline-container');
+        if (!card) return null;
+        const rect = card.getBoundingClientRect();
+        return { top: rect.top, bottom: rect.bottom, height: innerHeight };
+      });
+      if (visibleCard) assert.ok(visibleCard.top >= -4 && visibleCard.bottom <= visibleCard.height + 4, `Centered career card is vertically clipped on ${target.name}: ${JSON.stringify(visibleCard)}`);
     }
 
     await page.locator('#section-projetos').scrollIntoViewIfNeeded();
