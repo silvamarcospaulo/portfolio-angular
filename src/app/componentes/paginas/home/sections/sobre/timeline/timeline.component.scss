@@ -1,6 +1,6 @@
 .career-timeline {
     --timeline-axis: var(--color-link-focus);
-    --timeline-soft-accent: color-mix(in srgb, var(--color-link-focus) 10%, var(--color-secondary));
+    --timeline-soft-accent: color-mix(in srgb, var(--color-link-focus) 10%, var(--color-primary));
     width: 100%;
     min-width: 0;
     max-width: 1400px;
@@ -41,35 +41,6 @@
     letter-spacing: 0.13em;
     text-transform: uppercase;
     color: var(--color-link-focus);
-}
-
-.timeline-controls {
-    display: none;
-    align-items: center;
-    gap: 12px;
-}
-
-.timeline-control {
-    border: 0;
-    width: 46px;
-    height: 46px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: var(--color-text-title);
-    background: var(--color-secondary);
-    transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
-
-    &:not(:disabled):hover {
-        transform: translateY(-2px);
-        box-shadow: 7px 7px 14px var(--shadow-dark), -7px -7px 14px var(--shadow-light);
-    }
-
-    &:disabled {
-        opacity: 0.35;
-        cursor: default;
-    }
 }
 
 .timeline {
@@ -134,15 +105,15 @@
     min-width: 0;
     min-height: 0;
     padding: 20px;
-    border: 1px solid var(--color-border);
-    border-radius: 20px;
-    background: var(--color-secondary);
-    box-shadow: 5px 5px 10px var(--shadow-dark), -5px -5px 10px var(--shadow-light);
+    border: 0;
+    border-radius: 24px;
+    background: var(--color-primary);
+    box-shadow: 9px 9px 20px var(--shadow-dark), -9px -9px 20px var(--shadow-light);
     transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
 }
 
 .timeline-item--current .timeline-container {
-    border-color: var(--timeline-axis);
+    box-shadow: 11px 11px 22px var(--shadow-dark), -11px -11px 22px var(--shadow-light);
 }
 
 .timeline-card__topline {
@@ -163,8 +134,9 @@
 .timeline-current {
     padding: 4px 9px;
     border-radius: 999px;
-    background: var(--timeline-soft-accent);
+    background: var(--color-primary);
     color: var(--color-link-focus);
+    box-shadow: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light);
     font-size: 0.7rem;
     font-weight: 700;
 }
@@ -206,6 +178,7 @@
     border-radius: 10px;
     background: var(--color-primary);
     color: var(--color-link-focus);
+    box-shadow: 3px 3px 7px var(--shadow-dark), -3px -3px 7px var(--shadow-light);
 }
 
 .timeline-company {
@@ -244,7 +217,8 @@
         padding: 5px 9px;
         border-radius: 9px;
         background: var(--color-primary);
-        border: 1px solid var(--color-border);
+        border: none;
+        box-shadow: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light);
         color: var(--color-text-subtitle);
         font-size: 0.73rem;
         line-height: 1.4;
@@ -264,31 +238,16 @@
     font-weight: 700;
     cursor: pointer;
 
-    i {
-        transition: transform 180ms ease;
-    }
-
-    &:hover i {
-        transform: translate(2px, -2px);
-    }
-}
-
-.timeline-scroll-indicator {
-    display: none;
 }
 
 @media (hover: hover) {
     .timeline-item:hover .timeline-container {
         transform: translateY(-4px);
-        box-shadow: 8px 8px 15px var(--shadow-dark), -8px -8px 15px var(--shadow-light);
+        box-shadow: 13px 13px 26px var(--shadow-dark), -13px -13px 26px var(--shadow-light);
     }
 }
 
 @media (min-width: 1024px) {
-    .timeline-controls {
-        display: flex;
-    }
-
     .timeline {
         display: grid;
         grid-auto-flow: column;
@@ -381,34 +340,6 @@
         margin-bottom: 0;
     }
 
-    .timeline-scroll-indicator {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        padding: 14px 18px 0;
-
-        span {
-            font-size: 0.76rem;
-            white-space: nowrap;
-            color: var(--color-text-subtitle);
-        }
-    }
-
-    .timeline-scroll-rail {
-        height: 4px;
-        width: 100%;
-        border-radius: 10px;
-        overflow: hidden;
-        background: var(--color-border);
-    }
-
-    .timeline-scroll-progress {
-        height: 100%;
-        min-width: 12px;
-        border-radius: inherit;
-        background: var(--timeline-axis);
-        transition: width 130ms linear;
-    }
 }
 
 @media (max-width: 479px) {
@@ -448,9 +379,7 @@
 
 @media (prefers-reduced-motion: reduce) {
     .timeline-container,
-    .timeline-control,
-    .timeline-details i,
-    .timeline-scroll-progress {
+    .timeline-details {
         transition: none;
         animation: none;
     }
