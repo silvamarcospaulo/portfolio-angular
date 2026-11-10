@@ -131,7 +131,12 @@
       "descricao": "Initial version of my portfolio, built with HTML5, CSS3, and JavaScript, as a foundation for learning and practicing web development."
     },
     "anterior": "Previous project",
-    "proximo": "Next project"
+    "proximo": "Next project",
+    "merqia": {
+      "titulo": "Merqia",
+      "tipo": "Multi-tenant SaaS in development",
+      "descricao": "Modular CRM, sales, ERP and POS platform with multi-tenant architecture and white-label experiences."
+    }
   },
   "habilidades": {
     "csharp": "C# .NET",
@@ -248,5 +253,62 @@
     "more": "View details",
     "less": "Show less",
     "dragHint": "Drag or use the arrows to explore"
+  },
+  "portfolio": {
+    "specialties": {
+      "eyebrow": "What I do",
+      "title": "Technology for real challenges",
+      "description": "Experience building digital products, integrations and complex enterprise systems.",
+      "backend": {
+        "title": "Backend and APIs",
+        "description": "Reliable services, business rules and product-focused integrations."
+      },
+      "architecture": {
+        "title": "Architecture and integrations",
+        "description": "Cloud systems, asynchronous processing and electronic tax documents."
+      },
+      "data": {
+        "title": "Data and persistence",
+        "description": "Relational data modeling and NoSQL document storage."
+      },
+      "frontend": {
+        "title": "Interfaces and experience",
+        "description": "Responsive web apps, component design and accessible experiences."
+      }
+    },
+    "education": {
+      "eyebrow": "Education",
+      "title": "Continuous learning",
+      "description": "A path shaped by academic foundations and practical projects.",
+      "ads": {
+        "title": "Systems Analysis and Development",
+        "description": "Degree in progress, expected completion in December 2026."
+      },
+      "cs": {
+        "title": "Computer Science",
+        "description": "Studies started at UFG. Program paused without graduating."
+      }
+    },
+    "contact": {
+      "eyebrow": "Get in touch",
+      "nav": "Contact",
+      "title": "Have a project or opportunity in mind?",
+      "description": "Let's talk about software development, architecture and digital products.",
+      "email": "Send an email"
+    },
+    "hero": {
+      "eyebrow": "Software engineering · Goiânia, Brazil",
+      "intro": "Building digital solutions focused on architecture, integrations and experiences that work.",
+      "projects": "Explore projects",
+      "contact": "Get in touch"
+    },
+    "projects": {
+      "all": "Projects and solutions",
+      "status": "In development",
+      "visit": "View project",
+      "preview": "Project preview",
+      "noPreview": "Work in progress",
+      "illustrativePreview": "Illustrative preview"
+    }
   }
 }

@@ -10,6 +10,12 @@
   --color-border: #d0d0d0;
   --shadow-dark: rgba(0, 0, 0, 0.1);
   --shadow-light: rgba(255, 255, 255, 0.9);
+  --soft-radius-sm: 12px;
+  --soft-radius-md: 18px;
+  --soft-radius-lg: 24px;
+  --soft-depth-raised: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
+  --soft-depth-sunken: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+  --content-width: 1400px;
 }
 
 body {
@@ -43,6 +49,8 @@ body.dark-mode {
   --color-border: #2A2A2A;
   --shadow-dark: rgba(0, 0, 0, 0.6);
   --shadow-light: rgba(60, 60, 60, 0.3);
+  --soft-depth-raised: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
+  --soft-depth-sunken: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
 }
 
 * {
@@ -82,13 +90,13 @@ a:focus {
 }
 
 .soft-ui-container {
-  background: var(--color-secondary);
-  box-shadow: 5px 5px 10px var(--shadow-dark), -5px -5px 10px var(--shadow-light);
-  border-radius: 24px;
+  background: var(--color-primary);
+  box-shadow: var(--soft-depth-raised);
+  border-radius: var(--soft-radius-lg);
 }
 
 .soft-ui-container-hover:hover {
-  box-shadow: 5px 5px 10px var(--shadow-light), -5px -5px 10px var(--shadow-dark);
+  box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
 }
 
 // Diretiva appIconButton — estilos globais

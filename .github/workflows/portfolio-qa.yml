@@ -1,0 +1,40 @@
+name: Portfolio QA
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm install --no-audit --no-fund
+      - run: npm run verify:portfolio
+      - run: npm run build
+      - run: npm install --no-save playwright@1.57.0
+      - run: npx playwright install --with-deps chromium
+      - name: Start SSR server
+        run: |
+          python3 -m http.server 4000 --bind 127.0.0.1 --directory dist/v2/browser > server.log 2>&1 &
+          for i in $(seq 1 20); do
+            curl -fsS http://127.0.0.1:4000/ > /dev/null && exit 0
+            sleep 2
+          done
+          cat server.log
+          exit 1
+      - run: node tests/portfolio.visual.mjs
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-screenshots
+          path: |
+            test-results/
+            server.log
+          if-no-files-found: ignore

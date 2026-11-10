@@ -1,31 +1,57 @@
-<section id="section-projetos">
-    <div id="container-carrossel">
-        <div id="container-conteudo">
-            <div id="container-textos">
-                <app-section-header
-                    title="projetos.titulo"
-                    subtitle="projetos.subtitulo" />
-            </div>
-            <div id="container-botoes-de-acao">
-                <button type="button" class="nav-btn soft-ui-container soft-ui-container-hover" (click)="anterior()" [disabled]="!hasPrev" [attr.aria-label]="'projetos.anterior' | translate">
-                    <i class="bi bi-arrow-left-short seta"></i>
-                </button>
-                <button type="button" class="nav-btn soft-ui-container soft-ui-container-hover" (click)="proximo()" [disabled]="!hasNext" [attr.aria-label]="'projetos.proximo' | translate">
-                    <i class="bi bi-arrow-right-short seta"></i>
-                </button>
-            </div>
+<section id="section-projetos" aria-labelledby="projects-title">
+    <div class="projects-layout">
+        <div class="projects-heading">
+            <span>{{ 'portfolio.projects.all' | translate }}</span>
+            <h2 id="projects-title">{{ 'projetos.titulo' | translate }}</h2>
+            <p>{{ 'projetos.subtitulo' | translate }}</p>
         </div>
 
-        <div id="container-card" (touchstart)="onTouchStart($event)" (touchmove)="onTouchMove($event)"
-            (touchend)="onTouchEnd($event)" (touchcancel)="onTouchCancel()">
-            <app-card-projetos [projeto]="projetoAtual" id="macbook"></app-card-projetos>
-        </div>
-
-        <div id="container-paginacao">
-            @for (proj of listaDeProjetos; let i = $index; track proj) {
-            <button class="ponto" [class.ativo]="i === projetoAtualIndex" type="button" [attr.aria-current]="i === projetoAtualIndex ? 'true' : null" (click)="projetoAtualIndex = i"
-                [attr.aria-label]="'Ir para projeto ' + (i + 1)">
-            </button>
+        <div class="projects-grid">
+            @for (projeto of listaDeProjetos; track projeto.titulo; let i = $index) {
+                <article class="project-card soft-ui-container" [class.project-card--featured]="i === 0">
+                    <div class="project-preview">
+                        @if (projeto.caminhoImagem) {
+                            <img [src]="projeto.caminhoImagem" [alt]="projeto.titulo ? (projeto.titulo | translate) : ''" loading="lazy" decoding="async">
+                        } @else {
+                            <div class="project-preview__placeholder">
+                                <div class="project-preview__mockup" aria-hidden="true">
+                                    <div class="project-preview__browser"><span></span><span></span><span></span></div>
+                                    <div class="project-preview__mock-body">
+                                        <div class="project-preview__mock-heading"></div>
+                                        <div class="project-preview__mock-line"></div>
+                                        <div class="project-preview__mock-line project-preview__mock-line--short"></div>
+                                        <div class="project-preview__mock-button"></div>
+                                    </div>
+                                </div>
+                                <span>{{ (projeto.url ? 'portfolio.projects.illustrativePreview' : 'portfolio.projects.noPreview') | translate }}</span>
+                            </div>
+                        }
+                        @if (!projeto.url) {
+                            <span class="project-preview__status">{{ 'portfolio.projects.status' | translate }}</span>
+                        }
+                    </div>
+                    <div class="project-card__body">
+                        <div class="project-card__top">
+                            <span>{{ projeto.tipoDeProjeto ? (projeto.tipoDeProjeto | translate) : '' }}</span>
+                            @if (projeto.url) {
+                                <a [href]="projeto.url" target="_blank" rel="noopener noreferrer"
+                                   [attr.aria-label]="('portfolio.projects.visit' | translate) + ': ' + (projeto.titulo ? (projeto.titulo | translate) : '')">
+                                    <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                                </a>
+                            }
+                        </div>
+                        <h3>{{ projeto.titulo ? (projeto.titulo | translate) : '' }}</h3>
+                        <p>{{ projeto.descricao ? (projeto.descricao | translate) : '' }}</p>
+                        <div class="project-card__technologies">
+                            @for (tech of projeto.tecnologias ?? []; track tech.nome) {
+                                <span>{{ tech.nome }}</span>
+                            }
+                        </div>
+                        @if (projeto.url) {
+                            <a class="project-card__link" [href]="projeto.url" target="_blank" rel="noopener noreferrer">{{ 'portfolio.projects.visit' | translate }} <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+                        }
+                    </div>
+                </article>
             }
         </div>
     </div>

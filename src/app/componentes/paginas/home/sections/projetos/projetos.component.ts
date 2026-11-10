@@ -1,114 +1,14 @@
-import { Component, Inject, Input, PLATFORM_ID } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { Projeto } from '../../../../../../model/projeto/projeto.model';
-import { CardProjetosComponent } from './card-projetos/card-projetos.component';
-import { SectionHeaderComponent } from '../../../../reutilizaveis/section-header/section-header.component';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-projetos',
   standalone: true,
-  imports: [TranslateModule, CommonModule, CardProjetosComponent, SectionHeaderComponent],
+  imports: [TranslateModule],
   templateUrl: './projetos.component.html',
   styleUrls: ['./projetos.component.scss']
 })
-
 export class ProjetosComponent {
-  @Input() listaDeProjetos!: Projeto[];
-
-  projetoAtualIndex = 0;
-  isAnimating = false;
-  duration = 500;
-
-  private isCoarse = false;
-  private startX = 0;
-  private startY = 0;
-  private startTime = 0;
-  private swiping = false;
-  private lastX = 0;
-  private lastY = 0;
-
-  constructor(@Inject(PLATFORM_ID) platformId: object) {
-    if (isPlatformBrowser(platformId)) {
-      this.isCoarse = matchMedia('(pointer: coarse)').matches || window.innerWidth < 768;
-    }
-  }
-
-  get projetoAtual(): Projeto {
-    return this.listaDeProjetos[this.projetoAtualIndex];
-  }
-
-  get hasPrev(): boolean {
-    return this.projetoAtualIndex > 0;
-  }
-
-  get hasNext(): boolean {
-    return this.listaDeProjetos?.length
-      ? this.projetoAtualIndex < this.listaDeProjetos.length - 1
-      : false;
-  }
-
-  get projetoAnterior() {
-    return this.hasPrev ? this.listaDeProjetos[this.projetoAtualIndex - 1] : null;
-  }
-
-  get projetoProximo() {
-    return this.hasNext ? this.listaDeProjetos[this.projetoAtualIndex + 1] : null;
-  }
-
-  proximo() {
-    if (this.isAnimating || !this.hasNext) return;
-    this.isAnimating = true;
-    this.projetoAtualIndex++;
-    setTimeout(() => this.isAnimating = false, this.duration);
-  }
-
-  anterior() {
-    if (this.isAnimating || !this.hasPrev) return;
-    this.isAnimating = true;
-    this.projetoAtualIndex--;
-    setTimeout(() => this.isAnimating = false, this.duration);
-  }
-
-  irParaAnterior() { this.anterior(); }
-  irParaProximo() { this.proximo(); }
-
-  onTouchStart(e: TouchEvent) {
-    if (!this.isCoarse || e.touches.length !== 1) return;
-    const t = e.touches[0];
-    this.startX = t.clientX;
-    this.startY = t.clientY;
-    this.lastX = t.clientX;
-    this.lastY = t.clientY;
-    this.startTime = Date.now();
-    this.swiping = true;
-  }
-
-  onTouchMove(e: TouchEvent) {
-    if (!this.swiping || !this.isCoarse) return;
-    const t = e.touches[0];
-    this.lastX = t.clientX;
-    this.lastY = t.clientY;
-    const dx = t.clientX - this.startX;
-    const dy = t.clientY - this.startY;
-    if (Math.abs(dx) > Math.abs(dy) * 1.5) e.preventDefault();
-  }
-
-  onTouchCancel() {
-    this.swiping = false;
-  }
-
-  onTouchEnd(event?: TouchEvent) {
-    if (!this.swiping || !this.isCoarse) return;
-    this.swiping = false;
-    const dt = Date.now() - this.startTime;
-    const threshold = 60;
-    const velocityBoost = dt < 220 ? 30 : 0;
-    const touch = event?.changedTouches.item(0);
-    const dx = (touch?.clientX ?? this.lastX) - this.startX;
-    const dy = (touch?.clientY ?? this.lastY) - this.startY;
-    if (Math.abs(dx) <= Math.abs(dy) * 1.2) return;
-    if (dx <= -(threshold - velocityBoost) && this.hasNext) { this.proximo(); return; }
-    if (dx >= (threshold - velocityBoost) && this.hasPrev) { this.anterior(); return; }
-  }
+  @Input() listaDeProjetos: Projeto[] = [];
 }

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://portfolio-angular-pi-three.vercel.app/sitemap.xml

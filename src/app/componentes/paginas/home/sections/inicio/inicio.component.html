@@ -1,14 +1,21 @@
-<section id="section-inicio">
-    <div id="container-inicio">
-        <div id="container-inicio-titulo">
-            <h1>{{ 'inicio.nome' | translate }}</h1>
+<section id="section-inicio" aria-labelledby="hero-title">
+    <div class="hero-layout">
+        <div class="hero-content">
+            <span class="hero-eyebrow">{{ 'portfolio.hero.eyebrow' | translate }}</span>
+            <h1 id="hero-title">{{ 'inicio.nome' | translate }}</h1>
+            <p class="hero-role"><span aria-hidden="true">&#123;</span> {{ 'inicio.subtitulo' | translate }} <span aria-hidden="true">&#125;</span></p>
+            <p class="hero-intro">{{ 'portfolio.hero.intro' | translate }}</p>
+            <div class="hero-actions">
+                <a class="hero-button hero-button--primary" href="#section-projetos"><i class="bi bi-grid" aria-hidden="true"></i>{{ 'portfolio.hero.projects' | translate }}</a>
+                <a class="hero-button" href="#section-contato"><i class="bi bi-arrow-up-right" aria-hidden="true"></i>{{ 'portfolio.hero.contact' | translate }}</a>
+            </div>
         </div>
-        <div id="container-inicio-imagem">
-            <img src="assets/images/euInicio-bw.png" [attr.alt]="'inicio.nome' | translate" />
-        </div>
-        <div id="container-inicio-subtitulo">
-            <h2>&#123;<span>{{ 'inicio.subtitulo' | translate }}</span>&#125;</h2>
+        <div class="hero-visual">
+            <div class="hero-visual__surface soft-ui-container">
+                <img src="/assets/images/euInicio-bw.png" width="680" height="720" fetchpriority="high" [attr.alt]="'inicio.nome' | translate">
+            </div>
+            <span class="hero-visual__accent" aria-hidden="true"></span>
         </div>
     </div>
-    <app-menu-redes-sociais />  
+    <app-menu-redes-sociais />
 </section>

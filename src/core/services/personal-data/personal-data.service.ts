@@ -9,7 +9,7 @@ export class PersonalDataService {
   readonly instagramHandle = '@marcospaulo.dev';
   readonly email = 'silvampsmarcospaulo@gmail.com';
   readonly emailHref = `mailto:silvampsmarcospaulo@gmail.com?subject=Contato%20do%20Portfólio&body=Olá%20Marcos,`;
-  readonly portfolioUrl = 'https://www.marcospaulosilva.com.br';
+  readonly portfolioUrl = 'https://portfolio-angular-pi-three.vercel.app';
 
   getSocialLinks(): Link[] {
     return [
