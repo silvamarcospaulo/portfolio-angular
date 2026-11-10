@@ -28,6 +28,10 @@ export class SeoService {
         this.metaService.updateTag({ property: 'og:description', content: metadados.description });
         this.metaService.updateTag({ property: 'og:image', content: metadados.image });
         this.metaService.updateTag({ property: 'og:url', content: metadados.url });
+        this.metaService.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+        this.metaService.updateTag({ name: 'twitter:title', content: metadados.title });
+        this.metaService.updateTag({ name: 'twitter:description', content: metadados.description });
+        this.metaService.updateTag({ name: 'twitter:image', content: metadados.image });
 
         let linkCanonical = this.document.querySelector("link[rel='canonical']");
         if (!linkCanonical) {
