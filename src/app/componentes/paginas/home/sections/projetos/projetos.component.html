@@ -14,8 +14,16 @@
                             <img [src]="projeto.caminhoImagem" [alt]="projeto.titulo ? (projeto.titulo | translate) : ''" loading="lazy" decoding="async">
                         } @else {
                             <div class="project-preview__placeholder">
-                                <i class="bi bi-window-stack" aria-hidden="true"></i>
-                                <span>{{ 'portfolio.projects.noPreview' | translate }}</span>
+                                <div class="project-preview__mockup" aria-hidden="true">
+                                    <div class="project-preview__browser"><span></span><span></span><span></span></div>
+                                    <div class="project-preview__mock-body">
+                                        <div class="project-preview__mock-heading"></div>
+                                        <div class="project-preview__mock-line"></div>
+                                        <div class="project-preview__mock-line project-preview__mock-line--short"></div>
+                                        <div class="project-preview__mock-button"></div>
+                                    </div>
+                                </div>
+                                <span>{{ (projeto.url ? 'portfolio.projects.illustrativePreview' : 'portfolio.projects.noPreview') | translate }}</span>
                             </div>
                         }
                         @if (!projeto.url) {
