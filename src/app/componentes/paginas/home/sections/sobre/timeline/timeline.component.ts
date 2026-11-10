@@ -47,7 +47,6 @@ export class TimelineComponent implements AfterViewInit, OnDestroy {
     } else {
       items.forEach(item => item.nativeElement.classList.add('is-visible'));
     }
-
   }
 
   ngOnDestroy(): void {
