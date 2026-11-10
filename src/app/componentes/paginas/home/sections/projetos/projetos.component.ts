@@ -25,6 +25,8 @@ export class ProjetosComponent {
   private startY = 0;
   private startTime = 0;
   private swiping = false;
+  private lastX = 0;
+  private lastY = 0;
 
   constructor(@Inject(PLATFORM_ID) platformId: object) {
     if (isPlatformBrowser(platformId)) {
@@ -76,6 +78,8 @@ export class ProjetosComponent {
     const t = e.touches[0];
     this.startX = t.clientX;
     this.startY = t.clientY;
+    this.lastX = t.clientX;
+    this.lastY = t.clientY;
     this.startTime = Date.now();
     this.swiping = true;
   }
@@ -83,21 +87,22 @@ export class ProjetosComponent {
   onTouchMove(e: TouchEvent) {
     if (!this.swiping || !this.isCoarse) return;
     const t = e.touches[0];
+    this.lastX = t.clientX;
+    this.lastY = t.clientY;
     const dx = t.clientX - this.startX;
     const dy = t.clientY - this.startY;
     if (Math.abs(dx) > Math.abs(dy) * 1.5) e.preventDefault();
   }
 
-  onTouchEnd() {
+  onTouchEnd(event?: TouchEvent) {
     if (!this.swiping || !this.isCoarse) return;
     this.swiping = false;
     const dt = Date.now() - this.startTime;
     const threshold = 60;
     const velocityBoost = dt < 220 ? 30 : 0;
-    const endX = this.startX;
-    const endY = this.startY;
-    const dx = (window as any).lastTouchX !== undefined ? (window as any).lastTouchX - endX : 0;
-    const dy = (window as any).lastTouchY !== undefined ? (window as any).lastTouchY - endY : 0;
+    const touch = event?.changedTouches.item(0);
+    const dx = (touch?.clientX ?? this.lastX) - this.startX;
+    const dy = (touch?.clientY ?? this.lastY) - this.startY;
     if (Math.abs(dx) <= Math.abs(dy) * 1.2) return;
     if (dx <= -(threshold - velocityBoost) && this.hasNext) { this.proximo(); return; }
     if (dx >= (threshold - velocityBoost) && this.hasPrev) { this.anterior(); return; }
