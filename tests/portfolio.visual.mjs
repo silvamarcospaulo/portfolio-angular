@@ -123,7 +123,45 @@ try {
     }
 
     await page.locator('#section-projetos').scrollIntoViewIfNeeded();
+    const projectSlides = page.locator('.project-slide');
+    assert.equal(await projectSlides.count(), 8, `Expected eight curated projects on ${target.name}`);
+
+    const projectStructure = await page.evaluate(() => {
+      const viewport = document.querySelector('.projects-viewport');
+      const track = document.querySelector('.projects-track');
+      const slides = [...document.querySelectorAll('.project-slide')];
+      return {
+        layout: getComputedStyle(track).display,
+        distance: track.scrollWidth - viewport.clientWidth,
+        overflow: getComputedStyle(viewport).overflowX,
+        internalScroll: slides.some(slide => ['auto', 'scroll'].includes(getComputedStyle(slide).overflowY)),
+        pageOverflow: document.documentElement.scrollWidth > innerWidth + 4
+      };
+    });
+    assert.equal(projectStructure.layout, 'flex', `Project showcase must be a carousel on ${target.name}`);
+    assert.ok(projectStructure.distance > 0, `Project carousel has no horizontal travel on ${target.name}`);
+    assert.ok(!projectStructure.internalScroll, `Project cards cannot scroll internally on ${target.name}`);
+    assert.ok(!projectStructure.pageOverflow, `Project carousel overflows the page on ${target.name}`);
+
     await page.screenshot({ path: `test-results/${target.name}-projects.png`, fullPage: false });
+
+    if (target.width >= 1024 && target.height > 700) {
+      const track = page.locator('.projects-track');
+      const before = await track.evaluate(element => getComputedStyle(element).transform);
+      await page.mouse.wheel(0, 600);
+      await page.waitForTimeout(1100);
+      const after = await track.evaluate(element => getComputedStyle(element).transform);
+      assert.notEqual(after, before, `Project carousel did not move with page scroll on ${target.name}`);
+      assert.equal(await page.locator('.project-slide.is-active').count(), 1, `Expected one active project on ${target.name}`);
+      await page.screenshot({ path: `test-results/${target.name}-projects-scrolled.png`, fullPage: false });
+    } else {
+      assert.ok(['auto', 'scroll'].includes(projectStructure.overflow), `Project carousel needs native scrolling on ${target.name}`);
+      const projectViewport = page.locator('.projects-viewport');
+      await projectViewport.evaluate(element => { element.scrollLeft = element.clientWidth; });
+      await page.waitForTimeout(250);
+      const moved = await projectViewport.evaluate(element => element.scrollLeft);
+      assert.ok(moved > 0, `Cannot scroll the project carousel on ${target.name}`);
+    }
 
     await page.close();
 
