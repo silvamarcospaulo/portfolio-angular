@@ -138,6 +138,7 @@ export class ProjetosComponent implements AfterViewInit, OnDestroy {
       const pin = ScrollTrigger.create({
         trigger: section,
         pin: section,
+        refreshPriority: -1,
         start: 'top top',
         end: () => `+=${Math.max(window.innerHeight * (slides.length + 1), 1500)}`,
         anticipatePin: 1,
