@@ -81,51 +81,58 @@ export class ProjetosComponent implements AfterViewInit, OnDestroy {
 
     const media = gsap.matchMedia();
     media.add('(min-width: 1024px) and (min-height: 701px) and (prefers-reduced-motion: no-preference)', () => {
-      if (track.scrollWidth <= viewport.clientWidth) return;
+      if (slides.length < 2) return;
 
-      const transitionDuration = 0.65;
-      const entryDelay = 550;
-      const stopDelay = 0.35;
+      const TRANSITION_OUT = 0.22;
+      const TRANSITION_IN = 0.42;
+      const ENTRY_DELAY = 450;
+      const EXIT_DELAY = 650;
       let currentIndex = 0;
       let transitioning = false;
       let gestureLocked = false;
       let entryTime = 0;
+      let lastTransitionEnd = 0;
 
-      const positionFor = (index: number) => {
-        const trackBounds = track.getBoundingClientRect();
-        const slideBounds = slides[index].getBoundingClientRect();
-        const offset = slideBounds.left - trackBounds.left + slideBounds.width / 2 - viewport.clientWidth / 2;
-        return -Math.min(Math.max(offset, 0), track.scrollWidth - viewport.clientWidth);
-      };
-
-      const animateTo = (index: number, immediate = false) => {
+      const show = (index: number, immediate = false) => {
+        const previous = currentIndex;
         currentIndex = index;
         updateActive(index);
-        gsap.killTweensOf(track);
+        gsap.killTweensOf(slides);
 
-        if (immediate) {
-          gsap.set(track, { x: positionFor(index) });
+        if (immediate || previous === index) {
+          gsap.set(slides, { autoAlpha: 0, y: 0, pointerEvents: 'none' });
+          gsap.set(slides[index], { autoAlpha: 1, y: 0, pointerEvents: 'auto' });
           transitioning = false;
           return;
         }
 
         transitioning = true;
-        gsap.to(track, {
-          x: positionFor(index),
-          duration: transitionDuration,
-          ease: 'power2.inOut',
+        const direction = Math.sign(index - previous);
+        const outgoing = slides[previous];
+        const incoming = slides[index];
+
+        gsap.timeline({
           onComplete: () => {
             transitioning = false;
+            lastTransitionEnd = performance.now();
           }
-        });
+        })
+          .to(outgoing, { autoAlpha: 0, y: direction * -14, duration: TRANSITION_OUT, ease: 'power1.in' })
+          .set(outgoing, { y: 0, pointerEvents: 'none' })
+          .set(incoming, { pointerEvents: 'auto' })
+          .fromTo(
+            incoming,
+            { autoAlpha: 0, y: direction * 25 },
+            { autoAlpha: 1, y: 0, duration: TRANSITION_IN, ease: 'power2.out' }
+          );
       };
 
-      const wheelObserver = ScrollTrigger.observe({
+      const observer = ScrollTrigger.observe({
         target: window,
         type: 'wheel,touch',
-        tolerance: 14,
+        tolerance: 15,
         preventDefault: true,
-        onStopDelay: stopDelay,
+        onStopDelay: 0.48,
         onStop: () => {
           gestureLocked = false;
         },
@@ -133,7 +140,7 @@ export class ProjetosComponent implements AfterViewInit, OnDestroy {
         onUp: () => advance(-1)
       });
 
-      wheelObserver.disable();
+      observer.disable();
 
       const pin = ScrollTrigger.create({
         trigger: section,
@@ -145,36 +152,35 @@ export class ProjetosComponent implements AfterViewInit, OnDestroy {
         onEnter: self => {
           entryTime = performance.now();
           gestureLocked = false;
-          animateTo(0, true);
-          wheelObserver.enable();
+          show(0, true);
+          observer.enable();
           self.scroll(self.start + 1);
         },
         onEnterBack: self => {
           entryTime = performance.now();
           gestureLocked = false;
-          animateTo(slides.length - 1, true);
-          wheelObserver.enable();
+          show(slides.length - 1, true);
+          observer.enable();
           self.scroll(self.end - 1);
         },
-        onLeave: () => wheelObserver.disable(),
-        onLeaveBack: () => wheelObserver.disable(),
-        onRefresh: () => {
-          gsap.set(track, { x: positionFor(currentIndex) });
-        }
+        onLeave: () => observer.disable(),
+        onLeaveBack: () => observer.disable()
       });
 
       function advance(direction: number) {
-        if (gestureLocked || transitioning || performance.now() - entryTime < entryDelay) return;
+        if (gestureLocked || transitioning || performance.now() - entryTime < ENTRY_DELAY) return;
 
-        gestureLocked = true;
         const next = currentIndex + direction;
         if (next < 0 || next >= slides.length) {
-          wheelObserver.disable();
+          if (performance.now() - lastTransitionEnd < EXIT_DELAY) return;
+          gestureLocked = true;
+          observer.disable();
           pin.scroll(direction > 0 ? pin.end + 2 : pin.start - 2);
           return;
         }
 
-        animateTo(next);
+        gestureLocked = true;
+        show(next);
       }
 
       const onKeyDown = (event: KeyboardEvent) => {
@@ -184,7 +190,7 @@ export class ProjetosComponent implements AfterViewInit, OnDestroy {
 
         const direction = ['ArrowDown', 'PageDown', ' '].includes(event.key) ? 1 :
           ['ArrowUp', 'PageUp'].includes(event.key) ? -1 : 0;
-        if (direction === 0) return;
+        if (!direction) return;
 
         event.preventDefault();
         if (!transitioning) {
@@ -195,14 +201,14 @@ export class ProjetosComponent implements AfterViewInit, OnDestroy {
       };
 
       window.addEventListener('keydown', onKeyDown);
+      show(0, true);
 
       return () => {
-        wheelObserver.kill();
+        observer.kill();
         pin.kill();
-        gsap.killTweensOf(track);
-        gsap.set(track, { clearProps: 'transform' });
+        gsap.killTweensOf(slides);
+        gsap.set(slides, { clearProps: 'all' });
         window.removeEventListener('keydown', onKeyDown);
-        transitioning = false;
       };
     });
 
