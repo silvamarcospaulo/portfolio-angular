@@ -243,8 +243,30 @@
     }
 
     .timeline-viewport {
+        position: relative;
         width: 100%;
         overflow: hidden;
+        isolation: isolate;
+    }
+
+    .timeline-viewport::before,
+    .timeline-viewport::after {
+        content: '';
+        position: absolute;
+        inset-block: 0;
+        width: clamp(48px, 7vw, 112px);
+        pointer-events: none;
+        z-index: 3;
+    }
+
+    .timeline-viewport::before {
+        inset-inline-start: 0;
+        background: linear-gradient(to right, var(--color-primary) 0%, color-mix(in srgb, var(--color-primary) 85%, transparent) 28%, transparent 100%);
+    }
+
+    .timeline-viewport::after {
+        inset-inline-end: 0;
+        background: linear-gradient(to left, var(--color-primary) 0%, color-mix(in srgb, var(--color-primary) 85%, transparent) 28%, transparent 100%);
     }
 
     .timeline {
