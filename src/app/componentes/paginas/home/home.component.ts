@@ -45,66 +45,6 @@ export class HomeComponent implements OnInit {
 
     this.listaDeProjetos = [
       new Projeto({
-        url: 'https://merqia-landing-page.vercel.app',
-        titulo: 'projetos.merqia.titulo',
-        tipoDeProjeto: 'projetos.merqia.tipo',
-        descricao: 'projetos.merqia.descricao',
-        tecnologias: [
-          new Link({ nome: 'C# / .NET' }),
-          new Link({ nome: 'React' }),
-          new Link({ nome: 'PostgreSQL' })
-        ]
-      }),
-      new Projeto({
-        url: 'https://corretores-whitelabel.vercel.app',
-        titulo: 'projetos.corretores.titulo',
-        tipoDeProjeto: 'projetos.corretores.tipo',
-        descricao: 'projetos.corretores.descricao',
-        tecnologias: [
-          new Link({ nome: 'Python' })
-        ]
-      }),
-      new Projeto({
-        url: 'https://finance-dashboard-nine-liard.vercel.app',
-        titulo: 'projetos.finance.titulo',
-        tipoDeProjeto: 'projetos.finance.tipo',
-        descricao: 'projetos.finance.descricao',
-        tecnologias: [
-          new Link({ nome: 'TypeScript' }),
-          new Link({ nome: 'Vite' })
-        ]
-      }),
-      new Projeto({
-        url: 'https://www.combinouapp.com.br/pt-BR/',
-        urlSecundaria: 'https://landing-page-combinou.vercel.app',
-        titulo: 'projetos.combinouapp.titulo',
-        tipoDeProjeto: 'projetos.combinouapp.tipo',
-        descricao: 'projetos.combinouapp.descricao',
-        tecnologias: [
-          new Link({ nome: 'Angular' }),
-          new Link({ nome: 'TypeScript' })
-        ]
-      }),
-      new Projeto({
-        titulo: 'projetos.taskflow.titulo',
-        tipoDeProjeto: 'projetos.taskflow.tipo',
-        descricao: 'projetos.taskflow.descricao',
-        tecnologias: [
-          new Link({ nome: 'Next.js' }),
-          new Link({ nome: 'FastAPI' }),
-          new Link({ nome: 'PostgreSQL' })
-        ]
-      }),
-      new Projeto({
-        url: 'https://carolina-rocha-adv.vercel.app',
-        titulo: 'projetos.carolina.titulo',
-        tipoDeProjeto: 'projetos.carolina.tipo',
-        descricao: 'projetos.carolina.descricao',
-        tecnologias: [
-          new Link({ nome: 'Angular' })
-        ]
-      }),
-      new Projeto({
         url: 'https://vorix-agencia.vercel.app',
         titulo: 'projetos.vorix-agencia.titulo',
         tipoDeProjeto: 'projetos.vorix-agencia.tipo',

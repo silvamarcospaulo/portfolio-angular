@@ -41,27 +41,31 @@ export class ProjetosComponent implements AfterViewInit, OnDestroy {
     if (!section || !viewport || !track) return;
 
     const slides = Array.from(track.querySelectorAll<HTMLElement>('.project-slide'));
+    if (slides.length === 0) return;
+
+    const updateActive = (index: number) => {
+      this.activeIndex.set(index);
+      slides.forEach((slide, itemIndex) => slide.classList.toggle('is-active', itemIndex === index));
+    };
+
     const updateNearest = () => {
-      const bounds = viewport.getBoundingClientRect();
-      const center = bounds.left + bounds.width / 2;
+      const center = viewport.getBoundingClientRect().left + viewport.clientWidth / 2;
       let nearest = 0;
-      let distance = Number.POSITIVE_INFINITY;
+      let difference = Number.POSITIVE_INFINITY;
 
       slides.forEach((slide, index) => {
-        const rect = slide.getBoundingClientRect();
-        const nextDistance = Math.abs(rect.left + rect.width / 2 - center);
-        if (nextDistance < distance) {
+        const bounds = slide.getBoundingClientRect();
+        const distance = Math.abs(bounds.left + bounds.width / 2 - center);
+        if (distance < difference) {
+          difference = distance;
           nearest = index;
-          distance = nextDistance;
         }
       });
 
-      this.activeIndex.set(nearest);
-      slides.forEach((slide, index) => slide.classList.toggle('is-active', index === nearest));
+      updateActive(nearest);
     };
 
-    const onScroll = () => updateNearest();
-    viewport.addEventListener('scroll', onScroll, { passive: true });
+    viewport.addEventListener('scroll', updateNearest, { passive: true });
 
     const [{ gsap }, { ScrollTrigger }] = await Promise.all([
       import('gsap'),
@@ -69,7 +73,7 @@ export class ProjetosComponent implements AfterViewInit, OnDestroy {
     ]);
 
     if (this.destroyed) {
-      viewport.removeEventListener('scroll', onScroll);
+      viewport.removeEventListener('scroll', updateNearest);
       return;
     }
 
@@ -77,28 +81,128 @@ export class ProjetosComponent implements AfterViewInit, OnDestroy {
 
     const media = gsap.matchMedia();
     media.add('(min-width: 1024px) and (min-height: 701px) and (prefers-reduced-motion: no-preference)', () => {
-      const distance = () => Math.max(0, track.scrollWidth - viewport.clientWidth);
-      if (distance() < 1) return;
+      if (track.scrollWidth <= viewport.clientWidth) return;
 
-      const animation = gsap.to(track, {
-        x: () => -distance(),
-        ease: 'none',
-        scrollTrigger: {
-          trigger: section,
-          pin: section,
-          start: 'top top',
-          end: () => `+=${distance()}`,
-          scrub: 0.8,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-          onUpdate: updateNearest,
-          onRefresh: updateNearest
+      const transitionDuration = 0.65;
+      const entryDelay = 550;
+      const stopDelay = 0.35;
+      let currentIndex = 0;
+      let transitioning = false;
+      let gestureLocked = false;
+      let entryTime = 0;
+
+      const positionFor = (index: number) => {
+        const trackBounds = track.getBoundingClientRect();
+        const slideBounds = slides[index].getBoundingClientRect();
+        const offset = slideBounds.left - trackBounds.left + slideBounds.width / 2 - viewport.clientWidth / 2;
+        return -Math.min(Math.max(offset, 0), track.scrollWidth - viewport.clientWidth);
+      };
+
+      const animateTo = (index: number, immediate = false) => {
+        currentIndex = index;
+        updateActive(index);
+        gsap.killTweensOf(track);
+
+        if (immediate) {
+          gsap.set(track, { x: positionFor(index) });
+          transitioning = false;
+          return;
+        }
+
+        transitioning = true;
+        gsap.to(track, {
+          x: positionFor(index),
+          duration: transitionDuration,
+          ease: 'power2.inOut',
+          onComplete: () => {
+            transitioning = false;
+          }
+        });
+      };
+
+      const wheelObserver = ScrollTrigger.observe({
+        target: window,
+        type: 'wheel,touch',
+        tolerance: 14,
+        preventDefault: true,
+        onStopDelay: stopDelay,
+        onStop: () => {
+          gestureLocked = false;
+        },
+        onDown: () => advance(1),
+        onUp: () => advance(-1)
+      });
+
+      wheelObserver.disable();
+
+      const pin = ScrollTrigger.create({
+        trigger: section,
+        pin: section,
+        start: 'top top',
+        end: () => `+=${Math.max(window.innerHeight * (slides.length + 1), 1500)}`,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+        onEnter: self => {
+          entryTime = performance.now();
+          gestureLocked = false;
+          animateTo(0, true);
+          wheelObserver.enable();
+          self.scroll(self.start + 1);
+        },
+        onEnterBack: self => {
+          entryTime = performance.now();
+          gestureLocked = false;
+          animateTo(slides.length - 1, true);
+          wheelObserver.enable();
+          self.scroll(self.end - 1);
+        },
+        onLeave: () => wheelObserver.disable(),
+        onLeaveBack: () => wheelObserver.disable(),
+        onRefresh: () => {
+          gsap.set(track, { x: positionFor(currentIndex) });
         }
       });
 
+      function advance(direction: number) {
+        if (gestureLocked || transitioning || performance.now() - entryTime < entryDelay) return;
+
+        gestureLocked = true;
+        const next = currentIndex + direction;
+        if (next < 0 || next >= slides.length) {
+          wheelObserver.disable();
+          pin.scroll(direction > 0 ? pin.end + 2 : pin.start - 2);
+          return;
+        }
+
+        animateTo(next);
+      }
+
+      const onKeyDown = (event: KeyboardEvent) => {
+        if (!pin.isActive || event.repeat || event.altKey || event.ctrlKey || event.metaKey) return;
+        const target = event.target;
+        if (target instanceof HTMLElement && target.closest('a, button, input, textarea, select, [contenteditable="true"]')) return;
+
+        const direction = ['ArrowDown', 'PageDown', ' '].includes(event.key) ? 1 :
+          ['ArrowUp', 'PageUp'].includes(event.key) ? -1 : 0;
+        if (direction === 0) return;
+
+        event.preventDefault();
+        if (!transitioning) {
+          gestureLocked = false;
+          entryTime = 0;
+          advance(direction);
+        }
+      };
+
+      window.addEventListener('keydown', onKeyDown);
+
       return () => {
-        animation.scrollTrigger?.kill();
-        animation.kill();
+        wheelObserver.kill();
+        pin.kill();
+        gsap.killTweensOf(track);
+        gsap.set(track, { clearProps: 'transform' });
+        window.removeEventListener('keydown', onKeyDown);
+        transitioning = false;
       };
     });
 
@@ -107,7 +211,7 @@ export class ProjetosComponent implements AfterViewInit, OnDestroy {
     });
     this.disposeAnimation = () => {
       media.revert();
-      viewport.removeEventListener('scroll', onScroll);
+      viewport.removeEventListener('scroll', updateNearest);
     };
 
     updateNearest();

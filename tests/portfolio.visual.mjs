@@ -122,9 +122,17 @@ try {
       if (visibleCard) assert.ok(visibleCard.top >= -4 && visibleCard.bottom <= visibleCard.height + 4, `Centered career card is vertically clipped on ${target.name}: ${JSON.stringify(visibleCard)}`);
     }
 
-    await page.locator('#section-projetos').scrollIntoViewIfNeeded();
+    await page.locator('#section-projetos').evaluate(element => {
+      const anchor = element.parentElement?.classList.contains('pin-spacer') ? element.parentElement : element;
+      const start = anchor.getBoundingClientRect().top + scrollY;
+      window.scrollTo({ top: start + 2, behavior: 'instant' });
+    });
+    await page.waitForTimeout(400);
     const projectSlides = page.locator('.project-slide');
-    assert.equal(await projectSlides.count(), 8, `Expected eight curated projects on ${target.name}`);
+    assert.equal(await projectSlides.count(), 2, `Expected only the two approved projects on ${target.name}`);
+    const approvedTitles = await projectSlides.locator('h3').allTextContents();
+    assert.ok(approvedTitles[0]?.startsWith('Vorix'), `Vorix must be the first project on ${target.name}`);
+    assert.equal(approvedTitles[1], 'Gold & Silver', `Gold & Silver must be the second project on ${target.name}`);
 
     const projectStructure = await page.evaluate(() => {
       const viewport = document.querySelector('.projects-viewport');
@@ -159,13 +167,56 @@ try {
       );
 
       const track = page.locator('.projects-track');
-      const before = await track.evaluate(element => getComputedStyle(element).transform);
-      await page.mouse.wheel(0, 600);
-      await page.waitForTimeout(1100);
-      const after = await track.evaluate(element => getComputedStyle(element).transform);
-      assert.notEqual(after, before, `Project carousel did not move with page scroll on ${target.name}`);
+      const initialTransform = await track.evaluate(element => getComputedStyle(element).transform);
+      const entryPosition = await page.locator('#section-projetos').evaluate(element => ({
+        top: element.getBoundingClientRect().top,
+        position: getComputedStyle(element).position,
+        scrollY
+      }));
+      assert.ok(Math.abs(entryPosition.top) < 20, `The projects section was not pinned on entry on ${target.name}: ${JSON.stringify(entryPosition)}`);
+      await page.waitForTimeout(650);
+
+      await page.mouse.wheel(0, 700);
+      await page.mouse.wheel(0, 700);
+      await page.mouse.wheel(0, 700);
+      await page.waitForTimeout(950);
+
+      const nextTransform = await track.evaluate(element => getComputedStyle(element).transform);
+      const entryDiagnostics = await page.evaluate(() => {
+        const section = document.querySelector('#section-projetos');
+        const viewport = document.querySelector('.projects-viewport');
+        const track = document.querySelector('.projects-track');
+        return {
+          sectionTop: section.getBoundingClientRect().top,
+          sectionPosition: getComputedStyle(section).position,
+          scrollY,
+          innerHeight,
+          trackScrollWidth: track.scrollWidth,
+          viewportWidth: viewport.clientWidth
+        };
+      });
+      assert.notEqual(nextTransform, initialTransform, `Project carousel did not advance on ${target.name}: ${JSON.stringify(entryDiagnostics)}`);
       assert.equal(await page.locator('.project-slide.is-active').count(), 1, `Expected one active project on ${target.name}`);
+      assert.equal(await page.locator('.project-slide.is-active h3').innerText(), 'Gold & Silver', `A single scroll gesture skipped the next card on ${target.name}`);
+
+      const stoppedTransform = await track.evaluate(element => getComputedStyle(element).transform);
+      await page.waitForTimeout(420);
+      assert.equal(await track.evaluate(element => getComputedStyle(element).transform), stoppedTransform, `Project did not stop smoothly on ${target.name}`);
       await page.screenshot({ path: `test-results/${target.name}-projects-scrolled.png`, fullPage: false });
+
+      await page.mouse.wheel(0, -700);
+      await page.waitForTimeout(950);
+      assert.match(await page.locator('.project-slide.is-active h3').innerText(), /^Vorix/, `Reverse scrolling did not return to the previous project on ${target.name}`);
+
+      await page.mouse.wheel(0, 700);
+      await page.waitForTimeout(950);
+      assert.equal(await page.locator('.project-slide.is-active h3').innerText(), 'Gold & Silver', `Second deliberate scroll did not advance on ${target.name}`);
+
+      await page.mouse.wheel(0, 700);
+      await page.waitForTimeout(550);
+      const exited = await page.locator('#section-projetos').evaluate(element => element.getBoundingClientRect().bottom < innerHeight);
+      assert.ok(exited, `Scrolling after the final card did not release the page on ${target.name}`);
+
     } else {
       assert.ok(['auto', 'scroll'].includes(projectStructure.overflow), `Project carousel needs native scrolling on ${target.name}`);
       const projectViewport = page.locator('.projects-viewport');
