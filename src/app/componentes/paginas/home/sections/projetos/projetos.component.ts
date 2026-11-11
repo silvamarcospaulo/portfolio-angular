@@ -89,7 +89,6 @@ export class ProjetosComponent implements AfterViewInit, OnDestroy {
       const EXIT_DELAY = 200;
       let currentIndex = 0;
       let transitioning = false;
-      let gestureLocked = false;
       let entryTime = 0;
       let lastTransitionEnd = 0;
 
@@ -127,20 +126,14 @@ export class ProjetosComponent implements AfterViewInit, OnDestroy {
           );
       };
 
-      const observer = ScrollTrigger.observe({
-        target: window,
-        type: 'wheel,touch',
-        tolerance: 15,
-        preventDefault: true,
-        onStopDelay: 0.48,
-        onStop: () => {
-          gestureLocked = false;
-        },
-        onDown: () => advance(1),
-        onUp: () => advance(-1)
-      });
+      let wheelGestureActive = false;
+      let wheelRelease: ReturnType<typeof setTimeout> | undefined;
+      let touchStartY: number | null = null;
 
-      observer.disable();
+      const resetGesture = () => {
+        wheelGestureActive = false;
+        if (wheelRelease) clearTimeout(wheelRelease);
+      };
 
       const pin = ScrollTrigger.create({
         trigger: section,
@@ -151,37 +144,67 @@ export class ProjetosComponent implements AfterViewInit, OnDestroy {
         invalidateOnRefresh: true,
         onEnter: self => {
           entryTime = performance.now();
-          gestureLocked = false;
+          resetGesture();
           show(0, true);
-          observer.enable();
           self.scroll(self.start + 1);
         },
         onEnterBack: self => {
           entryTime = performance.now();
-          gestureLocked = false;
+          resetGesture();
           show(slides.length - 1, true);
-          observer.enable();
           self.scroll(self.end - 1);
         },
-        onLeave: () => observer.disable(),
-        onLeaveBack: () => observer.disable()
+        onLeave: resetGesture,
+        onLeaveBack: resetGesture
       });
 
-      function advance(direction: number) {
-        if (gestureLocked || transitioning || performance.now() - entryTime < ENTRY_DELAY) return;
+      const advance = (direction: number) => {
+        if (transitioning || performance.now() - entryTime < ENTRY_DELAY) return;
 
         const next = currentIndex + direction;
         if (next < 0 || next >= slides.length) {
           if (performance.now() - lastTransitionEnd < EXIT_DELAY) return;
-          gestureLocked = true;
-          observer.disable();
-          pin.scroll(direction > 0 ? pin.end + 2 : pin.start - 2);
+          pin.scroll(direction > 0 ? pin.end + 40 : pin.start - 40);
           return;
         }
 
-        gestureLocked = true;
         show(next);
-      }
+      };
+
+      const onWheel = (event: WheelEvent) => {
+        if (!pin.isActive || event.ctrlKey) return;
+        event.preventDefault();
+        if (event.deltaY === 0) return;
+
+        if (wheelRelease) clearTimeout(wheelRelease);
+        const newGesture = !wheelGestureActive;
+        wheelGestureActive = true;
+        wheelRelease = setTimeout(() => {
+          wheelGestureActive = false;
+        }, 300);
+
+        if (newGesture) advance(Math.sign(event.deltaY));
+      };
+
+      const onTouchStart = (event: TouchEvent) => {
+        if (pin.isActive) touchStartY = event.touches[0]?.clientY ?? null;
+      };
+
+      const onTouchMove = (event: TouchEvent) => {
+        if (pin.isActive && touchStartY !== null) event.preventDefault();
+      };
+
+      const onTouchEnd = (event: TouchEvent) => {
+        if (!pin.isActive || touchStartY === null) return;
+        const distance = touchStartY - (event.changedTouches[0]?.clientY ?? touchStartY);
+        touchStartY = null;
+        if (Math.abs(distance) >= 30) advance(Math.sign(distance));
+      };
+
+      window.addEventListener('wheel', onWheel, { passive: false });
+      window.addEventListener('touchstart', onTouchStart, { passive: true });
+      window.addEventListener('touchmove', onTouchMove, { passive: false });
+      window.addEventListener('touchend', onTouchEnd, { passive: true });
 
       const onKeyDown = (event: KeyboardEvent) => {
         if (!pin.isActive || event.repeat || event.altKey || event.ctrlKey || event.metaKey) return;
@@ -194,7 +217,6 @@ export class ProjetosComponent implements AfterViewInit, OnDestroy {
 
         event.preventDefault();
         if (!transitioning) {
-          gestureLocked = false;
           entryTime = 0;
           advance(direction);
         }
@@ -204,8 +226,12 @@ export class ProjetosComponent implements AfterViewInit, OnDestroy {
       show(0, true);
 
       return () => {
-        observer.kill();
         pin.kill();
+        resetGesture();
+        window.removeEventListener('wheel', onWheel);
+        window.removeEventListener('touchstart', onTouchStart);
+        window.removeEventListener('touchmove', onTouchMove);
+        window.removeEventListener('touchend', onTouchEnd);
         gsap.killTweensOf(slides);
         gsap.set(slides, { clearProps: 'all' });
         window.removeEventListener('keydown', onKeyDown);
