@@ -153,6 +153,24 @@ try {
     if (target.width >= 1024 && target.height > 700) {
       assert.equal(projectStructure.layout, 'block', `Desktop projects should have independent panels on ${target.name}`);
 
+      const panelSizing = await page.locator('.project-slide.is-active').evaluate(slide => {
+        const rect = slide.getBoundingClientRect();
+        return {
+          width: rect.width,
+          height: rect.height,
+          top: rect.top,
+          bottom: rect.bottom,
+          viewportWidth: innerWidth,
+          viewportHeight: innerHeight
+        };
+      });
+      assert.ok(panelSizing.width >= Math.min(1300, panelSizing.viewportWidth * 0.7),
+        `Project card is too narrow on ${target.name}: ${JSON.stringify(panelSizing)}`);
+      assert.ok(panelSizing.height >= Math.min(500, panelSizing.viewportHeight * 0.6),
+        `Project card is too short on ${target.name}: ${JSON.stringify(panelSizing)}`);
+      assert.ok(panelSizing.top >= -4 && panelSizing.bottom <= panelSizing.viewportHeight + 4,
+        `Project card exceeds viewport vertically on ${target.name}: ${JSON.stringify(panelSizing)}`);
+
       const panelState = async () => page.locator('.project-slide').evaluateAll(slides => slides.map(slide => {
         const bounds = slide.getBoundingClientRect();
         const style = getComputedStyle(slide);
