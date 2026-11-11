@@ -96,19 +96,19 @@
       "descricao": "Lead generation page targeting qualified buyers of automotive parts for trucks, buses, and heavy vehicles."
     },
     "goldesilverdistribuicao": {
-      "titulo": "Gold & Silver Distribuidora",
-      "tipo": "Sales Page",
-      "descricao": "Lead capture page for a real estate resale program, supporting the recruitment of independent sales representatives affiliated with the distributor."
+      "titulo": "Gold & Silver",
+      "tipo": "Commercial solution and landing page",
+      "descricao": "Commercial software and digital presence for Gold & Silver, including a landing page for presentation and lead generation."
     },
     "vorix-agencia": {
       "titulo": "Vorix Agency",
-      "tipo": "Sales Funnel",
-      "descricao": "Complete sales funnel built to capture and convert B2B leads."
+      "tipo": "Website and sales funnel",
+      "descricao": "Digital presence for a marketing agency, built around commercial presentation and lead generation."
     },
     "combinouapp": {
       "titulo": "Combinou",
       "tipo": "Service Platform",
-      "descricao": "Platform connecting clients with home service providers with safety and trust."
+      "descricao": "Marketplace connecting clients with service professionals, supported by a dedicated landing page."
     },
     "flatbpaiva": {
       "titulo": "Flats Paiva",
@@ -136,6 +136,26 @@
       "titulo": "Merqia",
       "tipo": "Multi-tenant SaaS in development",
       "descricao": "Modular CRM, sales, ERP and POS platform with multi-tenant architecture and white-label experiences."
+    },
+    "corretores": {
+      "titulo": "Corretores Whitelabel",
+      "tipo": "Real estate application",
+      "descricao": "Real estate application with a white-label architecture and a Python backend."
+    },
+    "finance": {
+      "titulo": "Finance Dashboard",
+      "tipo": "Financial dashboard",
+      "descricao": "Web interface for financial tracking, key indicators and data visualization."
+    },
+    "taskflow": {
+      "titulo": "TaskFlow",
+      "tipo": "Full-stack application in development",
+      "descricao": "Task management application with a Next.js frontend, FastAPI backend and PostgreSQL persistence."
+    },
+    "carolina": {
+      "titulo": "Carolina Rocha",
+      "tipo": "Professional website",
+      "descricao": "Professional law practice website focused on presentation and responsive experience."
     }
   },
   "habilidades": {
@@ -308,7 +328,9 @@
       "visit": "View project",
       "preview": "Project preview",
       "noPreview": "Work in progress",
-      "illustrativePreview": "Illustrative preview"
+      "illustrativePreview": "Illustrative preview",
+      "scrollHint": "Scroll or swipe to explore the projects",
+      "landing": "View landing page"
     }
   }
 }
