@@ -140,90 +140,90 @@ try {
       const slides = [...document.querySelectorAll('.project-slide')];
       return {
         layout: getComputedStyle(track).display,
-        distance: track.scrollWidth - viewport.clientWidth,
+        travel: track.scrollWidth - viewport.clientWidth,
         overflow: getComputedStyle(viewport).overflowX,
         internalScroll: slides.some(slide => ['auto', 'scroll'].includes(getComputedStyle(slide).overflowY)),
         pageOverflow: document.documentElement.scrollWidth > innerWidth + 4
       };
     });
-    assert.equal(projectStructure.layout, 'flex', `Project showcase must be a carousel on ${target.name}`);
-    assert.ok(projectStructure.distance > 0, `Project carousel has no horizontal travel on ${target.name}`);
     assert.ok(!projectStructure.internalScroll, `Project cards cannot scroll internally on ${target.name}`);
-    assert.ok(!projectStructure.pageOverflow, `Project carousel overflows the page on ${target.name}`);
-
+    assert.ok(!projectStructure.pageOverflow, `Project showcase overflows the page on ${target.name}`);
     await page.screenshot({ path: `test-results/${target.name}-projects.png`, fullPage: false });
 
     if (target.width >= 1024 && target.height > 700) {
-      const initialSlide = await page.evaluate(() => {
-        const first = document.querySelector('.project-slide');
-        const viewport = document.querySelector('.projects-viewport');
-        const card = first.getBoundingClientRect();
-        const window = viewport.getBoundingClientRect();
-        return { left: card.left, right: card.right, viewportLeft: window.left, viewportRight: window.right };
-      });
-      assert.ok(
-        initialSlide.left >= initialSlide.viewportLeft - 8 && initialSlide.right <= initialSlide.viewportRight + 8,
-        `First project is clipped on entry on ${target.name}: ${JSON.stringify(initialSlide)}`
-      );
+      assert.equal(projectStructure.layout, 'block', `Desktop projects should have independent panels on ${target.name}`);
 
-      const track = page.locator('.projects-track');
-      const initialTransform = await track.evaluate(element => getComputedStyle(element).transform);
-      const entryPosition = await page.locator('#section-projetos').evaluate(element => ({
-        top: element.getBoundingClientRect().top,
-        position: getComputedStyle(element).position,
-        scrollY
+      const panelState = async () => page.locator('.project-slide').evaluateAll(slides => slides.map(slide => {
+        const bounds = slide.getBoundingClientRect();
+        const style = getComputedStyle(slide);
+        return { title: slide.querySelector('h3')?.textContent?.trim(), visibility: style.visibility,
+          opacity: Number(style.opacity), x: bounds.x, width: bounds.width };
       }));
-      assert.ok(Math.abs(entryPosition.top) < 20, `The projects section was not pinned on entry on ${target.name}: ${JSON.stringify(entryPosition)}`);
+
+      const initial = await panelState();
+      assert.equal(initial[0].visibility, 'visible', `First project should be visible on entry on ${target.name}`);
+      assert.equal(initial[1].visibility, 'hidden', `Next project must not peek beside the first on ${target.name}`);
+      assert.equal(await page.locator('.project-slide.is-active').count(), 1);
+
       await page.waitForTimeout(650);
+      await page.mouse.wheel(0, 700);
+      await page.mouse.wheel(0, 700);
+      await page.mouse.wheel(0, 700);
+      await page.waitForTimeout(1050);
 
-      await page.mouse.wheel(0, 700);
-      await page.mouse.wheel(0, 700);
-      await page.mouse.wheel(0, 700);
-      await page.waitForTimeout(950);
+      const second = await panelState();
+      assert.equal(second[0].visibility, 'hidden', `First project remained visible on ${target.name}`);
+      assert.equal(second[1].visibility, 'visible', `Second project did not enter on ${target.name}`);
+      assert.equal(await page.locator('.project-slide.is-active h3').innerText(), 'Gold & Silver');
+      assert.equal(await page.locator('.project-slide.is-active').count(), 1);
 
-      const nextTransform = await track.evaluate(element => getComputedStyle(element).transform);
-      const entryDiagnostics = await page.evaluate(() => {
-        const section = document.querySelector('#section-projetos');
-        const viewport = document.querySelector('.projects-viewport');
-        const track = document.querySelector('.projects-track');
-        return {
-          sectionTop: section.getBoundingClientRect().top,
-          sectionPosition: getComputedStyle(section).position,
-          scrollY,
-          innerHeight,
-          trackScrollWidth: track.scrollWidth,
-          viewportWidth: viewport.clientWidth
-        };
+      const location = await page.locator('.project-slide.is-active').evaluate(slide => {
+        const card = slide.getBoundingClientRect();
+        const viewport = document.querySelector('.projects-viewport').getBoundingClientRect();
+        const section = document.querySelector('#section-projetos').getBoundingClientRect();
+        return { centerError: Math.abs((card.left + card.right) / 2 - (viewport.left + viewport.right) / 2),
+          sectionTop: section.top, sectionBottom: section.bottom };
       });
-      assert.notEqual(nextTransform, initialTransform, `Project carousel did not advance on ${target.name}: ${JSON.stringify(entryDiagnostics)}`);
-      assert.equal(await page.locator('.project-slide.is-active').count(), 1, `Expected one active project on ${target.name}`);
-      assert.equal(await page.locator('.project-slide.is-active h3').innerText(), 'Gold & Silver', `A single scroll gesture skipped the next card on ${target.name}`);
+      assert.ok(location.centerError < 12, `Second project was not centered on ${target.name}: ${JSON.stringify(location)}`);
+      assert.ok(Math.abs(location.sectionTop) < 20, `Project section unpinned prematurely on ${target.name}: ${JSON.stringify(location)}`);
 
-      const stoppedTransform = await track.evaluate(element => getComputedStyle(element).transform);
-      await page.waitForTimeout(420);
-      assert.equal(await track.evaluate(element => getComputedStyle(element).transform), stoppedTransform, `Project did not stop smoothly on ${target.name}`);
+      await page.waitForTimeout(500);
+      const stopped = await panelState();
+      assert.deepEqual(stopped, second, `Cards moved again without a new gesture on ${target.name}`);
       await page.screenshot({ path: `test-results/${target.name}-projects-scrolled.png`, fullPage: false });
 
       await page.mouse.wheel(0, -700);
-      await page.waitForTimeout(950);
-      assert.match(await page.locator('.project-slide.is-active h3').innerText(), /^Vorix/, `Reverse scrolling did not return to the previous project on ${target.name}`);
+      await page.waitForTimeout(1100);
+      assert.match(await page.locator('.project-slide.is-active h3').innerText(), /^Vorix/,
+        `Reverse gesture failed on ${target.name}`);
 
       await page.mouse.wheel(0, 700);
-      await page.waitForTimeout(950);
-      assert.equal(await page.locator('.project-slide.is-active h3').innerText(), 'Gold & Silver', `Second deliberate scroll did not advance on ${target.name}`);
+      await page.waitForTimeout(1100);
+      assert.equal(await page.locator('.project-slide.is-active h3').innerText(), 'Gold & Silver',
+        `Second distinct gesture failed on ${target.name}`);
 
       await page.mouse.wheel(0, 700);
-      await page.waitForTimeout(550);
-      const exited = await page.locator('#section-projetos').evaluate(element => element.getBoundingClientRect().bottom < innerHeight);
-      assert.ok(exited, `Scrolling after the final card did not release the page on ${target.name}`);
-
+      await page.waitForTimeout(650);
+      const exitState = await page.locator('#section-projetos').evaluate(section => {
+        const bounds = section.getBoundingClientRect();
+        const parent = section.parentElement?.getBoundingClientRect();
+        return {
+          top: bounds.top, bottom: bounds.bottom, height: bounds.height,
+          position: getComputedStyle(section).position,
+          parentTop: parent?.top, parentBottom: parent?.bottom,
+          scrollY, maxScroll: document.documentElement.scrollHeight - innerHeight, innerHeight,
+          activeCard: document.querySelector('.project-slide.is-active h3')?.textContent?.trim()
+        };
+      });
+      assert.ok(exitState.bottom < exitState.innerHeight, `Last card did not release page scroll on ${target.name}: ${JSON.stringify(exitState)}`);
     } else {
-      assert.ok(['auto', 'scroll'].includes(projectStructure.overflow), `Project carousel needs native scrolling on ${target.name}`);
-      const projectViewport = page.locator('.projects-viewport');
-      await projectViewport.evaluate(element => { element.scrollLeft = element.clientWidth; });
-      await page.waitForTimeout(250);
-      const moved = await projectViewport.evaluate(element => element.scrollLeft);
-      assert.ok(moved > 0, `Cannot scroll the project carousel on ${target.name}`);
+      assert.equal(projectStructure.layout, 'flex', `Mobile or compact projects must use native horizontal slides on ${target.name}`);
+      assert.ok(projectStructure.travel > 0, `Horizontal travel is missing on ${target.name}`);
+      assert.ok(['auto', 'scroll'].includes(projectStructure.overflow), `Native project scrolling is missing on ${target.name}`);
+      await page.locator('.projects-viewport').evaluate(element => { element.scrollLeft = element.clientWidth; });
+      await page.waitForTimeout(300);
+      assert.ok(await page.locator('.projects-viewport').evaluate(element => element.scrollLeft) > 0,
+        `Project carousel did not swipe on ${target.name}`);
     }
 
     await page.close();

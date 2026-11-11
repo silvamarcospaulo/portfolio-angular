@@ -81,101 +81,131 @@ export class ProjetosComponent implements AfterViewInit, OnDestroy {
 
     const media = gsap.matchMedia();
     media.add('(min-width: 1024px) and (min-height: 701px) and (prefers-reduced-motion: no-preference)', () => {
-      if (track.scrollWidth <= viewport.clientWidth) return;
+      if (slides.length < 2) return;
 
-      const transitionDuration = 0.65;
-      const entryDelay = 550;
-      const stopDelay = 0.35;
+      const TRANSITION_OUT = 0.22;
+      const TRANSITION_IN = 0.42;
+      const ENTRY_DELAY = 450;
+      const EXIT_DELAY = 200;
       let currentIndex = 0;
       let transitioning = false;
-      let gestureLocked = false;
       let entryTime = 0;
+      let lastTransitionEnd = 0;
 
-      const positionFor = (index: number) => {
-        const trackBounds = track.getBoundingClientRect();
-        const slideBounds = slides[index].getBoundingClientRect();
-        const offset = slideBounds.left - trackBounds.left + slideBounds.width / 2 - viewport.clientWidth / 2;
-        return -Math.min(Math.max(offset, 0), track.scrollWidth - viewport.clientWidth);
-      };
-
-      const animateTo = (index: number, immediate = false) => {
+      const show = (index: number, immediate = false) => {
+        const previous = currentIndex;
         currentIndex = index;
         updateActive(index);
-        gsap.killTweensOf(track);
+        gsap.killTweensOf(slides);
 
-        if (immediate) {
-          gsap.set(track, { x: positionFor(index) });
+        if (immediate || previous === index) {
+          gsap.set(slides, { autoAlpha: 0, y: 0, pointerEvents: 'none' });
+          gsap.set(slides[index], { autoAlpha: 1, y: 0, pointerEvents: 'auto' });
           transitioning = false;
           return;
         }
 
         transitioning = true;
-        gsap.to(track, {
-          x: positionFor(index),
-          duration: transitionDuration,
-          ease: 'power2.inOut',
+        const direction = Math.sign(index - previous);
+        const outgoing = slides[previous];
+        const incoming = slides[index];
+
+        gsap.timeline({
           onComplete: () => {
             transitioning = false;
+            lastTransitionEnd = performance.now();
           }
-        });
+        })
+          .to(outgoing, { autoAlpha: 0, y: direction * -14, duration: TRANSITION_OUT, ease: 'power1.in' })
+          .set(outgoing, { y: 0, pointerEvents: 'none' })
+          .set(incoming, { pointerEvents: 'auto' })
+          .fromTo(
+            incoming,
+            { autoAlpha: 0, y: direction * 25 },
+            { autoAlpha: 1, y: 0, duration: TRANSITION_IN, ease: 'power2.out' }
+          );
       };
 
-      const wheelObserver = ScrollTrigger.observe({
-        target: window,
-        type: 'wheel,touch',
-        tolerance: 14,
-        preventDefault: true,
-        onStopDelay: stopDelay,
-        onStop: () => {
-          gestureLocked = false;
-        },
-        onDown: () => advance(1),
-        onUp: () => advance(-1)
-      });
+      let wheelGestureActive = false;
+      let wheelRelease: ReturnType<typeof setTimeout> | undefined;
+      let touchStartY: number | null = null;
 
-      wheelObserver.disable();
+      const resetGesture = () => {
+        wheelGestureActive = false;
+        if (wheelRelease) clearTimeout(wheelRelease);
+      };
 
       const pin = ScrollTrigger.create({
         trigger: section,
         pin: section,
+        refreshPriority: -1,
         start: 'top top',
         end: () => `+=${Math.max(window.innerHeight * (slides.length + 1), 1500)}`,
         anticipatePin: 1,
         invalidateOnRefresh: true,
         onEnter: self => {
           entryTime = performance.now();
-          gestureLocked = false;
-          animateTo(0, true);
-          wheelObserver.enable();
-          self.scroll(self.start + 1);
+          resetGesture();
+          show(0, true);
+          window.scrollTo({ top: self.start + 1, behavior: 'instant' });
         },
         onEnterBack: self => {
           entryTime = performance.now();
-          gestureLocked = false;
-          animateTo(slides.length - 1, true);
-          wheelObserver.enable();
-          self.scroll(self.end - 1);
+          resetGesture();
+          show(slides.length - 1, true);
+          window.scrollTo({ top: self.end - 1, behavior: 'instant' });
         },
-        onLeave: () => wheelObserver.disable(),
-        onLeaveBack: () => wheelObserver.disable(),
-        onRefresh: () => {
-          gsap.set(track, { x: positionFor(currentIndex) });
-        }
+        onLeave: resetGesture,
+        onLeaveBack: resetGesture
       });
 
-      function advance(direction: number) {
-        if (gestureLocked || transitioning || performance.now() - entryTime < entryDelay) return;
+      const advance = (direction: number) => {
+        if (transitioning || performance.now() - entryTime < ENTRY_DELAY) return;
 
-        gestureLocked = true;
         const next = currentIndex + direction;
         if (next < 0 || next >= slides.length) {
-          wheelObserver.disable();
-          pin.scroll(direction > 0 ? pin.end + 2 : pin.start - 2);
+          if (performance.now() - lastTransitionEnd < EXIT_DELAY) return;
+          window.scrollTo({ top: direction > 0 ? pin.end + 40 : pin.start - 40, behavior: 'instant' });
           return;
         }
 
-        animateTo(next);
-      }
+        show(next);
+      };
+
+      const onWheel = (event: WheelEvent) => {
+        if (!pin.isActive || event.ctrlKey) return;
+        event.preventDefault();
+        if (event.deltaY === 0) return;
+
+        if (wheelRelease) clearTimeout(wheelRelease);
+        const newGesture = !wheelGestureActive;
+        wheelGestureActive = true;
+        wheelRelease = setTimeout(() => {
+          wheelGestureActive = false;
+        }, 300);
+
+        if (newGesture) advance(Math.sign(event.deltaY));
+      };
+
+      const onTouchStart = (event: TouchEvent) => {
+        if (pin.isActive) touchStartY = event.touches[0]?.clientY ?? null;
+      };
+
+      const onTouchMove = (event: TouchEvent) => {
+        if (pin.isActive && touchStartY !== null) event.preventDefault();
+      };
+
+      const onTouchEnd = (event: TouchEvent) => {
+        if (!pin.isActive || touchStartY === null) return;
+        const distance = touchStartY - (event.changedTouches[0]?.clientY ?? touchStartY);
+        touchStartY = null;
+        if (Math.abs(distance) >= 30) advance(Math.sign(distance));
+      };
+
+      window.addEventListener('wheel', onWheel, { passive: false });
+      window.addEventListener('touchstart', onTouchStart, { passive: true });
+      window.addEventListener('touchmove', onTouchMove, { passive: false });
+      window.addEventListener('touchend', onTouchEnd, { passive: true });
 
       const onKeyDown = (event: KeyboardEvent) => {
         if (!pin.isActive || event.repeat || event.altKey || event.ctrlKey || event.metaKey) return;
@@ -184,25 +214,28 @@ export class ProjetosComponent implements AfterViewInit, OnDestroy {
 
         const direction = ['ArrowDown', 'PageDown', ' '].includes(event.key) ? 1 :
           ['ArrowUp', 'PageUp'].includes(event.key) ? -1 : 0;
-        if (direction === 0) return;
+        if (!direction) return;
 
         event.preventDefault();
         if (!transitioning) {
-          gestureLocked = false;
           entryTime = 0;
           advance(direction);
         }
       };
 
       window.addEventListener('keydown', onKeyDown);
+      show(0, true);
 
       return () => {
-        wheelObserver.kill();
         pin.kill();
-        gsap.killTweensOf(track);
-        gsap.set(track, { clearProps: 'transform' });
+        resetGesture();
+        window.removeEventListener('wheel', onWheel);
+        window.removeEventListener('touchstart', onTouchStart);
+        window.removeEventListener('touchmove', onTouchMove);
+        window.removeEventListener('touchend', onTouchEnd);
+        gsap.killTweensOf(slides);
+        gsap.set(slides, { clearProps: 'all' });
         window.removeEventListener('keydown', onKeyDown);
-        transitioning = false;
       };
     });
 
