@@ -124,7 +124,8 @@ try {
 
     await page.locator('#section-projetos').scrollIntoViewIfNeeded();
     const projectSlides = page.locator('.project-slide');
-    assert.equal(await projectSlides.count(), 8, `Expected eight curated projects on ${target.name}`);
+    assert.equal(await projectSlides.count(), 2, `Expected only the two approved projects on ${target.name}`);
+    assert.deepEqual(await projectSlides.locator('h3').allTextContents(), ['Vorix Agência', 'Gold & Silver']);
 
     const projectStructure = await page.evaluate(() => {
       const viewport = document.querySelector('.projects-viewport');
@@ -159,13 +160,37 @@ try {
       );
 
       const track = page.locator('.projects-track');
-      const before = await track.evaluate(element => getComputedStyle(element).transform);
-      await page.mouse.wheel(0, 600);
-      await page.waitForTimeout(1100);
-      const after = await track.evaluate(element => getComputedStyle(element).transform);
-      assert.notEqual(after, before, `Project carousel did not move with page scroll on ${target.name}`);
+      const initialTransform = await track.evaluate(element => getComputedStyle(element).transform);
+      await page.waitForTimeout(650);
+
+      await page.mouse.wheel(0, 700);
+      await page.mouse.wheel(0, 700);
+      await page.mouse.wheel(0, 700);
+      await page.waitForTimeout(950);
+
+      const nextTransform = await track.evaluate(element => getComputedStyle(element).transform);
+      assert.notEqual(nextTransform, initialTransform, `Project carousel did not advance on ${target.name}`);
       assert.equal(await page.locator('.project-slide.is-active').count(), 1, `Expected one active project on ${target.name}`);
+      assert.equal(await page.locator('.project-slide.is-active h3').innerText(), 'Gold & Silver', `A single scroll gesture skipped the next card on ${target.name}`);
+
+      const stoppedTransform = await track.evaluate(element => getComputedStyle(element).transform);
+      await page.waitForTimeout(420);
+      assert.equal(await track.evaluate(element => getComputedStyle(element).transform), stoppedTransform, `Project did not stop smoothly on ${target.name}`);
       await page.screenshot({ path: `test-results/${target.name}-projects-scrolled.png`, fullPage: false });
+
+      await page.mouse.wheel(0, -700);
+      await page.waitForTimeout(950);
+      assert.equal(await page.locator('.project-slide.is-active h3').innerText(), 'Vorix Agência', `Reverse scrolling did not return to the previous project on ${target.name}`);
+
+      await page.mouse.wheel(0, 700);
+      await page.waitForTimeout(950);
+      assert.equal(await page.locator('.project-slide.is-active h3').innerText(), 'Gold & Silver', `Second deliberate scroll did not advance on ${target.name}`);
+
+      await page.mouse.wheel(0, 700);
+      await page.waitForTimeout(550);
+      const exited = await page.locator('#section-projetos').evaluate(element => element.getBoundingClientRect().bottom < innerHeight);
+      assert.ok(exited, `Scrolling after the final card did not release the page on ${target.name}`);
+
     } else {
       assert.ok(['auto', 'scroll'].includes(projectStructure.overflow), `Project carousel needs native scrolling on ${target.name}`);
       const projectViewport = page.locator('.projects-viewport');
