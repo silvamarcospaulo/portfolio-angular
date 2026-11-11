@@ -53,6 +53,16 @@ try {
     await page.locator('.career-timeline').scrollIntoViewIfNeeded();
     await page.screenshot({ path: `test-results/${target.name}-timeline.png`, fullPage: false });
 
+    if (target.width < 1024) {
+      const details = page.locator('.timeline-details').first();
+      const description = page.locator('.descricao').first();
+      await details.click();
+      assert.equal(await details.getAttribute('aria-expanded'), 'true', `Career details did not expand on ${target.name}`);
+      assert.ok(await description.evaluate(element => element.classList.contains('descricao--expanded')), `Career description is not expanded on ${target.name}`);
+      await details.click();
+      assert.equal(await details.getAttribute('aria-expanded'), 'false', `Career details did not collapse on ${target.name}`);
+    }
+
     if (target.width >= 1024 && target.height > 700) {
       const timeline = page.locator('.timeline');
       const initial = await timeline.evaluate(element => getComputedStyle(element).transform);
@@ -61,6 +71,19 @@ try {
       const moved = await timeline.evaluate(element => getComputedStyle(element).transform);
       assert.notEqual(moved, initial, `GSAP horizontal scroll did not advance on ${target.name}`);
       await page.screenshot({ path: `test-results/${target.name}-timeline-scrolled.png`, fullPage: false });
+
+      const trackBounds = await timeline.evaluate(element => {
+        const viewport = element.parentElement;
+        return { totalWidth: element.scrollWidth, visibleWidth: viewport?.clientWidth ?? 0 };
+      });
+      assert.ok(trackBounds.totalWidth > trackBounds.visibleWidth, `Horizontal timeline has no scrollable distance on ${target.name}`);
+
+      const afterScroll = await page.evaluate(() => ({
+        horizontalPageOverflow: document.documentElement.scrollWidth > innerWidth + 4,
+        activeCards: document.querySelectorAll('.timeline-item.is-active').length
+      }));
+      assert.ok(!afterScroll.horizontalPageOverflow, `Horizontal scroll introduced page overflow on ${target.name}`);
+      assert.equal(afterScroll.activeCards, 1, `Timeline must highlight exactly one career card on ${target.name}`);
       const visibleCard = await page.evaluate(() => {
         const card = document.querySelector('.timeline-item.is-active .timeline-container');
         if (!card) return null;
@@ -74,6 +97,22 @@ try {
     await page.screenshot({ path: `test-results/${target.name}-projects.png`, fullPage: false });
 
     await page.close();
+
+    if (target.width >= 1024) {
+      const reducedPage = await browser.newPage({
+        viewport: { width: target.width, height: target.height },
+        reducedMotion: 'reduce'
+      });
+      await reducedPage.goto('http://127.0.0.1:4000/', { waitUntil: 'networkidle' });
+      await reducedPage.locator('.timeline-item').first().waitFor();
+      const reduced = await reducedPage.locator('.timeline-viewport').evaluate(element => ({
+        overflowX: getComputedStyle(element).overflowX,
+        pageOverflow: document.documentElement.scrollWidth > innerWidth + 4
+      }));
+      assert.ok(['auto', 'scroll'].includes(reduced.overflowX), `Reduced-motion timeline must allow native horizontal navigation on ${target.name}`);
+      assert.ok(!reduced.pageOverflow, `Reduced-motion layout overflows page on ${target.name}`);
+      await reducedPage.close();
+    }
   }
 } finally {
   await browser.close();
