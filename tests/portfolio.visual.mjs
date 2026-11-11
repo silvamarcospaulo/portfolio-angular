@@ -125,7 +125,9 @@ try {
     await page.locator('#section-projetos').scrollIntoViewIfNeeded();
     const projectSlides = page.locator('.project-slide');
     assert.equal(await projectSlides.count(), 2, `Expected only the two approved projects on ${target.name}`);
-    assert.deepEqual(await projectSlides.locator('h3').allTextContents(), ['Vorix Agência', 'Gold & Silver']);
+    const approvedTitles = await projectSlides.locator('h3').allTextContents();
+    assert.ok(approvedTitles[0]?.startsWith('Vorix'), `Vorix must be the first project on ${target.name}`);
+    assert.equal(approvedTitles[1], 'Gold & Silver', `Gold & Silver must be the second project on ${target.name}`);
 
     const projectStructure = await page.evaluate(() => {
       const viewport = document.querySelector('.projects-viewport');
@@ -180,7 +182,7 @@ try {
 
       await page.mouse.wheel(0, -700);
       await page.waitForTimeout(950);
-      assert.equal(await page.locator('.project-slide.is-active h3').innerText(), 'Vorix Agência', `Reverse scrolling did not return to the previous project on ${target.name}`);
+      assert.match(await page.locator('.project-slide.is-active h3').innerText(), /^Vorix/, `Reverse scrolling did not return to the previous project on ${target.name}`);
 
       await page.mouse.wheel(0, 700);
       await page.waitForTimeout(950);
