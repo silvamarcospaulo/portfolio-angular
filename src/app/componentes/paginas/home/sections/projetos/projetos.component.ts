@@ -86,7 +86,7 @@ export class ProjetosComponent implements AfterViewInit, OnDestroy {
         scrollTrigger: {
           trigger: section,
           pin: section,
-          start: () => section.offsetHeight <= window.innerHeight ? 'center center' : 'top top',
+          start: 'top top',
           end: () => `+=${distance()}`,
           scrub: 0.8,
           anticipatePin: 1,
