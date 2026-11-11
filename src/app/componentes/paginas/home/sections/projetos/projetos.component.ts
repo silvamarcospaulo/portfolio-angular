@@ -146,13 +146,13 @@ export class ProjetosComponent implements AfterViewInit, OnDestroy {
           entryTime = performance.now();
           resetGesture();
           show(0, true);
-          self.scroll(self.start + 1);
+          window.scrollTo({ top: self.start + 1, behavior: 'instant' });
         },
         onEnterBack: self => {
           entryTime = performance.now();
           resetGesture();
           show(slides.length - 1, true);
-          self.scroll(self.end - 1);
+          window.scrollTo({ top: self.end - 1, behavior: 'instant' });
         },
         onLeave: resetGesture,
         onLeaveBack: resetGesture
@@ -164,7 +164,7 @@ export class ProjetosComponent implements AfterViewInit, OnDestroy {
         const next = currentIndex + direction;
         if (next < 0 || next >= slides.length) {
           if (performance.now() - lastTransitionEnd < EXIT_DELAY) return;
-          pin.scroll(direction > 0 ? pin.end + 40 : pin.start - 40);
+          window.scrollTo({ top: direction > 0 ? pin.end + 40 : pin.start - 40, behavior: 'instant' });
           return;
         }
 
