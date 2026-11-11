@@ -123,7 +123,8 @@ try {
     }
 
     await page.locator('#section-projetos').evaluate(element => {
-      const anchor = element.parentElement?.classList.contains('pin-spacer') ? element.parentElement : element;
+      const anchor = element.closest('.projects-scroll-space');
+      if (!anchor) throw new Error('Missing native project scroll wrapper');
       const start = anchor.getBoundingClientRect().top + scrollY;
       window.scrollTo({ top: start + 2, behavior: 'instant' });
     });
@@ -152,6 +153,8 @@ try {
 
     if (target.width >= 1024 && target.height > 700) {
       assert.equal(projectStructure.layout, 'block', `Desktop projects should have independent panels on ${target.name}`);
+      const sticky = await page.locator('#section-projetos').evaluate(element => getComputedStyle(element).position);
+      assert.equal(sticky, 'sticky', `Desktop projects must use native sticky positioning on ${target.name}`);
 
       const panelSizing = await page.locator('.project-slide.is-active').evaluate(slide => {
         const rect = slide.getBoundingClientRect();
@@ -234,6 +237,24 @@ try {
         };
       });
       assert.ok(exitState.bottom < exitState.innerHeight, `Last card did not release page scroll on ${target.name}: ${JSON.stringify(exitState)}`);
+
+      const afterExit = await page.evaluate(() => scrollY);
+      await page.mouse.wheel(0, 380);
+      await page.waitForTimeout(350);
+      const afterContinuation = await page.evaluate(() => scrollY);
+      assert.ok(afterContinuation > afterExit + 120,
+        `Page is still capturing scroll after the final project on ${target.name}`);
+
+      await page.mouse.wheel(0, -700);
+      await page.waitForTimeout(480);
+      assert.equal(await page.locator('.project-slide.is-active h3').innerText(), 'Gold & Silver',
+        `Returning from below should show the final project on ${target.name}`);
+
+      await page.mouse.wheel(0, -700);
+      await page.waitForTimeout(1000);
+      assert.match(await page.locator('.project-slide.is-active h3').innerText(), /^Vorix/,
+        `Returning upward through projects did not reach the first panel on ${target.name}`);
+
     } else {
       assert.equal(projectStructure.layout, 'flex', `Mobile or compact projects must use native horizontal slides on ${target.name}`);
       assert.ok(projectStructure.travel > 0, `Horizontal travel is missing on ${target.name}`);
