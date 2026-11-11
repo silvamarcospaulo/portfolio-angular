@@ -97,9 +97,8 @@
 
 .hero-visual__surface {
     aspect-ratio: 4 / 4.6;
-    border-radius: 36px;
-    background: var(--color-primary);
-    overflow: hidden;
+    background: transparent;
+    overflow: visible;
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -113,18 +112,6 @@
         object-position: bottom center;
         filter: grayscale(1);
     }
-}
-
-.hero-visual__accent {
-    position: absolute;
-    width: 28%;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    right: -5%;
-    bottom: -5%;
-    z-index: -1;
-    background: var(--color-primary);
-    box-shadow: inset 11px 11px 22px var(--shadow-dark), inset -11px -11px 22px var(--shadow-light);
 }
 
 @media (prefers-reduced-motion: no-preference) {
