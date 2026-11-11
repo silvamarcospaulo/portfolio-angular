@@ -284,9 +284,9 @@
         "title": "Análisis y Desarrollo de Sistemas",
         "description": "Carrera en curso, con finalización prevista en diciembre de 2026."
       },
-      "cs": {
-        "title": "Ciencias de la Computación",
-        "description": "Estudios iniciados en UFG. Carrera interrumpida, sin graduación."
+      "cloud": {
+        "title": "Desarrollo Java con Cloud AWS",
+        "description": "Formación completada en septiembre de 2023, enfocada en desarrollo Java y servicios de nube AWS."
       }
     },
     "contact": {

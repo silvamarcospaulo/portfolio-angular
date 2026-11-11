@@ -4,11 +4,7 @@
     <app-sobre [listaDeExperienciasProfissionais]="listaDeExperienciasProfissionais" />
 
     <section id="section-especialidades" class="portfolio-section" aria-labelledby="specialties-title">
-        <div class="portfolio-section__heading">
-            <span class="portfolio-section__eyebrow">{{ 'portfolio.specialties.eyebrow' | translate }}</span>
-            <h2 id="specialties-title">{{ 'portfolio.specialties.title' | translate }}</h2>
-            <p>{{ 'portfolio.specialties.description' | translate }}</p>
-        </div>
+        <h2 id="specialties-title" class="visually-hidden">{{ 'portfolio.specialties.title' | translate }}</h2>
         <div class="specialties-grid">
             @for (area of specialtyAreas; track area.key) {
                 <article class="specialty-card soft-ui-container">
@@ -41,10 +37,10 @@
                 <p>{{ 'portfolio.education.ads.description' | translate }}</p>
             </article>
             <article class="education-card soft-ui-container">
-                <span class="education-card__date">2018 —</span>
-                <h3>{{ 'portfolio.education.cs.title' | translate }}</h3>
-                <strong>Universidade Federal de Goiás</strong>
-                <p>{{ 'portfolio.education.cs.description' | translate }}</p>
+                <span class="education-card__date">setembro/2023</span>
+                <h3>{{ 'portfolio.education.cloud.title' | translate }}</h3>
+                <strong>DIO</strong>
+                <p>{{ 'portfolio.education.cloud.description' | translate }}</p>
             </article>
         </div>
     </section>

@@ -284,9 +284,9 @@
         "title": "Systems Analysis and Development",
         "description": "Degree in progress, expected completion in December 2026."
       },
-      "cs": {
-        "title": "Computer Science",
-        "description": "Studies started at UFG. Program paused without graduating."
+      "cloud": {
+        "title": "Java Development with AWS Cloud",
+        "description": "Training completed in September 2023, focused on Java development and AWS cloud services."
       }
     },
     "contact": {
