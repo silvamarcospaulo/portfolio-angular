@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, ElementRef, Inject, Input, OnDestroy, PLATFORM_ID, ViewChild, signal } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { Subscription } from 'rxjs';
+import { TranslateModule } from '@ngx-translate/core';
 import { Projeto } from '../../../../../../model/projeto/projeto.model';
 
 @Component({
@@ -23,12 +22,8 @@ export class ProjetosComponent implements AfterViewInit, OnDestroy {
   private readonly browser: boolean;
   private destroyed = false;
   private disposeAnimation?: () => void;
-  private languageChange?: Subscription;
 
-  constructor(
-    @Inject(PLATFORM_ID) platformId: object,
-    private readonly translate: TranslateService
-  ) {
+  constructor(@Inject(PLATFORM_ID) platformId: object) {
     this.browser = isPlatformBrowser(platformId);
   }
 
@@ -45,19 +40,19 @@ export class ProjetosComponent implements AfterViewInit, OnDestroy {
 
     const updateActive = (index: number) => {
       this.activeIndex.set(index);
-      slides.forEach((slide, itemIndex) => slide.classList.toggle('is-active', itemIndex === index));
+      slides.forEach((slide, slideIndex) => slide.classList.toggle('is-active', slideIndex === index));
     };
 
     const updateNearest = () => {
       const center = viewport.getBoundingClientRect().left + viewport.clientWidth / 2;
       let nearest = 0;
-      let difference = Number.POSITIVE_INFINITY;
+      let distance = Number.POSITIVE_INFINITY;
 
       slides.forEach((slide, index) => {
         const bounds = slide.getBoundingClientRect();
-        const distance = Math.abs(bounds.left + bounds.width / 2 - center);
-        if (distance < difference) {
-          difference = distance;
+        const nextDistance = Math.abs(bounds.left + bounds.width / 2 - center);
+        if (nextDistance < distance) {
+          distance = nextDistance;
           nearest = index;
         }
       });
@@ -67,17 +62,12 @@ export class ProjetosComponent implements AfterViewInit, OnDestroy {
 
     viewport.addEventListener('scroll', updateNearest, { passive: true });
 
-    const [{ gsap }, { ScrollTrigger }] = await Promise.all([
-      import('gsap'),
-      import('gsap/ScrollTrigger')
-    ]);
+    const { gsap } = await import('gsap');
 
     if (this.destroyed) {
       viewport.removeEventListener('scroll', updateNearest);
       return;
     }
-
-    gsap.registerPlugin(ScrollTrigger);
 
     const media = gsap.matchMedia();
     media.add('(min-width: 1024px) and (min-height: 701px) and (prefers-reduced-motion: no-preference)', () => {
@@ -85,12 +75,24 @@ export class ProjetosComponent implements AfterViewInit, OnDestroy {
 
       const TRANSITION_OUT = 0.22;
       const TRANSITION_IN = 0.42;
-      const ENTRY_DELAY = 450;
-      const EXIT_DELAY = 200;
+      const GESTURE_GAP = 280;
+      const NEXT_STEP_DELAY = 260;
+
       let currentIndex = 0;
       let transitioning = false;
-      let entryTime = 0;
       let lastTransitionEnd = 0;
+      let gestureActive = false;
+      let releaseDirection = 0;
+      let gestureReset: ReturnType<typeof setTimeout> | undefined;
+      let touchStartY: number | null = null;
+
+      const isPinned = () => {
+        const sectionBounds = section.getBoundingClientRect();
+        const spacerBounds = section.parentElement?.getBoundingClientRect();
+        return !!spacerBounds && sectionBounds.top <= 6
+          && sectionBounds.bottom >= window.innerHeight - 20
+          && spacerBounds.top <= 6 && spacerBounds.bottom >= window.innerHeight - 20;
+      };
 
       const show = (index: number, immediate = false) => {
         const previous = currentIndex;
@@ -107,8 +109,6 @@ export class ProjetosComponent implements AfterViewInit, OnDestroy {
 
         transitioning = true;
         const direction = Math.sign(index - previous);
-        const outgoing = slides[previous];
-        const incoming = slides[index];
 
         gsap.timeline({
           onComplete: () => {
@@ -116,99 +116,92 @@ export class ProjetosComponent implements AfterViewInit, OnDestroy {
             lastTransitionEnd = performance.now();
           }
         })
-          .to(outgoing, { autoAlpha: 0, y: direction * -14, duration: TRANSITION_OUT, ease: 'power1.in' })
-          .set(outgoing, { y: 0, pointerEvents: 'none' })
-          .set(incoming, { pointerEvents: 'auto' })
-          .fromTo(
-            incoming,
-            { autoAlpha: 0, y: direction * 25 },
-            { autoAlpha: 1, y: 0, duration: TRANSITION_IN, ease: 'power2.out' }
-          );
+          .to(slides[previous], {
+            autoAlpha: 0,
+            y: -direction * 14,
+            duration: TRANSITION_OUT,
+            ease: 'power1.in'
+          })
+          .set(slides[previous], { y: 0, pointerEvents: 'none' })
+          .set(slides[index], { pointerEvents: 'auto' })
+          .fromTo(slides[index], {
+            autoAlpha: 0,
+            y: direction * 25
+          }, {
+            autoAlpha: 1,
+            y: 0,
+            duration: TRANSITION_IN,
+            ease: 'power2.out'
+          });
       };
 
-      let wheelGestureActive = false;
-      let wheelRelease: ReturnType<typeof setTimeout> | undefined;
-      let touchStartY: number | null = null;
-
-      const resetGesture = () => {
-        wheelGestureActive = false;
-        if (wheelRelease) clearTimeout(wheelRelease);
-      };
-
-      const pin = ScrollTrigger.create({
-        trigger: section,
-        pin: section,
-        refreshPriority: -1,
-        start: 'top top',
-        end: () => `+=${Math.max(window.innerHeight * (slides.length + 1), 1500)}`,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-        onEnter: self => {
-          entryTime = performance.now();
-          resetGesture();
-          show(0, true);
-          window.scrollTo({ top: self.start + 1, behavior: 'instant' });
-        },
-        onEnterBack: self => {
-          entryTime = performance.now();
-          resetGesture();
-          show(slides.length - 1, true);
-          window.scrollTo({ top: self.end - 1, behavior: 'instant' });
-        },
-        onLeave: resetGesture,
-        onLeaveBack: resetGesture
-      });
+      const canAdvance = () => !transitioning && performance.now() - lastTransitionEnd >= NEXT_STEP_DELAY;
 
       const advance = (direction: number) => {
-        if (transitioning || performance.now() - entryTime < ENTRY_DELAY) return;
-
+        if (!canAdvance()) return false;
         const next = currentIndex + direction;
-        if (next < 0 || next >= slides.length) {
-          if (performance.now() - lastTransitionEnd < EXIT_DELAY) return;
-          window.scrollTo({ top: direction > 0 ? pin.end + 40 : pin.start - 40, behavior: 'instant' });
-          return;
-        }
-
+        if (next < 0 || next >= slides.length) return false;
         show(next);
+        return true;
+      };
+
+      const clearGesture = () => {
+        if (gestureReset) clearTimeout(gestureReset);
+        gestureActive = false;
+        releaseDirection = 0;
       };
 
       const onWheel = (event: WheelEvent) => {
-        if (!pin.isActive || event.ctrlKey) return;
-        event.preventDefault();
-        if (event.deltaY === 0) return;
+        if (!isPinned() || event.ctrlKey || Math.abs(event.deltaY) < 1) return;
 
-        if (wheelRelease) clearTimeout(wheelRelease);
-        const newGesture = !wheelGestureActive;
-        wheelGestureActive = true;
-        wheelRelease = setTimeout(() => {
-          wheelGestureActive = false;
-        }, 300);
+        const direction = Math.sign(event.deltaY);
 
-        if (newGesture) advance(Math.sign(event.deltaY));
+        if (gestureReset) clearTimeout(gestureReset);
+        gestureReset = setTimeout(clearGesture, GESTURE_GAP);
+
+        if (gestureActive) {
+          if (releaseDirection !== direction && event.cancelable) event.preventDefault();
+          return;
+        }
+
+        gestureActive = true;
+
+        const next = currentIndex + direction;
+        if (next < 0 || next >= slides.length) {
+          if (canAdvance()) {
+            releaseDirection = direction;
+            return;
+          }
+          if (event.cancelable) event.preventDefault();
+          return;
+        }
+
+        if (event.cancelable) event.preventDefault();
+        advance(direction);
       };
 
       const onTouchStart = (event: TouchEvent) => {
-        if (pin.isActive) touchStartY = event.touches[0]?.clientY ?? null;
+        touchStartY = isPinned() ? event.touches[0]?.clientY ?? null : null;
       };
 
       const onTouchMove = (event: TouchEvent) => {
-        if (pin.isActive && touchStartY !== null) event.preventDefault();
+        if (touchStartY === null || !isPinned()) return;
+        const delta = touchStartY - (event.touches[0]?.clientY ?? touchStartY);
+        const next = currentIndex + Math.sign(delta);
+        if (Math.abs(delta) > 12 && next >= 0 && next < slides.length && event.cancelable) {
+          event.preventDefault();
+        }
       };
 
       const onTouchEnd = (event: TouchEvent) => {
-        if (!pin.isActive || touchStartY === null) return;
-        const distance = touchStartY - (event.changedTouches[0]?.clientY ?? touchStartY);
+        if (touchStartY === null || !isPinned()) return;
+        const delta = touchStartY - (event.changedTouches[0]?.clientY ?? touchStartY);
         touchStartY = null;
-        if (Math.abs(distance) >= 30) advance(Math.sign(distance));
+        if (Math.abs(delta) >= 35) advance(Math.sign(delta));
       };
 
-      window.addEventListener('wheel', onWheel, { passive: false });
-      window.addEventListener('touchstart', onTouchStart, { passive: true });
-      window.addEventListener('touchmove', onTouchMove, { passive: false });
-      window.addEventListener('touchend', onTouchEnd, { passive: true });
-
       const onKeyDown = (event: KeyboardEvent) => {
-        if (!pin.isActive || event.repeat || event.altKey || event.ctrlKey || event.metaKey) return;
+        if (!isPinned() || event.repeat || event.altKey || event.ctrlKey || event.metaKey) return;
         const target = event.target;
         if (target instanceof HTMLElement && target.closest('a, button, input, textarea, select, [contenteditable="true"]')) return;
 
@@ -216,44 +209,43 @@ export class ProjetosComponent implements AfterViewInit, OnDestroy {
           ['ArrowUp', 'PageUp'].includes(event.key) ? -1 : 0;
         if (!direction) return;
 
+        const next = currentIndex + direction;
+        if (next < 0 || next >= slides.length) return;
+
         event.preventDefault();
-        if (!transitioning) {
-          entryTime = 0;
-          advance(direction);
-        }
+        advance(direction);
       };
 
+      window.addEventListener('wheel', onWheel, { passive: false });
+      window.addEventListener('touchstart', onTouchStart, { passive: true });
+      window.addEventListener('touchmove', onTouchMove, { passive: false });
+      window.addEventListener('touchend', onTouchEnd, { passive: true });
       window.addEventListener('keydown', onKeyDown);
+
       show(0, true);
 
       return () => {
-        pin.kill();
-        resetGesture();
+        clearGesture();
         window.removeEventListener('wheel', onWheel);
         window.removeEventListener('touchstart', onTouchStart);
         window.removeEventListener('touchmove', onTouchMove);
         window.removeEventListener('touchend', onTouchEnd);
+        window.removeEventListener('keydown', onKeyDown);
         gsap.killTweensOf(slides);
         gsap.set(slides, { clearProps: 'all' });
-        window.removeEventListener('keydown', onKeyDown);
       };
     });
 
-    this.languageChange = this.translate.onLangChange.subscribe(() => {
-      requestAnimationFrame(() => ScrollTrigger.refresh());
-    });
     this.disposeAnimation = () => {
       media.revert();
       viewport.removeEventListener('scroll', updateNearest);
     };
 
     updateNearest();
-    ScrollTrigger.refresh();
   }
 
   ngOnDestroy(): void {
     this.destroyed = true;
     this.disposeAnimation?.();
-    this.languageChange?.unsubscribe();
   }
 }

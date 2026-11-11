@@ -1,4 +1,5 @@
-<section #projectsSection id="section-projetos" aria-labelledby="projects-title">
+<div class="projects-scroll-space">
+    <section #projectsSection id="section-projetos" aria-labelledby="projects-title">
     <div class="projects-layout">
         <div class="projects-heading">
             <div>
@@ -82,4 +83,5 @@
             <span [style.transform]="'scaleX(' + ((activeIndex() + 1) / (listaDeProjetos.length || 1)) + ')'"></span>
         </div>
     </div>
-</section>
+    </section>
+</div>
