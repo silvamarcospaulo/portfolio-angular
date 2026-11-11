@@ -19,7 +19,7 @@ jobs:
       - run: npm run verify:portfolio
       - run: npm run build
       - run: npm install --no-save playwright@1.57.0
-      - run: npx playwright install --with-deps chromium
+      - run: npx playwright install chromium
       - name: Start SSR server
         run: |
           python3 -m http.server 4000 --bind 127.0.0.1 --directory dist/v2/browser > server.log 2>&1 &
