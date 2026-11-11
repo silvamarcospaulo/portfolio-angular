@@ -122,8 +122,12 @@ try {
       if (visibleCard) assert.ok(visibleCard.top >= -4 && visibleCard.bottom <= visibleCard.height + 4, `Centered career card is vertically clipped on ${target.name}: ${JSON.stringify(visibleCard)}`);
     }
 
-    await page.locator('#section-projetos').evaluate(element => element.scrollIntoView({ block: 'start' }));
-    await page.waitForTimeout(360);
+    await page.locator('#section-projetos').evaluate(element => {
+      const anchor = element.parentElement?.classList.contains('pin-spacer') ? element.parentElement : element;
+      const start = anchor.getBoundingClientRect().top + scrollY;
+      window.scrollTo({ top: start + 2, behavior: 'instant' });
+    });
+    await page.waitForTimeout(400);
     const projectSlides = page.locator('.project-slide');
     assert.equal(await projectSlides.count(), 2, `Expected only the two approved projects on ${target.name}`);
     const approvedTitles = await projectSlides.locator('h3').allTextContents();
@@ -164,6 +168,12 @@ try {
 
       const track = page.locator('.projects-track');
       const initialTransform = await track.evaluate(element => getComputedStyle(element).transform);
+      const entryPosition = await page.locator('#section-projetos').evaluate(element => ({
+        top: element.getBoundingClientRect().top,
+        position: getComputedStyle(element).position,
+        scrollY
+      }));
+      assert.ok(Math.abs(entryPosition.top) < 20, `The projects section was not pinned on entry on ${target.name}: ${JSON.stringify(entryPosition)}`);
       await page.waitForTimeout(650);
 
       await page.mouse.wheel(0, 700);
