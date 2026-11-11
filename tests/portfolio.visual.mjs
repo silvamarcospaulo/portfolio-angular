@@ -204,8 +204,18 @@ try {
 
       await page.mouse.wheel(0, 700);
       await page.waitForTimeout(650);
-      const exited = await page.locator('#section-projetos').evaluate(section => section.getBoundingClientRect().bottom < innerHeight);
-      assert.ok(exited, `Last card did not release page scroll on ${target.name}`);
+      const exitState = await page.locator('#section-projetos').evaluate(section => {
+        const bounds = section.getBoundingClientRect();
+        const parent = section.parentElement?.getBoundingClientRect();
+        return {
+          top: bounds.top, bottom: bounds.bottom, height: bounds.height,
+          position: getComputedStyle(section).position,
+          parentTop: parent?.top, parentBottom: parent?.bottom,
+          scrollY, maxScroll: document.documentElement.scrollHeight - innerHeight, innerHeight,
+          activeCard: document.querySelector('.project-slide.is-active h3')?.textContent?.trim()
+        };
+      });
+      assert.ok(exitState.bottom < exitState.innerHeight, `Last card did not release page scroll on ${target.name}: ${JSON.stringify(exitState)}`);
     } else {
       assert.equal(projectStructure.layout, 'flex', `Mobile or compact projects must use native horizontal slides on ${target.name}`);
       assert.ok(projectStructure.travel > 0, `Horizontal travel is missing on ${target.name}`);
