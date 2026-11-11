@@ -50,16 +50,15 @@ try {
         }
         return { selector, color };
       });
-      const fade = getComputedStyle(document.querySelector('.timeline-viewport'), '::before');
-      return { base, actual, fadeContent: fade.content, fadeBackground: fade.backgroundImage };
+      const fade = getComputedStyle(document.querySelector('.timeline-viewport'));
+      return { base, actual, fadeMask: fade.maskImage || fade.webkitMaskImage };
     });
 
     for (const section of background.actual) {
       assert.equal(section.color, background.base, `Section ${section.selector} uses a different background on ${target.name}`);
     }
     if (target.width >= 1024) {
-      assert.notEqual(background.fadeContent, 'none', `Timeline edge fade is missing on ${target.name}`);
-      assert.ok(background.fadeBackground.includes('linear-gradient'), `Timeline fade has no gradient on ${target.name}`);
+      assert.ok(background.fadeMask.includes('linear-gradient'), `Timeline edge fade has no gradient on ${target.name}`);
     }
 
     assert.ok(structure.cards >= 4, `Expected all career cards for ${target.name}`);
