@@ -32,6 +32,35 @@ try {
       };
     });
 
+    const background = await page.evaluate(() => {
+      const sections = ['#section-inicio', '#section-sobre', '#section-projetos', '#section-especialidades', '#section-formacao', '#section-contato'];
+      const base = getComputedStyle(document.body).backgroundColor;
+      const actual = sections.map(selector => {
+        const section = document.querySelector(selector);
+        if (!section) throw new Error(`Missing section: ${selector}`);
+        let element = section;
+        let color = 'rgba(0, 0, 0, 0)';
+        while (element) {
+          const current = getComputedStyle(element).backgroundColor;
+          if (current !== 'rgba(0, 0, 0, 0)' && current !== 'transparent') {
+            color = current;
+            break;
+          }
+          element = element.parentElement;
+        }
+        return { selector, color };
+      });
+      const fade = getComputedStyle(document.querySelector('.timeline-viewport'));
+      return { base, actual, fadeMask: fade.maskImage || fade.webkitMaskImage };
+    });
+
+    for (const section of background.actual) {
+      assert.equal(section.color, background.base, `Section ${section.selector} uses a different background on ${target.name}`);
+    }
+    if (target.width >= 1024) {
+      assert.ok(background.fadeMask.includes('linear-gradient'), `Timeline edge fade has no gradient on ${target.name}`);
+    }
+
     assert.ok(structure.cards >= 4, `Expected all career cards for ${target.name}`);
     assert.ok(!structure.cardScrolls, `Career cards may not scroll internally on ${target.name}`);
     if (structure.horizontalPageOverflow) {

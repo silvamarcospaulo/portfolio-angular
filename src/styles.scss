@@ -18,6 +18,12 @@
   --content-width: 1400px;
 }
 
+html,
+app-root,
+html body {
+  background-color: var(--color-primary);
+}
+
 body {
   min-height: 100vh;
   margin: 0;

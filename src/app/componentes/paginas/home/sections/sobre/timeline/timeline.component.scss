@@ -245,6 +245,8 @@
     .timeline-viewport {
         width: 100%;
         overflow: hidden;
+        -webkit-mask-image: linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%);
+        mask-image: linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%);
     }
 
     .timeline {
