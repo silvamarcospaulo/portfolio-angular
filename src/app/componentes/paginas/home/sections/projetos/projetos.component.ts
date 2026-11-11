@@ -89,8 +89,9 @@ export class ProjetosComponent implements AfterViewInit, OnDestroy {
       const isPinned = () => {
         const sectionBounds = section.getBoundingClientRect();
         const spacerBounds = section.parentElement?.getBoundingClientRect();
-        return !!spacerBounds && Math.abs(sectionBounds.top) <= 3
-          && spacerBounds.top <= 3 && spacerBounds.bottom > window.innerHeight + 3;
+        return !!spacerBounds && sectionBounds.top <= 6
+          && sectionBounds.bottom >= window.innerHeight - 20
+          && spacerBounds.top <= 6 && spacerBounds.bottom >= window.innerHeight - 20;
       };
 
       const show = (index: number, immediate = false) => {
