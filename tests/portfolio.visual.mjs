@@ -122,7 +122,8 @@ try {
       if (visibleCard) assert.ok(visibleCard.top >= -4 && visibleCard.bottom <= visibleCard.height + 4, `Centered career card is vertically clipped on ${target.name}: ${JSON.stringify(visibleCard)}`);
     }
 
-    await page.locator('#section-projetos').scrollIntoViewIfNeeded();
+    await page.locator('#section-projetos').evaluate(element => element.scrollIntoView({ block: 'start' }));
+    await page.waitForTimeout(360);
     const projectSlides = page.locator('.project-slide');
     assert.equal(await projectSlides.count(), 2, `Expected only the two approved projects on ${target.name}`);
     const approvedTitles = await projectSlides.locator('h3').allTextContents();
@@ -171,7 +172,20 @@ try {
       await page.waitForTimeout(950);
 
       const nextTransform = await track.evaluate(element => getComputedStyle(element).transform);
-      assert.notEqual(nextTransform, initialTransform, `Project carousel did not advance on ${target.name}`);
+      const entryDiagnostics = await page.evaluate(() => {
+        const section = document.querySelector('#section-projetos');
+        const viewport = document.querySelector('.projects-viewport');
+        const track = document.querySelector('.projects-track');
+        return {
+          sectionTop: section.getBoundingClientRect().top,
+          sectionPosition: getComputedStyle(section).position,
+          scrollY,
+          innerHeight,
+          trackScrollWidth: track.scrollWidth,
+          viewportWidth: viewport.clientWidth
+        };
+      });
+      assert.notEqual(nextTransform, initialTransform, `Project carousel did not advance on ${target.name}: ${JSON.stringify(entryDiagnostics)}`);
       assert.equal(await page.locator('.project-slide.is-active').count(), 1, `Expected one active project on ${target.name}`);
       assert.equal(await page.locator('.project-slide.is-active h3').innerText(), 'Gold & Silver', `A single scroll gesture skipped the next card on ${target.name}`);
 
