@@ -146,6 +146,18 @@ try {
     await page.screenshot({ path: `test-results/${target.name}-projects.png`, fullPage: false });
 
     if (target.width >= 1024 && target.height > 700) {
+      const initialSlide = await page.evaluate(() => {
+        const first = document.querySelector('.project-slide');
+        const viewport = document.querySelector('.projects-viewport');
+        const card = first.getBoundingClientRect();
+        const window = viewport.getBoundingClientRect();
+        return { left: card.left, right: card.right, viewportLeft: window.left, viewportRight: window.right };
+      });
+      assert.ok(
+        initialSlide.left >= initialSlide.viewportLeft - 8 && initialSlide.right <= initialSlide.viewportRight + 8,
+        `First project is clipped on entry on ${target.name}: ${JSON.stringify(initialSlide)}`
+      );
+
       const track = page.locator('.projects-track');
       const before = await track.evaluate(element => getComputedStyle(element).transform);
       await page.mouse.wheel(0, 600);
