@@ -96,19 +96,19 @@
       "descricao": "Página orientada a la captación de leads calificados, dirigida a compradores de repuestos automotrices para camiones, autobuses y vehículos pesados."
     },
     "goldesilverdistribuicao": {
-      "titulo": "Gold & Silver Distribuidora",
-      "tipo": "Página de ventas",
-      "descricao": "Página de generación de leads para un programa de reventa de inmuebles, apoyando la prospección de vendedores autónomos vinculados a la distribuidora."
+      "titulo": "Gold & Silver",
+      "tipo": "Solución comercial y landing page",
+      "descricao": "Software comercial y presencia digital para Gold & Silver, con landing page para presentación y captación de contactos."
     },
     "vorix-agencia": {
-      "titulo": "Vorix Agencia",
-      "tipo": "Embudo de ventas",
-      "descricao": "Embudo de ventas completo creado para captar y convertir leads B2B."
+      "titulo": "Vorix Agência",
+      "tipo": "Sitio y embudo de ventas",
+      "descricao": "Presencia digital de una agencia de marketing enfocada en la presentación comercial y captación de oportunidades."
     },
     "combinouapp": {
       "titulo": "Combinou",
       "tipo": "Plataforma de servicios",
-      "descricao": "Plataforma que conecta clientes con prestadores de servicios domésticos con seguridad y confianza."
+      "descricao": "Marketplace que conecta clientes con profesionales de servicios, acompañado de una landing page."
     },
     "flatbpaiva": {
       "titulo": "Flats Paiva",
@@ -136,6 +136,26 @@
       "titulo": "Merqia",
       "tipo": "SaaS multi-tenant en desarrollo",
       "descricao": "Plataforma modular de CRM, ventas, ERP y POS con arquitectura multi-tenant y experiencia de marca blanca."
+    },
+    "corretores": {
+      "titulo": "Corretores Whitelabel",
+      "tipo": "Aplicación inmobiliaria",
+      "descricao": "Aplicación inmobiliaria con arquitectura de marca blanca y backend en Python."
+    },
+    "finance": {
+      "titulo": "Finance Dashboard",
+      "tipo": "Dashboard financiero",
+      "descricao": "Interfaz web para seguimiento financiero, indicadores y visualización de datos."
+    },
+    "taskflow": {
+      "titulo": "TaskFlow",
+      "tipo": "Aplicación full stack en desarrollo",
+      "descricao": "Aplicación de gestión de tareas con frontend Next.js, backend FastAPI y persistencia PostgreSQL."
+    },
+    "carolina": {
+      "titulo": "Carolina Rocha",
+      "tipo": "Sitio profesional",
+      "descricao": "Sitio institucional de abogacía centrado en la presentación profesional y la experiencia responsive."
     }
   },
   "habilidades": {
@@ -308,7 +328,9 @@
       "visit": "Ver proyecto",
       "preview": "Vista previa del proyecto",
       "noPreview": "En desarrollo",
-      "illustrativePreview": "Vista ilustrativa"
+      "illustrativePreview": "Vista ilustrativa",
+      "scrollHint": "Desplázate o desliza para explorar los proyectos",
+      "landing": "Ver landing page"
     }
   }
 }

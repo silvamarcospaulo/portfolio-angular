@@ -10,7 +10,8 @@ export class Projeto {
             tipoDeProjeto,
             descricao,
             tecnologias,
-            urlGithub
+            urlGithub,
+            urlSecundaria
         }: {
             url?: string;
             caminhoImagem?: string;
@@ -20,6 +21,7 @@ export class Projeto {
             descricao?: string;
             tecnologias?: Link[];
             urlGithub?: string;
+            urlSecundaria?: string;
         }
     ) {
         this.url = url;
@@ -30,6 +32,7 @@ export class Projeto {
         this.descricao = descricao;
         this.tecnologias = tecnologias;
         this.urlGithub = urlGithub;
+        this.urlSecundaria = urlSecundaria;
     }
 
     public url?: string;
@@ -40,4 +43,5 @@ export class Projeto {
     public descricao?: string;
     public tecnologias?: Link[];
     public urlGithub?: string;
+    public urlSecundaria?: string;
 }
