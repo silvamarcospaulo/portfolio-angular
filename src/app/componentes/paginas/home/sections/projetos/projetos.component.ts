@@ -139,7 +139,7 @@ export class ProjetosComponent implements AfterViewInit, OnDestroy {
         trigger: section,
         pin: section,
         start: 'top top',
-        end: () => `+=${Math.max(window.innerHeight, 700)}`,
+        end: () => `+=${Math.max(window.innerHeight * (slides.length + 1), 1500)}`,
         anticipatePin: 1,
         invalidateOnRefresh: true,
         onEnter: self => {
