@@ -1,57 +1,85 @@
-<section id="section-projetos" aria-labelledby="projects-title">
+<section #projectsSection id="section-projetos" aria-labelledby="projects-title">
     <div class="projects-layout">
         <div class="projects-heading">
-            <span>{{ 'portfolio.projects.all' | translate }}</span>
-            <h2 id="projects-title">{{ 'projetos.titulo' | translate }}</h2>
+            <div>
+                <h2 id="projects-title">{{ 'projetos.titulo' | translate }}</h2>
+                <p class="projects-hint">{{ 'portfolio.projects.scrollHint' | translate }}</p>
+            </div>
+            <div class="projects-indicator" aria-live="off">
+                <span>{{ (activeIndex() + 1).toString().padStart(2, '0') }}</span>
+                <span aria-hidden="true">/</span>
+                <span>{{ listaDeProjetos.length.toString().padStart(2, '0') }}</span>
+            </div>
         </div>
 
-        <div class="projects-grid">
-            @for (projeto of listaDeProjetos; track projeto.titulo; let i = $index) {
-                <article class="project-card soft-ui-container" [class.project-card--featured]="i === 0">
-                    <div class="project-preview">
-                        @if (projeto.caminhoImagem) {
-                            <img [src]="projeto.caminhoImagem" [alt]="projeto.titulo ? (projeto.titulo | translate) : ''" loading="lazy" decoding="async">
-                        } @else {
-                            <div class="project-preview__placeholder">
-                                <div class="project-preview__mockup" aria-hidden="true">
-                                    <div class="project-preview__browser"><span></span><span></span><span></span></div>
-                                    <div class="project-preview__mock-body">
-                                        <div class="project-preview__mock-heading"></div>
-                                        <div class="project-preview__mock-line"></div>
-                                        <div class="project-preview__mock-line project-preview__mock-line--short"></div>
-                                        <div class="project-preview__mock-button"></div>
-                                    </div>
-                                </div>
-                                <span>{{ (projeto.url ? 'portfolio.projects.illustrativePreview' : 'portfolio.projects.noPreview') | translate }}</span>
+        <div #projectsViewport class="projects-viewport" role="region" tabindex="0" [attr.aria-label]="'projetos.titulo' | translate">
+            <div #projectsTrack class="projects-track" role="list">
+                @for (projeto of listaDeProjetos; track projeto.titulo; let i = $index) {
+                    <article class="project-slide soft-ui-container" role="listitem" [class.is-active]="activeIndex() === i">
+                        <div class="project-slide__content">
+                            <div class="project-slide__meta">
+                                <span class="project-slide__index">{{ (i + 1).toString().padStart(2, '0') }}</span>
+                                <span>{{ projeto.tipoDeProjeto ? (projeto.tipoDeProjeto | translate) : '' }}</span>
                             </div>
-                        }
-                        @if (!projeto.url) {
-                            <span class="project-preview__status">{{ 'portfolio.projects.status' | translate }}</span>
-                        }
-                    </div>
-                    <div class="project-card__body">
-                        <div class="project-card__top">
-                            <span>{{ projeto.tipoDeProjeto ? (projeto.tipoDeProjeto | translate) : '' }}</span>
-                            @if (projeto.url) {
-                                <a [href]="projeto.url" target="_blank" rel="noopener noreferrer"
-                                   [attr.aria-label]="('portfolio.projects.visit' | translate) + ': ' + (projeto.titulo ? (projeto.titulo | translate) : '')">
-                                    <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
-                                </a>
+
+                            <div class="project-slide__description">
+                                <h3>{{ projeto.titulo ? (projeto.titulo | translate) : '' }}</h3>
+                                <p>{{ projeto.descricao ? (projeto.descricao | translate) : '' }}</p>
+                            </div>
+
+                            <div class="project-slide__technologies">
+                                @for (tech of projeto.tecnologias ?? []; track tech.nome) {
+                                    <span>{{ tech.nome }}</span>
+                                }
+                            </div>
+
+                            <div class="project-slide__actions">
+                                @if (projeto.url) {
+                                    <a class="project-slide__link" [href]="projeto.url" target="_blank" rel="noopener noreferrer">
+                                        {{ 'portfolio.projects.visit' | translate }}
+                                        <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                                    </a>
+                                }
+                                @if (projeto.urlSecundaria) {
+                                    <a class="project-slide__link project-slide__link--secondary" [href]="projeto.urlSecundaria" target="_blank" rel="noopener noreferrer">
+                                        {{ 'portfolio.projects.landing' | translate }}
+                                        <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                                    </a>
+                                }
+                                @if (!projeto.url && !projeto.urlSecundaria) {
+                                    <span class="project-slide__development">{{ 'portfolio.projects.status' | translate }}</span>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="project-slide__visual">
+                            @if (projeto.caminhoImagem) {
+                                <img [src]="projeto.caminhoImagem" [alt]="projeto.titulo ? (projeto.titulo | translate) : ''" loading="lazy" decoding="async">
+                            } @else {
+                                <div class="project-visual__placeholder">
+                                    <div class="project-visual__window" aria-hidden="true">
+                                        <div class="project-visual__bar"><span></span><span></span><span></span></div>
+                                        <div class="project-visual__body">
+                                            <div class="project-visual__sidebar"></div>
+                                            <div class="project-visual__page">
+                                                <div class="project-visual__heading"></div>
+                                                <div class="project-visual__summary"><span></span><span></span><span></span></div>
+                                                <div class="project-visual__chart"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span class="project-visual__caption">{{ 'portfolio.projects.illustrativePreview' | translate }}</span>
+                                </div>
                             }
                         </div>
-                        <h3>{{ projeto.titulo ? (projeto.titulo | translate) : '' }}</h3>
-                        <p>{{ projeto.descricao ? (projeto.descricao | translate) : '' }}</p>
-                        <div class="project-card__technologies">
-                            @for (tech of projeto.tecnologias ?? []; track tech.nome) {
-                                <span>{{ tech.nome }}</span>
-                            }
-                        </div>
-                        @if (projeto.url) {
-                            <a class="project-card__link" [href]="projeto.url" target="_blank" rel="noopener noreferrer">{{ 'portfolio.projects.visit' | translate }} <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
-                        }
-                    </div>
-                </article>
-            }
+                    </article>
+                }
+            </div>
+        </div>
+
+        <div class="projects-progress" role="progressbar" [attr.aria-label]="'projetos.titulo' | translate"
+            [attr.aria-valuemin]="1" [attr.aria-valuemax]="listaDeProjetos.length" [attr.aria-valuenow]="activeIndex() + 1">
+            <span [style.transform]="'scaleX(' + ((activeIndex() + 1) / (listaDeProjetos.length || 1)) + ')'"></span>
         </div>
     </div>
 </section>
