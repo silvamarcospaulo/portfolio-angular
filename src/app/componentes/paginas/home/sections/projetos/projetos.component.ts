@@ -86,7 +86,7 @@ export class ProjetosComponent implements AfterViewInit, OnDestroy {
       const TRANSITION_OUT = 0.22;
       const TRANSITION_IN = 0.42;
       const ENTRY_DELAY = 450;
-      const EXIT_DELAY = 650;
+      const EXIT_DELAY = 200;
       let currentIndex = 0;
       let transitioning = false;
       let gestureLocked = false;
